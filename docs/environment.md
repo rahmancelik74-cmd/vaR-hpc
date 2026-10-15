@@ -42,3 +42,15 @@ doğruladı. Ham test logu bu pakete eklenmedi. v0.2 Windows testi bekliyor.
 `nvcc --version` compiler kurulumunu kanıtlar; GPU kernel çalışmasını kanıtlamaz.
 10 çekirdeğin thread sweep'inde 1,2,4,8,10 noktaları kullanılacak; farklı çekirdek
 türlerinin yerleşimi ve güç koşulları benchmark aşamasında ayrıca kaydedilecek.
+
+## Verified foundation update: 2026-10-15
+
+The later verification supersedes the older pending v0.2 test status above.
+Windows x64 Release configure/build succeeded in build-foundation using
+Visual Studio 17 2022 and MSVC 19.44.35227.0. All three CTest tests passed
+(core_tests, csv_calibration_tests, csv_cli_smoke; 0.23 seconds total).
+The log is committed as evidence/windows-release-ctest-20261015.log in 48429b5.
+CMake selected Windows SDK 10.0.26100.0 and target version 10.0.26200; these
+version strings alone are not a separate verification of the OS edition.
+Compiler optimization flags, hosted CI and GPU runtime execution remain open.
+This CPU verification is not a formal performance benchmark.

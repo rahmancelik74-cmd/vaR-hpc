@@ -102,10 +102,14 @@ senaryo bazlı kayıp ve VaR karşılaştırması; ardından bağımsız seed'le
 VaR ve yakınsama testleri. Aynı seed farklı RNG'lerde aynı dizi garantisi değildir.
 Sayısal ve istatistiksel testler birbirinin yerine kullanılmaz.
 
-Onaylı proposal'daki toleranslar bu iki roadmap'te tekrar verilmemiştir.
-Bu nedenle yeni kabul eşiği uydurulmaz: v1.0 öncesi proposal'dan aktarılacak,
-her seed için sonuç/hata ve geçti-kaldı kararı ayrı kaydedilecektir.
-GPU iskeleti yalnız hattın bağlandığını kanıtlar; hata/hız kabul testi değildir.
+Candidate numerical conditions are recorded in `acceptance-source.md`; the
+identity of the supervisor-approved proposal still needs confirmation. For
+N=10000000 and five seeds, evaluate the absolute error of the mean of the five
+VaR estimates against the stated tolerance, separately at 95% and 99%. Record
+individual seed values and errors for diagnosis; do not require each seed to
+pass that aggregate condition. Common-input cross-engine validation is a
+separate numerical check. The GPU skeleton only proves end-to-end connectivity;
+it is not an accuracy or speed acceptance test.
 
 Benchmark harness serial motorla birlikte geliştirilecek. Ortak CSV/kestirim
 sonrası başlayıp motor tamamlanınca biten host wall-clock ana ölçümdür;

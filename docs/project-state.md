@@ -17,8 +17,12 @@ this update use English as well.
 
 ## Evidence already obtained
 
-- The student reported successful Windows x64 Release build and three-test
-  execution for v0.2.1, and supplied CLI results. Full test logs are not archived.
+- Windows x64 Release configuration and build succeeded in build-foundation
+  with Visual Studio 2022 / MSVC 19.44.35227.0. All three CTest tests passed.
+  Evidence: evidence/windows-release-ctest-20261015.log, commit 48429b5.
+- The authoritative local source folder is graduation_project/gpu-montecarlo-starter.
+  Git main baseline: adb49bc. The student reported a clean working tree after
+  48429b5. No remote repository or successful hosted CI run is established.
 - CSV input, log-return calibration, analytical GBM reference and the serial
   engine are implemented. The sample data is hand-written synthetic data.
 - Statistical runs cover four scenario counts, five seeds, two confidence
@@ -51,7 +55,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 
 | Item | Status | Next evidence needed |
 | --- | --- | --- |
-| One authoritative local folder / Git | Not verified on student machine | Working directory and Git status |
+| One authoritative local folder / Git | Verified; main branch, clean after commit 48429b5 | Baseline adb49bc; Windows test evidence committed in 48429b5 |
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
 | Proposal source | Revised file located; supervisor-approved identity unconfirmed | Student identifies submitted/approved version |
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |

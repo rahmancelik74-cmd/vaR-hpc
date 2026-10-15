@@ -8,7 +8,7 @@
   "data_kind": "handwritten_synthetic_fixture",
   "reference_distribution_sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
   "student_input_checksum_verified": false,
-  "checksum_note": "Hash of the supplied source fixture; the student's local bytes were not measured",
+  "checksum_note": "reference_distribution_sha256 describes the original LF fixture. The uploaded adb49bc archive has CRLF endings; its raw hash is recorded separately. LF normalization reproduces the original hash. Neither hash establishes the bytes used by the historical runs.",
   "observations": 12,
   "returns": 11,
   "initial_value": 100.4,
@@ -23,5 +23,8 @@
   "estimate_rows": 40,
   "timing_note": "Two confidence rows share the time of one run; do not sum them",
   "formal_benchmark_completed": false,
-  "approved_proposal_identity_confirmed": false
+  "approved_proposal_identity_confirmed": false,
+  "reviewed_archive_raw_sha256": "815c8f017475f844e874d07da074c49ec396d3ffd26c713fa4d60f6cac9be3bb",
+  "reviewed_archive_line_endings": "CRLF",
+  "checksum_policy": "For future runs, record SHA-256 of the exact file bytes consumed, without normalization, together with the code commit. A normalized-text hash may be additional metadata and must be labeled separately."
 }

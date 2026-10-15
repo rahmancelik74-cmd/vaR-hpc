@@ -124,7 +124,8 @@ times. Profiling and memory/race checking run separately from benchmarks.
 
 ## Next architecture work
 
-1. Establish one local Git repository and preserve this baseline.
+1. Preserve the established Git baseline adb49bc and Windows test evidence
+   commit 48429b5; continue in the same authoritative source folder.
 2. Finalize numbered requirements and the supervisor-confirmed acceptance source.
 3. Add reusable result export and experiment metadata without replacing Engine
    with a CPU-specific loop or a requirement to return all losses to the host.
