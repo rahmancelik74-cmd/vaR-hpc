@@ -1,5 +1,6 @@
 #include "mc/core.hpp"
 #include "mc/data.hpp"
+#include "mc/output.hpp"
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -18,11 +19,13 @@ std::uint64_t positive_integer(const std::string& text) {
 int main(int argc, char** argv) {
     try {
         if (argc == 2 && std::string(argv[1]) == "--version") {
-            std::cout << "mc_var 0.2.1 (CSV support enabled)\n";
+            std::cout << "mc_var 0.2.2 (CSV support enabled)\n";
             return 0;
         }
+        const bool json_mode = argc > 1 && std::string(argv[argc - 1]) == "--json";
+        if (json_mode) --argc;
         const bool csv_mode = argc > 1 && std::string(argv[1]) == "--csv";
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]";
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year] (append --json for structured output)";
         if ((!csv_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)))
             throw std::invalid_argument(usage);
         mc::Request request;
@@ -34,6 +37,7 @@ int main(int argc, char** argv) {
             request.scenarios = static_cast<std::size_t>(n);
         }
         if (argc > first + 1) request.seed = positive_integer(argv[first + 1]);
+        mc::CsvMetadata metadata;
         std::cout << std::setprecision(10);
         if (csv_mode) {
             const auto horizon_days = argc > 5 ? positive_integer(argv[5]) : 10;
@@ -42,7 +46,10 @@ int main(int argc, char** argv) {
             const auto fitted = mc::calibrate(prices, static_cast<double>(days_per_year),
                                              static_cast<double>(horizon_days));
             request.model = fitted.model;
-            std::cout << "CSV calibration under GBM; no claim of market predictive validity.\n"
+            metadata = {prices.size(), fitted.returns_count, prices.front().date,
+                        prices.back().date, fitted.mean_log_return,
+                        fitted.sample_log_variance, horizon_days, days_per_year};
+            if (!json_mode) std::cout << "CSV calibration under GBM; no claim of market predictive validity.\n"
                       << "file=" << argv[2] << " observations=" << prices.size()
                       << " returns=" << fitted.returns_count
                       << " date_start=" << prices.front().date
@@ -55,11 +62,15 @@ int main(int argc, char** argv) {
                       << " T_years=" << request.model.horizon
                       << " horizon_trading_days=" << horizon_days
                       << " trading_days_per_year=" << days_per_year << '\n';
-        } else {
+        } else if (!json_mode) {
             std::cout << "Synthetic fixed-parameter demo; not market validation or a benchmark campaign.\n";
         }
         const mc::SerialEngine engine;
         const auto result = engine.run(request);
+        if (json_mode) {
+            mc::write_run_json(std::cout, request, result, csv_mode ? &metadata : nullptr);
+            return 0;
+        }
         std::cout << "backend=" << result.backend << " N=" << request.scenarios
                   << " seed=" << request.seed << '\n'
                   << std::setprecision(10);

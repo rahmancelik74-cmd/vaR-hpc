@@ -1,6 +1,6 @@
 # Architecture baseline
 
-Baseline date: 2026-10-15. Application version: 0.2.1.
+Baseline date: 2026-10-15. Application baseline: 0.2.1; candidate export/runner extension: 0.2.2.
 This records the implemented design and planned extensions separately.
 It does not claim that OpenMP or CUDA has been implemented.
 
@@ -24,9 +24,11 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | Data and calibration | include/mc/data.hpp, src/data.cpp | Validate price CSV, compute log returns and GBM parameters |
 | Compute contract | include/mc/core.hpp | Define Model, Request, Result and Engine |
 | Serial implementation | src/core.cpp | Own RNG/buffers, simulate terminal losses, sort, return VaR |
+| Structured export | include/mc/output.hpp, src/output.cpp | Serialize one complete run without changing Engine |
+| Experiment runner | scripts/run-experiment.ps1 | Separate smoke, validation and benchmark records |
 | Analytical reference | src/core.cpp | Compute GBM VaR independently of Monte Carlo samples |
-| Verification | tests/test_core.cpp, tests/test_data.cpp | Deterministic model, quantile, data and calibration checks |
-| Build and smoke test | CMakeLists.txt | Build targets and register three CTest tests |
+| Verification | tests/test_core.cpp, tests/test_data.cpp, tests/test_output.cpp | Model, quantile, data, calibration and JSON checks |
+| Build and smoke test | CMakeLists.txt | Build targets and register four CTest tests |
 
 Current data flow: CLI parses options; data loading produces observations;
 calibration creates Model; CLI creates Request; Engine returns Result;
@@ -85,9 +87,11 @@ this model rather than market forecasting quality.
 | Statistical validation | Analytical reference, multiple seeds and scenario counts | Per-seed values and convergence summary |
 | Performance benchmark | Native backend RNG, shared model and precision | Warm-ups, repetitions, timing statistics, throughput and speedup |
 
-Statistical validation is currently a PowerShell-driven series of CLI calls,
-not a dedicated C++ validation subcommand. Machine-readable export and a
-repeatable experiment runner are planned; their CLI/API is not implemented.
+The v0.2.2 candidate adds final-argument --json output and a PowerShell runner
+for separate smoke, statistical-validation and benchmark campaigns. It keeps
+the existing Engine interface. File hashes and run metadata are recorded in
+the manifest. Windows smoke verification passed on 2026-10-15; see experiments.md.
+The runner records results without deciding supervisor acceptance.
 Do not label exploratory one-run times as official benchmark measurements.
 
 ## Planned backend additions

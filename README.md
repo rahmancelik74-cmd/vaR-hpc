@@ -1,6 +1,6 @@
 # GPU Accelerated Monte Carlo Simulation for Financial Risk Analysis
 
-Abdurrahman Çelik — başlangıç paketi v0.2.1, 15 Ekim 2026.
+Abdurrahman Çelik — başlangıç paketi v0.2.2, 15 Ekim 2026.
 
 Bu projenin katkısı hesaplamaya yöneliktir. GBM ve VaR, CPU ve GPU
 uygulamalarının doğruluğunu ve performansını karşılaştırmak için iyi tanımlanmış,
@@ -49,14 +49,12 @@ Tek koşu benchmark kampanyası veya %1 yakınsama garantisi değildir.
 
 ## CSV ile çalışma
 
-v0.2.1 kurulum kontrolü: `mc_var.exe --version` çıktısı
-`mc_var 0.2.1 (CSV support enabled)` olmalıdır. Bu sürümde CTest üç test
-çalıştırır: core_tests, csv_calibration_tests ve csv_cli_smoke. Tek core_tests
-görünüyorsa kaynak veya derleme sürümleri karışmıştır. Yeni paketi boş bir
-klasöre aç; eski build klasörünü kopyalama.
-
-Windows'ta v0.2 kaynaklarını ayrı bir klasöre açıp Developer PowerShell'de,
-`CMakeLists.txt` bulunan klasörde çalıştır:
+Version check: `mc_var.exe --version` must report
+`mc_var 0.2.2 (CSV support enabled)`. CTest now registers four tests:
+core_tests, csv_calibration_tests, csv_cli_smoke and json_output_tests.
+Continue in the existing authoritative source folder; do not create or merge
+a second source tree. Reconfigure and rebuild after applying the patch.
+The following commands are an example of a separate build directory only:
 
 ```powershell
 cmake -S . -B build-x64 -G "Visual Studio 17 2022" -A x64
@@ -118,3 +116,9 @@ profil temelli optimizasyon ve isteğe bağlı çok-varlıklı genişleme başla
 olmak zorunda değildir. Aynı seed, CPU–GPU aynı örnekler demek değildir.
 Çapraz sayısal testlerde önceden üretilmiş ortak girdiler kullanılır.
 CUDA RNG API ve Toolkit sürümü hedef bilgisayar incelendikten sonra sabitlenecek.
+
+## Structured experiment output (v0.2.2)
+
+Append `--json` to a normal CLI call for schema-versioned output. See
+[docs/experiments.md](docs/experiments.md) for the PowerShell experiment runner,
+metadata, timing boundary and verification limits. Start with `-Mode smoke`.

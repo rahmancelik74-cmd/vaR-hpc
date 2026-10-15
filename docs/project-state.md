@@ -1,6 +1,6 @@
 # Project state
 
-Updated: 2026-10-15, Europe/Istanbul. Current source version: 0.2.1.
+Updated: 2026-10-15, Europe/Istanbul. Current source version: 0.2.2. Windows Release tests and smoke verified.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
 It does not replace the supervisor's roadmap or the requirements document.
 
@@ -60,7 +60,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Proposal source | Revised file located; supervisor-approved identity unconfirmed | Student identifies submitted/approved version |
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
 | Data provenance | Synthetic fixture only | Real source, ticker/range, reuse/adjustment policy and checksum |
-| Metadata / structured result export | Not implemented | Stable result schema and experiment manifest |
+| Metadata / structured result export | v0.2.2 candidate: JSON output and PowerShell runner implemented | Four Windows CTest tests and smoke passed; evidence/v022-smoke-20261015 |
 | OpenMP | Not implemented | Common-input cross-check, RNG design and thread scaling |
 | CI | Workflow file exists; remote execution unverified | Actual CI result when a remote repository is chosen |
 | CUDA path | Compiler available; execution unverified | Device run, then required end-to-end skeleton |
@@ -83,3 +83,9 @@ merging ZIP source folders. This foundation update contains no replacement C++.
 An automation already reminds the student to prepare a progress report every
 two weeks from 2026-10-28, Wednesday around 10:00 Europe/Istanbul.
 Do not create a duplicate. Meeting dates themselves are not known.
+
+## v0.2.2 candidate
+
+Adds structured JSON output and a serial experiment runner with distinct smoke,
+validation and benchmark modes. Windows Release build, all four CTest tests and the serial smoke run passed. Evidence is archived in evidence/v022-smoke-20261015. The older three-test record applies to v0.2.1.
+No new OpenMP, CUDA, formal benchmark or supervisor acceptance is claimed.
