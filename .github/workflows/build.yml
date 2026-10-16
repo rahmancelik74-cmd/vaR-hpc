@@ -11,3 +11,10 @@ jobs:
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }}
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure
+  windows-instrumentation:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v6
+      - name: Recorder smoke, instrumentation and retained engine tests
+        shell: powershell
+        run: ./scripts/run-cpu-benchmark.ps1 -Mode smoke -OutputDirectory results/ci-cpu-smoke
