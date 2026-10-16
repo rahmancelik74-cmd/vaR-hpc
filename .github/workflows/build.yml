@@ -1,4 +1,4 @@
-﻿name: CPU build and tests
+name: CPU build and tests
 on: [push, pull_request]
 jobs:
   cpu:
@@ -8,4 +8,3 @@ jobs:
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure
-
