@@ -24,6 +24,27 @@ void number(std::ostream& out, double value) {
     if (!std::isfinite(value)) throw std::invalid_argument("Nonfinite JSON number");
     out << value;
 }
+void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
+    out << "{\"milestone\":\"walking_skeleton\",\"scenario_limit\":10000,\"device\":";
+    string_value(out, c.device_name);
+    out << ",\"compute_major\":" << c.compute_major << ",\"compute_minor\":" << c.compute_minor
+        << ",\"nvcc_version\":"; string_value(out, c.compiler_version);
+    out << ",\"driver_api_version\":" << c.driver_api_version << ",\"runtime_version\":" << c.runtime_version
+        << ",\"runtime_header_version\":" << c.runtime_header_version << ",\"curand_header_version\":";
+    string_value(out, c.curand_header_version);
+    out << ",\"curand_runtime_version\":" << c.curand_runtime_version
+        << ",\"quantile_library\":\"CUB DeviceRadixSort::SortKeys<double> and device nearest-rank gather\""
+        << ",\"cub_version\":" << c.cub_version << ",\"host_sorting_used\":false"
+        << ",\"host_to_device_ms\":"; number(out, c.host_to_device_ms);
+    out << ",\"device_to_host_ms\":"; number(out, c.device_to_host_ms);
+    out << ",\"host_to_device_bytes\":" << c.host_to_device_bytes << ",\"device_to_host_bytes\":" << c.device_to_host_bytes
+        << ",\"transfer_timer\":\"CUDA Events on the engine stream; pageable host staging is included only in primary wall time\""
+        << ",\"normals_allocated\":" << c.normals_allocated << ",\"cub_temporary_bytes\":" << c.cub_temporary_bytes
+        << ",\"explicit_device_bytes\":" << c.explicit_device_bytes << ",\"total_vram_bytes\":" << c.total_vram_bytes
+        << ",\"free_before_bytes\":" << c.free_before_bytes << ",\"free_with_pipeline_bytes\":" << c.free_with_pipeline_bytes
+        << ",\"capacity_linear_estimate_80pct\":" << c.capacity_linear_estimate_80pct
+        << ",\"capacity_policy\":\"Rough 80%-free linear extrapolation of explicit arrays plus queried CUB workspace at this N; opaque library/context memory and nonlinear scaling prevent a capacity guarantee\"}";
+}
 }
 void write_run_json(std::ostream& output, const Request& r,
                     const Result& result, const CsvMetadata* csv) {
@@ -40,6 +61,8 @@ void write_run_json(std::ostream& output, const Request& r,
     out << ",\"requested_threads\":" << result.requested_threads
         << ",\"threads_used\":" << result.threads_used
         << ",\"openmp_version\":" << result.openmp_version;
+    out << ",\"cuda\":";
+    if (result.cuda) cuda_metadata(out, *result.cuda); else out << "null";
     // Strings avoid precision loss for uint64 seeds in JSON consumers.
     out << ",\"scenarios\":" << r.scenarios << ",\"seed\":\"" << r.seed << '"';
     out << ",\"input_mode\":\"" << (csv ? "csv_calibration" : "fixed_parameter_demo") << '"';

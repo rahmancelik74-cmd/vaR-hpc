@@ -8,7 +8,7 @@ jobs:
         openmp: ['ON', 'OFF']
     steps:
       - uses: actions/checkout@v6
-      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }}
+      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }} -DMC_ENABLE_CUDA=OFF
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure
   windows-instrumentation:

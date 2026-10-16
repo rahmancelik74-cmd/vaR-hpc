@@ -5,6 +5,9 @@
 #ifdef MC_HAS_OPENMP
 #include "mc/openmp.hpp"
 #endif
+#ifdef MC_HAS_CUDA
+#include "mc/cuda.hpp"
+#endif
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -40,8 +43,8 @@ int main(int argc, char** argv) {
                     throw std::invalid_argument("Missing or duplicate --backend");
                 backend_seen = true;
                 backend = argv[++i];
-                if (backend != "serial" && backend != "openmp")
-                    throw std::invalid_argument("Backend must be serial or openmp");
+                if (backend != "serial" && backend != "openmp" && backend != "cuda")
+                    throw std::invalid_argument("Backend must be serial, openmp or cuda");
             } else if (option == "--threads") {
                 if (threads_seen || i + 1 >= argc)
                     throw std::invalid_argument("Missing or duplicate --threads");
@@ -57,16 +60,20 @@ int main(int argc, char** argv) {
                 positional.push_back(argv[i]);
             }
         }
-        if (threads_seen && backend == "serial")
+        if (threads_seen && backend != "openmp")
             throw std::invalid_argument("--threads requires the openmp backend");
 #ifndef MC_HAS_OPENMP
         if (backend == "openmp")
             throw std::invalid_argument("OpenMP backend unavailable; configure MC_ENABLE_OPENMP=ON");
 #endif
+#ifndef MC_HAS_CUDA
+        if (backend == "cuda")
+            throw std::invalid_argument("CUDA backend unavailable; configure MC_ENABLE_CUDA=ON");
+#endif
         argc = static_cast<int>(positional.size());
         argv = positional.data();
         const bool csv_mode = argc > 1 && std::string(argv[1]) == "--csv";
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp --threads positive_integer (append --json for structured output)";
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer (append --json for structured output)";
         if ((!csv_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)))
             throw std::invalid_argument(usage);
         mc::Request request;
@@ -109,6 +116,10 @@ int main(int argc, char** argv) {
             std::cout << "Synthetic fixed-parameter demo; not market validation or a benchmark campaign.\n";
         }
         std::unique_ptr<mc::Engine> engine;
+#ifdef MC_HAS_CUDA
+        if (backend == "cuda") engine = std::make_unique<mc::CudaEngine>();
+        else
+#endif
 #ifdef MC_HAS_OPENMP
         if (backend == "openmp") engine = std::make_unique<mc::OpenMPEngine>(threads);
         else

@@ -34,11 +34,26 @@ int main() {
         check(text.find("test\\\"\\\\\\u000a") != std::string::npos, "JSON escaping");
         check(text.find("\"drift_annual\":0.05") != std::string::npos, "locale-independent numbers");
         check(text.find("\"calibration\":null") != std::string::npos, "demo metadata");
+        check(text.find("\"cuda\":null") != std::string::npos, "CPU CUDA metadata is null");
         check(text.find("\"mc_var\":-") != std::string::npos, "negative VaR preserved");
         mc::CsvMetadata csv{3, 2, "2026-01-01", "2026-01-05", 0, 0, 10, 252};
         std::ostringstream csv_out;
         mc::write_run_json(csv_out, request, result, &csv);
         check(csv_out.str().find("\"observations\":3") != std::string::npos, "CSV metadata");
+        result.cuda.emplace();
+        result.cuda->device_name = "GPU\"test";
+        result.cuda->cub_version = 300403;
+        std::ostringstream device_out;
+        mc::write_run_json(device_out, request, result);
+        check(device_out.str().find("GPU\\\"test") != std::string::npos, "CUDA device JSON escaping");
+        check(device_out.str().find("\"host_sorting_used\":false") != std::string::npos, "GPU quantile contract");
+        result.cuda->host_to_device_ms = std::numeric_limits<double>::infinity();
+        std::ostringstream bad_device;
+        bool bad_device_threw = false;
+        try { mc::write_run_json(bad_device, request, result); }
+        catch (const std::invalid_argument&) { bad_device_threw = true; }
+        check(bad_device_threw && bad_device.str().empty(), "invalid transfer time must not emit partial JSON");
+        result.cuda.reset();
         result.estimates[0].var = std::numeric_limits<double>::infinity();
         std::ostringstream invalid;
         bool threw = false;

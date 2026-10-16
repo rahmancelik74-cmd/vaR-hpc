@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include <cstdint>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -18,6 +19,17 @@ struct Request {
     std::vector<double> confidence_levels{0.95, 0.99};
 };
 struct Estimate { double confidence; double var; };
+struct CudaMetadata {
+    std::string device_name, compiler_version, curand_header_version;
+    int compute_major = 0, compute_minor = 0;
+    int driver_api_version = 0, runtime_version = 0, runtime_header_version = 0;
+    int curand_runtime_version = 0, cub_version = 0;
+    double host_to_device_ms = 0, device_to_host_ms = 0;
+    std::size_t host_to_device_bytes = 0, device_to_host_bytes = 0;
+    std::size_t normals_allocated = 0, cub_temporary_bytes = 0, explicit_device_bytes = 0;
+    std::size_t total_vram_bytes = 0, free_before_bytes = 0, free_with_pipeline_bytes = 0;
+    std::size_t capacity_linear_estimate_80pct = 0;
+};
 struct Result {
     std::string backend;
     std::string random_source;
@@ -26,6 +38,7 @@ struct Result {
     int requested_threads = 0; // Zero means runtime default; serial always uses one.
     int threads_used = 1;
     int openmp_version = 0; // _OPENMP date value; zero for serial.
+    std::optional<CudaMetadata> cuda;
 };
 // A backend owns RNG, buffers, simulation, quantile and synchronization.
 // No per-scenario CPU callback and no mandatory host loss vector.
