@@ -152,12 +152,12 @@ try {
             $mean = ($estimates | Measure-Object -Property mc_var -Average).Average
             $analytical = [double]$estimates[0].analytical_var
             $initial = [double]$tail[0].model.initial_value
-            $error = [Math]::Abs($mean - $analytical)
+            $absoluteMeanError = [Math]::Abs($mean - $analytical)
             $limit = .01 * [Math]::Max([Math]::Abs($analytical), .01 * $initial)
             $acceptance += [pscustomobject][ordered]@{
                 confidence=$c; scenarios=10000000; seed_count=5; mean_var=$mean
                 analytical_var=$analytical; initial_value=$initial
-                absolute_error_of_mean=$error; allowed_error=$limit; passed=($error -le $limit)
+                absolute_error_of_mean=$absoluteMeanError; allowed_error=$limit; passed=($absoluteMeanError -le $limit)
                 criterion='abs(mean(VaR)-analytical) <= 0.01*max(abs(analytical),0.01*initial_value)'
             }
         }
