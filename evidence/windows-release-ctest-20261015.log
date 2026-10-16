@@ -1,10 +1,19 @@
-Start testing: Oct 15 22:26 Türkiye Standart Saati
+English transcription of an archived CTest log; not the byte-original log.
+Original repository revision: a19665c86dca10cd0b01415403957240ab169de2
+Original repository path: evidence/windows-release-ctest-20261015.log
+Original SHA-256: 204468c42a12b13fbb2c051e92a0ad3c4ba9c64d2190157e29bd8ed77b0c38ed
+Changes: translated the localized time-zone label to English; normalized
+mixed UTF-8/Windows-1254 text to UTF-8 with LF line endings. Test results,
+times, commands and recorded file paths are unchanged. The original bytes
+remain available in Git history at the revision above.
+
+Start testing: Oct 15 22:26 Turkey Standard Time
 ----------------------------------------------------------
 1/3 Testing: core_tests
 1/3 Test: core_tests
 Command: "C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation/Release/mc_tests.exe"
 Directory: C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation
-"core_tests" start time: Oct 15 22:26 Türkiye Standart Saati
+"core_tests" start time: Oct 15 22:26 Turkey Standard Time
 Output:
 ----------------------------------------------------------
 All core tests passed.
@@ -12,7 +21,7 @@ All core tests passed.
 Test time =   0.07 sec
 ----------------------------------------------------------
 Test Passed.
-"core_tests" end time: Oct 15 22:26 Türkiye Standart Saati
+"core_tests" end time: Oct 15 22:26 Turkey Standard Time
 "core_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -20,7 +29,7 @@ Test Passed.
 2/3 Test: csv_calibration_tests
 Command: "C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation/Release/mc_data_tests.exe"
 Directory: C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation
-"csv_calibration_tests" start time: Oct 15 22:26 Türkiye Standart Saati
+"csv_calibration_tests" start time: Oct 15 22:26 Turkey Standard Time
 Output:
 ----------------------------------------------------------
 All CSV and calibration tests passed.
@@ -28,7 +37,7 @@ All CSV and calibration tests passed.
 Test time =   0.06 sec
 ----------------------------------------------------------
 Test Passed.
-"csv_calibration_tests" end time: Oct 15 22:26 Türkiye Standart Saati
+"csv_calibration_tests" end time: Oct 15 22:26 Turkey Standard Time
 "csv_calibration_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -36,7 +45,7 @@ Test Passed.
 3/3 Test: csv_cli_smoke
 Command: "C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation/Release/mc_var.exe" "--csv" "data/synthetic_prices.csv" "10000" "42" "10"
 Directory: C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter
-"csv_cli_smoke" start time: Oct 15 22:26 Türkiye Standart Saati
+"csv_cli_smoke" start time: Oct 15 22:26 Turkey Standard Time
 Output:
 ----------------------------------------------------------
 CSV calibration under GBM; no claim of market predictive validity.
@@ -51,8 +60,8 @@ end_to_end_ms=1.1563
 Test time =   0.06 sec
 ----------------------------------------------------------
 Test Passed.
-"csv_cli_smoke" end time: Oct 15 22:26 Türkiye Standart Saati
+"csv_cli_smoke" end time: Oct 15 22:26 Turkey Standard Time
 "csv_cli_smoke" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 15 22:26 Türkiye Standart Saati
+End testing: Oct 15 22:26 Turkey Standard Time

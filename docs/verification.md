@@ -1,22 +1,25 @@
-# Başlangıç doğrulaması
+# Initial verification
 
-14.10.2026, yalnız bu başlangıç paketinin yazılım kontrolleri.
+2026-10-14: software checks for this initial package only.
 
-- GCC 13.3.0, C++17 ile core, CLI ve test executable derlendi.
-- `-O2 -Wall -Wextra -Wpedantic` derlemesinde uyarı yok.
-- Deterministik core testleri geçti: bilinen normal kuantiller, nearest-rank,
-  sıfır ufuk, sıfır volatilite, negatif VaR, ortak girdiler, aynı build'de seed
-  tekrarı ve hatalı girdilerin reddedilmesi.
-- Sabit sentetik demo N=10000, seed=42 ile çalıştı. %95/%99 VaR üretildi.
-- UndefinedBehaviorSanitizer ile testler geçti. Birleşik AddressSanitizer/
-  UndefinedBehaviorSanitizer koşusu ortamın LeakSanitizer /proc erişim hatası
-  nedeniyle tamamlanamadı; bellek sızıntısı kontrolü geçti olarak sayılmadı.
-- Bu ortamda CMake executable veya Python cmake modülü bulunmadığından CMake/CTest
-  çalıştırılmadı. Kaynaklar doğrudan g++ ile kontrol edildi. Yerelde CMake/CTest
-  ve daha sonra CI ayrıca doğrulanmalı.
-- nvcc ve nvidia-smi bulunmadı; CUDA uyumluluğu ve çalışması doğrulanmadı.
-- Kullanıcının hedef donanımı ölçülmedi; performans başarısı iddiası yok.
-- Beş seed / 10 milyon senaryo kabul çalışması henüz yapılmadı.
+- Core, CLI and test executables compiled with GCC 13.3.0, C++17.
+- No compiler warnings with `-O2 -Wall -Wextra -Wpedantic`.
+- Deterministic core tests passed: known normal quantiles, nearest-rank,
+  zero horizon, zero volatility, negative VaR, common inputs, seed repeatability
+  within the same build and rejection of invalid inputs.
+- Fixed synthetic demo ran with N=10000, seed=42, producing 95%/99% VaR.
+- Tests passed with UndefinedBehaviorSanitizer. The combined AddressSanitizer/
+  UndefinedBehaviorSanitizer run could not complete because LeakSanitizer could
+  not access /proc in the execution environment; leak checking was not counted
+  as passed.
+- Neither the CMake executable nor the Python cmake module was available in
+  that environment, so CMake/CTest were not run. Sources were checked directly
+  with g++. Local CMake/CTest and subsequent CI required separate verification.
+- nvcc and nvidia-smi were unavailable there; CUDA compatibility and execution
+  were not verified.
+- The student's target hardware was not measured; no performance claim is made.
+- The five-seed / 10-million-scenario acceptance campaign had not yet been run.
 
-Bu kontroller matematiksel/programlama başlangıcıdır; onaylı proposal'ın tüm
-doğruluk ve performans başarı koşullarının karşılandığı anlamına gelmez.
+These checks establish the mathematical/programming foundation. They do not
+establish that all correctness and performance success conditions in the
+approved proposal have been met.

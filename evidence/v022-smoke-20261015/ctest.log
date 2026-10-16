@@ -1,10 +1,19 @@
-Start testing: Oct 15 22:55 Türkiye Standart Saati
+English transcription of an archived CTest log; not the byte-original log.
+Original repository revision: a19665c86dca10cd0b01415403957240ab169de2
+Original repository path: evidence/v022-smoke-20261015/ctest.log
+Original SHA-256: 87af518462595853face5b3856580f73b9097f42a15845e85ed62c8b6b1012d8
+Changes: translated the localized time-zone label to English; normalized
+mixed UTF-8/Windows-1254 text to UTF-8 with LF line endings. Test results,
+times, commands and recorded file paths are unchanged. The original bytes
+remain available in Git history at the revision above.
+
+Start testing: Oct 15 22:55 Turkey Standard Time
 ----------------------------------------------------------
 1/4 Testing: core_tests
 1/4 Test: core_tests
 Command: "C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation/Release/mc_tests.exe"
 Directory: C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation
-"core_tests" start time: Oct 15 22:55 Türkiye Standart Saati
+"core_tests" start time: Oct 15 22:55 Turkey Standard Time
 Output:
 ----------------------------------------------------------
 All core tests passed.
@@ -12,7 +21,7 @@ All core tests passed.
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"core_tests" end time: Oct 15 22:55 Türkiye Standart Saati
+"core_tests" end time: Oct 15 22:55 Turkey Standard Time
 "core_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -20,7 +29,7 @@ Test Passed.
 2/4 Test: json_output_tests
 Command: "C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation/Release/mc_output_tests.exe"
 Directory: C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation
-"json_output_tests" start time: Oct 15 22:55 Türkiye Standart Saati
+"json_output_tests" start time: Oct 15 22:55 Turkey Standard Time
 Output:
 ----------------------------------------------------------
 All JSON output tests passed.
@@ -28,7 +37,7 @@ All JSON output tests passed.
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"json_output_tests" end time: Oct 15 22:55 Türkiye Standart Saati
+"json_output_tests" end time: Oct 15 22:55 Turkey Standard Time
 "json_output_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -36,7 +45,7 @@ Test Passed.
 3/4 Test: csv_calibration_tests
 Command: "C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation/Release/mc_data_tests.exe"
 Directory: C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation
-"csv_calibration_tests" start time: Oct 15 22:55 Türkiye Standart Saati
+"csv_calibration_tests" start time: Oct 15 22:55 Turkey Standard Time
 Output:
 ----------------------------------------------------------
 All CSV and calibration tests passed.
@@ -44,7 +53,7 @@ All CSV and calibration tests passed.
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"csv_calibration_tests" end time: Oct 15 22:55 Türkiye Standart Saati
+"csv_calibration_tests" end time: Oct 15 22:55 Turkey Standard Time
 "csv_calibration_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -52,7 +61,7 @@ Test Passed.
 4/4 Test: csv_cli_smoke
 Command: "C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter/build-foundation/Release/mc_var.exe" "--csv" "data/synthetic_prices.csv" "10000" "42" "10"
 Directory: C:/Users/rahma/OneDrive/MasaÃ¼stÃ¼/graduation_project/gpu-montecarlo-starter
-"csv_cli_smoke" start time: Oct 15 22:55 Türkiye Standart Saati
+"csv_cli_smoke" start time: Oct 15 22:55 Turkey Standard Time
 Output:
 ----------------------------------------------------------
 CSV calibration under GBM; no claim of market predictive validity.
@@ -67,8 +76,8 @@ end_to_end_ms=0.6799
 Test time =   0.03 sec
 ----------------------------------------------------------
 Test Passed.
-"csv_cli_smoke" end time: Oct 15 22:55 Türkiye Standart Saati
+"csv_cli_smoke" end time: Oct 15 22:55 Turkey Standard Time
 "csv_cli_smoke" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 15 22:55 Türkiye Standart Saati
+End testing: Oct 15 22:55 Turkey Standard Time

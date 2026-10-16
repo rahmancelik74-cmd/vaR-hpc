@@ -1,25 +1,25 @@
-# Hedef makine envanteri
+# Target machine inventory
 
-Buradaki değerler kullanıcının proje bilgisayarına aittir. Asistanın çalışma
-sunucusundaki donanım, benchmark donanımı olarak kullanılmaz.
+These values describe the student's project computer. Hardware on the
+assistant's execution server is not used as the benchmark hardware.
 
-| Alan | Değer |
+| Field | Value |
 | --- | --- |
-| İşletim sistemi ve sürüm | Windows 11; build numarası bekliyor |
-| CPU tam model | 12th Gen Intel Core i7-12650H |
-| Fiziksel çekirdek / mantıksal thread | 10 / 16, kullanıcının CIM çıktısı |
-| RAM | 16 GB, kullanıcı beyanı |
-| NVIDIA GPU tam model | NVIDIA GeForce RTX 4060 Laptop GPU |
-| VRAM | 8 GB, kullanıcı beyanı |
-| NVIDIA sürücüsü | Windows DriverVersion 32.0.16.1088, Status OK |
-| CUDA Toolkit / nvcc sürümü | release 13.4, V13.4.92, kullanıcının nvcc çıktısı |
-| C++ derleyicisi ve sürümü | MSVC 19.44.35227; VS 17.14.32 |
-| CMake sürümü | 3.31.6-msvc6 |
-| Release derleyici bayrakları | Doldurulacak |
-| OpenMP runtime / affinity ayarı | Doldurulacak |
-| GPU kuantil kütüphanesi / sürümü | Doldurulacak |
+| Operating system and version | Windows 11; build number pending |
+| Full CPU model | 12th Gen Intel Core i7-12650H |
+| Physical cores / logical threads | 10 / 16, from the student's CIM output |
+| RAM | 16 GB, reported by the student |
+| Full NVIDIA GPU model | NVIDIA GeForce RTX 4060 Laptop GPU |
+| VRAM | 8 GB, reported by the student |
+| NVIDIA driver | Windows DriverVersion 32.0.16.1088, Status OK |
+| CUDA Toolkit / nvcc version | release 13.4, V13.4.92, from the student's nvcc output |
+| C++ compiler and version | MSVC 19.44.35227; VS 17.14.32 |
+| CMake version | 3.31.6-msvc6 |
+| Release compiler flags | To be recorded |
+| OpenMP runtime / affinity settings | To be recorded |
+| GPU quantile library / version | To be recorded |
 
-Windows PowerShell'de ilk bilgiler için:
+Initial inventory commands in Windows PowerShell:
 
 ```powershell
 Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors
@@ -29,19 +29,21 @@ nvcc --version
 cmake --version
 ```
 
-Bir komut bulunamıyorsa çıktıyı hata olarak kaydet; kurulu olduğunu varsayma.
-`nvidia-smi` içindeki CUDA alanı kurulu Toolkit sürümü değildir; Toolkit için
-`nvcc --version` çıktısı ayrı kaydedilir. Makine adı, seri numarası veya kişisel
-dosya yollarını herkese açık repository'ye koyma.
+If a command is unavailable, record the error rather than assuming installation.
+The CUDA field in `nvidia-smi` is not the installed Toolkit version; record
+`nvcc --version` separately for the Toolkit. Do not publish machine names,
+serial numbers or personal file paths in the public repository.
 
-İlk kontrol: CPU build/CTest çalışıyor mu? NVIDIA cihaz ve nvcc erişilebilir mi?
-CUDA/cuRAND ve kuantil kütüphanesinin gerçek smoke testi sonraki kanıttır.
+Initial checks: do the CPU build/CTest work? Are the NVIDIA device and nvcc
+accessible? Actual CUDA/cuRAND and quantile-library smoke tests provide the
+next evidence.
 
-14.10.2026: Kullanıcı v0.1 x64 CMake build/CTest ve serial demo çıktısını aldığını
-doğruladı. Ham test logu bu pakete eklenmedi. v0.2 Windows testi bekliyor.
-`nvcc --version` compiler kurulumunu kanıtlar; GPU kernel çalışmasını kanıtlamaz.
-10 çekirdeğin thread sweep'inde 1,2,4,8,10 noktaları kullanılacak; farklı çekirdek
-türlerinin yerleşimi ve güç koşulları benchmark aşamasında ayrıca kaydedilecek.
+2026-10-14: the student confirmed a successful v0.1 x64 CMake build/CTest and
+serial demo. The raw test log was not included in that package. Windows v0.2
+testing was pending at that date. `nvcc --version` proves compiler installation,
+not GPU kernel execution. The thread sweep for the 10-core CPU will use
+1,2,4,8,10 threads; placement across different core types and power conditions
+will be recorded separately during benchmarking.
 
 ## Verified foundation update: 2026-10-15
 
@@ -52,5 +54,6 @@ Visual Studio 17 2022 and MSVC 19.44.35227.0. All three CTest tests passed
 The log is committed as evidence/windows-release-ctest-20261015.log in 48429b5.
 CMake selected Windows SDK 10.0.26100.0 and target version 10.0.26200; these
 version strings alone are not a separate verification of the OS edition.
-Compiler optimization flags, hosted CI and GPU runtime execution remain open.
-This CPU verification is not a formal performance benchmark.
+At that verification date, compiler optimization flags, hosted CI and GPU
+runtime execution remained open. This CPU verification is not a formal
+performance benchmark.

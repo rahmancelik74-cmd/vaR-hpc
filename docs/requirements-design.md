@@ -1,106 +1,108 @@
 # Requirements and Design Document
 
-Durum: başlangıç taslağı v0.1. Danışmana teslim edilecek en fazla sekiz sayfalık
-v1.0 belgesinin içeriği için temel; nihai onaylı belge değildir.
+Status: initial draft v0.1. This is a basis for the content of the at-most-eight-
+page v1.0 document to be submitted to the supervisor, not the final approved
+submission. The requirement IDs and snapshot statuses below are retained from
+the initial draft.
 
-## Kapsam
+## Scope
 
-Bu çalışmanın temel katkısı hesaplama doğruluğu ve performans analizidir.
-Geometrik Brown Hareketi ve Value at Risk, sıralı C++, OpenMP ve CUDA
-uygulamalarını karşılaştırmak için iyi tanımlanmış ve bağımsız olarak
-doğrulanabilir bir hesaplama iş yükü olarak kullanılmaktadır. Çalışma gerçek
-piyasalarda tahmin başarısı, stres testi yeterliliği veya finansal model üstünlüğü
-iddia etmemektedir. Aynı kapsam beyanı teknik raporun başında da bulunacaktır.
+The primary contribution of this work is computational correctness and
+performance analysis. Geometric Brownian Motion and Value at Risk provide a
+well-defined, independently verifiable computational workload for comparing
+sequential C++, OpenMP and CUDA implementations. No claim is made about
+predictive validity in real markets, the adequacy of stress testing or the
+superiority of the financial model. The same scope statement will appear at
+the beginning of the technical report.
 
-İngilizce belgelerde kullanılabilecek karşılığı:
+The baseline scope is one asset and a positive long position. GUI, live price
+APIs, machine learning and MPI are excluded. A multi-asset portfolio does not
+replace the core benchmark; it is an additional mode that may be agreed with
+the supervisor under Plan B only.
 
-The contribution of this work is computational correctness and performance.
-GBM and VaR serve as a well-defined, independently verifiable workload for
-comparing sequential C++, OpenMP, and CUDA implementations. No claim is made
-about predictive validity in real markets.
+## Model and numerical contract
 
-Tek varlık ve pozitif long pozisyon temel kapsamdır. GUI, canlı fiyat API'si,
-makine öğrenimi ve MPI dahil değildir. Çok-varlıklı portföy, temel benchmark'ın
-yerine geçmez; yalnızca Plan B kapsamında hocayla kararlaştırılabilecek ek moddur.
+- V0 = q * S0; S0 > 0 and q > 0. The initial demo operates directly on V0.
+- `mu` is price drift, not mean log return; its unit is year^-1.
+- `sigma` is volatility; its unit is year^-1/2. T is measured in years.
+- Z is standard normal: V_T = V0 * exp((mu - sigma^2/2)*T + sigma*sqrt(T)*Z).
+- L = V0 - V_T; positive values represent losses. Negative VaR is not clipped.
+- Confidence levels are alpha = 0.95 and 0.99. All computational values use double.
+- Losses are sorted ascending: one-based k = ceil(alpha*N), C++ index k-1.
+- Analytical VaR = V0 - Q_(1-alpha)(V_T). At 99%, the lower terminal quantile is 1%.
+- The analytical terminal quantile substitutes Phi^-1(1-alpha) into the same GBM formula.
+- Full price paths are not simulated because only terminal values are needed.
 
-## Model ve sayısal sözleşme
+GBM assumes constant drift/volatility, continuous paths, independent normal
+log-return increments and lognormal terminal values. Time-varying volatility,
+volatility clustering, heavy tails and jumps in real markets can violate these
+assumptions. Analytical agreement establishes implementation correctness within
+the model, not validity in real markets.
 
-- V0 = q * S0; S0 > 0 ve q > 0. İlk demo V0 üzerinden çalışır.
-- `mu` fiyat drift'idir, ortalama log-getiri değildir; birimi yıl^-1.
-- `sigma` volatilitedir; birimi yıl^-1/2. T yıl cinsindendir.
-- Z standart normal: V_T = V0 * exp((mu - sigma^2/2)*T + sigma*sqrt(T)*Z).
-- L = V0 - V_T; pozitif değer kayıptır. Negatif VaR sıfıra kırpılmaz.
-- Güven düzeyleri alpha = 0.95 ve 0.99. Tüm hesaplama değerleri double.
-- Kayıplar artan sıralanır: 1 tabanlı k = ceil(alpha*N), C++ indeksi k-1.
-- Analitik VaR = V0 - Q_(1-alpha)(V_T). %99 için alt terminal kuantil %1'dir.
-- Analitik terminal kuantil aynı GBM formülüne Phi^-1(1-alpha) konularak bulunur.
-- Yalnız terminal değer gerekli olduğu için tam fiyat yolu simüle edilmez.
+## Parameter calibration design
 
-GBM sabit drift/volatilite, sürekli yollar, normal bağımsız log-getiri
-artışları ve lognormal terminal değer varsayar. Gerçek piyasalarda volatilite
-zamanla değişebilir; volatilite kümelenmesi, kalın kuyruklar ve sıçramalar bu
-varsayımları ihlal edebilir. Analitik teste uyum, model içi uygulama doğruluğudur;
-gerçek piyasa geçerliliği değildir.
+For equally spaced observations, r_i = log(P_i/P_(i-1)). If the observation
+interval is dt years, use the mean m and sample variance s^2 to calculate
+sigma = sqrt(s^2/dt) and mu = m/dt + sigma^2/2. This project's contract uses
+sample variance with denominator n-1; the final document will explain the
+estimator choice. Record the annual trading-day count and selected horizon
+explicitly; do not mix calendar days and trading days. Do not substitute the
+mean arithmetic daily return into this formula.
 
-## Parametre kestirimi tasarımı
+The CSV source, ticker, date range and price-adjustment policy have not yet
+been selected. Define explicit error handling for missing, duplicate,
+out-of-order, zero or negative prices; do not clean data silently. Record the
+final input file's SHA-256. Input data and calibration are shared by all engines.
 
-Eşit aralıklı gözlemler için r_i = log(P_i/P_(i-1)). Gözlem aralığı dt yıl ise,
-ortalama m ve örneklem varyansı s^2 kullanılarak sigma = sqrt(s^2/dt) ve
-mu = m/dt + sigma^2/2 hesaplanacaktır. Bu proje sözleşmesi n-1 paydalı
-örneklem varyansını kullanır; nihai dokümanda kestirici tercihi açıklanacaktır.
-Yıllık işlem günü sayısı ve seçilen ufuk açıkça kaydedilir; takvim günleriyle
-işlem günleri karıştırılmaz. Aritmetik günlük getiri ortalaması bu formüle konmaz.
+## Numbered requirements
 
-CSV kaynağı/ticker/tarih aralığı/fiyat düzeltme politikası henüz seçilmedi.
-Eksik, mükerrer, sırasız, sıfır veya negatif fiyatlar için açık hata politikası
-yazılacak; sessiz temizleme yapılmayacak. Nihai giriş dosyasının SHA-256 özeti
-kaydedilecek. Girdi verisi ve parametre kestirimi bütün motorlar için ortak.
-
-## Numaralı gereksinimler
-
-| ID | Gereksinim | Kabul kanıtı | Bu paketteki durum |
+| ID | Requirement | Acceptance evidence | Status in the initial package |
 | --- | --- | --- | --- |
-| R01 | Hesaplama odaklı kapsam ve GBM sınırlamaları | Gereksinim ve teknik rapor başında beyan | Taslak var |
-| R02 | Birimler, kayıp işareti, kuantil ve double | Belgelenmiş sözleşme ve deterministik testler | Başlangıç testleri var |
-| R03 | Donanım/toolchain ve derleme ayarları | Kullanıcının hedef makine envanteri | Şablon var |
-| R04 | CMake ve temel CI | Yerel build/CTest ve repository CI sonucu | Tanım var; CI bekliyor |
-| R05 | Ortak motor arayüzü | Aynı Request/Result ile backend çağrısı | Serial arayüz var; GPU kanıtı bekliyor |
-| R06 | CSV ve log-getiri kestirimi | Bilinen girdilerle kestirim testleri | v0.2 uygulaması ve kontrollü testler var; gerçek veri seçimi bekliyor |
-| R07 | Analitik tek-varlık VaR | Bilinen normal kuantiller ve sınır durumları | Başlangıç uygulaması/testleri var |
-| R08 | Serial motorun analitik doğrulanması | %95/%99, beş seed, onaylı eşikler | Demo var; kabul çalışması bekliyor |
-| R09 | OpenMP ve thread ölçeklenmesi | Ortak girdiler, thread sweep, affinity kaydı | Bekliyor |
-| R10 | İlk dönem GPU yürüyen iskeleti | CSV→kestirim→cuRAND→GPU kuantil→VaR, N=10000 | Bekliyor |
-| R11 | CUDA tam ölçek ve bellek yönetimi | 100 bin/1 milyon/10 milyon, bellek ve race testleri | Bekliyor |
-| R12 | Tam motor doğrulaması | Ortak girdiler + ayrı analitik/seed testleri | Bekliyor |
-| R13 | Adil benchmark ve yakınsama | 3 warm-up, 10 tekrar, ortalama/std, iki CPU referansı | Bekliyor |
-| R14 | Tekrar üretilebilirlik ve rapor | Build/run betikleri, envanter, checksum, rapor | Bekliyor |
-| B01 | Plan B profil temelli optimizasyon | Nsight, darboğaz, önce/sonra, yeniden doğrulama | Koşullu |
-| B02 | Plan B çok-varlıklı ek mod | Hocanın kararı ve ayrı doğrulama stratejisi | Koşullu |
+| R01 | Computational scope and GBM limitations | Statement at the start of requirements and technical report | Draft available |
+| R02 | Units, loss sign, quantile and double precision | Documented contract and deterministic tests | Initial tests available |
+| R03 | Hardware/toolchain and build settings | Inventory of the student's target machine | Template available |
+| R04 | CMake and basic CI | Local build/CTest and repository CI result | Definition available; CI pending |
+| R05 | Shared engine interface | Backends called with the same Request/Result | Serial interface available; GPU evidence pending |
+| R06 | CSV and log-return calibration | Calibration tests using known inputs | v0.2 implementation and controlled tests available; real-data selection pending |
+| R07 | Analytical single-asset VaR | Known normal quantiles and edge cases | Initial implementation/tests available |
+| R08 | Analytical validation of the serial engine | 95%/99%, five seeds, approved thresholds | Demo available; acceptance campaign pending |
+| R09 | OpenMP and thread scaling | Common inputs, thread sweep, affinity record | Pending |
+| R10 | First-term GPU walking skeleton | CSV -> calibration -> cuRAND -> GPU quantile -> VaR, N=10000 | Pending |
+| R11 | Full-scale CUDA and memory management | 100 thousand/1 million/10 million, memory and race checks | Pending |
+| R12 | Complete engine validation | Common inputs plus separate analytical/seed tests | Pending |
+| R13 | Fair benchmark and convergence | 3 warm-ups, 10 repetitions, mean/std, two CPU references | Pending |
+| R14 | Reproducibility and reporting | Build/run scripts, inventory, checksum, report | Pending |
+| B01 | Plan B profiling-driven optimization | Nsight, bottleneck, before/after evidence, revalidation | Conditional |
+| B02 | Plan B additional multi-asset mode | Supervisor decision and separate validation strategy | Conditional |
 
-## Motor arayüzü ve veri sahipliği
+## Engine interface and data ownership
 
-`Engine::run(Request, common_normals)` tek toplu çağrıdır. Request model,
-senaryo sayısı, seed ve güven düzeylerini taşır. Result VaR değerlerini,
-backend/RNG bilgisini ve ölçümü taşır. Backend kendi ara belleğini, RNG durumunu,
-simülasyonunu, kuantilini ve senkronizasyonunu yönetir. Bütün kayıpların host'a
-dönmesi zorunlu değildir. CPU döngüsü veya host RNG callback'i arayüze dayatılmaz.
+`Engine::run(Request, common_normals)` is one batch call. Request contains the
+model, scenario count, seed and confidence levels. Result contains VaR values,
+backend/RNG information and timing. Each backend owns its temporary buffers,
+RNG state, simulation, quantile and synchronization. Returning all losses to
+the host is not mandatory. The interface imposes neither a CPU loop nor a
+host RNG callback.
 
-`common_normals` yalnız doğrulama modu içindir. Ya tam N girdisi vardır ya da
-motor kendi RNG'sini kullanır. Ortak girdilerin sahipliği çağırandadır; motor
-yalnız çağrı boyunca okur. CUDA bu modda girdileri cihaza aktaracak; normal
-performans modunda bunları CPU'da üretip GPU'ya taşımak zorunda olmayacak.
-CUDA uygulaması henüz yazılmadığı için arayüzün GPU ile doğrulandığı iddia edilmez.
+`common_normals` is for validation only. Either it contains exactly N inputs
+or the engine uses its own RNG. The caller owns common inputs; the engine only
+reads them during the call. CUDA will copy them to the device in this mode,
+without requiring generation on the CPU and transfer to the GPU in normal
+performance mode. Since the CUDA engine has not yet been implemented, no claim
+is made that the interface has been validated with a GPU backend.
 
-GPU kuantil kütüphanesi için geçici aday Thrust `sort`; gerçek cihazda
-uyumluluk kontrolünden sonra seçim sabitlenecek. İskelet ile tam motor aynı
-kütüphaneyi kullanacak. CUB seçilecekse iskelet baştan CUB ile kurulacak.
+Thrust `sort` is the provisional GPU quantile-library candidate; the choice
+will be fixed after a compatibility check on the actual device. The skeleton
+and full engine will use the same library. If CUB is selected, the skeleton
+will use CUB from the outset.
 
-## Doğrulama ve ölçüm
+## Validation and measurement
 
-Önce deterministik sınır ve kuantil testleri; sonra ortak normal girdilerle
-senaryo bazlı kayıp ve VaR karşılaştırması; ardından bağımsız seed'lerle analitik
-VaR ve yakınsama testleri. Aynı seed farklı RNG'lerde aynı dizi garantisi değildir.
-Sayısal ve istatistiksel testler birbirinin yerine kullanılmaz.
+First run deterministic edge-case and quantile tests; then compare
+scenario-level losses and VaR using common normal inputs; finally compare
+against analytical VaR and study convergence using independent seeds. The same
+seed does not guarantee the same sequence across different RNGs. Numerical and
+statistical tests are not interchangeable.
 
 Candidate numerical conditions are recorded in `acceptance-source.md`; the
 identity of the supervisor-approved proposal still needs confirmation. For
@@ -111,31 +113,35 @@ pass that aggregate condition. Common-input cross-engine validation is a
 separate numerical check. The GPU skeleton only proves end-to-end connectivity;
 it is not an accuracy or speed acceptance test.
 
-Benchmark harness serial motorla birlikte geliştirilecek. Ortak CSV/kestirim
-sonrası başlayıp motor tamamlanınca biten host wall-clock ana ölçümdür;
-allocations, RNG kurulumu/üretimi, simülasyon, kuantil, gerekli transferler ve
-senkronizasyon dahildir. GPU aşama süreleri CUDA Events ile ayrı raporlanır.
-Kernel-only, device pipeline ve end-to-end süreleri birbirine karıştırılmaz.
-Profiler çalıştırmaları zamanlı benchmark tekrarlarından ayrılır.
+The benchmark harness will be developed alongside the serial engine. The
+primary measurement is host wall-clock time starting after shared CSV loading/
+calibration and ending when the engine completes. It includes allocation,
+RNG initialization/generation, simulation, quantile, required transfers and
+synchronization. GPU stages are reported separately using CUDA Events. Do not
+confuse kernel-only, device-pipeline and end-to-end timing. Profiling runs are
+separate from timed benchmark repetitions.
 
-N = 100000, 1000000, 10000000; 3 warm-up + 10 zamanlı tekrar; ortalama ve örneklem
-standart sapması; scenarios/s; serial ve en iyi OpenMP ayarına göre speedup.
-Thread sweep 1,2,4,... ve fiziksel çekirdek sayısını ayrıca içerir. Ortak girdi
-test modu benchmark olarak etiketlenmez. Temel serial demo optimize edilmemiştir;
-nihai CPU referansı makul derleyici optimizasyonlarıyla ölçülecektir.
+N = 100000, 1000000, 10000000; 3 warm-ups + 10 timed repetitions; mean and
+sample standard deviation; scenarios/s; speedup relative to serial and the
+best OpenMP configuration. The thread sweep includes 1,2,4,... and the physical
+core count explicitly. Common-input test mode is not labeled as a benchmark.
+The initial serial demo is unoptimized; the final CPU reference will be
+measured using reasonable compiler optimizations.
 
-Bellek yetmezse GPU'da gruplar üretilip skaler kayıplar host'ta biriktirilir ve
-global kuantil alınır. Grupların VaR değerleri ortalanmaz. Hibrit mod ayrı
-etiketlenir ve transfer/host kuantil süreleri toplam süreye dahil edilir.
+If GPU memory is insufficient, generate batches on the GPU, accumulate scalar
+losses on the host and compute one global quantile. Never average batch VaRs.
+Label the hybrid mode separately and include transfer/host quantile time in
+the total.
 
-## İlk iki haftanın açık kararları
+## Open decisions from the first two weeks
 
-1. Hedef CPU/GPU, işletim sistemi, sürücü/Toolkit/derleyici erişimi.
-2. T, işlem günü ölçeği, veri kaynağı ve fiyat düzeltme politikası.
-3. Onaylı proposal'dan hata eşikleri ve başarı hedefleri.
-4. Repository konumu ve CI'nin gerçekten çalıştırılması.
-5. GPU kuantil kütüphanesi; cihazda küçük smoke test.
+1. Target CPU/GPU, operating system and driver/Toolkit/compiler availability.
+2. T, trading-day scale, data source and price-adjustment policy.
+3. Error thresholds and success targets from the approved proposal.
+4. Repository location and actual CI execution.
+5. GPU quantile library and a small device smoke test.
 
-Kaynak: danışmanın Plan A/Plan B v2.0, 14.10.2026. Sayısal kabul koşulları için
-onaylı proposal ayrıca esas alınacak. Tüm ilerleme raporları Rxx/Bxx ID'lerine
-ve test/ölçüm kanıtlarına bağlanacak.
+Source: supervisor's Plan A/Plan B v2.0, 2026-10-14. The approved proposal is
+also authoritative for numerical acceptance conditions. All progress reports
+will reference requirement IDs Rxx/Bxx and the corresponding test/measurement
+evidence.

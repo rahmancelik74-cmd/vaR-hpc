@@ -1,14 +1,15 @@
-# Sürüm doğrulaması v0.2.1
+# Release verification v0.2.1
 
-15.10.2026. Kaynak ve derleme sürümünü ayırt etmek için `--version` eklendi.
-CSV modeli veya kestirim yöntemi değiştirilmedi.
+2026-10-15. Added `--version` to distinguish source and executable versions.
+The CSV model and calibration method were unchanged.
 
-Paylaşılan v0.2 ZIP'in yerel kopyası incelendi: CSV main.cpp ve üç testli
-CMakeLists.txt içeriyordu. Kullanıcının 15.10.2026 tarihli çıktısında main.cpp
-CSV dalını içermiyor, CMake yalnız core_tests oluşturuyordu. Windows'ta kaynakların
-hangi aşamada farklılaştığı bilinmiyor. Bu durum önbellek değiştirerek çözülemez;
-birbiriyle tutarlı kaynak dosyaları birlikte kullanılmalıdır.
+A local copy of the shared v0.2 ZIP was inspected: it contained a CSV-enabled
+main.cpp and a CMakeLists.txt registering three tests. In the student's output
+on 2026-10-15, main.cpp lacked the CSV branch and CMake created only core_tests.
+It is unknown when the Windows sources diverged. Changing the cache cannot
+resolve this mismatch; mutually consistent source files must be used together.
 
-v0.2.1 ayrı bir paket olarak hazırlanır. ZIP açılarak içindeki kaynaklardan
-core ve veri testleri derlenir, CLI sürümü ve CSV hattı kontrol edilir.
-Bu doğrulama GCC/Linux içindir; MSVC/Windows CMake testi kullanıcıda yapılır.
+v0.2.1 was prepared as a separate package. Verification consisted of extracting
+the ZIP, compiling the core and data tests from its sources, and checking the
+CLI version and CSV pipeline. This verification concerned GCC/Linux; the
+MSVC/Windows CMake test was to be performed on the student's computer.
