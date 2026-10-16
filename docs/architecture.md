@@ -2,7 +2,8 @@
 
 Updated: 2026-10-16. Application version: 0.3.0; original baseline: 0.2.1.
 This records the implemented design and planned extensions separately.
-OpenMP is implemented and Windows-verified; CUDA Monte Carlo is still planned.
+OpenMP is implemented and Windows-verified. A capped CUDA walking skeleton
+is RTX-verified; full-scale CUDA Monte Carlo remains planned.
 
 ## Purpose and scope
 
@@ -25,6 +26,7 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | Compute contract | include/mc/core.hpp | Define Model, Request, Result and Engine |
 | Serial implementation | src/core.cpp | Own RNG/buffers, simulate terminal losses, sort, return VaR |
 | OpenMP implementation | include/mc/openmp.hpp, src/openmp.cpp | Separate library; private fixed-block RNG, parallel loss generation, serial sort |
+| CUDA walking skeleton | include/mc/cuda.hpp, src/cuda.cu | Optional mc_cuda library; device cuRAND, double losses, CUB sort and device rank gather; N <= 10000 |
 | Structured export | include/mc/output.hpp, src/output.cpp | Serialize one complete run without changing Engine |
 | Experiment recorders | scripts/run-experiment.ps1, scripts/run-openmp-validation.ps1 | Serial campaigns and separate clean-source OpenMP correctness evidence |
 | CPU scaling recorder | scripts/run-cpu-benchmark.ps1, tools/cpu_probe.cpp | Fresh native serial/OpenMP pipeline timings, separate Windows topology/affinity/power instrumentation |
@@ -108,14 +110,18 @@ Sorting is serial, so only scenario generation is parallel. Details and the
 Windows correctness evidence procedure are in [openmp.md](openmp.md).
 The additive Result metadata records requested/actual threads and _OPENMP.
 
-The first-term CUDA skeleton must connect CSV, calibration, device cuRAND
-generation for 10000 scenarios, the intended full-version GPU quantile library
-and the same engine interface to a VaR result. A standalone kernel does not
-satisfy the milestone. It makes no accuracy or speed claim.
+The first-term CUDA skeleton now connects shared CSV/calibration, device cuRAND
+PHILOX normal-double generation for 10000 scenarios, GPU double losses, CUB
+DeviceRadixSort and a device nearest-rank gather through Engine::run. Only scalar
+quantiles and an error flag return to the host; there is no host sorting.
+The RTX 4060 checks include common inputs separately from native RNG smoke.
+This proves connectivity, not full-scale analytical acceptance or speed.
 
-Full CUDA development grows this skeleton to 10 million scenarios, memory
-management, batching and validated full-scale quantiles. Select and document
-CUB or Thrust before the skeleton is accepted; Thrust is only a candidate now.
+Full CUDA development will grow this capped skeleton to 10 million scenarios,
+memory management, batching and validated full-scale quantiles. CUB 3.4.3 is
+validated locally for the skeleton and selected as the intended later quantile
+library. Changes to that decision must be explicit. Details, limits, transfer
+events and the initial VRAM estimate are in [cuda-skeleton.md](cuda-skeleton.md).
 
 The hybrid fallback generates batches on GPU and computes one global host
 quantile from all scalar losses. Never average batch VaRs. Mark the hybrid
@@ -128,9 +134,11 @@ allocation, RNG initialization/generation, simulation, quantile, required data
 transfers and synchronization are included. Current serial timing also includes
 temporary buffer destruction. Printing and result-file output are excluded.
 
-Future device-stage timing uses CUDA Events. Distinguish simulation kernel,
+The skeleton's H2D/D2H transfers use CUDA Events. Distinguish simulation kernel,
 complete device pipeline including quantile, and host wall-clock end-to-end
-times. Profiling and memory/race checking run separately from benchmarks.
+times. Event transfer totals do not represent the full pipeline. Pageable
+staging is included in host wall time. Profiling and separate memory/race
+checking remain later work; no benchmark claim is made for the skeleton.
 
 ## Next architecture work
 
@@ -140,7 +148,8 @@ times. Profiling and memory/race checking run separately from benchmarks.
 3. Maintain the implemented result export and experiment metadata without
    replacing Engine with a CPU-specific loop or requiring all losses on the host.
 4. Preserve the completed CPU scaling baseline and its placement/thermal limits;
-   keep the later GPU skeleton and full cross-engine benchmark milestones visible.
+   preserve the completed GPU walking skeleton separately from later full-scale
+   GPU validation and cross-engine benchmark milestones.
 
 Use small, reviewable changes. The current source layout is adequate; no
 framework, database or large directory refactor is required for these steps.

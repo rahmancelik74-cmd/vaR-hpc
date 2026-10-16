@@ -1,0 +1,8 @@
+Source: https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451/job/117086238691
+Source revision: 89512365186698278d0f79688d200e9039276415
+CUDA disabled. Hosted CPU regression evidence only.
+Recorder progress excerpt. Build/CTest logs are captured runner-local; any test failure fails the job.
+2026-10-16T16:46:22.3081889Z CPU smoke phase=warmup round=1/1
+2026-10-16T16:46:23.3189582Z CPU smoke phase=measured round=1/2
+2026-10-16T16:46:24.1636004Z CPU smoke phase=measured round=2/2
+2026-10-16T16:46:25.6630066Z CPU evidence directory: D:\a\vaR-hpc\vaR-hpc\results\ci-cpu-smoke

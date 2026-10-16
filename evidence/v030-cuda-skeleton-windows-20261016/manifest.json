@@ -1,0 +1,129 @@
+{
+    "schema_version":  1,
+    "purpose":  "First-term CUDA walking skeleton; connectivity only",
+    "status":  "completed",
+    "source_revision":  "89512365186698278d0f79688d200e9039276415",
+    "clean_source":  true,
+    "started_utc":  "2026-10-16T16:44:12.0952846Z",
+    "source_to_binary":  "Clean-first Windows x64 Release rebuild in this invocation",
+    "input":  "data/synthetic_prices.csv",
+    "input_sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+    "build":  "build-cuda-skeleton",
+    "cuda_architectures":  "89",
+    "generator":  "Visual Studio 17 2022",
+    "toolset":  "cuda=13.4",
+    "quantile_library":  "Toolkit CUB DeviceRadixSort\u003cdouble\u003e, intended for later full implementation",
+    "host_sorting_used":  false,
+    "scenario_limit":  10000,
+    "common_input_and_native_runs_separate":  true,
+    "full_scale_acceptance":  false,
+    "performance_benchmark":  false,
+    "executable_sha256":  "45b1a902264eeeb2f0d1e55df92384c750273b35fdd4ae13d352585864c590da",
+    "test_executable_sha256":  "c880fb8ea1ff59186eac1d53c19b4d487e95ad68ac47b922e2247f8ca1e6a070",
+    "compiler_settings":  [
+                              "CMAKE_CUDA_ARCHITECTURES:UNINITIALIZED=89",
+                              "CMAKE_CUDA_FLAGS:STRING=-D_WINDOWS -Xcompiler=\" /GR /EHsc\"",
+                              "CMAKE_CUDA_FLAGS_DEBUG:STRING=-Xcompiler=\" -Zi -Ob0 -Od /RTC1\"",
+                              "CMAKE_CUDA_FLAGS_MINSIZEREL:STRING=-Xcompiler=\"-O1 -Ob1\" -DNDEBUG",
+                              "CMAKE_CUDA_FLAGS_RELEASE:STRING=-Xcompiler=\"-O2 -Ob2\" -DNDEBUG",
+                              "CMAKE_CUDA_FLAGS_RELWITHDEBINFO:STRING=-Xcompiler=\" -Zi -O2 -Ob1\" -DNDEBUG",
+                              "CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /GR /EHsc",
+                              "CMAKE_CXX_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1",
+                              "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG",
+                              "CMAKE_CXX_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG",
+                              "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG",
+                              "MC_ENABLE_CUDA:BOOL=ON",
+                              "MC_ENABLE_OPENMP:BOOL=ON",
+                              "CMAKE_CUDA_FLAGS-ADVANCED:INTERNAL=1",
+                              "CMAKE_CUDA_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+                              "CMAKE_CUDA_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+                              "CMAKE_CUDA_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+                              "CMAKE_CUDA_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+                              "CMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022",
+                              "CMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community",
+                              "CMAKE_GENERATOR_PLATFORM:INTERNAL=x64",
+                              "CMAKE_GENERATOR_TOOLSET:INTERNAL=cuda=13.4"
+                          ],
+    "cuda_target_options":  [
+                                "--fmad=false",
+                                "-Xcompiler=/Zc:preprocessor",
+                                "CUDA standard 17",
+                                "CUDA_RUNTIME_LIBRARY=Shared"
+                            ],
+    "compiler_identification":  [
+                                    "set(CMAKE_CUDA_COMPILER_ID \"NVIDIA\")",
+                                    "set(CMAKE_CUDA_COMPILER_VERSION \"13.4.92\")",
+                                    "set(CMAKE_CUDA_HOST_COMPILER_ID \"MSVC\")",
+                                    "set(CMAKE_CUDA_HOST_COMPILER_VERSION \"19.44.35227.0\")",
+                                    "set(CMAKE_CXX_COMPILER_ID \"MSVC\")",
+                                    "set(CMAKE_CXX_COMPILER_VERSION \"19.44.35227.0\")"
+                                ],
+    "windows_driver":  [
+                           {
+                               "DriverDesc":  "NVIDIA GeForce RTX 4060 Laptop GPU",
+                               "DriverVersion":  "32.0.16.1088",
+                               "DriverDate":  "7-22-2026"
+                           }
+                       ],
+    "deployed_runtime_libraries":  [
+                                       {
+                                           "file":  "cudart64_13.dll",
+                                           "file_version":  "6,14,11,13040",
+                                           "product_version":  "6,14,11,13040",
+                                           "sha256":  "d26fd1c2629594759af569a5252f94e4568d4ebeca67dc323834deb141aa278a"
+                                       },
+                                       {
+                                           "file":  "curand64_10.dll",
+                                           "file_version":  "6,14,11,1044",
+                                           "product_version":  "6,14,11,1044",
+                                           "sha256":  "2ae1d341cd7da1dab91e2215c62f627e0e0288ff54cdc9003e908746584b5b2b"
+                                       }
+                                   ],
+    "observed_cuda_metadata":  {
+                                   "milestone":  "walking_skeleton",
+                                   "scenario_limit":  10000,
+                                   "device":  "NVIDIA GeForce RTX 4060 Laptop GPU",
+                                   "compute_major":  8,
+                                   "compute_minor":  9,
+                                   "nvcc_version":  "13.4.92",
+                                   "driver_api_version":  13030,
+                                   "runtime_version":  13030,
+                                   "runtime_header_version":  13040,
+                                   "curand_header_version":  "10.4.4.72",
+                                   "curand_runtime_version":  10404,
+                                   "quantile_library":  "CUB DeviceRadixSort::SortKeys\u003cdouble\u003e and device nearest-rank gather",
+                                   "cub_version":  300403,
+                                   "host_sorting_used":  false,
+                                   "host_to_device_ms":  0.023552000522613525,
+                                   "device_to_host_ms":  0.070687998086214066,
+                                   "host_to_device_bytes":  16,
+                                   "device_to_host_bytes":  20,
+                                   "transfer_timer":  "CUDA Events on the engine stream; pageable host staging is included only in primary wall time",
+                                   "normals_allocated":  10000,
+                                   "cub_temporary_bytes":  91903,
+                                   "explicit_device_bytes":  331939,
+                                   "total_vram_bytes":  8585216000,
+                                   "free_before_bytes":  7451181056,
+                                   "free_with_pipeline_bytes":  7442792448,
+                                   "capacity_linear_estimate_80pct":  179579526,
+                                   "capacity_policy":  "Rough 80%-free linear extrapolation of explicit arrays plus queried CUB workspace at this N; opaque library/context memory and nonlinear scaling prevent a capacity guarantee"
+                               },
+    "common_input_estimate_checks":  32,
+    "native_smoke_scenarios":  [
+                                   10000,
+                                   5
+                               ],
+    "runtime_version_note":  "Compiler, header, DLL file version and API-returned runtime/driver values are distinct observations; no substitution",
+    "cpu_compatibility":  "Serial and OpenMP estimates match exactly between CUDA ON/OFF builds",
+    "ctest_counts":  {
+                         "cuda_on":  7,
+                         "cuda_off_openmp_on":  6,
+                         "both_off":  5
+                     },
+    "finished_utc":  "2026-10-16T16:44:44.0253722Z"
+}

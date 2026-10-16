@@ -6,6 +6,8 @@ Current OpenMP implementation and verification procedure:
 [docs/openmp.md](docs/openmp.md). Serial remains the default backend.
 Fresh CPU scaling procedure and recorded limits:
 [docs/cpu-benchmark.md](docs/cpu-benchmark.md).
+Optional RTX-verified CUDA walking skeleton (N <= 10000, disabled by default):
+[docs/cuda-skeleton.md](docs/cuda-skeleton.md).
 
 The contribution of this project is computational. GBM and VaR provide a
 well-defined, independently verifiable workload for comparing the correctness

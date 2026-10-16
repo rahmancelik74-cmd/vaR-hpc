@@ -12,7 +12,7 @@ Implemented later-week code does not by itself close unfinished foundation work.
 | 5-6 | Conventions, hardware/toolchain inventory, CMake/repository/CI, Requirements and Design v1.0 | In progress | One repository, actual CI result, complete inventory and uploaded document |
 | 7-9 | CSV/calibration, analytical reference, serial, five-seed validation | Software and synthetic runs available; milestone not closed | Data provenance, acceptance-source confirmation and archived validation evidence |
 | 10-11 | OpenMP, common-input validation and thread scaling | Implementation, Windows correctness and CPU scaling baseline complete; limitations recorded | v0.3.0 correctness evidence plus evidence/v030-cpu-scaling-windows-20261016 |
-| 12-13 | GPU walking skeleton through all layers | Not started | CSV to VaR using cuRAND/device quantile and shared interface, N=10000 |
+| 12-13 | GPU walking skeleton through all layers | Connectivity verified early on RTX 4060; capped at N=10000 | evidence/v030-cuda-skeleton-windows-20261016: CSV, device cuRAND/CUB quantile, transfer Events and initial VRAM estimate |
 | 14 | CPU demonstration and interim report | Not started | Live validated CPU demo, timing output and interim report |
 
 The 12-13 week skeleton includes host/device transfer timing and a VRAM capacity
@@ -28,7 +28,13 @@ at clean aa901a3 recorded all 234 processes, actual teams, verified process
 affinity, topology and available power/frequency observations. Package thermal
 measurements remained unavailable and are explicitly qualified. All 180 measured
 runs, including slow results, remain in the baseline. The independent audit passed.
-The GPU walking skeleton remains a later milestone; it was not started here.
+At that CPU baseline, the GPU walking skeleton had not yet started. It was
+subsequently verified at clean source 8951236: all seven CUDA-on tests passed,
+with 32 common-input numerical comparisons and separately labeled native
+cuRAND smoke. CUB 3.4.3 is selected for the intended later GPU quantile path.
+H2D/D2H Event measurements and a qualified scratch-inclusive VRAM estimate are
+archived. This closes the requested connectivity task, not full-scale GPU
+acceptance, profiling or performance benchmarking. The N=10000 cap remains.
 This early software result does not close the unfinished weeks 5-6 or 7-9 items.
 
 ## Second term Plan A

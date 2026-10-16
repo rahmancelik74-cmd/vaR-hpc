@@ -1,0 +1,20 @@
+Source: https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451/job/117086238201
+Source revision: 89512365186698278d0f79688d200e9039276415
+CUDA disabled. Hosted CPU regression evidence only.
+Contiguous CTest excerpt; timestamps retained.
+2026-10-16T16:45:43.9580605Z Internal ctest changing into directory: /home/runner/work/vaR-hpc/vaR-hpc/build
+2026-10-16T16:45:44.0366568Z Test project /home/runner/work/vaR-hpc/vaR-hpc/build
+2026-10-16T16:45:44.0711969Z     Start 1: core_tests
+2026-10-16T16:45:44.0770006Z 1/5 Test #1: core_tests .......................   Passed    0.00 sec
+2026-10-16T16:45:44.0811635Z     Start 2: json_output_tests
+2026-10-16T16:45:44.0830650Z 2/5 Test #2: json_output_tests ................   Passed    0.00 sec
+2026-10-16T16:45:44.0831972Z     Start 3: csv_calibration_tests
+2026-10-16T16:45:44.0846185Z 3/5 Test #3: csv_calibration_tests ............   Passed    0.00 sec
+2026-10-16T16:45:44.0847494Z     Start 4: csv_cli_smoke
+2026-10-16T16:45:44.0869820Z 4/5 Test #4: csv_cli_smoke ....................   Passed    0.00 sec
+2026-10-16T16:45:44.0873229Z     Start 5: cli_contract_tests
+2026-10-16T16:45:44.1279902Z 5/5 Test #5: cli_contract_tests ...............   Passed    0.04 sec
+2026-10-16T16:45:44.1282220Z 
+2026-10-16T16:45:44.1282590Z 100% tests passed, 0 tests failed out of 5
+2026-10-16T16:45:44.1282826Z 
+2026-10-16T16:45:44.1282926Z Total Test time (real) =   0.09 sec

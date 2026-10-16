@@ -1,0 +1,31 @@
+English transcription: only localized MSBuild banner replaced. Capture SHA-256: c9735d14e5d5f4736b391beba1fb5960c3853257597a8326ebb7aaaac1582b62
+.NET Framework MSBuild
+
+.NET Framework MSBuild
+
+  1>Checking Build System
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  core.cpp
+  data.cpp
+  output.cpp
+  Generating Code...
+  mc_core.vcxproj -> <SOURCE>\build-cuda-disabled-on\Release\mc_core.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  test_core.cpp
+  test_output.cpp
+  test_data.cpp
+  openmp.cpp
+  mc_tests.vcxproj -> <SOURCE>\build-cuda-disabled-on\Release\mc_tests.exe
+  mc_data_tests.vcxproj -> <SOURCE>\build-cuda-disabled-on\Release\mc_data_tests.exe
+  mc_openmp.vcxproj -> <SOURCE>\build-cuda-disabled-on\Release\mc_openmp.lib
+  mc_output_tests.vcxproj -> <SOURCE>\build-cuda-disabled-on\Release\mc_output_tests.exe
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  main.cpp
+  test_openmp.cpp
+  mc_openmp_tests.vcxproj -> <SOURCE>\build-cuda-disabled-on\Release\mc_openmp_tests.exe
+  mc_var.vcxproj -> <SOURCE>\build-cuda-disabled-on\Release\mc_var.exe
+  Building Custom Rule <SOURCE>/CMakeLists.txt

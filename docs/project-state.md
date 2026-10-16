@@ -1,8 +1,8 @@
 # Project state
 
 Updated: 2026-10-16, Europe/Istanbul. Current source version: 0.3.0.
-Windows Release tests, serial validation/benchmark records, standalone CUDA
-execution and hosted CPU CI are verified.
+Windows Release tests, CPU correctness/scaling records, the CUDA walking
+skeleton on RTX 4060 and hosted CPU CI are verified. Full-scale CUDA is pending.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
 It does not replace the supervisor's roadmap or the requirements document.
 
@@ -38,8 +38,9 @@ file paths; these are recorded values, not translated prose.
 - CUDA nvcc 13.4 V13.4.92 works on the student's machine. A standalone
   1024-element CUDA calculation passed on the RTX 4060 Laptop GPU. Evidence:
   evidence/cuda-probe-20261016, commit 1acfee3. Compute capability: 8.9;
-  reported VRAM: 8187 MiB. No Monte Carlo CUDA engine, cuRAND pipeline or
-  device quantile result has yet been demonstrated.
+  reported VRAM: 8187 MiB. At that earlier probe, no Monte Carlo CUDA pipeline
+  or device quantile result had been demonstrated; the later skeleton below
+  now supplies this connectivity evidence.
 - Target CPU: i7-12650H, 10 physical cores / 16 logical processors. GPU:
   RTX 4060 Laptop GPU, 8 GB VRAM. RAM: 16 GB. Windows 11; VS 2022 17.14.32;
   MSVC 19.44.35227; CMake 3.31.6-msvc6.
@@ -72,8 +73,8 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Data provenance | Synthetic fixture only | Real source, ticker/range, reuse/adjustment policy and checksum |
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder remains serial-only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
-| CI | Ubuntu ON/OFF and Windows instrumentation/recorder smoke passed at aa901a3; run 38929662346 | Keep all three jobs passing |
-| CUDA path | Compiler and standalone GPU execution verified | cuRAND/device quantile and the required end-to-end skeleton |
+| CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8951236; run 38934437451 | Keep all three CPU jobs passing; GPU evidence remains local RTX execution |
+| CUDA path | Capped walking skeleton verified on RTX 4060; cuRAND and CUB device quantiles through Engine | Later full-scale memory/batching and validation; no full-scale acceptance or benchmark yet |
 | Benchmark | Fresh serial and OpenMP CPU scaling archived from clean aa901a3; 180 measured processes and 54 excluded warm-ups | Later CPU/GPU comparison; package temperature/fan/power instrumentation remains unavailable in this recorder |
 
 The student is on a laptop. Later performance work must record thread placement,
@@ -240,3 +241,56 @@ started. Academic week remains 5.
 Hosted source-commit CI passed Ubuntu ON/OFF tests and Windows instrumentation
 with all eight CTests plus the recorder smoke campaign:
 https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346.
+
+## CUDA walking skeleton verified: 2026-10-16
+
+Clean source 89512365186698278d0f79688d200e9039276415, rebuilt Windows x64
+Release, architecture 89. Evidence: evidence/v030-cuda-skeleton-windows-20261016.
+The optional MC_ENABLE_CUDA flag defaults OFF. A separate mc_cuda library now
+implements Engine::run: shared CSV/calibration -> device cuRAND PHILOX double
+normals -> terminal losses -> CUB DeviceRadixSort<double> -> device nearest-rank
+gather -> scalar VaR. No host sorting or host loss-vector quantile is used.
+CUB 3.4.3 is verified here and selected for the intended later implementation.
+CPU serial/OpenMP numerical code and historical evidence are unchanged.
+
+All seven CUDA-enabled CTests passed. CUDA-disabled OpenMP ON passed six and
+serial-only passed five, including explicit unavailable-backend rejection.
+Fresh CPU estimates match exactly between ON/OFF builds and the preserved
+previous CPU executable. Thirty-two common-input comparisons passed, including
+negative/tied/zero losses, nearest ranks, 1/5/257/9999/10000 samples, shared
+CSV calibration, invalid input/overflow and recovery. Maximum absolute CPU/GPU
+difference was 7.105427357601002e-15 under a fixed math-library tolerance.
+Native cuRAND execution is a separate connectivity smoke, not statistical
+acceptance. N=10000, seed 42 produced VaR95=6.159886901343543 and
+VaR99=8.715234403518073. Odd N=5 also verified even normal-buffer padding
+and the exact uint64 maximum seed string. Equal CPU/GPU seeds do not imply
+equal native samples. Requests above 10000 are explicitly rejected.
+
+The primary host timer includes allocation, RNG, simulation, CUB scratch/sort,
+gather, transfers, synchronization and cleanup, plus initial CUDA context/API
+work. Shared calibration and printing are excluded. Separate CUDA Events
+record native H2D 16 bytes / 0.0235520005 ms and D2H 20 bytes / 0.0706879981 ms.
+These single-run copy diagnostics are not performance measurements for a
+comparison campaign. Pageable staging belongs to primary wall time.
+
+The N=10000 explicit VRAM budget is 331939 bytes, including 91903 CUB scratch
+bytes and both sort arrays. Free-memory snapshots are archived. The initial
+80%-free linear extrapolation is 179579526 scenarios, not a verified capacity;
+opaque library/context allocations, nonlinear scratch scaling and concurrent
+GPU use limit it. No large allocation or full-scale run was attempted.
+
+Actual versions: nvcc 13.4.92, MSVC 19.44.35227.0, Windows driver package
+32.0.16.1088, driver API 13030, runtime API 13030, runtime header 13040,
+cuRAND header 10.4.4.72/runtime 10404 and CUB 300403. DLL versions/hashes are
+recorded separately. The runtime API/header discrepancy is documented without
+substitution. See cuda-skeleton.md for the build, timing and library contract.
+
+The first-term connectivity task is complete; later full-scale GPU acceptance,
+memory/batching, profiling and CPU/GPU benchmarking remain pending. Academic
+week 5, Plan A, earlier foundation/data-provenance gaps and deferred supervisor
+submissions are unchanged. No requirement IDs or submission documents changed.
+
+Hosted CPU regression at the verified source passed all three existing jobs:
+https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451.
+CUDA is disabled in hosted CI; these results do not substitute for local GPU
+execution. Job metadata and CPU test/progress excerpts are archived separately.

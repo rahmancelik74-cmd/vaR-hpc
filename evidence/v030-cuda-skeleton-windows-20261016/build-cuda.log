@@ -1,0 +1,39 @@
+English transcription: only localized MSBuild banner replaced. Capture SHA-256: 0095186a7780ad3f24adf77bbffb02902955966d8c64360001fdc54623b7d5f3
+.NET Framework MSBuild
+
+.NET Framework MSBuild
+
+  1>Checking Build System
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  core.cpp
+  data.cpp
+  output.cpp
+  Generating Code...
+  mc_core.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_core.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  test_core.cpp
+  test_data.cpp
+  openmp.cpp
+  test_output.cpp
+  Compiling CUDA source file ..\src\cuda.cu...
+  mc_tests.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_tests.exe
+  mc_data_tests.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_data_tests.exe
+  
+  <SOURCE>\build-cuda-skeleton>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\bin\nvcc.exe"  --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64" -x cu   -I"<SOURCE>\include" -I"<SOURCE>\build-cuda-skeleton\generated" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\include\cccl" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\include"     --keep-dir mc_cuda\x64\Release  -maxrregcount=0     --machine 64 --compile -std=c++17 --generate-code=arch=compute_89,code=[compute_89,sm_89] --fmad=false -Xcompiler="/EHsc -Ob2 /Zc:preprocessor"   -D"_WINDOWS" -DNDEBUG -D"CMAKE_INTDIR=\"Release\"" -D_MBCS -D"WIN32" -D"_WINDOWS" -DNDEBUG -D"CMAKE_INTDIR=\"Release\"" -Xcompiler "/EHsc /W1 /nologo /O2 /FS   /MD /GR" -Xcompiler "/Fd<SOURCE>\build-cuda-skeleton\Release\mc_cuda.pdb" -o mc_cuda.dir\Release\cuda.obj "<SOURCE>\src\cuda.cu" 
+  mc_openmp.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_openmp.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  mc_output_tests.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_output_tests.exe
+  test_openmp.cpp
+  mc_openmp_tests.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_openmp_tests.exe
+  cuda.cu
+  mc_cuda.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_cuda.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  test_cuda.cpp
+  main.cpp
+  mc_cuda_tests.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_cuda_tests.exe
+  mc_var.vcxproj -> <SOURCE>\build-cuda-skeleton\Release\mc_var.exe

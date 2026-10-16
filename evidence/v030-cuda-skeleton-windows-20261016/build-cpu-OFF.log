@@ -1,0 +1,25 @@
+English transcription: only localized MSBuild banner replaced. Capture SHA-256: 03224da8ed7ec3efd70c8fcf316a151fabef8a01d46409a807e0bb3ac5a354b4
+.NET Framework MSBuild
+
+.NET Framework MSBuild
+
+  1>Checking Build System
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  core.cpp
+  data.cpp
+  output.cpp
+  Generating Code...
+  mc_core.vcxproj -> <SOURCE>\build-cuda-disabled-off\Release\mc_core.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  test_data.cpp
+  test_output.cpp
+  main.cpp
+  test_core.cpp
+  mc_tests.vcxproj -> <SOURCE>\build-cuda-disabled-off\Release\mc_tests.exe
+  mc_data_tests.vcxproj -> <SOURCE>\build-cuda-disabled-off\Release\mc_data_tests.exe
+  mc_output_tests.vcxproj -> <SOURCE>\build-cuda-disabled-off\Release\mc_output_tests.exe
+  mc_var.vcxproj -> <SOURCE>\build-cuda-disabled-off\Release\mc_var.exe
+  Building Custom Rule <SOURCE>/CMakeLists.txt

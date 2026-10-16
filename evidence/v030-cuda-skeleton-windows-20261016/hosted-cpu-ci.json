@@ -1,0 +1,112 @@
+{
+  "source_revision": "89512365186698278d0f79688d200e9039276415",
+  "workflow_run_id": 38934437451,
+  "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451",
+  "cuda_enabled": false,
+  "scope": "Hosted CPU regression only; RTX GPU evidence is local",
+  "jobs": [
+    {
+      "id": 117086238201,
+      "name": "cpu (OFF)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451/job/117086238201",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=OFF -DMC_ENABLE_CUDA=OFF",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake --build build --parallel",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ctest --test-dir build --output-on-failure",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117086238660,
+      "name": "cpu (ON)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451/job/117086238660",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=ON -DMC_ENABLE_CUDA=OFF",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake --build build --parallel",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ctest --test-dir build --output-on-failure",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117086238691,
+      "name": "windows-instrumentation",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451/job/117086238691",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Recorder smoke, instrumentation and retained engine tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+    ".gitattributes":  "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "build-cpu-OFF.log":  "4df4ecec553978e2669ee533a2e90ae977d08f6e083492787977bb09f4700bae",
+    "build-cpu-ON.log":  "a4f8642cc776634c298cfb1cc6eefafd4788dd4f96fbaf442626dd57e7c7fe1e",
+    "build-cuda.log":  "19898b55d3d130eec560846eafb45f12f9e1b40c93d60b99ffe4f59e229ae354",
+    "common-input-checks.json":  "be6256131b1313915120404038dfe5c0a23ad39222712be4e3368fc385fde55d",
+    "configure-cpu-OFF.log":  "668671cb6f60ccc0fc3dbd2d1b69aa52548ae089245aa00221102660daa7e999",
+    "configure-cpu-ON.log":  "9603d196bd7ed651bfeeb75bced32b5ae634562d71b5e59c9d3c726d207bbbd0",
+    "configure-cuda.log":  "71add0960d96fb6c638b240e86be3e0a83a3e2b94a82950821d96fd78cd38fea",
+    "ctest-cpu-OFF.log":  "7c766c4a0a5c84d4827c0ed7f7d790568caaf0291ec7a7566d4457173bb91b68",
+    "ctest-cpu-ON.log":  "78ef2dd6f18c400cb57d83fbdbb8f8304adcaae06c73e3c683967d337fbad293",
+    "ctest-cuda.log":  "74cfb9189d9ff2228437541ad088df263fb62f1f598235342e840695655a1559",
+    "hosted-cpu-ci.json":  "35b85d796d74377fc28d45a96fe89270a6e5e805e4d9af1fdf6ab5825358e4a2",
+    "hosted-cpu-OFF.log":  "68b51aed335be8b91364002ce44d869a916cc607b63f17e2587a5137734d85e2",
+    "hosted-cpu-ON.log":  "eec85e8ef39b5fcdd515e93f99c6e055cf3663045928ac4dbaac4ebb247d41f0",
+    "hosted-cpu-windows.log":  "e6294fc281cc04e64c2b9ee9da62bf3036bdf2389f6cfff64975b93d35b12b19",
+    "independent-audit.json":  "710780114ea4934ae43e15cace2ae7ec5489ae834290cc565e0525c10a74ab8a",
+    "manifest.json":  "e4ebdb608023676c4bca76e47984ceee16d01adb99ee4b5c7bc4c70355ea01ca",
+    "native-N10000.json":  "a6fbe551604db67e11b4828106b57bda42fc3d8089477085187b65970fe8809a",
+    "native-N5.json":  "11cda591ae1425366c95f734d79a5b5f590b7098a820447cd7b5e4acd3283865",
+    "nvcc-version.log":  "9acd4f65bb9b51daf49ce1c5febf78de95903f1359c9492aacfbe07aa0fd1ef0",
+    "README.md":  "05b9f1285029ca72ca4cdaee92e95f52a9eae9f01a20b528c91511774224056b"
+}

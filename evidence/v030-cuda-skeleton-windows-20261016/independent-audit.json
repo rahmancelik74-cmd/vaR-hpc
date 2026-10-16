@@ -1,0 +1,15 @@
+{
+    "status":  "passed",
+    "source_revision":  "89512365186698278d0f79688d200e9039276415",
+    "common_estimate_checks":  32,
+    "max_absolute_common_difference":  7.1054273576010019E-15,
+    "common_tolerance":  "1e-10*max(1,abs(serial_var))",
+    "native_smoke":  "Connectivity only; no analytical acceptance decision",
+    "device_quantile":  "CUB double sort and device gather; no host sorting",
+    "explicit_device_bytes_recomputed":  331939,
+    "cub_workspace_bytes":  91903,
+    "capacity_linear_estimate_recomputed":  179579526,
+    "native_transfer_bytes":  "H2D 16 rank-index bytes; D2H 4-byte error flag plus two 8-byte quantiles",
+    "odd_native_padding":  "5 scenarios, 6 generated normals",
+    "input_executable_hashes":  "matched"
+}

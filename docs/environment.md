@@ -19,7 +19,7 @@ assistant's execution server is not used as the benchmark hardware.
 | Release compiler flags | `/O2 /Ob2 /DNDEBUG`, from build-foundation/CMakeCache.txt |
 | CMake generator | Visual Studio 17 2022; cached generator platform is empty |
 | OpenMP runtime / affinity settings | MSVC -openmp, OpenMP 2.0 (_OPENMP=200203); runtime DLL version not inventoried; affinity variables unset in correctness campaign |
-| GPU quantile library / version | To be recorded |
+| GPU quantile library / version | CUB 3.4.3 (CUB_VERSION=300403), RTX-verified walking skeleton; intended later library |
 
 Initial inventory commands in Windows PowerShell:
 
@@ -139,3 +139,31 @@ ProcessorInformation values are OS frequency/throttle reports, not actual turbo
 clock measurements. Thermal equilibrium and unobserved vendor settings are
 unverified. These are explicit baseline limits, not silently assumed conditions.
 Evidence: evidence/v030-cpu-scaling-windows-20261016; protocol: cpu-benchmark.md.
+
+## Verified CUDA walking skeleton: 2026-10-16
+
+Clean source 8951236, Windows x64 Release, Visual Studio 2022, explicit CUDA
+toolset 13.4 and architecture 89. nvcc reports 13.4.92; host MSVC reports
+19.44.35227.0. CCCL requires /Zc:preprocessor for the CUDA target; --fmad=false
+is explicit. CPU numerical source and compiler options remain unchanged.
+CUDA defaults OFF; seven CUDA-on tests, six CUDA-off/OpenMP-on tests and five
+serial-only tests passed locally. Hosted CPU CI continues with CUDA disabled.
+
+Actual device: RTX 4060 Laptop GPU, compute capability 8.9, total VRAM
+8585216000 bytes. Windows NVIDIA driver package: 32.0.16.1088. Driver API
+returns 13030. Runtime API returns 13030, while compiled CUDART_VERSION=13040
+and the deployed cudart64_13.dll file version is 6,14,11,13040. These distinct
+version observations are preserved without equating them to nvcc or claiming
+an explanation for the API/header discrepancy. DLL hashes are archived.
+cuRAND header version: 10.4.4.72; runtime query: 10404; curand64_10.dll file
+version: 6,14,11,1044. CUB_VERSION=300403 (3.4.3), from Toolkit headers.
+
+N=10000 native explicit allocation: 331939 bytes, including queried CUB scratch
+91903 bytes. Pre-allocation free memory: 7451181056 bytes; live pipeline free
+memory: 7442792448 bytes. Opaque library allocations and granularity prevent
+equating that delta with the explicit buffer budget. The 80%-free linear
+estimate is 179579526 scenarios, not tested capacity; N remains capped at 10000.
+CUDA Events measured H2D 0.0235520005 ms / 16 bytes and D2H 0.0706879981 ms /
+20 bytes in the archived native smoke. These are copy diagnostics, not a GPU
+performance benchmark. Primary wall time includes the complete engine boundary.
+Evidence: evidence/v030-cuda-skeleton-windows-20261016; protocol: cuda-skeleton.md.
