@@ -6,6 +6,11 @@ per year remain **working settings**, not final study decisions. Expected
 currency is USD; confirm it in the selected provider's documentation. No
 currency conversion, adjustment or return normalisation is performed.
 
+Continuation on 2026-10-17: a documented free Kibot guest evaluation path is
+accessible. The dated acquisition blocker below is retained as history, not the
+latest availability claim. See [Kibot evaluation](kibot-evaluation.md) for the
+explicit unadjusted format, restricted license and local-only workflow.
+
 ## Acquisition and policy status on 2026-10-16
 
 No provider dataset has been approved or imported. Genuine coverage, row

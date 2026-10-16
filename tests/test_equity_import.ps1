@@ -136,4 +136,23 @@ $script:checks++
 $caught=$false;try{& (Join-Path $root 'scripts/check-equity-integration.ps1') @guardArguments -FixtureTestOnly | Out-Null}catch{
     if($_.Exception.Message -notmatch 'hash mismatch'){throw};$caught=$true}
 if(-not $caught){throw 'Modified imported data accepted'};$script:checks++
+# Explicit provider dialect; no inference and no silently discarded first row.
+$kibot="01/03/2023,100,101,99,100,10`n01/04/2023,110,111,109,110,11`n01/05/2023,99,100,98,99,12`n01/06/2023,118.8,120,118,118.8,13`n"
+[IO.File]::WriteAllText($rawFile,$kibot,$utf8)
+$kibotResult=Convert-EquityData -InputFile $rawFile -MetadataFile $metadataFile -OutputDirectory (Join-Path $testRoot 'kibot') -SourceFormat kibot_daily
+if($kibotResult.row_count -ne 4 -or $kibotResult.source_format -cne 'kibot_daily' -or
+    $kibotResult.actual_date_start -cne '2023-01-03' -or $kibotResult.raw_sha256 -cne (Get-EquityHash $rawFile) -or
+    [IO.File]::ReadAllText((Join-Path $testRoot 'kibot/prices.csv')) -cne $expected){throw 'Kibot explicit conversion regression'}
+$script:checks++
+Rejects $kibot 'explicit Close'
+foreach($case in @(@($kibot.Replace('01/04/2023','01/03/2023'),'Duplicate date'),
+    @($kibot.Replace('01/04/2023','02/29/2023'),'Invalid Kibot'),
+    @($kibot.Replace('01/04/2023','2023-01-04'),'Invalid Kibot'),
+    @($kibot.Replace(',110,11',',NaN,11'),'Invalid numeric'),
+    @($kibot+"`n",'six headerless fields'),
+    @($kibot.Replace(',110,11',',110,11,12'),'six headerless fields'))) {
+    $caught=$false;try{Read-EquityPrices ($utf8.GetBytes($case[0])) 'kibot_daily' | Out-Null}catch{
+        if($_.Exception.Message -notmatch $case[1]){throw};$caught=$true}
+    if(-not $caught){throw 'Malformed Kibot fixture accepted'};$script:checks++
+}
 Write-Output "Equity conversion and independent C++ calibration checks passed: $script:checks checks (artificial data only)."

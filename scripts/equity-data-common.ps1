@@ -23,7 +23,7 @@ function Get-EquityNumber([string]$Value,[bool]$Positive=$true) {
     }
     return $number
 }
-function Read-EquityPrices([byte[]]$Bytes) {
+function Read-EquityPrices([byte[]]$Bytes,[ValidateSet('existing_csv','kibot_daily')][string]$SourceFormat='existing_csv') {
     # Narrow dialect: UTF-8, optional BOM, LF/CRLF, unquoted comma-separated fields.
     try{$text=[Text.UTF8Encoding]::new($false,$true).GetString($Bytes)}catch{throw 'Invalid UTF-8 source CSV'}
     if($text.Length -gt 0 -and $text[0] -eq [char]0xFEFF){$text=$text.Substring(1)}
@@ -31,6 +31,22 @@ function Read-EquityPrices([byte[]]$Bytes) {
     if($text -match '\r(?!\n)'){throw 'Unsupported bare CR line ending'}
     $lines=@($text -split '\r?\n')
     if($lines.Count -gt 0 -and $lines[-1] -eq ''){$lines=$lines[0..($lines.Count-2)]}
+    $lineOffset=1
+    if($SourceFormat -ceq 'kibot_daily') {
+        if($lines.Count -lt 3){throw 'At least three price rows are required'}
+        $normalized=@('Date,Open,High,Low,Close,Volume')
+        for($i=0;$i -lt $lines.Count;$i++) {
+            $fields=@($lines[$i].Split(','));$date=[datetime]::MinValue
+            if($fields.Count -ne 6){throw "CSV line $($i+1): Kibot daily requires exactly six headerless fields"}
+            if($fields[0] -cnotmatch '^\d{2}/\d{2}/\d{4}$' -or -not [datetime]::TryParseExact(
+                $fields[0],'MM/dd/yyyy',$script:EquityCulture,[Globalization.DateTimeStyles]::None,[ref]$date)) {
+                throw "CSV line $($i+1): Invalid Kibot MM/DD/YYYY date"
+            }
+            $fields[0]=$date.ToString('yyyy-MM-dd',$script:EquityCulture)
+            $normalized+=($fields -join ',')
+        }
+        $lines=$normalized;$lineOffset=0
+    }
     if($lines.Count -lt 4){throw 'At least three price rows are required'}
     $header=$lines[0]
     if($header -ceq 'date,close'){$dateIndex=0;$closeIndex=1}
@@ -57,7 +73,7 @@ function Read-EquityPrices([byte[]]$Bytes) {
                 throw 'Inconsistent OHLC range'
             }
             $rows.Add([pscustomobject]@{date=$date;close=(Get-EquityNumber $fields[$closeIndex]);close_text=$fields[$closeIndex]})
-        } catch {throw "CSV line $($i+1): $($_.Exception.Message)"}
+        } catch {throw "CSV line $($i+$lineOffset): $($_.Exception.Message)"}
     }
     return [pscustomobject]@{rows=$rows.ToArray();selected_price_field=$columns[$closeIndex];header=$header}
 }
@@ -91,7 +107,8 @@ function Assert-EquityMetadata($Metadata) {
 }
 function Convert-EquityData {
     param([string]$InputFile,[string]$MetadataFile,[string]$OutputDirectory,
-          [string]$RequestedStart='2023-01-01',[string]$RequestedEnd='2025-12-31',[switch]$AllowReordering)
+          [string]$RequestedStart='2023-01-01',[string]$RequestedEnd='2025-12-31',[switch]$AllowReordering,
+          [ValidateSet('existing_csv','kibot_daily')][string]$SourceFormat='existing_csv')
     Assert-EquityDate $RequestedStart;Assert-EquityDate $RequestedEnd
     if($RequestedStart -cgt $RequestedEnd){throw 'Requested date range is reversed'}
     $inputPath=(Resolve-Path -LiteralPath $InputFile).Path
@@ -101,7 +118,7 @@ function Convert-EquityData {
     try{$metadata=[Text.UTF8Encoding]::new($false,$true).GetString($metadataBytes) | ConvertFrom-Json}
     catch{throw 'Invalid UTF-8 source metadata JSON'}
     Assert-EquityMetadata $metadata
-    $parsed=Read-EquityPrices $bytes
+    $parsed=Read-EquityPrices $bytes $SourceFormat
     $rows=@($parsed.rows);$ascending=$true;$descending=$true
     for($i=1;$i -lt $rows.Count;$i++) {
         if($rows[$i].date -clt $rows[$i-1].date){$ascending=$false}else{$descending=$false}
@@ -129,6 +146,7 @@ function Convert-EquityData {
         'Select explicit Close/close field; never substitute Adj Close',
         'Write date,close UTF-8 without BOM and LF newlines; preserve price text')
     if(-not $ascending){$transformations+='Explicitly reorder unique observations by ascending ISO date'}
+    if($SourceFormat -ceq 'kibot_daily'){$transformations+='Explicit Kibot daily dialect: headerless six-field OHLCV; convert MM/DD/YYYY dates to ISO, retaining every row'}
     $revision=(& git -C $root rev-parse HEAD);if($LASTEXITCODE -ne 0){throw 'Cannot read source revision'}
     $dirty=@(& git -C $root status --porcelain --untracked-files=normal);if($LASTEXITCODE -ne 0){throw 'Cannot read source status'}
     $manifest=[ordered]@{
@@ -138,7 +156,7 @@ function Convert-EquityData {
         actual_date_start=$selected[0].date;actual_date_end=$selected[-1].date
         source_date_start=$sorted[0].date;source_date_end=$sorted[-1].date
         source_row_count=$rows.Count;row_count=$selected.Count;excluded_outside_requested_range=($rows.Count-$selected.Count)
-        source_order=$sourceOrder;reordered=(-not $ascending);selected_price_field=$parsed.selected_price_field
+        source_order=$sourceOrder;source_format=$SourceFormat;reordered=(-not $ascending);selected_price_field=$parsed.selected_price_field
         transformations=$transformations;invalid_rows_discarded=0;observations_filled=0
         calendar_completeness_verified=$false;publication_allowed_by_importer=$false
         working_settings=@{units=1;horizon_trading_days=10;trading_observations_per_year=252;status='Working settings, not final study choices'}
