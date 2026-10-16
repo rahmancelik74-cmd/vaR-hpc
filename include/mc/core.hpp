@@ -23,6 +23,9 @@ struct Result {
     std::string random_source;
     std::vector<Estimate> estimates;
     double end_to_end_ms = 0.0;
+    int requested_threads = 0; // Zero means runtime default; serial always uses one.
+    int threads_used = 1;
+    int openmp_version = 0; // _OPENMP date value; zero for serial.
 };
 // A backend owns RNG, buffers, simulation, quantile and synchronization.
 // No per-scenario CPU callback and no mandatory host loss vector.

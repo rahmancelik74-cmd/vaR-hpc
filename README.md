@@ -1,6 +1,9 @@
 # GPU Accelerated Monte Carlo Simulation for Financial Risk Analysis
 
-Abdurrahman Celik - starter package v0.2.2, 15 October 2026.
+Abdurrahman Celik - application v0.3.0, 16 October 2026.
+
+Current OpenMP implementation and verification procedure:
+[docs/openmp.md](docs/openmp.md). Serial remains the default backend.
 
 The contribution of this project is computational. GBM and VaR provide a
 well-defined, independently verifiable workload for comparing the correctness
@@ -55,8 +58,8 @@ A single run is neither a benchmark campaign nor a 1% convergence guarantee.
 ## CSV mode
 
 Version check: `mc_var.exe --version` must report
-`mc_var 0.2.2 (CSV support enabled)`. CTest now registers four tests:
-core_tests, csv_calibration_tests, csv_cli_smoke and json_output_tests.
+`mc_var 0.3.0 (CSV support enabled)`. CTest retains the four original tests
+and adds cli_contract_tests and, with OpenMP ON, openmp_tests.
 Continue in the existing authoritative source folder; do not create or merge
 a second source tree. Reconfigure and rebuild after applying the patch.
 The following commands are an example of a separate build directory only:

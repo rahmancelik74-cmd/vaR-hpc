@@ -22,7 +22,7 @@ not in the application result. No market-prediction claim is made.
 
 ## PowerShell runner
 
-Requires Windows PowerShell 5.1 or later, Git, and a built v0.2.2 executable.
+Requires Windows PowerShell 5.1 or later, Git, and a built v0.2.2 or v0.3.0 executable.
 It uses only built-in PowerShell/.NET facilities. Default mode is a small smoke
 run, which is not a benchmark or acceptance decision. Run from the project root:
 
@@ -48,6 +48,9 @@ that workload fixed; these timing repeats are not independent statistical seeds.
 `-ScenarioCounts` and `-Seeds` allow explicitly recorded custom campaigns.
 The CSV path, executable and trading-day scale can also be supplied as parameters.
 Only the serial backend is supported in this version.
+This runner remains serial-only in v0.3.0. OpenMP correctness recording uses
+the separate scripts/run-openmp-validation.ps1; see [openmp.md](openmp.md).
+Schema 1 now also includes requested_threads, threads_used and openmp_version.
 
 Every run starts a new CLI process. The reported timer is inside the engine;
 process startup, loading/calibration and export are excluded. This is the

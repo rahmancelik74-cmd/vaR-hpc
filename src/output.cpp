@@ -1,4 +1,5 @@
 #include "mc/output.hpp"
+#include "mc/version.hpp"
 #include <cmath>
 #include <iomanip>
 #include <locale>
@@ -32,10 +33,13 @@ void write_run_json(std::ostream& output, const Request& r,
     std::ostringstream out;
     out.imbue(std::locale::classic());
     out << std::setprecision(17);
-    out << "{\"schema_version\":1,\"application_version\":\"0.2.2\",\"backend\":";
+    out << "{\"schema_version\":1,\"application_version\":\"" MC_APPLICATION_VERSION "\",\"backend\":";
     string_value(out, result.backend);
     out << ",\"random_source\":";
     string_value(out, result.random_source);
+    out << ",\"requested_threads\":" << result.requested_threads
+        << ",\"threads_used\":" << result.threads_used
+        << ",\"openmp_version\":" << result.openmp_version;
     // Strings avoid precision loss for uint64 seeds in JSON consumers.
     out << ",\"scenarios\":" << r.scenarios << ",\"seed\":\"" << r.seed << '"';
     out << ",\"input_mode\":\"" << (csv ? "csv_calibration" : "fixed_parameter_demo") << '"';

@@ -34,7 +34,7 @@ function Invoke-Sample($ScenarioCount, $Seed, $Phase, $Index) {
         throw "Application failed for $runId. See $errorPath"
     }
     $run = ($raw -join "`n") | ConvertFrom-Json
-    if ($run.schema_version -ne 1 -or $run.application_version -ne '0.2.2' -or
+    if ($run.schema_version -ne 1 -or $run.application_version -notin @('0.2.2', '0.3.0') -or
         $run.backend -ne 'serial' -or $run.scenarios -ne $ScenarioCount -or
         [string]$run.seed -ne [string]$Seed -or $run.input_mode -ne 'csv_calibration' -or
         @($run.estimates).Count -ne 2 -or $run.end_to_end_ms -lt 0) {
@@ -86,8 +86,8 @@ try {
     $gitStatus = @(& git status --porcelain)
     if ($LASTEXITCODE -ne 0) { throw 'Cannot read Git working tree status.' }
     $version = (& $exePath --version | Out-String).Trim()
-    if ($LASTEXITCODE -ne 0 -or $version -notlike 'mc_var 0.2.2 *') {
-        throw 'Build mc_var 0.2.2 before running experiments.'
+    if ($LASTEXITCODE -ne 0 -or $version -notmatch '^mc_var 0\.(2\.2|3\.0) ') {
+        throw 'Build mc_var 0.2.2 or 0.3.0 before running serial experiments.'
     }
     $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
     $suffix = [Guid]::NewGuid().ToString('N').Substring(0, 8)

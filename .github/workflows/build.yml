@@ -3,8 +3,11 @@ on: [push, pull_request]
 jobs:
   cpu:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        openmp: ['ON', 'OFF']
     steps:
       - uses: actions/checkout@v6
-      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }}
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure

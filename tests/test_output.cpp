@@ -25,6 +25,10 @@ int main() {
         out.imbue(std::locale(std::locale::classic(), new CommaDecimal));
         mc::write_run_json(out, request, result);
         const auto text = out.str();
+        check(text.find("\"application_version\":\"0.3.0\"") != std::string::npos,
+              "application version");
+        check(text.find("\"requested_threads\":0,\"threads_used\":1,\"openmp_version\":0")
+              != std::string::npos, "serial thread metadata");
         check(text.find("\"seed\":\"18446744073709551615\"") != std::string::npos,
               "uint64 seed must remain exact");
         check(text.find("test\\\"\\\\\\u000a") != std::string::npos, "JSON escaping");

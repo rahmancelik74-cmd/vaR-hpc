@@ -1,0 +1,2 @@
+#pragma once
+#define MC_APPLICATION_VERSION "@PROJECT_VERSION@"
