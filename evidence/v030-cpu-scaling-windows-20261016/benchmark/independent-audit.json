@@ -1,0 +1,18 @@
+{
+    "status":  "passed",
+    "source_revision":  "aa901a38b0d903d73a817aaf16c2a3743413b6af",
+    "mode":  "benchmark",
+    "total_runs":  234,
+    "measured_runs":  180,
+    "warmup_runs":  54,
+    "summary_rows":  18,
+    "independent_method":  "Explicit sum and two-pass sample variance; recorder uses Welford",
+    "one_record_per_process":  true,
+    "duplicate_run_check":  "passed",
+    "power_consistency":  "passed for available fields",
+    "actual_thread_counts":  "Every run matches its requested OpenMP team; serial uses one",
+    "native_repeatability":  "passed per configuration",
+    "csv_json_agreement":  "passed",
+    "slow_samples_filtered":  0,
+    "local_input_executable_probe_hashes_checked":  true
+}

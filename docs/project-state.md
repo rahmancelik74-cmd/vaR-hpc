@@ -71,10 +71,10 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
 | Data provenance | Synthetic fixture only | Real source, ticker/range, reuse/adjustment policy and checksum |
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder remains serial-only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
-| OpenMP | Implemented; Windows common-input tests and five-seed native validation passed | Thread scaling with placement, power and thermal conditions; sorting remains serial |
-| CI | Hosted Ubuntu ON/OFF build/test passed at 05f982e; run 38926767341 | Keep both configurations passing |
+| OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
+| CI | Ubuntu ON/OFF and Windows instrumentation/recorder smoke passed at aa901a3; run 38929662346 | Keep all three jobs passing |
 | CUDA path | Compiler and standalone GPU execution verified | cuRAND/device quantile and the required end-to-end skeleton |
-| Benchmark | Serial campaign archived and statistics verified; full cross-engine comparison pending | OpenMP/CUDA measurements and complete power/thermal/placement metadata |
+| Benchmark | Fresh serial and OpenMP CPU scaling archived from clean aa901a3; 180 measured processes and 54 excluded warm-ups | Later CPU/GPU comparison; package temperature/fan/power instrumentation remains unavailable in this recorder |
 
 The student is on a laptop. Later performance work must record thread placement,
 power/thermal conditions and compiler settings. Do not infer CUDA runtime success
@@ -139,9 +139,9 @@ No numerical model, acceptance threshold or application behavior was changed.
 The serial Release flags are `/O2 /Ob2 /DNDEBUG`, in addition to the common
 flags `/DWIN32 /D_WINDOWS /GR /EHsc`. See environment.md for the recorded
 CMake generator and remaining settings. OpenMP implementation and correctness
-verification are now complete as recorded below. The next OpenMP roadmap task
-is thread scaling with placement and power/thermal metadata. This advances work
-from the weeks 10-11 block without closing unfinished earlier milestones.
+verification and the CPU scaling baseline are complete as recorded below.
+This advances work from the weeks 10-11 block without closing unfinished
+earlier milestones. Later GPU work requires a separately authorized task.
 
 ## Windows OpenMP correctness milestone: 2026-10-16
 
@@ -183,3 +183,60 @@ https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341.
 The archive includes job metadata and contiguous CTest log excerpts.
 No CUDA Monte Carlo work or supervisor submission was prepared. Plan A remains
 the main roadmap; academic week 5 and earlier open milestone items are unchanged.
+
+## Fresh CPU scaling baseline: 2026-10-16
+
+Clean source aa901a38b0d903d73a817aaf16c2a3743413b6af, application 0.3.0,
+Windows x64 Release. The recorder and separate instrumentation do not change
+the numerical engines. Evidence: evidence/v030-cpu-scaling-windows-20261016.
+The eight Windows CTests include the retained six correctness tests plus
+statistics and CPU instrumentation contracts. An 18-process smoke campaign
+and independent audit passed before the full campaign.
+
+Full campaign: N=100000,1000000,10000000; seed 42; serial and OpenMP requested
+threads 1,2,4,8,10; three warm-ups plus ten measured repetitions per row.
+All 234 processes are retained: 54 warm-ups excluded, 180 measured runs and
+18 summary rows. The fresh serial and OpenMP results share the same clean
+source, Release build, executable and exact input bytes. Historical v0.2.2
+timings are not the reference. Explicit-sum/two-pass recomputation independently
+matched means, sample standard deviations, throughput and both speedup ratios.
+
+At N=10000000, serial mean was 1088.13644 ms (sample stddev 9.85657 ms).
+OpenMP 10 mean was 915.65387 ms (stddev 10.74795 ms), 10921157 scenarios/s,
+1.18837x fresh-serial speedup and 1.17994x scaling from OpenMP 1. Means for
+4/8/10 threads were close relative to variation. At N=100000 and 1000000,
+the lowest observed means used OpenMP 1 and 2 respectively. Higher thread
+counts sometimes slowed smaller workloads; no slow run was filtered.
+
+Actual teams matched all requests. Topology was read from Windows physical
+core masks: 10 cores / 16 logical processors, with six SMT class-1 cores and
+four single-logical class-0 cores. The same process pool ffff and normal
+priority were set and verified before every CLI process resumed. Thread
+placement within that pool was left to Windows. Runtime binding variables
+did not keep probe workers on one physical core; all 25 requested-binding
+probe workers migrated across core masks. A single-logical-CPU process-mask
+control did constrain all four workers. No physical-core placement is inferred
+from thread count. Runtime: vcomp140.dll 14.50.35719.0; _OPENMP=200203.
+
+AC connection, battery 100%, saver off and the active power-scheme GUID were
+consistent in every pre/post observation. The user reported charger connection,
+heavy applications closed and comfortable unmeasured room temperature. Surface,
+cooling and vendor fan mode were unspecified. CPU package temperature, fan speed,
+package power and throttling events were not measured. OS frequency/throttle
+snapshots do not measure turbo clocks or establish thermal equilibrium.
+These limitations qualify the baseline and are retained in the evidence.
+
+Each sample used a new CLI process/runtime. The existing engine timing boundary
+is unchanged, including serial sorting; telemetry, process startup, shared CSV
+calibration and the fixed 100 ms between processes are excluded. Warm-ups do
+not retain an engine/team. Recorded rotating/reversing order spreads temporal
+effects without claiming to eliminate them. See cpu-benchmark.md.
+
+This completes the requested CPU scaling baseline. Full cross-engine benchmark
+work, real data provenance, earlier foundation decisions and the later GPU
+walking skeleton remain on Plan A. No CUDA engine or submission document was
+started. Academic week remains 5.
+
+Hosted source-commit CI passed Ubuntu ON/OFF tests and Windows instrumentation
+with all eight CTests plus the recorder smoke campaign:
+https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346.

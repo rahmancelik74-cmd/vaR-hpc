@@ -1,0 +1,87 @@
+Internal ctest changing into directory: <SOURCE>/build-cpu-scaling
+UpdateCTestConfiguration  from :<SOURCE>/build-cpu-scaling/DartConfiguration.tcl
+Parse Config file:<SOURCE>/build-cpu-scaling/DartConfiguration.tcl
+UpdateCTestConfiguration  from :<SOURCE>/build-cpu-scaling/DartConfiguration.tcl
+Parse Config file:<SOURCE>/build-cpu-scaling/DartConfiguration.tcl
+Test project <SOURCE>/build-cpu-scaling
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: core_tests
+
+1: Test command: <SOURCE>\build-cpu-scaling\Release\mc_tests.exe
+1: Working Directory: <SOURCE>/build-cpu-scaling
+1: Test timeout computed to be: 1500
+1: All core tests passed.
+1/8 Test #1: core_tests .......................   Passed    0.04 sec
+test 2
+    Start 2: json_output_tests
+
+2: Test command: <SOURCE>\build-cpu-scaling\Release\mc_output_tests.exe
+2: Working Directory: <SOURCE>/build-cpu-scaling
+2: Test timeout computed to be: 1500
+2: All JSON output tests passed.
+2/8 Test #2: json_output_tests ................   Passed    0.03 sec
+test 3
+    Start 3: csv_calibration_tests
+
+3: Test command: <SOURCE>\build-cpu-scaling\Release\mc_data_tests.exe
+3: Working Directory: <SOURCE>/build-cpu-scaling
+3: Test timeout computed to be: 1500
+3: All CSV and calibration tests passed.
+3/8 Test #3: csv_calibration_tests ............   Passed    0.03 sec
+test 4
+    Start 4: csv_cli_smoke
+
+4: Test command: <SOURCE>\build-cpu-scaling\Release\mc_var.exe "--csv" "data/synthetic_prices.csv" "10000" "42" "10"
+4: Working Directory: <SOURCE>
+4: Test timeout computed to be: 1500
+4: CSV calibration under GBM; no claim of market predictive validity.
+4: file=data/synthetic_prices.csv observations=12 returns=11 date_start=2026-09-01 date_end=2026-09-16
+4: mean_log_return=0.0003629110245 sample_log_variance=0.0001647929904
+4: V0=100.4 mu_annual=0.112217495 sigma_annual=0.2037837913 T_years=0.03968253968 horizon_trading_days=10 trading_days_per_year=252
+4: backend=serial N=10000 seed=42 requested_threads=0 threads_used=1
+4: confidence=0.95 mc_var=6.037987453 analytical_var=6.143576939 difference=-0.1055894869
+4: confidence=0.99 mc_var=8.587016113 analytical_var=8.715446716 difference=-0.1284306028
+4: end_to_end_ms=0.6986
+4/8 Test #4: csv_cli_smoke ....................   Passed    0.03 sec
+test 5
+    Start 5: cli_contract_tests
+
+5: Test command: "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-DCLI=<SOURCE>/build-cpu-scaling/Release/mc_var.exe" "-DOPENMP_ENABLED=ON" "-DSOURCE_DIR=<SOURCE>" "-P" "<SOURCE>/tests/test_cli.cmake"
+5: Working Directory: <SOURCE>/build-cpu-scaling
+5: Test timeout computed to be: 1500
+5: -- CLI contract checks passed
+5/8 Test #5: cli_contract_tests ...............   Passed    0.31 sec
+test 6
+    Start 6: openmp_tests
+
+6: Test command: <SOURCE>\build-cpu-scaling\Release\mc_openmp_tests.exe
+6: Working Directory: <SOURCE>/build-cpu-scaling
+6: Test timeout computed to be: 1500
+6: OpenMP common-input, native determinism and failure tests passed.
+6/8 Test #6: openmp_tests .....................   Passed    0.09 sec
+test 7
+    Start 7: cpu_recorder_statistics
+
+7: Test command: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "-NoProfile" "-ExecutionPolicy" "Bypass" "-File" "<SOURCE>/tests/test_cpu_recorder.ps1"
+7: Working Directory: <SOURCE>/build-cpu-scaling
+7: Test timeout computed to be: 1500
+7: CPU recorder statistics tests passed.
+7/8 Test #7: cpu_recorder_statistics ..........   Passed    0.40 sec
+test 8
+    Start 8: cpu_probe_contract
+
+8: Test command: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "-NoProfile" "-ExecutionPolicy" "Bypass" "-File" "<SOURCE>/tests/test_cpu_probe.ps1" "-Probe" "<SOURCE>/build-cpu-scaling/Release/mc_cpu_probe.exe" "-Executable" "<SOURCE>/build-cpu-scaling/Release/mc_var.exe"
+8: Working Directory: <SOURCE>/build-cpu-scaling
+8: Test timeout computed to be: 1500
+8: CPU probe topology, affinity, Unicode path launch and child failure tests passed.
+8/8 Test #8: cpu_probe_contract ...............   Passed    0.57 sec
+
+100% tests passed, 0 tests failed out of 8
+
+Total Test time (real) =   1.52 sec

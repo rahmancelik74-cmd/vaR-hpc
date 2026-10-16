@@ -1,0 +1,7 @@
+Source revision: aa901a38b0d903d73a817aaf16c2a3743413b6af
+Source job: https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346/job/117070088252
+Windows recorder progress excerpt. Build/CTest output is captured in runner-local files by the recorder, which fails the job on any test error. Job completed successfully.
+2026-10-16T16:10:10.5482357Z CPU smoke phase=warmup round=1/1
+2026-10-16T16:10:11.4005811Z CPU smoke phase=measured round=1/2
+2026-10-16T16:10:12.1557449Z CPU smoke phase=measured round=2/2
+2026-10-16T16:10:13.1293701Z CPU evidence directory: D:\a\vaR-hpc\vaR-hpc\results\ci-cpu-smoke

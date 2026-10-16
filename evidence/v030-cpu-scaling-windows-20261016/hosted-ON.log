@@ -1,0 +1,21 @@
+Source revision: aa901a38b0d903d73a817aaf16c2a3743413b6af
+Source job: https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346/job/117070088958
+Contiguous hosted CTest output excerpt; timestamps retained.
+2026-10-16T16:09:19.9194506Z Internal ctest changing into directory: /home/runner/work/vaR-hpc/vaR-hpc/build
+2026-10-16T16:09:19.9868821Z Test project /home/runner/work/vaR-hpc/vaR-hpc/build
+2026-10-16T16:09:20.0342000Z     Start 1: core_tests
+2026-10-16T16:09:20.0413315Z 1/6 Test #1: core_tests .......................   Passed    0.00 sec
+2026-10-16T16:09:20.0502044Z     Start 2: json_output_tests
+2026-10-16T16:09:20.0521622Z 2/6 Test #2: json_output_tests ................   Passed    0.00 sec
+2026-10-16T16:09:20.0522941Z     Start 3: csv_calibration_tests
+2026-10-16T16:09:20.0537618Z 3/6 Test #3: csv_calibration_tests ............   Passed    0.00 sec
+2026-10-16T16:09:20.0538780Z     Start 4: csv_cli_smoke
+2026-10-16T16:09:20.0562989Z 4/6 Test #4: csv_cli_smoke ....................   Passed    0.00 sec
+2026-10-16T16:09:20.0566189Z     Start 5: cli_contract_tests
+2026-10-16T16:09:20.0998114Z 5/6 Test #5: cli_contract_tests ...............   Passed    0.04 sec
+2026-10-16T16:09:20.0998908Z     Start 6: openmp_tests
+2026-10-16T16:09:20.1454913Z 6/6 Test #6: openmp_tests .....................   Passed    0.05 sec
+2026-10-16T16:09:20.1457799Z 
+2026-10-16T16:09:20.1457951Z 100% tests passed, 0 tests failed out of 6
+2026-10-16T16:09:20.1458554Z 
+2026-10-16T16:09:20.1458690Z Total Test time (real) =   0.16 sec

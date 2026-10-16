@@ -1,0 +1,272 @@
+[
+    {
+        "configuration_id":  "openmp-10-N10000000",
+        "backend":  "openmp",
+        "scenarios":  10000000,
+        "requested_threads":  10,
+        "actual_thread_counts":  [
+                                     10
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  915.65387,
+        "sample_stddev_ms":  10.747948600242022,
+        "scenarios_per_second":  10921157.358293042,
+        "speedup_vs_fresh_serial":  1.1883709288532793,
+        "scaling_vs_openmp_one_thread":  1.1799365954735714
+    },
+    {
+        "configuration_id":  "openmp-8-N10000000",
+        "backend":  "openmp",
+        "scenarios":  10000000,
+        "requested_threads":  8,
+        "actual_thread_counts":  [
+                                     8
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  919.96022,
+        "sample_stddev_ms":  12.961220044236221,
+        "scenarios_per_second":  10870035.228262369,
+        "speedup_vs_fresh_serial":  1.1828081435956,
+        "scaling_vs_openmp_one_thread":  1.17441329147906
+    },
+    {
+        "configuration_id":  "openmp-4-N10000000",
+        "backend":  "openmp",
+        "scenarios":  10000000,
+        "requested_threads":  4,
+        "actual_thread_counts":  [
+                                     4
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  919.27712,
+        "sample_stddev_ms":  11.507928549560003,
+        "scenarios_per_second":  10878112.576107627,
+        "speedup_vs_fresh_serial":  1.183687069248498,
+        "scaling_vs_openmp_one_thread":  1.1752859790527586
+    },
+    {
+        "configuration_id":  "openmp-2-N10000000",
+        "backend":  "openmp",
+        "scenarios":  10000000,
+        "requested_threads":  2,
+        "actual_thread_counts":  [
+                                     2
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  970.26160999999991,
+        "sample_stddev_ms":  9.01922716157604,
+        "scenarios_per_second":  10306498.677196968,
+        "speedup_vs_fresh_serial":  1.1214876779469816,
+        "scaling_vs_openmp_one_thread":  1.1135280411640736
+    },
+    {
+        "configuration_id":  "openmp-1-N10000000",
+        "backend":  "openmp",
+        "scenarios":  10000000,
+        "requested_threads":  1,
+        "actual_thread_counts":  [
+                                     1
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  1080.41351,
+        "sample_stddev_ms":  8.3774907789929287,
+        "scenarios_per_second":  9255715.4343617931,
+        "speedup_vs_fresh_serial":  1.0071481242399494,
+        "scaling_vs_openmp_one_thread":  1
+    },
+    {
+        "configuration_id":  "serial-0-N10000000",
+        "backend":  "serial",
+        "scenarios":  10000000,
+        "requested_threads":  0,
+        "actual_thread_counts":  [
+                                     1
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  1088.1364399999998,
+        "sample_stddev_ms":  9.8565745094552728,
+        "scenarios_per_second":  9190024.001034284,
+        "speedup_vs_fresh_serial":  1,
+        "scaling_vs_openmp_one_thread":  null
+    },
+    {
+        "configuration_id":  "openmp-10-N1000000",
+        "backend":  "openmp",
+        "scenarios":  1000000,
+        "requested_threads":  10,
+        "actual_thread_counts":  [
+                                     10
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  110.52120000000001,
+        "sample_stddev_ms":  14.460825178237776,
+        "scenarios_per_second":  9048037.8425134718,
+        "speedup_vs_fresh_serial":  0.901777758475297,
+        "scaling_vs_openmp_one_thread":  0.88836585198133933
+    },
+    {
+        "configuration_id":  "openmp-8-N1000000",
+        "backend":  "openmp",
+        "scenarios":  1000000,
+        "requested_threads":  8,
+        "actual_thread_counts":  [
+                                     8
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  111.11829,
+        "sample_stddev_ms":  13.266211909496498,
+        "scenarios_per_second":  8999418.5475676414,
+        "speedup_vs_fresh_serial":  0.89693208921771561,
+        "scaling_vs_openmp_one_thread":  0.88359225110465611
+    },
+    {
+        "configuration_id":  "openmp-4-N1000000",
+        "backend":  "openmp",
+        "scenarios":  1000000,
+        "requested_threads":  4,
+        "actual_thread_counts":  [
+                                     4
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  95.11301,
+        "sample_stddev_ms":  15.27031359966491,
+        "scenarios_per_second":  10513808.783887714,
+        "speedup_vs_fresh_serial":  1.0478646401790879,
+        "scaling_vs_openmp_one_thread":  1.0322800214187313
+    },
+    {
+        "configuration_id":  "openmp-2-N1000000",
+        "backend":  "openmp",
+        "scenarios":  1000000,
+        "requested_threads":  2,
+        "actual_thread_counts":  [
+                                     2
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  86.2285,
+        "sample_stddev_ms":  2.7467658995019364,
+        "scenarios_per_second":  11597093.768301664,
+        "speedup_vs_fresh_serial":  1.1558308447902956,
+        "scaling_vs_openmp_one_thread":  1.1386404726975421
+    },
+    {
+        "configuration_id":  "openmp-1-N1000000",
+        "backend":  "openmp",
+        "scenarios":  1000000,
+        "requested_threads":  1,
+        "actual_thread_counts":  [
+                                     1
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  98.18326,
+        "sample_stddev_ms":  6.0669749020963248,
+        "scenarios_per_second":  10185035.616051046,
+        "speedup_vs_fresh_serial":  1.0150972782936725,
+        "scaling_vs_openmp_one_thread":  1
+    },
+    {
+        "configuration_id":  "serial-0-N1000000",
+        "backend":  "serial",
+        "scenarios":  1000000,
+        "requested_threads":  0,
+        "actual_thread_counts":  [
+                                     1
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  99.66556,
+        "sample_stddev_ms":  3.3057462264635169,
+        "scenarios_per_second":  10033556.225440362,
+        "speedup_vs_fresh_serial":  1,
+        "scaling_vs_openmp_one_thread":  null
+    },
+    {
+        "configuration_id":  "openmp-10-N100000",
+        "backend":  "openmp",
+        "scenarios":  100000,
+        "requested_threads":  10,
+        "actual_thread_counts":  [
+                                     10
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  17.86813,
+        "sample_stddev_ms":  6.9596891752194425,
+        "scenarios_per_second":  5596556.5506854942,
+        "speedup_vs_fresh_serial":  0.58868275527433467,
+        "scaling_vs_openmp_one_thread":  0.517018288987152
+    },
+    {
+        "configuration_id":  "openmp-8-N100000",
+        "backend":  "openmp",
+        "scenarios":  100000,
+        "requested_threads":  8,
+        "actual_thread_counts":  [
+                                     8
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  15.2733,
+        "sample_stddev_ms":  5.7051550034449843,
+        "scenarios_per_second":  6547373.5211120052,
+        "speedup_vs_fresh_serial":  0.6886959596158,
+        "scaling_vs_openmp_one_thread":  0.60485618694060883
+    },
+    {
+        "configuration_id":  "openmp-4-N100000",
+        "backend":  "openmp",
+        "scenarios":  100000,
+        "requested_threads":  4,
+        "actual_thread_counts":  [
+                                     4
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  10.935970000000001,
+        "sample_stddev_ms":  4.3817322893653214,
+        "scenarios_per_second":  9144136.27689176,
+        "speedup_vs_fresh_serial":  0.9618406049029028,
+        "scaling_vs_openmp_one_thread":  0.84474902546367625
+    },
+    {
+        "configuration_id":  "openmp-2-N100000",
+        "backend":  "openmp",
+        "scenarios":  100000,
+        "requested_threads":  2,
+        "actual_thread_counts":  [
+                                     2
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  9.4818500000000014,
+        "sample_stddev_ms":  2.5501044903428309,
+        "scenarios_per_second":  10546465.08856394,
+        "speedup_vs_fresh_serial":  1.1093468046847395,
+        "scaling_vs_openmp_one_thread":  0.97429826457916968
+    },
+    {
+        "configuration_id":  "openmp-1-N100000",
+        "backend":  "openmp",
+        "scenarios":  100000,
+        "requested_threads":  1,
+        "actual_thread_counts":  [
+                                     1
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  9.238150000000001,
+        "sample_stddev_ms":  1.8033126876513808,
+        "scenarios_per_second":  10824678.101134967,
+        "speedup_vs_fresh_serial":  1.1386110855528431,
+        "scaling_vs_openmp_one_thread":  1
+    },
+    {
+        "configuration_id":  "serial-0-N100000",
+        "backend":  "serial",
+        "scenarios":  100000,
+        "requested_threads":  0,
+        "actual_thread_counts":  [
+                                     1
+                                 ],
+        "measured_repetitions":  10,
+        "mean_ms":  10.518659999999999,
+        "sample_stddev_ms":  2.2204635037657243,
+        "scenarios_per_second":  9506914.3788277227,
+        "speedup_vs_fresh_serial":  1,
+        "scaling_vs_openmp_one_thread":  null
+    }
+]

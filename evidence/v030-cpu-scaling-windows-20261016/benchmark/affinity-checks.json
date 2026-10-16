@@ -1,0 +1,435 @@
+{
+    "restricted_process_control":  {
+                                       "requested_threads":  4,
+                                       "threads_used":  4,
+                                       "process_mask_hex":  "1",
+                                       "threads":  [
+                                                       {
+                                                           "thread":  0,
+                                                           "group":  0,
+                                                           "allowed_mask_hex":  "1",
+                                                           "observed_mask_hex":  "1"
+                                                       },
+                                                       {
+                                                           "thread":  1,
+                                                           "group":  0,
+                                                           "allowed_mask_hex":  "1",
+                                                           "observed_mask_hex":  "1"
+                                                       },
+                                                       {
+                                                           "thread":  2,
+                                                           "group":  0,
+                                                           "allowed_mask_hex":  "1",
+                                                           "observed_mask_hex":  "1"
+                                                       },
+                                                       {
+                                                           "thread":  3,
+                                                           "group":  0,
+                                                           "allowed_mask_hex":  "1",
+                                                           "observed_mask_hex":  "1"
+                                                       }
+                                                   ]
+                                   },
+    "runtime_binding_tests":  [
+                                  {
+                                      "binding_environment":  "unset",
+                                      "probe":  {
+                                                    "requested_threads":  1,
+                                                    "threads_used":  1,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "554"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "unset",
+                                      "probe":  {
+                                                    "requested_threads":  2,
+                                                    "threads_used":  2,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "555"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "unset",
+                                      "probe":  {
+                                                    "requested_threads":  4,
+                                                    "threads_used":  4,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "8555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "155"
+                                                                    },
+                                                                    {
+                                                                        "thread":  2,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "5555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  3,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "5455"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "unset",
+                                      "probe":  {
+                                                    "requested_threads":  8,
+                                                    "threads_used":  8,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "4555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "5555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  2,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "5555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  3,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "d555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  4,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "d555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  5,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "1540"
+                                                                    },
+                                                                    {
+                                                                        "thread":  6,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "d545"
+                                                                    },
+                                                                    {
+                                                                        "thread":  7,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f555"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "unset",
+                                      "probe":  {
+                                                    "requested_threads":  10,
+                                                    "threads_used":  10,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "8f7d"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "3fff"
+                                                                    },
+                                                                    {
+                                                                        "thread":  2,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "147f"
+                                                                    },
+                                                                    {
+                                                                        "thread":  3,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "ffc0"
+                                                                    },
+                                                                    {
+                                                                        "thread":  4,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "1ffc"
+                                                                    },
+                                                                    {
+                                                                        "thread":  5,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "bfd5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  6,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "ddfc"
+                                                                    },
+                                                                    {
+                                                                        "thread":  7,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "c03f"
+                                                                    },
+                                                                    {
+                                                                        "thread":  8,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "c57d"
+                                                                    },
+                                                                    {
+                                                                        "thread":  9,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f17f"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "requested",
+                                      "probe":  {
+                                                    "requested_threads":  1,
+                                                    "threads_used":  1,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "454"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "requested",
+                                      "probe":  {
+                                                    "requested_threads":  2,
+                                                    "threads_used":  2,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "d0"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "8c4"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "requested",
+                                      "probe":  {
+                                                    "requested_threads":  4,
+                                                    "threads_used":  4,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "555"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "554"
+                                                                    },
+                                                                    {
+                                                                        "thread":  2,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "814"
+                                                                    },
+                                                                    {
+                                                                        "thread":  3,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "8515"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "requested",
+                                      "probe":  {
+                                                    "requested_threads":  8,
+                                                    "threads_used":  8,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "87f5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "5f5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  2,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "8075"
+                                                                    },
+                                                                    {
+                                                                        "thread":  3,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f5f5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  4,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "87d0"
+                                                                    },
+                                                                    {
+                                                                        "thread":  5,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "c7f5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  6,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "d5d0"
+                                                                    },
+                                                                    {
+                                                                        "thread":  7,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f6f5"
+                                                                    }
+                                                                ]
+                                                }
+                                  },
+                                  {
+                                      "binding_environment":  "requested",
+                                      "probe":  {
+                                                    "requested_threads":  10,
+                                                    "threads_used":  10,
+                                                    "process_mask_hex":  "ffff",
+                                                    "threads":  [
+                                                                    {
+                                                                        "thread":  0,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f7f5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  1,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "bff5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  2,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "fff5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  3,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "eff5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  4,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "27f5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  5,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "3ff5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  6,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f475"
+                                                                    },
+                                                                    {
+                                                                        "thread":  7,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f3f5"
+                                                                    },
+                                                                    {
+                                                                        "thread":  8,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f795"
+                                                                    },
+                                                                    {
+                                                                        "thread":  9,
+                                                                        "group":  0,
+                                                                        "allowed_mask_hex":  "ffff",
+                                                                        "observed_mask_hex":  "f7f5"
+                                                                    }
+                                                                ]
+                                                }
+                                  }
+                              ]
+}

@@ -50,6 +50,9 @@ The CSV path, executable and trading-day scale can also be supplied as parameter
 Only the serial backend is supported in this version.
 This runner remains serial-only in v0.3.0. OpenMP correctness recording uses
 the separate scripts/run-openmp-validation.ps1; see [openmp.md](openmp.md).
+Fresh serial/OpenMP performance scaling uses scripts/run-cpu-benchmark.ps1
+and its independent verifier; see [cpu-benchmark.md](cpu-benchmark.md). It uses
+its own fresh serial reference and does not repurpose historical serial timings.
 Schema 1 now also includes requested_threads, threads_used and openmp_version.
 
 Every run starts a new CLI process. The reported timer is inside the engine;

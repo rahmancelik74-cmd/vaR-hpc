@@ -109,3 +109,33 @@ CPU model was read from the local hardware registry; the process reported
 inventory. No power/thermal measurements or formal scaling benchmark are claimed.
 Manifest, exact-byte hashes, compiler flags and test logs are archived in
 evidence/v030-openmp-windows-correctness-20261016.
+
+## CPU scaling environment: 2026-10-16
+
+The fresh baseline at clean source aa901a3 uses build-cpu-scaling with the
+same Visual Studio 2022 x64 Release compiler/optimization settings as the
+correctness milestone. MC_BUILD_CPU_TOOLS=ON adds only a separate Windows
+instrumentation executable and recorder tests. Eight CTests passed.
+
+GetLogicalProcessorInformationEx reports 10 physical core records / 16 logical
+processors in one group. Six SMT core masks (3,c,30,c0,300,c00) have reported
+efficiency class 1; four non-SMT masks (1000,2000,4000,8000) have class 0.
+The observed probe runtime is vcomp140.dll 14.50.35719.0, _OPENMP=200203.
+Requested OMP_PROC_BIND=TRUE / OMP_PLACES=cores did not constrain the worker
+group masks or keep them within single physical cores. The separate one-CPU
+process-affinity control succeeded. Benchmark process affinity was ffff for
+every fresh serial/OpenMP process, checked before resume, with normal priority.
+Actual teams matched requested 1,2,4,8,10; serial used one. Windows scheduled
+workers within the pool; this is not per-core pinning. OMP_DYNAMIC and OMP_NESTED
+were FALSE; the recorder's other listed affinity/runtime controls were unset.
+
+All 468 pre/post snapshots reported AC connected, battery 100%, battery saver
+off and power scheme 5da85d85-eb0c-4710-a805-6da8bbcf1f02. The plan was not
+changed. The user reported charger connection, heavy applications closed and
+comfortable room temperature without a numerical reading. Surface/cooling and
+vendor fan mode were not specified. No package-temperature, fan-speed, package-
+power or throttling-event sensor was configured; these were not measured.
+ProcessorInformation values are OS frequency/throttle reports, not actual turbo
+clock measurements. Thermal equilibrium and unobserved vendor settings are
+unverified. These are explicit baseline limits, not silently assumed conditions.
+Evidence: evidence/v030-cpu-scaling-windows-20261016; protocol: cpu-benchmark.md.

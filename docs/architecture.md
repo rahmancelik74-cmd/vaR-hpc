@@ -27,6 +27,7 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | OpenMP implementation | include/mc/openmp.hpp, src/openmp.cpp | Separate library; private fixed-block RNG, parallel loss generation, serial sort |
 | Structured export | include/mc/output.hpp, src/output.cpp | Serialize one complete run without changing Engine |
 | Experiment recorders | scripts/run-experiment.ps1, scripts/run-openmp-validation.ps1 | Serial campaigns and separate clean-source OpenMP correctness evidence |
+| CPU scaling recorder | scripts/run-cpu-benchmark.ps1, tools/cpu_probe.cpp | Fresh native serial/OpenMP pipeline timings, separate Windows topology/affinity/power instrumentation |
 | Analytical reference | src/core.cpp | Compute GBM VaR independently of Monte Carlo samples |
 | Verification | tests/test_core.cpp, tests/test_data.cpp, tests/test_output.cpp | Model, quantile, data, calibration and JSON checks |
 | Build and smoke test | CMakeLists.txt | Four original tests plus CLI contract; OpenMP ON adds the sixth backend test |
@@ -138,8 +139,8 @@ times. Profiling and memory/race checking run separately from benchmarks.
 2. Finalize numbered requirements and the supervisor-confirmed acceptance source.
 3. Maintain the implemented result export and experiment metadata without
    replacing Engine with a CPU-specific loop or requiring all losses on the host.
-4. Measure OpenMP thread scaling after the completed correctness milestone;
-   keep the later GPU skeleton milestone visible.
+4. Preserve the completed CPU scaling baseline and its placement/thermal limits;
+   keep the later GPU skeleton and full cross-engine benchmark milestones visible.
 
 Use small, reviewable changes. The current source layout is adequate; no
 framework, database or large directory refactor is required for these steps.

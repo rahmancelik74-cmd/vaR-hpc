@@ -70,5 +70,7 @@ abs(mean(five estimates) - analytical) <=
 This is error of the mean, not mean absolute error or a per-seed criterion.
 Runs are correctness evidence for a synthetic fixture, not a performance
 benchmark or a claim of real-market validity. Thread scaling with placement,
-power and thermal metadata remains pending. The existing run-experiment.ps1
+power and thermal metadata was subsequently recorded, with explicit sensor
+limitations, in evidence/v030-cpu-scaling-windows-20261016. See cpu-benchmark.md.
+The existing run-experiment.ps1
 remains serial-only and accepts versions 0.2.2 and 0.3.0.

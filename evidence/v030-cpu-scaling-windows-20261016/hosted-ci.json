@@ -1,0 +1,116 @@
+{
+  "source_revision": "aa901a38b0d903d73a817aaf16c2a3743413b6af",
+  "workflow_run_id": 38929662346,
+  "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346",
+  "jobs": [
+    {
+      "id": 117070088252,
+      "name": "windows-instrumentation",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346/job/117070088252",
+      "started_at": "2026-10-16T16:09:12Z",
+      "completed_at": "2026-10-16T16:10:16Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Recorder smoke, instrumentation and retained engine tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117070088924,
+      "name": "cpu (OFF)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346/job/117070088924",
+      "started_at": "2026-10-16T16:09:12Z",
+      "completed_at": "2026-10-16T16:09:18Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=OFF",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake --build build --parallel",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ctest --test-dir build --output-on-failure",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117070088958,
+      "name": "cpu (ON)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38929662346/job/117070088958",
+      "started_at": "2026-10-16T16:09:12Z",
+      "completed_at": "2026-10-16T16:09:22Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=ON",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake --build build --parallel",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ctest --test-dir build --output-on-failure",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

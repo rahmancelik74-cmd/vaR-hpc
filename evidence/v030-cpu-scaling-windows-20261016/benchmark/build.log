@@ -1,0 +1,33 @@
+English transcription; only localized MSBuild banner replaced. Captured log SHA-256: 4506099a61363a2409325fe7ae1253a017865ddf0443755708ab56422b81f135
+.NET Framework MSBuild
+
+.NET Framework MSBuild
+
+  1>Checking Build System
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  core.cpp
+  cpu_probe.cpp
+  data.cpp
+  output.cpp
+  mc_cpu_probe.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_cpu_probe.exe
+  Generating Code...
+  mc_core.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_core.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  test_data.cpp
+  test_core.cpp
+  openmp.cpp
+  test_output.cpp
+  mc_tests.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_tests.exe
+  mc_data_tests.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_data_tests.exe
+  mc_openmp.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_openmp.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  mc_output_tests.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_output_tests.exe
+  main.cpp
+  test_openmp.cpp
+  mc_openmp_tests.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_openmp_tests.exe
+  mc_var.vcxproj -> <SOURCE>\build-cpu-scaling\Release\mc_var.exe

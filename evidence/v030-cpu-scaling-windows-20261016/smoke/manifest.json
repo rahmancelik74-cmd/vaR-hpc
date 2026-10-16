@@ -1,0 +1,138 @@
+{
+    "schema_version":  1,
+    "mode":  "smoke",
+    "status":  "completed",
+    "started_utc":  "2026-10-16T16:05:40.6153435Z",
+    "source_revision":  "aa901a38b0d903d73a817aaf16c2a3743413b6af",
+    "clean_source":  true,
+    "source_to_binary":  "Clean-first x64 Release build in this invocation",
+    "application_version":  "0.3.0",
+    "executable":  "build-cpu-scaling/Release/mc_var.exe",
+    "input":  "data/synthetic_prices.csv",
+    "input_sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+    "seed":  "42",
+    "horizon_trading_days":  10,
+    "trading_days_per_year":  252,
+    "process_lifetime":  "One new suspended CLI process per run; affinity set and checked before resume; no persistent engine context",
+    "warmup_scope":  "Separate processes precondition OS caches and machine; no persistent RNG/team/allocation reuse",
+    "timing_scope":  "Existing engine timer: allocation, RNG, loss generation, serial sort, quantiles, cleanup, synchronization",
+    "excluded":  "Process startup, CSV calibration, telemetry, JSON/file output, fixed inter-run delay",
+    "placement_policy":  "Same full available logical-CPU pool for every process; OS schedules workers; no per-thread pinning or physical-core-count inference",
+    "priority_policy":  "NORMAL_PRIORITY_CLASS for every CLI process",
+    "sorting":  "Serial; numerical engines unchanged",
+    "execution_order":  "All warm-up rounds first, then measured rounds; cyclic shift by 5 configurations per round, reverse odd rounds",
+    "inter_run_delay_ms":  100,
+    "outlier_policy":  "Retain every successful measured run; no timing filters",
+    "physical_conditions":  {
+                                "charger_user_report":  "User answered yes to remaining connected to charger; verified separately through AC telemetry",
+                                "competing_applications_user_report":  "Heavy applications closed during measurement",
+                                "ambient_user_report":  "Comfortable room temperature, neither hot nor cold; no numerical measurement",
+                                "surface_and_cooling":  "Not specified by user; not remotely observable",
+                                "vendor_fan_mode":  "Unknown",
+                                "cpu_package_temperature":  "No sensor reader configured; not measured",
+                                "provenance":  "User statement supplied during the benchmark task"
+                            },
+    "os_version":  "Microsoft Windows NT 10.0.26200.0",
+    "cpu_model":  "12th Gen Intel(R) Core(TM) i7-12650H",
+    "temperature_policy":  "Package temperature unavailable in this recorder; frequency snapshots are OS throttle reports, not package temperature or measured turbo clocks",
+    "thermal_steady_state_verified":  false,
+    "common_input_validation":  "Separate prior correctness evidence; benchmark uses native RNG",
+    "native_samples":  "Serial and OpenMP use different streams; fixed same seed per backend and repetition",
+    "executable_sha256":  "dd63329658ae3f13cb6164fa0c4069949fc8f31c63f995a743da67f3f427f882",
+    "probe_sha256":  "b88df016a0b3b2db2aa673a9fdafdce36bb6e142267437d5f88cbf9d9662b5e4",
+    "compiler_settings":  [
+                              "CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /GR /EHsc",
+                              "CMAKE_CXX_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1",
+                              "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG",
+                              "CMAKE_CXX_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG",
+                              "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG",
+                              "MC_BUILD_CPU_TOOLS:BOOL=ON",
+                              "MC_ENABLE_OPENMP:BOOL=ON",
+                              "OpenMP_CXX_FLAGS:STRING=-openmp",
+                              "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+                              "CMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022",
+                              "CMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community",
+                              "CMAKE_GENERATOR_PLATFORM:INTERNAL=x64",
+                              "CMAKE_GENERATOR_TOOLSET:INTERNAL=",
+                              "OpenMP_CXX_SPEC_DATE:INTERNAL=200203"
+                          ],
+    "compiler_identification":  [
+                                    "set(CMAKE_CXX_COMPILER_ID \"MSVC\")",
+                                    "set(CMAKE_CXX_COMPILER_VERSION \"19.44.35227.0\")",
+                                    "set(CMAKE_CXX_SIZEOF_DATA_PTR \"8\")"
+                                ],
+    "cmake_version":  "cmake version 3.31.6-msvc6",
+    "powershell_version":  "5.1.26100.9711",
+    "original_runtime_environment":  {
+                                         "GOMP_CPU_AFFINITY":  null,
+                                         "OMP_THREAD_LIMIT":  null,
+                                         "KMP_AFFINITY":  null,
+                                         "OMP_NUM_THREADS":  null,
+                                         "OMP_PROC_BIND":  null,
+                                         "OMP_WAIT_POLICY":  null,
+                                         "KMP_BLOCKTIME":  null,
+                                         "OMP_NESTED":  null,
+                                         "OMP_DYNAMIC":  null,
+                                         "OMP_PLACES":  null,
+                                         "OMP_SCHEDULE":  null
+                                     },
+    "campaign_runtime_environment":  {
+                                         "OMP_DYNAMIC":  "FALSE",
+                                         "OMP_NESTED":  "FALSE",
+                                         "others":  "Unset (see environment name list in script)"
+                                     },
+    "process_mask_hex":  "ffff",
+    "runtime":  {
+                    "module":  "vcomp140.dll",
+                    "file_version":  "14.50.35719.0"
+                },
+    "affinity_verification":  "Windows process mask control verified against allowed and observed worker masks; runtime binding requests recorded separately; no binding assumption",
+    "configurations":  [
+                           {
+                               "id":  "serial-0-N10000",
+                               "backend":  "serial",
+                               "requested_threads":  0,
+                               "scenarios":  10000
+                           },
+                           {
+                               "id":  "openmp-1-N10000",
+                               "backend":  "openmp",
+                               "requested_threads":  1,
+                               "scenarios":  10000
+                           },
+                           {
+                               "id":  "openmp-2-N10000",
+                               "backend":  "openmp",
+                               "requested_threads":  2,
+                               "scenarios":  10000
+                           },
+                           {
+                               "id":  "openmp-4-N10000",
+                               "backend":  "openmp",
+                               "requested_threads":  4,
+                               "scenarios":  10000
+                           },
+                           {
+                               "id":  "openmp-8-N10000",
+                               "backend":  "openmp",
+                               "requested_threads":  8,
+                               "scenarios":  10000
+                           },
+                           {
+                               "id":  "openmp-10-N10000",
+                               "backend":  "openmp",
+                               "requested_threads":  10,
+                               "scenarios":  10000
+                           }
+                       ],
+    "warmups_per_configuration":  1,
+    "measured_repetitions_per_configuration":  2,
+    "total_runs":  18,
+    "measured_runs":  12,
+    "warmup_runs":  6,
+    "finished_utc":  "2026-10-16T16:05:55.4972978Z"
+}
