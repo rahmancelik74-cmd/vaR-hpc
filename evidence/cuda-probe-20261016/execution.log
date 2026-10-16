@@ -1,0 +1,6 @@
+﻿GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+Compute capability: 8.9
+VRAM MiB: 8187
+Driver API version: 13030
+Runtime version: 13030
+PASS: all 1024 GPU results are correct.
