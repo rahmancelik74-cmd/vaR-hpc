@@ -70,7 +70,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
 | Proposal source | Student confirmed Capstone_Project_Proposal_Form_Revised.docx as the approved file on 2026-10-16 | Reconcile the older candidate wording in acceptance-source.md when updating that register |
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
-| Data provenance | Offline importer and artificial-fixture checks available; genuine MSFT acquisition/policy blocked | Provider CSV for 2023-01-01 through 2025-12-31 plus verified Close adjustment and local reuse policy; see historical-data.md |
+| Data provenance | Local genuine MSFT pipeline evaluation completed through documented Kibot guest access; redistribution prohibited | Final study/publication rights and calendar completeness remain unresolved; see kibot-evaluation.md |
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder remains serial-only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8951236; run 38934437451 | Keep all three CPU jobs passing; GPU evidence remains local RTX execution |
@@ -318,3 +318,28 @@ Local Windows x64 Release verification passed 7 CTests with OpenMP ON/CUDA OFF,
 fixture checks, independent C++ calibration, labelled runner smoke and tampering
 rejection. This is software verification while genuine historical acquisition
 is blocked; it is not a completed historical-data campaign.
+
+## Local historical pipeline evaluation: 2026-10-17
+
+The documented Kibot public guest path supplied genuine MSFT daily data for
+the requested interval. Explicit unadjusted=1 selects prices without split or
+dividend back-adjustment. Close is the last regular-session trade, which is
+not necessarily the official closing auction. USD is documented from the
+instrument's denomination, not claimed as a CSV-returned currency field.
+One share, ten trading days and 252 observations/year remain working settings.
+
+Source 1b61903 was rebuilt clean-first in Windows x64 Release with CUDA ON.
+All eight CTests passed; OpenMP ON/CUDA OFF passed seven and serial-only six.
+The converter test now has 46 artificial checks. Independent calibration,
+serial/OpenMP native integration and separate N=10000 CUDA connectivity passed
+on genuine imported data. No native CPU/GPU sample equality, full-scale GPU
+acceptance or speedup is claimed. Engines, IDs and historical evidence remain
+unchanged. This resolves the earlier local-access blocker, not final dataset rights.
+
+The guest route is for evaluation and the license prohibits redistribution of
+data and related/derived information. Raw responses, complete policy snapshots,
+coverage/counts, hashes, calibration and numerical results remain only under
+ignored data/local and results. Public records retain procedure and software
+verification status without provider observations or derived numerical tables.
+The final research/publication dataset, suitable sharing rights and exchange-
+calendar completeness still require a separate decision. See kibot-evaluation.md.

@@ -17,7 +17,10 @@ $url='https://api.kibot.com/?action=history&symbol=MSFT&interval=daily&startdate
 New-Item -ItemType Directory -Path $output -Force | Out-Null
 $record=[ordered]@{purpose='Local MSFT provider evaluation; not a final public research dataset'
     status='started';requested_date_start=$RequestedStart;requested_date_end=$RequestedEnd;source_url=$url
-    source_revision=(& git -C $root rev-parse HEAD).Trim();policy_snapshots=@()}
+    source_revision=(& git -C $root rev-parse HEAD).Trim()
+    git_dirty=(@(& git -C $root status --porcelain).Count -gt 0)
+    downloader_sha256=(Get-EquityHash $PSCommandPath)
+    parser_sha256=(Get-EquityHash (Join-Path $PSScriptRoot 'equity-data-common.ps1'));policy_snapshots=@()}
 try {
     # Retain complete policy pages with their notices locally, never in Git.
     $policies=@(@('license','https://www.kibot.com/license.html'),

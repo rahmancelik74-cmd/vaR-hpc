@@ -89,3 +89,18 @@ The artificial test set now also checks headerless row preservation, explicit
 format selection, MM/DD/YYYY conversion, duplicate/invalid dates, malformed
 prices, blank rows and extra fields. Provider observations are never embedded
 in tests or CI. Live network acquisition is not part of hosted tests.
+
+Local verification completed at code source 1b61903: clean-first Windows x64
+Release CUDA build passed all eight CTests; CPU ON/OFF configurations passed
+seven/six. The importer has 46 artificial checks. Genuine local calibration and
+serial/OpenMP integration passed, followed by separate capped native CUDA smoke.
+All source/build/runtime and numerical records remain ignored locally. These
+are connectivity/calibration checks, not full-scale Monte Carlo acceptance.
+
+The first exploratory acquisition occurred before the adapter commit; its raw
+bytes and retrieval record remain intact. The reviewed import and integration
+were repeated at the committed adapter revision. An additional local provenance
+binding distinguishes acquisition, converter and rebuilt executable revisions;
+it records the pre-existing untracked submission folder rather than claiming an
+entirely empty Git status. Later downloader records also retain dirty state and
+script hashes directly.
