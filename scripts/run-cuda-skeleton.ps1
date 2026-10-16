@@ -34,6 +34,20 @@ function Sample($Count,$Seed){
     [IO.File]::WriteAllText((Join-Path $out "native-N$Count.json"),$raw+"`n",$utf8)
     return $run
 }
+function Read-DisplayDriver{
+    $key=[Microsoft.Win32.Registry]::LocalMachine.OpenSubKey('SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}')
+    try{
+        foreach($name in $key.GetSubKeyNames()){
+            if($name -notmatch '^[0-9]{4}$'){continue}
+            $adapter=$key.OpenSubKey($name)
+            try{
+                if([string]$adapter.GetValue('ProviderName') -like '*NVIDIA*'){
+                    [pscustomobject]@{DriverDesc=[string]$adapter.GetValue('DriverDesc');DriverVersion=[string]$adapter.GetValue('DriverVersion');DriverDate=[string]$adapter.GetValue('DriverDate')}
+                }
+            }finally{$adapter.Dispose()}
+        }
+    }finally{$key.Dispose()}
+}
 Push-Location -LiteralPath $root
 try{
     $revision=(& git rev-parse HEAD | Out-String).Trim()
@@ -77,9 +91,8 @@ try{
                 $_ -match '^set\(CMAKE_(CUDA|CXX)_(COMPILER_ID|COMPILER_VERSION|HOST_COMPILER_ID|HOST_COMPILER_VERSION) '
             } | ForEach-Object {$_.ToString()})
         Tool 'nvcc' @('--version') 'nvcc-version.log'
-        $manifest['windows_driver']=@(Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\*' |
-            Where-Object {$_.PSObject.Properties['ProviderName'] -and $_.ProviderName -like '*NVIDIA*'} |
-            Select-Object DriverDesc,DriverVersion,DriverDate)
+        # Inspect adapter records only, not the protected class Properties key.
+        $manifest['windows_driver']=@(Read-DisplayDriver)
         $libraries=@()
         foreach($dll in @('cudart64_13.dll','curand64_10.dll')){
             $path=Join-Path (Split-Path -Parent $exe) $dll
