@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
             } else {
                 if (option.rfind("--", 0) == 0 &&
                     !(option == "--csv" && positional.size() == 1))
-                    throw std::invalid_argument("Unknown, misplaced or duplicate option: " + option);
+                    throw std::invalid_argument("Unknown, misplaced or duplicate option");
                 positional.push_back(argv[i]);
             }
         }

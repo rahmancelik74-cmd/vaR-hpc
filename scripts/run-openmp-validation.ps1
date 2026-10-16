@@ -14,6 +14,16 @@ function Run-Tool($Tool, $Arguments, $LogName) {
     $code = $LASTEXITCODE
     $text = ($lines | Out-String).Replace($root, '<SOURCE>').Replace($root.Replace('\', '/'), '<SOURCE>')
     $text = $text.Replace($env:USERPROFILE, '<USER>').Replace($env:USERPROFILE.Replace('\', '/'), '<USER>')
+    # MSBuild's banner can use the OS language even with PreferredUILang.
+    # Retain the captured bytes locally and label the English transcription.
+    if ($text -match '(?m)^\.NET Framework.*MSBuild.*$') {
+        $rawPath = Join-Path $out ($LogName + '.native.txt')
+        [IO.File]::WriteAllText($rawPath, $text, $utf8)
+        $digest = Hash $rawPath
+        $text = [regex]::Replace($text, '(?m)^\.NET Framework.*MSBuild[^\r\n]*',
+            '.NET Framework MSBuild (localized banner transcribed in English)')
+        $text = "English transcription: only the localized MSBuild banner was replaced.`nCaptured log SHA-256: $digest`n" + $text
+    }
     [IO.File]::WriteAllText((Join-Path $out $LogName), $text, $utf8)
     if ($code -ne 0) { throw "$Tool failed with exit $code; see $LogName" }
 }
@@ -91,7 +101,8 @@ try {
         $manifest['compiler_identification'] = @(Get-Content -LiteralPath $compiler.FullName | Where-Object {
             $_ -match '^set\(CMAKE_CXX_(COMPILER_ID|COMPILER_VERSION|SIMULATE_ID|SIMULATE_VERSION|SIZEOF_DATA_PTR) '
         })
-        $manifest['cpu'] = @(Get-CimInstance Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors)
+        # Avoid an unbounded WMI inventory query; topology is documented separately.
+        $manifest['cpu_model'] = (Get-ItemProperty 'HKLM:\HARDWARE\DESCRIPTION\System\CentralProcessor\0').ProcessorNameString.Trim()
         $smoke = Sample 10000 '42' 4
         [IO.File]::WriteAllText((Join-Path $out 'smoke.json'), $smoke.raw + "`n", $utf8)
         $serialRaw = (& $exe --csv data/synthetic_prices.csv 10000 42 10 --json | Out-String).Trim()

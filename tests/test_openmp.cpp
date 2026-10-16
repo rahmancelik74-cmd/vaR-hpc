@@ -47,6 +47,16 @@ int main() {
                       a.end_to_end_ms >= 0 && a.backend == "openmp", "runtime metadata");
             }
         }
+        r.scenarios = 8193;
+        r.seed = 0;
+        const auto zero_seed = mc::OpenMPEngine(1).run(r);
+        equal(zero_seed, mc::OpenMPEngine(10).run(r));
+        r.seed = 1;
+        const auto other_seed = mc::OpenMPEngine(4).run(r);
+        check(zero_seed.estimates.back().var != other_seed.estimates.back().var,
+              "native stream must depend on run seed");
+        r.seed = (std::numeric_limits<std::uint64_t>::max)();
+        equal(mc::OpenMPEngine(1).run(r), mc::OpenMPEngine(10).run(r));
         r.scenarios = 4097;
         for (bool zero_horizon : {false, true}) {
             r.model = {};
