@@ -10,12 +10,14 @@ assistant's execution server is not used as the benchmark hardware.
 | Physical cores / logical threads | 10 / 16, from the student's CIM output |
 | RAM | 16 GB, reported by the student |
 | Full NVIDIA GPU model | NVIDIA GeForce RTX 4060 Laptop GPU |
-| VRAM | 8 GB, reported by the student |
+| VRAM | 8187 MiB reported by the CUDA runtime probe; nominal 8 GB |
 | NVIDIA driver | Windows DriverVersion 32.0.16.1088, Status OK |
 | CUDA Toolkit / nvcc version | release 13.4, V13.4.92, from the student's nvcc output |
 | C++ compiler and version | MSVC 19.44.35227; VS 17.14.32 |
 | CMake version | 3.31.6-msvc6 |
-| Release compiler flags | To be recorded |
+| Common C++ compiler flags | `/DWIN32 /D_WINDOWS /GR /EHsc`, from build-foundation/CMakeCache.txt |
+| Release compiler flags | `/O2 /Ob2 /DNDEBUG`, from build-foundation/CMakeCache.txt |
+| CMake generator | Visual Studio 17 2022; cached generator platform is empty |
 | OpenMP runtime / affinity settings | To be recorded |
 | GPU quantile library / version | To be recorded |
 
@@ -57,3 +59,33 @@ version strings alone are not a separate verification of the OS edition.
 At that verification date, compiler optimization flags, hosted CI and GPU
 runtime execution remained open. This CPU verification is not a formal
 performance benchmark.
+
+## Verified CUDA, CI and compiler settings: 2026-10-16
+
+The standalone CUDA probe compiled with NVIDIA nvcc 13.4.92 and host compiler
+MSVC 19.44.35227.0. It ran on the RTX 4060 Laptop GPU, reported compute
+capability 8.9 and 8187 MiB VRAM, and verified all 1024 GPU results. Allocation,
+host-to-device copy, kernel execution, synchronization, device-to-host copy
+and cleanup succeeded. Evidence: evidence/cuda-probe-20261016, commit 1acfee3.
+
+The probe reported driver API version 13030 and runtime version 13030. These
+are the values returned by the executed probe; they are not substituted for
+the separately observed nvcc 13.4.92 compiler version. Runtime-library selection
+has not yet been investigated. The nvidia-smi command was unavailable in PATH
+and in the two checked standard locations; Windows CIM identified the NVIDIA
+device and reported driver version 32.0.16.1088.
+
+The local serial Release build uses the common and Release flags recorded in
+the table above. The student supplied these CMakeCache.txt values and reported
+a clean working tree after 31fe206. The empty generator-platform cache value
+is recorded as observed, not filled with an assumed value. The successful
+CUDA-probe build explicitly selected x64; its build settings are separate
+from the serial benchmark configuration.
+
+Repository: https://github.com/rahmancelik74-cmd/vaR-hpc.
+The student reported successful hosted CPU build/test execution after 31fe206,
+with all four CTest tests passing. The workflow runs on ubuntu-latest and uses
+actions/checkout@v6. This is CPU CI evidence, not hosted GPU execution.
+
+OpenMP runtime/affinity, GPU quantile-library compatibility, full engine CUDA
+execution and laptop power/thermal conditions remain to be recorded.
