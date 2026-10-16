@@ -89,3 +89,13 @@ Do not create a duplicate. Meeting dates themselves are not known.
 Adds structured JSON output and a serial experiment runner with distinct smoke,
 validation and benchmark modes. Windows Release build, all four CTest tests and the serial smoke run passed. Evidence is archived in evidence/v022-smoke-20261015. The older three-test record applies to v0.2.1.
 No new OpenMP, CUDA, formal benchmark or supervisor acceptance is claimed.
+
+## Automated serial validation: 2026-10-16
+
+Completed against clean revision 33102c4 using v0.2.2.
+Four scenario counts, five seeds, 20 runs and 40 VaR estimates.
+CSV and JSONL values agree; manifest configuration was checked.
+Evidence: evidence/v022-validation-20261016.
+At N=10000000, both confidence levels satisfy the candidate aggregate
+error condition for this synthetic case. Approved proposal identity
+remains pending. This campaign is not a performance benchmark.
