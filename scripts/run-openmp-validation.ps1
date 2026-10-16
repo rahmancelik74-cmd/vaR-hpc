@@ -39,7 +39,7 @@ function Sample($N, $Seed, $Threads) {
         $run.input_mode -ne 'csv_calibration' -or $run.random_source -ne
         'block4096/splitmix64/mt19937_64/std::normal_distribution' -or
         @($run.estimates).Count -ne 2 -or $run.end_to_end_ms -lt 0 -or
-        $run.estimates[0].confidence -ne .95 -or $run.estimates[1].confidence -ne .99) {
+        [double]$run.estimates[0].confidence -ne .95 -or [double]$run.estimates[1].confidence -ne .99) {
         throw 'Unexpected OpenMP JSON metadata'
     }
     foreach ($e in $run.estimates) {
@@ -96,11 +96,11 @@ try {
         $manifest['version_output'] = (& $exe --version | Out-String).Trim()
         $manifest['compiler_settings'] = @(Get-Content 'build-openmp/CMakeCache.txt' | Where-Object {
             $_ -match '^(CMAKE_CXX_FLAGS[^:]*|CMAKE_GENERATOR[^:]*|OpenMP_CXX_FLAGS|OpenMP_CXX_SPEC_DATE|MC_ENABLE_OPENMP):'
-        })
+        } | ForEach-Object { $_.ToString() })
         $compiler = Get-ChildItem 'build-openmp/CMakeFiles/*/CMakeCXXCompiler.cmake' | Select-Object -First 1
         $manifest['compiler_identification'] = @(Get-Content -LiteralPath $compiler.FullName | Where-Object {
             $_ -match '^set\(CMAKE_CXX_(COMPILER_ID|COMPILER_VERSION|SIMULATE_ID|SIMULATE_VERSION|SIZEOF_DATA_PTR) '
-        })
+        } | ForEach-Object { $_.ToString() })
         # Avoid an unbounded WMI inventory query; topology is documented separately.
         $manifest['cpu_model'] = (Get-ItemProperty 'HKLM:\HARDWARE\DESCRIPTION\System\CentralProcessor\0').ProcessorNameString.Trim()
         $smoke = Sample 10000 '42' 4
@@ -135,9 +135,9 @@ try {
                 $runs += $sample.result
                 foreach ($e in $sample.result.estimates) {
                     $rows += [pscustomobject][ordered]@{
-                        scenarios=$n; seed=$seed; confidence=$e.confidence.ToString('R',$invariant)
-                        mc_var=$e.mc_var.ToString('R',$invariant)
-                        analytical_var=$e.analytical_var.ToString('R',$invariant)
+                        scenarios=$n; seed=$seed; confidence=([double]$e.confidence).ToString('R',$invariant)
+                        mc_var=([double]$e.mc_var).ToString('R',$invariant)
+                        analytical_var=([double]$e.analytical_var).ToString('R',$invariant)
                         requested_threads=4; threads_used=$sample.result.threads_used
                     }
                 }
@@ -148,7 +148,7 @@ try {
         foreach ($c in @(.95,.99)) {
             $tail = @($runs | Where-Object { $_.scenarios -eq 10000000 })
             if ($tail.Count -ne 5 -or $runs.Count -ne 20) { throw 'Incomplete campaign' }
-            $estimates = @($tail | ForEach-Object { $_.estimates | Where-Object { $_.confidence -eq $c } })
+            $estimates = @($tail | ForEach-Object { $_.estimates | Where-Object { [double]$_.confidence -eq $c } })
             $mean = ($estimates | Measure-Object -Property mc_var -Average).Average
             $analytical = [double]$estimates[0].analytical_var
             $initial = [double]$tail[0].model.initial_value
