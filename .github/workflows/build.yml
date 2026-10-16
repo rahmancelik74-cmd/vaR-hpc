@@ -1,10 +1,11 @@
-name: CPU build and tests
+﻿name: CPU build and tests
 on: [push, pull_request]
 jobs:
   cpu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure
+
