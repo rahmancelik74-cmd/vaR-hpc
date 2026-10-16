@@ -1,0 +1,15 @@
+{
+  "source_name": "REPLACE_WITH_VERIFIED_PROVIDER",
+  "source_url": "https://example.invalid/replace-with-exact-download-url",
+  "symbol": "MSFT",
+  "currency": "USD",
+  "retrieved_utc": "REPLACE_WITH_ORIGINAL_UTC_RETRIEVAL_TIMESTAMP",
+  "download_method": "REPLACE_WITH_ACTUAL_AUTHORIZED_DOWNLOAD_STEPS",
+  "price_adjustment_policy": "unknown",
+  "price_policy_url": "https://example.invalid/replace-with-provider-price-definition",
+  "local_reuse_conditions": "REPLACE_WITH_VERIFIED_LOCAL_RESEARCH_CONDITIONS",
+  "reuse_policy_url": "https://example.invalid/replace-with-provider-terms",
+  "local_use_verified": false,
+  "redistribution_permission": "unverified",
+  "data_kind": "historical_provider"
+}

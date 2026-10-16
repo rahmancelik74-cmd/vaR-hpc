@@ -28,6 +28,7 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | OpenMP implementation | include/mc/openmp.hpp, src/openmp.cpp | Separate library; private fixed-block RNG, parallel loss generation, serial sort |
 | CUDA walking skeleton | include/mc/cuda.hpp, src/cuda.cu | Optional mc_cuda library; device cuRAND, double losses, CUB sort and device rank gather; N <= 10000 |
 | Structured export | include/mc/output.hpp, src/output.cpp | Serialize one complete run without changing Engine |
+| Offline equity conversion | scripts/equity-data-common.ps1, scripts/import-equity-data.ps1 | Validate provider CSV/provenance, preserve raw bytes and produce ignored strict date,close input |
 | Experiment recorders | scripts/run-experiment.ps1, scripts/run-openmp-validation.ps1 | Serial campaigns and separate clean-source OpenMP correctness evidence |
 | CPU scaling recorder | scripts/run-cpu-benchmark.ps1, tools/cpu_probe.cpp | Fresh native serial/OpenMP pipeline timings, separate Windows topology/affinity/power instrumentation |
 | Analytical reference | src/core.cpp | Compute GBM VaR independently of Monte Carlo samples |

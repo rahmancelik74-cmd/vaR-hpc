@@ -101,4 +101,9 @@ if(BUILD_TESTING)
       -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cpu_probe.ps1"
       -Probe "$<TARGET_FILE:mc_cpu_probe>" -Executable "$<TARGET_FILE:mc_var>")
   endif()
+  if(WIN32)
+    add_test(NAME equity_import_tests COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
+      -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_equity_import.ps1"
+      -Executable "$<TARGET_FILE:mc_var>" -OpenMPEnabled "${MC_ENABLE_OPENMP}" -CudaEnabled "${MC_ENABLE_CUDA}")
+  endif()
 endif()

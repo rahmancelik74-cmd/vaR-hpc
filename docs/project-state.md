@@ -70,7 +70,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
 | Proposal source | Student confirmed Capstone_Project_Proposal_Form_Revised.docx as the approved file on 2026-10-16 | Reconcile the older candidate wording in acceptance-source.md when updating that register |
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
-| Data provenance | Synthetic fixture only | Real source, ticker/range, reuse/adjustment policy and checksum |
+| Data provenance | Offline importer and artificial-fixture checks available; genuine MSFT acquisition/policy blocked | Provider CSV for 2023-01-01 through 2025-12-31 plus verified Close adjustment and local reuse policy; see historical-data.md |
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder remains serial-only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8951236; run 38934437451 | Keep all three CPU jobs passing; GPU evidence remains local RTX execution |
@@ -294,3 +294,27 @@ Hosted CPU regression at the verified source passed all three existing jobs:
 https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451.
 CUDA is disabled in hosted CI; these results do not substitute for local GPU
 execution. Job metadata and CPU test/progress excerpts are archived separately.
+
+## Historical equity integration preparation: 2026-10-16
+
+Working candidate: MSFT daily Close, requested 2023-01-01 through 2025-12-31,
+one share, ten trading days and 252 observations/year. These remain working
+settings. No historical observations or calibration values are available yet.
+Stooq download/policy pages returned browser-verification HTML; adjustment and
+reuse conditions could not be verified. Alpha Vantage's free daily compact
+history cannot cover the requested interval; paid full history was not introduced.
+
+The offline converter preserves exact raw/metadata bytes, validates all rows,
+requires explicit reordering and records ranges, selected Close, transformations,
+hashes and policy declarations. Data and local outputs are ignored. Artificial
+fixtures independently check log returns and calibration against C++ JSON.
+The genuine-data runner separates CPU integration from capped CUDA native smoke
+and rejects artificial imports. No historical integration, GPU benchmark or
+full-scale GPU acceptance is claimed. Engines, IDs, previous evidence and local
+submission files are preserved. Protocol and exact missing inputs: historical-data.md.
+
+Local Windows x64 Release verification passed 7 CTests with OpenMP ON/CUDA OFF,
+6 with both OFF and 8 with CUDA ON. The new converter test passed 38 artificial
+fixture checks, independent C++ calibration, labelled runner smoke and tampering
+rejection. This is software verification while genuine historical acquisition
+is blocked; it is not a completed historical-data campaign.

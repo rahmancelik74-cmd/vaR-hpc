@@ -8,6 +8,8 @@ Fresh CPU scaling procedure and recorded limits:
 [docs/cpu-benchmark.md](docs/cpu-benchmark.md).
 Optional RTX-verified CUDA walking skeleton (N <= 10000, disabled by default):
 [docs/cuda-skeleton.md](docs/cuda-skeleton.md).
+Historical equity import, provenance requirements and current acquisition blocker:
+[docs/historical-data.md](docs/historical-data.md).
 
 The contribution of this project is computational. GBM and VaR provide a
 well-defined, independently verifiable workload for comparing the correctness
