@@ -1,0 +1,42 @@
+{
+    "schema_version":  1,
+    "mode":  "benchmark",
+    "status":  "completed",
+    "started_utc":  "2026-10-16T11:39:06.2236716Z",
+    "git_commit":  "6e3fc97e922bf7a1279bfca8b3d6bb97052b4e7e",
+    "working_tree_dirty":  false,
+    "git_status":  [
+
+                   ],
+    "executable_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\build-foundation\\Release\\mc_var.exe",
+    "executable_sha256":  "d605b0078b16bdffd862ba936435d164a5359122e5f15849f1f4ee72b9ac215d",
+    "application_version":  "mc_var 0.2.2 (CSV support enabled)",
+    "input_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\data\\synthetic_prices.csv",
+    "input_sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+    "input_hash_policy":  "SHA-256 of exact bytes, no newline normalization",
+    "scenario_counts":  [
+                            100000,
+                            1000000,
+                            10000000
+                        ],
+    "seeds":  [
+                  "42"
+              ],
+    "horizon_trading_days":  10,
+    "trading_days_per_year":  252,
+    "backend":  "serial",
+    "warmups":  3,
+    "measured_repetitions":  10,
+    "process_policy":  "New CLI process for every run; engine time only",
+    "timing_scope":  "Excludes process startup, CSV calibration, serialization and file I/O",
+    "repetitions_use_same_seed":  true,
+    "benchmark_campaign_completed":  true,
+    "supervisor_acceptance_evaluated":  false,
+    "os_version":  "Microsoft Windows NT 10.0.26200.0",
+    "logical_processors":  16,
+    "powershell_version":  "5.1.26100.9711",
+    "hardware_and_power_conditions":  "See docs/environment.md; record power/thermal conditions separately",
+    "executable_source_commit_verified":  false,
+    "cmake_cache_sha256":  "498a6f608070717bb914ff1a3b56760722e64dc331e9a81df5535cd89ad4932e",
+    "finished_utc":  "2026-10-16T11:39:23.3216331Z"
+}

@@ -99,3 +99,13 @@ Evidence: evidence/v022-validation-20261016.
 At N=10000000, both confidence levels satisfy the candidate aggregate
 error condition for this synthetic case. Approved proposal identity
 remains pending. This campaign is not a performance benchmark.
+
+## Serial benchmark infrastructure verified: 2026-10-16
+
+Clean revision 6e3fc97; three scenario counts, three warm-ups and
+ten measured repetitions each. All 39 runs were checked.
+Mean, sample standard deviation and throughput were independently
+recomputed and matched the summary. Warm-ups were excluded.
+Evidence: evidence/v022-serial-benchmark-20261016.
+Power/thermal conditions still need explicit recording for final comparisons.
+OpenMP and CUDA comparisons remain pending.
