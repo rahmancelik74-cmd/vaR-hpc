@@ -1,0 +1,91 @@
+{
+    "schema_version":  1,
+    "purpose":  "Windows OpenMP correctness; not a performance benchmark",
+    "status":  "completed",
+    "started_utc":  "2026-10-16T15:46:21.5367547Z",
+    "source_revision":  "05f982effc570366597fc5f13f8b3a0440b293a8",
+    "source_tree_clean_at_start":  true,
+    "source_to_binary_policy":  "Clean-first Release rebuild from the recorded clean commit in this invocation",
+    "application_version":  "0.3.0",
+    "backend":  "openmp",
+    "requested_threads":  4,
+    "scenarios":  [
+                      10000,
+                      100000,
+                      1000000,
+                      10000000
+                  ],
+    "seeds":  [
+                  "42",
+                  "123",
+                  "456",
+                  "789",
+                  "2026"
+              ],
+    "confidence_levels":  [
+                              0.95,
+                              0.99
+                          ],
+    "input":  "data/synthetic_prices.csv",
+    "input_sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+    "horizon_trading_days":  10,
+    "trading_days_per_year":  252,
+    "generator":  "Visual Studio 17 2022",
+    "platform":  "x64",
+    "configuration":  "Release",
+    "target_compile_options":  [
+                                   "mc_core: /W4",
+                                   "mc_openmp: /W4; OpenMP::OpenMP_CXX"
+                               ],
+    "os_version":  "Microsoft Windows NT 10.0.26200.0",
+    "logical_processors":  16,
+    "powershell_version":  "5.1.26100.9711",
+    "omp_environment":  {
+                            "OMP_NUM_THREADS":  null,
+                            "OMP_DYNAMIC":  null,
+                            "OMP_THREAD_LIMIT":  null,
+                            "OMP_PROC_BIND":  null,
+                            "OMP_PLACES":  null
+                        },
+    "log_policy":  "Captured tool output; source and user directory prefixes redacted; no numerical edits",
+    "common_input_evidence":  "openmp_tests in ctest-on.log; separate from native runs.jsonl",
+    "formal_performance_benchmark":  false,
+    "executable":  "build-openmp/Release/mc_var.exe",
+    "executable_sha256":  "43956a62190c57ca675e2a44fe4b95a2b1e4fc548e178463d1bb10c35badb297",
+    "cmake_version":  "cmake version 3.31.6-msvc6",
+    "version_output":  "mc_var 0.3.0 (CSV support enabled)",
+    "compiler_settings":  [
+                              "CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /GR /EHsc",
+                              "CMAKE_CXX_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1",
+                              "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG",
+                              "CMAKE_CXX_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG",
+                              "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG",
+                              "MC_ENABLE_OPENMP:BOOL=ON",
+                              "OpenMP_CXX_FLAGS:STRING=-openmp",
+                              "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+                              "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+                              "CMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022",
+                              "CMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Program Files/Microsoft Visual Studio/2022/Community",
+                              "CMAKE_GENERATOR_PLATFORM:INTERNAL=x64",
+                              "CMAKE_GENERATOR_TOOLSET:INTERNAL=",
+                              "OpenMP_CXX_SPEC_DATE:INTERNAL=200203"
+                          ],
+    "compiler_identification":  [
+                                    "set(CMAKE_CXX_COMPILER_ID \"MSVC\")",
+                                    "set(CMAKE_CXX_COMPILER_VERSION \"19.44.35227.0\")",
+                                    "set(CMAKE_CXX_SIMULATE_ID \"\")",
+                                    "set(CMAKE_CXX_SIMULATE_VERSION \"\")",
+                                    "set(CMAKE_CXX_SIZEOF_DATA_PTR \"8\")"
+                                ],
+    "cpu_model":  "12th Gen Intel(R) Core(TM) i7-12650H",
+    "actual_thread_counts":  [
+                                 4
+                             ],
+    "native_runs":  20,
+    "ctest_on_count":  6,
+    "ctest_off_count":  5,
+    "finished_utc":  "2026-10-16T15:46:39.6443615Z"
+}

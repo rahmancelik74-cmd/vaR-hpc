@@ -1,6 +1,6 @@
 # Project state
 
-Updated: 2026-10-16, Europe/Istanbul. Current source version: 0.2.2.
+Updated: 2026-10-16, Europe/Istanbul. Current source version: 0.3.0.
 Windows Release tests, serial validation/benchmark records, standalone CUDA
 execution and hosted CPU CI are verified.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
@@ -65,14 +65,14 @@ No real-market predictive validity or universal error guarantee is claimed.
 
 | Item | Status | Next evidence needed |
 | --- | --- | --- |
-| One authoritative local folder / Git | Verified; main synchronized with origin/main, clean after 31fe206 | Continue in the existing repository |
+| One authoritative local folder / Git | Continued from clean 254de8d; OpenMP source verified at 05f982e and pushed normally | Continue in the existing repository |
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
 | Proposal source | Student confirmed Capstone_Project_Proposal_Form_Revised.docx as the approved file on 2026-10-16 | Reconcile the older candidate wording in acceptance-source.md when updating that register |
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
 | Data provenance | Synthetic fixture only | Real source, ticker/range, reuse/adjustment policy and checksum |
-| Metadata / structured result export | v0.2.2 JSON output and PowerShell runner verified | Preserve the existing four-test, smoke and campaign evidence |
-| OpenMP | Not implemented | Common-input cross-check, RNG design and thread scaling |
-| CI | Hosted Ubuntu CPU build/test passed; checkout@v6, latest reported run after 31fe206 | Keep CI passing for subsequent changes |
+| Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder remains serial-only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
+| OpenMP | Implemented; Windows common-input tests and five-seed native validation passed | Thread scaling with placement, power and thermal conditions; sorting remains serial |
+| CI | Hosted Ubuntu ON/OFF build/test passed at 05f982e; run 38926767341 | Keep both configurations passing |
 | CUDA path | Compiler and standalone GPU execution verified | cuRAND/device quantile and the required end-to-end skeleton |
 | Benchmark | Serial campaign archived and statistics verified; full cross-engine comparison pending | OpenMP/CUDA measurements and complete power/thermal/placement metadata |
 
@@ -138,7 +138,48 @@ No numerical model, acceptance threshold or application behavior was changed.
 
 The serial Release flags are `/O2 /Ob2 /DNDEBUG`, in addition to the common
 flags `/DWIN32 /D_WINDOWS /GR /EHsc`. See environment.md for the recorded
-CMake generator and remaining settings. The next implementation task is the
-OpenMP backend through the existing Engine contract, with common-input
-validation before thread scaling. This advances work from the weeks 10-11
-block without marking unfinished earlier milestones as complete.
+CMake generator and remaining settings. OpenMP implementation and correctness
+verification are now complete as recorded below. The next OpenMP roadmap task
+is thread scaling with placement and power/thermal metadata. This advances work
+from the weeks 10-11 block without closing unfinished earlier milestones.
+
+## Windows OpenMP correctness milestone: 2026-10-16
+
+Source revision: 05f982effc570366597fc5f13f8b3a0440b293a8, clean before
+the recorded clean-first Windows x64 Release rebuild. Application: 0.3.0.
+Evidence: evidence/v030-openmp-windows-correctness-20261016.
+MSVC 19.44.35227.0; OpenMP 2.0, _OPENMP=200203, compiler flag -openmp.
+ON passed all six CTests; OFF passed all five applicable CTests, including
+clear rejection of unavailable OpenMP. Existing serial positional commands
+and JSON output work; serial calculations and RNG were not changed.
+
+The separate mc_openmp library generates double losses in fixed blocks of
+4096 using private RNG state. Native streams differ from serial, but estimates
+are invariant across requested threads 1,2,4,8,10 in the same build. Recorded
+native thread checks at N=10000 and 100000 used exactly those actual team sizes.
+Common-input tests compare identical read-only normals separately, cover block
+boundaries and worker exceptions, and do not constitute statistical validation.
+Sorting is serial. See openmp.md for RNG derivation and timing boundaries.
+
+The native-RNG correctness campaign contains all 20 combinations of four
+scenario counts (10000 through 10000000) and five seeds (42,123,456,789,2026).
+All runs requested and used four threads; 40 estimates were archived.
+CSV/JSON agreement, unique configurations, exact-byte input/executable hashes
+and error-of-mean calculations were independently checked.
+
+| Confidence | Five-seed mean at N=10000000 | Analytical VaR | Absolute error of mean | Allowed error | Result |
+| --- | --- | --- | --- | --- | --- |
+| 0.95 | 6.142451880525334 | 6.143576939418958 | 0.001125058893624242 | 0.06143576939418959 | Pass |
+| 0.99 | 8.712967414933399 | 8.715446716200948 | 0.002479301267548806 | 0.08715446716200948 | Pass |
+
+Criterion, separately per confidence:
+abs(mean(VaR)-analytical) <= 0.01*max(abs(analytical),0.01*initial_value).
+This is the error of the five-seed mean, not mean absolute error or a per-seed
+requirement. Initial value is 100.4. These are synthetic correctness runs,
+not a formal performance benchmark or market validation.
+
+Hosted CI for the verified source passed both matrix jobs:
+https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341.
+The archive includes job metadata and contiguous CTest log excerpts.
+No CUDA Monte Carlo work or supervisor submission was prepared. Plan A remains
+the main roadmap; academic week 5 and earlier open milestone items are unchanged.

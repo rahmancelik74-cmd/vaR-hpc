@@ -1,0 +1,85 @@
+{
+  "source_revision": "05f982effc570366597fc5f13f8b3a0440b293a8",
+  "workflow_run_id": 38926767341,
+  "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341",
+  "jobs": [
+    {
+      "id": 117060192888,
+      "name": "cpu (ON)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T15:47:27Z",
+      "completed_at": "2026-10-16T15:47:39Z",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341/job/117060192888",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=ON",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake --build build --parallel",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ctest --test-dir build --output-on-failure",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117060193194,
+      "name": "cpu (OFF)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T15:47:26Z",
+      "completed_at": "2026-10-16T15:47:35Z",
+      "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341/job/117060193194",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=OFF",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cmake --build build --parallel",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run ctest --test-dir build --output-on-failure",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

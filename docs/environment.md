@@ -18,7 +18,7 @@ assistant's execution server is not used as the benchmark hardware.
 | Common C++ compiler flags | `/DWIN32 /D_WINDOWS /GR /EHsc`, from build-foundation/CMakeCache.txt |
 | Release compiler flags | `/O2 /Ob2 /DNDEBUG`, from build-foundation/CMakeCache.txt |
 | CMake generator | Visual Studio 17 2022; cached generator platform is empty |
-| OpenMP runtime / affinity settings | To be recorded |
+| OpenMP runtime / affinity settings | MSVC -openmp, OpenMP 2.0 (_OPENMP=200203); runtime DLL version not inventoried; affinity variables unset in correctness campaign |
 | GPU quantile library / version | To be recorded |
 
 Initial inventory commands in Windows PowerShell:
@@ -87,5 +87,25 @@ The student reported successful hosted CPU build/test execution after 31fe206,
 with all four CTest tests passing. The workflow runs on ubuntu-latest and uses
 actions/checkout@v6. This is CPU CI evidence, not hosted GPU execution.
 
-OpenMP runtime/affinity, GPU quantile-library compatibility, full engine CUDA
-execution and laptop power/thermal conditions remain to be recorded.
+GPU quantile-library compatibility, full engine CUDA execution and laptop
+power/thermal conditions remain to be recorded.
+
+## Verified OpenMP Windows correctness: 2026-10-16
+
+Clean source 05f982e was rebuilt in build-openmp using the Visual Studio 17
+2022 generator with explicit platform x64 and Release configuration.
+MSVC 19.44.35227.0; CMake 3.31.6-msvc6; Windows version 10.0.26200.0.
+Common flags: /DWIN32 /D_WINDOWS /GR /EHsc; Release: /O2 /Ob2 /DNDEBUG;
+mc_core and mc_openmp use /W4; FindOpenMP supplied -openmp. All six ON tests
+and five OFF tests passed. The OFF build is in build-openmp-off.
+
+The 20 native statistical runs requested and used four threads. Separate
+native invariance checks requested and used 1,2,4,8,10 threads. OMP_NUM_THREADS,
+OMP_DYNAMIC, OMP_THREAD_LIMIT, OMP_PROC_BIND and OMP_PLACES were unset.
+This records observed team sizes without asserting a core placement policy.
+The compiler's _OPENMP macro was 200203; this is not a runtime DLL version.
+CPU model was read from the local hardware registry; the process reported
+16 logical processors. Detailed topology remains the previously recorded
+inventory. No power/thermal measurements or formal scaling benchmark are claimed.
+Manifest, exact-byte hashes, compiler flags and test logs are archived in
+evidence/v030-openmp-windows-correctness-20261016.

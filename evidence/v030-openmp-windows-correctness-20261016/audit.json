@@ -1,0 +1,11 @@
+{
+    "status":  "passed",
+    "native_runs":  20,
+    "matching_csv_json_estimates":  40,
+    "unique_configuration_pairs":  20,
+    "actual_campaign_threads":  4,
+    "independent_error_of_mean_recalculation":  "passed for 0.95 and 0.99 using explicit summation",
+    "native_thread_invariance":  "passed at N=10000 and 100000 for requested and actual threads 1,2,4,8,10",
+    "input_and_executable_sha256":  "matched archived manifest",
+    "historical_evidence":  "unchanged"
+}

@@ -1,0 +1,19 @@
+Hosted CTest log excerpt; source revision 05f982effc570366597fc5f13f8b3a0440b293a8.
+Source: https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341/job/117060193194
+Only the contiguous CTest output is included; timestamps retained.
+2026-10-16T15:47:33.5556688Z Internal ctest changing into directory: /home/runner/work/vaR-hpc/vaR-hpc/build
+2026-10-16T15:47:33.6151016Z Test project /home/runner/work/vaR-hpc/vaR-hpc/build
+2026-10-16T15:47:33.6562844Z     Start 1: core_tests
+2026-10-16T15:47:33.6633347Z 1/5 Test #1: core_tests .......................   Passed    0.00 sec
+2026-10-16T15:47:33.6686683Z     Start 2: json_output_tests
+2026-10-16T15:47:33.6706666Z 2/5 Test #2: json_output_tests ................   Passed    0.00 sec
+2026-10-16T15:47:33.6707796Z     Start 3: csv_calibration_tests
+2026-10-16T15:47:33.6721995Z 3/5 Test #3: csv_calibration_tests ............   Passed    0.00 sec
+2026-10-16T15:47:33.6723392Z     Start 4: csv_cli_smoke
+2026-10-16T15:47:33.6745361Z 4/5 Test #4: csv_cli_smoke ....................   Passed    0.00 sec
+2026-10-16T15:47:33.6747953Z     Start 5: cli_contract_tests
+2026-10-16T15:47:33.7120118Z 5/5 Test #5: cli_contract_tests ...............   Passed    0.04 sec
+2026-10-16T15:47:33.7122526Z 
+2026-10-16T15:47:33.7122890Z 100% tests passed, 0 tests failed out of 5
+2026-10-16T15:47:33.7123311Z 
+2026-10-16T15:47:33.7123399Z Total Test time (real) =   0.10 sec

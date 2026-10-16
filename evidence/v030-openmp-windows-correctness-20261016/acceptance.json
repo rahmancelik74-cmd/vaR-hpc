@@ -1,0 +1,26 @@
+[
+    {
+        "confidence":  0.95,
+        "scenarios":  10000000,
+        "seed_count":  5,
+        "mean_var":  6.1424518805253339,
+        "analytical_var":  6.1435769394189581,
+        "initial_value":  100.4,
+        "absolute_error_of_mean":  0.0011250588936242423,
+        "allowed_error":  0.061435769394189585,
+        "passed":  true,
+        "criterion":  "abs(mean(VaR)-analytical) \u003c= 0.01*max(abs(analytical),0.01*initial_value)"
+    },
+    {
+        "confidence":  0.99,
+        "scenarios":  10000000,
+        "seed_count":  5,
+        "mean_var":  8.7129674149333987,
+        "analytical_var":  8.7154467162009475,
+        "initial_value":  100.4,
+        "absolute_error_of_mean":  0.0024793012675488058,
+        "allowed_error":  0.087154467162009475,
+        "passed":  true,
+        "criterion":  "abs(mean(VaR)-analytical) \u003c= 0.01*max(abs(analytical),0.01*initial_value)"
+    }
+]

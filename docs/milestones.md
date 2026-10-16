@@ -11,7 +11,7 @@ Implemented later-week code does not by itself close unfinished foundation work.
 | 1-4 | Topic, proposal revision and roadmap | Roadmap records revised proposal approval | Identify the exact approved proposal file |
 | 5-6 | Conventions, hardware/toolchain inventory, CMake/repository/CI, Requirements and Design v1.0 | In progress | One repository, actual CI result, complete inventory and uploaded document |
 | 7-9 | CSV/calibration, analytical reference, serial, five-seed validation | Software and synthetic runs available; milestone not closed | Data provenance, acceptance-source confirmation and archived validation evidence |
-| 10-11 | OpenMP, common-input validation and thread scaling | Not started | Cross-engine checks and recorded thread sweep |
+| 10-11 | OpenMP, common-input validation and thread scaling | Implementation and Windows correctness complete; performance scaling pending | v0.3.0 evidence at evidence/v030-openmp-windows-correctness-20261016; measured scaling still required |
 | 12-13 | GPU walking skeleton through all layers | Not started | CSV to VaR using cuRAND/device quantile and shared interface, N=10000 |
 | 14 | CPU demonstration and interim report | Not started | Live validated CPU demo, timing output and interim report |
 
@@ -19,6 +19,14 @@ The 12-13 week skeleton includes host/device transfer timing and a VRAM capacity
 estimate. No accuracy/performance claim or optimization is required then.
 If only the skeleton is late, complete it early next term and shift the block.
 If the environment cannot work at all, decide with the supervisor at week 13.
+
+OpenMP correctness was verified early, in academic week 5, at source 05f982e.
+Six Windows ON tests, five OFF tests, common-input agreement and 20 native
+five-seed statistical runs passed. Native thread invariance checks are not
+performance scaling measurements. Next: record scaling across 1,2,4,8,10
+threads with placement, laptop power/thermal conditions and repeated timings.
+The GPU walking skeleton remains a later milestone; it was not started here.
+This early software result does not close the unfinished weeks 5-6 or 7-9 items.
 
 ## Second term Plan A
 

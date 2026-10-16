@@ -1,8 +1,8 @@
 # Architecture baseline
 
-Baseline date: 2026-10-15. Application baseline: 0.2.1; candidate export/runner extension: 0.2.2.
+Updated: 2026-10-16. Application version: 0.3.0; original baseline: 0.2.1.
 This records the implemented design and planned extensions separately.
-It does not claim that OpenMP or CUDA has been implemented.
+OpenMP is implemented and Windows-verified; CUDA Monte Carlo is still planned.
 
 ## Purpose and scope
 
@@ -24,11 +24,12 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | Data and calibration | include/mc/data.hpp, src/data.cpp | Validate price CSV, compute log returns and GBM parameters |
 | Compute contract | include/mc/core.hpp | Define Model, Request, Result and Engine |
 | Serial implementation | src/core.cpp | Own RNG/buffers, simulate terminal losses, sort, return VaR |
+| OpenMP implementation | include/mc/openmp.hpp, src/openmp.cpp | Separate library; private fixed-block RNG, parallel loss generation, serial sort |
 | Structured export | include/mc/output.hpp, src/output.cpp | Serialize one complete run without changing Engine |
-| Experiment runner | scripts/run-experiment.ps1 | Separate smoke, validation and benchmark records |
+| Experiment recorders | scripts/run-experiment.ps1, scripts/run-openmp-validation.ps1 | Serial campaigns and separate clean-source OpenMP correctness evidence |
 | Analytical reference | src/core.cpp | Compute GBM VaR independently of Monte Carlo samples |
 | Verification | tests/test_core.cpp, tests/test_data.cpp, tests/test_output.cpp | Model, quantile, data, calibration and JSON checks |
-| Build and smoke test | CMakeLists.txt | Build targets and register four CTest tests |
+| Build and smoke test | CMakeLists.txt | Four original tests plus CLI contract; OpenMP ON adds the sixth backend test |
 
 Current data flow: CLI parses options; data loading produces observations;
 calibration creates Model; CLI creates Request; Engine returns Result;
@@ -94,13 +95,17 @@ the manifest. Windows smoke verification passed on 2026-10-15; see experiments.m
 The runner records results without deciding supervisor acceptance.
 Do not label exploratory one-run times as official benchmark measurements.
 
-## Planned backend additions
+## OpenMP implementation and planned CUDA additions
 
-OpenMP will implement Engine independently of the serial RNG state. It needs
-safe parallel RNG ownership, common-input validation and explicit thread control.
-Initially the loss quantile may use serial CPU sorting. Measure this limitation
-rather than claiming the whole pipeline is parallel. Do not share one mutable
-standard-library RNG across threads.
+OpenMP implements Engine independently of serial RNG state in mc_openmp.
+Blocks of 4096 own private mt19937_64 and normal_distribution state; seeds
+are derived from the run seed and block index with SplitMix64 mixing. Native
+results are invariant across requested thread counts within the same build;
+native serial and OpenMP samples differ. Common-input validation is separate.
+Worker exceptions are captured inside the team and rethrown after completion.
+Sorting is serial, so only scenario generation is parallel. Details and the
+Windows correctness evidence procedure are in [openmp.md](openmp.md).
+The additive Result metadata records requested/actual threads and _OPENMP.
 
 The first-term CUDA skeleton must connect CSV, calibration, device cuRAND
 generation for 10000 scenarios, the intended full-version GPU quantile library
@@ -131,9 +136,10 @@ times. Profiling and memory/race checking run separately from benchmarks.
 1. Preserve the established Git baseline adb49bc and Windows test evidence
    commit 48429b5; continue in the same authoritative source folder.
 2. Finalize numbered requirements and the supervisor-confirmed acceptance source.
-3. Add reusable result export and experiment metadata without replacing Engine
-   with a CPU-specific loop or a requirement to return all losses to the host.
-4. Implement and validate OpenMP; keep the GPU skeleton milestone visible.
+3. Maintain the implemented result export and experiment metadata without
+   replacing Engine with a CPU-specific loop or requiring all losses on the host.
+4. Measure OpenMP thread scaling after the completed correctness milestone;
+   keep the later GPU skeleton milestone visible.
 
 Use small, reviewable changes. The current source layout is adequate; no
 framework, database or large directory refactor is required for these steps.

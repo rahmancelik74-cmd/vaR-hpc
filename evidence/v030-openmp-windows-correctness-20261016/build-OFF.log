@@ -1,0 +1,24 @@
+English transcription: only the localized MSBuild banner was replaced.
+Captured log SHA-256: 24273b5fccb714821f5bd8d3f39d99745800a9ce7b5afb99ae71ecdd9b3765cf
+.NET Framework MSBuild (localized banner transcribed in English)
+
+
+  1>Checking Build System
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  core.cpp
+  data.cpp
+  output.cpp
+  Generating Code...
+  mc_core.vcxproj -> <SOURCE>\build-openmp-off\Release\mc_core.lib
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  Building Custom Rule <SOURCE>/CMakeLists.txt
+  test_data.cpp
+  main.cpp
+  test_core.cpp
+  test_output.cpp
+  mc_tests.vcxproj -> <SOURCE>\build-openmp-off\Release\mc_tests.exe
+  mc_data_tests.vcxproj -> <SOURCE>\build-openmp-off\Release\mc_data_tests.exe
+  mc_output_tests.vcxproj -> <SOURCE>\build-openmp-off\Release\mc_output_tests.exe
+  mc_var.vcxproj -> <SOURCE>\build-openmp-off\Release\mc_var.exe
