@@ -47,8 +47,12 @@ configuration, native backend RNG. Each repetition uses the same seed to keep
 that workload fixed; these timing repeats are not independent statistical seeds.
 `-ScenarioCounts` and `-Seeds` allow explicitly recorded custom campaigns.
 The CSV path, executable and trading-day scale can also be supplied as parameters.
-Only the serial backend is supported in this version.
-This runner remains serial-only in v0.3.0. OpenMP correctness recording uses
+Serial remains the default for all modes. Smoke also accepts `-Backend openmp`
+and `-Threads 4` with an OpenMP-enabled v0.3.0 executable. Explicit threads
+require OpenMP; OpenMP validation/benchmark requests fail before execution.
+Serial CLI arguments retain v0.2.2 compatibility. See the small
+[synthetic demo](synthetic-demo.md) for paired commands and interpretation.
+OpenMP correctness recording uses
 the separate scripts/run-openmp-validation.ps1; see [openmp.md](openmp.md).
 Fresh serial/OpenMP performance scaling uses scripts/run-cpu-benchmark.ps1
 and its independent verifier; see [cpu-benchmark.md](cpu-benchmark.md). It uses

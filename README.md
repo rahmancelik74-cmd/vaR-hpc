@@ -8,8 +8,12 @@ Fresh CPU scaling procedure and recorded limits:
 [docs/cpu-benchmark.md](docs/cpu-benchmark.md).
 Optional RTX-verified CUDA walking skeleton (N <= 10000, disabled by default):
 [docs/cuda-skeleton.md](docs/cuda-skeleton.md).
-Historical equity import, provenance requirements and current acquisition blocker:
+Historical equity import and provenance requirements:
 [docs/historical-data.md](docs/historical-data.md).
+Current data rights and local session-date audit:
+[docs/data-rights-and-calendar.md](docs/data-rights-and-calendar.md).
+Small offline serial/OpenMP demonstration:
+[docs/synthetic-demo.md](docs/synthetic-demo.md).
 
 The contribution of this project is computational. GBM and VaR provide a
 well-defined, independently verifiable workload for comparing the correctness

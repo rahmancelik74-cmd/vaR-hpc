@@ -44,8 +44,10 @@ derived numerical evidence are copied into the public repository.
 This resolves local pipeline evaluation access. It does not approve a final
 public study dataset, supervisor redistribution, published derived tables or
 full research use beyond guest evaluation. Those purposes need suitable rights
-or a different source. The API provides data without a completeness guarantee;
-no exchange-calendar completeness audit is claimed.
+or a different source. The API provides data without a completeness guarantee.
+The subsequent local session-date audit and refreshed rights decision are
+recorded in [data-rights-and-calendar.md](data-rights-and-calendar.md); its
+provider-derived details remain private and do not grant research/sharing rights.
 
 ## Reproduction
 

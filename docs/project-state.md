@@ -1,6 +1,6 @@
 # Project state
 
-Updated: 2026-10-16, Europe/Istanbul. Current source version: 0.3.0.
+Updated: 2026-10-17, Europe/Istanbul. Current source version: 0.3.0.
 Windows Release tests, CPU correctness/scaling records, the CUDA walking
 skeleton on RTX 4060 and hosted CPU CI are verified. Full-scale CUDA is pending.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
@@ -70,8 +70,8 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
 | Proposal source | Student confirmed Capstone_Project_Proposal_Form_Revised.docx as the approved file on 2026-10-16 | Reconcile the older candidate wording in acceptance-source.md when updating that register |
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
-| Data provenance | Local genuine MSFT pipeline evaluation completed through documented Kibot guest access; redistribution prohibited | Final study/publication rights and calendar completeness remain unresolved; see kibot-evaluation.md |
-| Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder remains serial-only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
+| Data provenance | Genuine MSFT local integration complete; subsequent session-date audit recorded privately; redistribution prohibited | Final research/academic sharing/publication rights remain unresolved; see data-rights-and-calendar.md |
+| Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8951236; run 38934437451 | Keep all three CPU jobs passing; GPU evidence remains local RTX execution |
 | CUDA path | Capped walking skeleton verified on RTX 4060; cuRAND and CUB device quantiles through Engine | Later full-scale memory/batching and validation; no full-scale acceptance or benchmark yet |
@@ -343,3 +343,93 @@ ignored data/local and results. Public records retain procedure and software
 verification status without provider observations or derived numerical tables.
 The final research/publication dataset, suitable sharing rights and exchange-
 calendar completeness still require a separate decision. See kibot-evaluation.md.
+
+## Rights review and local calendar audit: 2026-10-17
+
+Current primary license/access pages were reviewed and preserved locally. The
+published grant remains internal-use only, covers related/derived information,
+and prohibits redistribution; guest API access is for evaluation. Final research,
+supervisor sharing and public derived-result rights are not established. Explicit
+permission covering those uses or a suitably licensed replacement source remains
+the next data decision. No contact, paid access or replacement was initiated.
+
+A separate offline checker now compares the existing import with the bounded
+Nasdaq US cash-equity session calendar, retaining early closes and the special
+January 9, 2025 closure. Its input hashes, differences, annual counts and conclusion
+remain under ignored results. Existing raw/metadata/price bytes and the original
+manifest are preserved; no observations were filled or removed and no settings
+changed. Completed calibration/backend integration was not restarted.
+
+Twelve artificial calendar checks and the new Windows CTest passed in the CPU
+build. Engines and the N <= 10000 CUDA guard are unchanged. Full-scale GPU work,
+performance campaigns and academic document authoring were not started. See
+data-rights-and-calendar.md for the procedure, sources and limits.
+
+## Offline serial/OpenMP demonstration
+
+The existing experiment recorder now permits OpenMP in smoke mode only, while
+retaining default serial behavior and serial v0.2.2 CLI compatibility. Separate
+native runs use the existing synthetic fixture, N=10000, seed 42, ten observation
+steps, 252 observations/year and a requested OpenMP team of four. Models,
+analytical references, estimates, engine times and hashes remain in local results.
+These runs are demos, not benchmark or aggregate statistical acceptance evidence.
+See synthetic-demo.md. The established OpenMP validation and CPU benchmark
+recorders, numerical engines and capped CUDA path are unchanged.
+
+## Continuation verification: 2026-10-17
+
+Read-only remote verification confirmed main HEAD and origin/main at 7497f10,
+with 1b61903 in its history. Existing staged changes, untracked local files and
+historical evidence were preserved. This verification used the current working
+tree, not a clean committed revision; no new commit or push was performed.
+
+Local import artifact hashes matched the existing manifest. The historical
+integration records and separate provenance binding were inspected without
+repeating acquisition, calibration or backend integration. A fresh offline
+calendar audit completed; its provider-derived conclusion and details remain
+private in ignored results. Local evidence paths:
+
+- `results/msft-kibot-integration-1b61903/manifest.json`
+- `results/msft-kibot-verification-20261017/provenance-binding.json`
+- `results/msft-calendar-continuation-05eff05b115e42a988d4e2d1557b1389/calendar-audit.json`
+
+Windows Release CTest passed 9/9 tests in build-historical-cpu (OpenMP ON,
+CUDA OFF) and 8/8 in build-historical-off (both OFF), including the calendar
+and synthetic demo recorder regressions. These checks used existing builds;
+no fresh compilation or CUDA test rerun is claimed. Local test logs are
+`build-historical-cpu/Testing/Temporary/LastTest.log` and
+`build-historical-off/Testing/Temporary/LastTest.log`; CTest may overwrite them
+on subsequent runs. The staged patch also passed `git diff --cached --check`.
+
+Final research, academic sharing and publication rights remain unresolved;
+local evaluation permission does not establish those rights. Next data step:
+obtain and review any additional written provider permission, or decide on a
+source with suitable documented rights before final research use. Full-scale
+CUDA acceptance and CPU/GPU benchmarking remain pending; the N <= 10000
+guard is unchanged. No restricted observations or derived numerical tables
+were added to repository documentation, and no academic deliverable was authored.
+
+## Calendar/demo review and Git recording: 2026-10-17
+
+Reviewed the bounded session calendar, immutable-input/hash checks, synthetic
+smoke recorder, regression tests and associated documentation. Corrected output
+path resolution to follow the PowerShell location rather than the process-wide
+current directory; the new regression deliberately separates those locations.
+The calendar suite now passes thirteen artificial checks.
+
+Both existing Windows x64 Release configurations were reconfigured and built
+with CUDA OFF. Final CTest passed 9/9 with OpenMP ON and 8/8 with OpenMP OFF.
+The first test attempt could not resolve Get-FileHash in child Windows PowerShell;
+the final runs used the standard Windows PowerShell module directories in the
+process environment only. No persistent environment setting was changed.
+Final logs and CMake caches are preserved under ignored
+results/calendar-demo-review-3a1607cf04fa47d29ec9e12bc2eafdec/ (openmp-ctest.log and serial-ctest.log).
+The tested checkout included the pending patch on base 7497f10; this is not a
+claim of clean-commit testing or a new CUDA execution result.
+
+Only calendar/demo code, tests and related documentation are selected for Git
+recording. Local AGENTS.md, output/, provider data and derived local results
+remain excluded. Engines, acceptance criteria and the CUDA cap are unchanged.
+The user reports that the provider has not replied to the permission request;
+final research/sharing rights remain unresolved. Full-scale CUDA acceptance,
+GPU benchmarking and academic authoring remain pending.

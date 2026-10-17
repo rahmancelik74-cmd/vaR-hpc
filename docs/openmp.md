@@ -72,5 +72,7 @@ Runs are correctness evidence for a synthetic fixture, not a performance
 benchmark or a claim of real-market validity. Thread scaling with placement,
 power and thermal metadata was subsequently recorded, with explicit sensor
 limitations, in evidence/v030-cpu-scaling-windows-20261016. See cpu-benchmark.md.
-The existing run-experiment.ps1
-remains serial-only and accepts versions 0.2.2 and 0.3.0.
+The existing run-experiment.ps1 retains serial recording for versions 0.2.2
+and 0.3.0 and now supports OpenMP in smoke mode with v0.3.0. It does not
+replace this correctness campaign or the CPU benchmark recorder. See
+[synthetic-demo.md](synthetic-demo.md).

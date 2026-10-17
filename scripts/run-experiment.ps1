@@ -7,10 +7,18 @@ param(
     [long[]]$ScenarioCounts,
     [UInt64[]]$Seeds,
     [ValidateRange(1, 1000000)][int]$HorizonTradingDays = 10,
-    [ValidateRange(1, 1000000)][int]$TradingDaysPerYear = 252
+    [ValidateRange(1, 1000000)][int]$TradingDaysPerYear = 252,
+    [ValidateSet('serial','openmp')][string]$Backend = 'serial',
+    [ValidateRange(1, 2147483647)][int]$Threads = 4
 )
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = 'Stop'
+if ($Backend -eq 'openmp' -and $Mode -ne 'smoke') {
+    throw 'OpenMP recording in this runner is smoke-only; use the existing correctness or CPU benchmark recorder for campaigns.'
+}
+if ($Backend -eq 'serial' -and $PSBoundParameters.ContainsKey('Threads')) {
+    throw 'Threads requires the openmp backend.'
+}
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $utf8 = [System.Text.UTF8Encoding]::new($false)
 
@@ -28,17 +36,23 @@ function Invoke-Sample($ScenarioCount, $Seed, $Phase, $Index) {
     $runId = '{0}-{1}-{2}-{3}' -f $ScenarioCount, $Seed, $Phase, $Index
     $errorPath = Join-Path $outputDirectory ($runId + '.stderr.txt')
     $cliArgs = @('--csv', $csvPath, [string]$ScenarioCount, [string]$Seed,
-        [string]$HorizonTradingDays, [string]$TradingDaysPerYear, '--json')
+        [string]$HorizonTradingDays, [string]$TradingDaysPerYear)
+    if ($Backend -eq 'openmp') { $cliArgs += @('--backend', 'openmp', '--threads', [string]$Threads) }
+    $cliArgs += '--json'
     $raw = @(& $exePath @cliArgs 2> $errorPath)
     if ($LASTEXITCODE -ne 0) {
         throw "Application failed for $runId. See $errorPath"
     }
     $run = ($raw -join "`n") | ConvertFrom-Json
     if ($run.schema_version -ne 1 -or $run.application_version -notin @('0.2.2', '0.3.0') -or
-        $run.backend -ne 'serial' -or $run.scenarios -ne $ScenarioCount -or
+        $run.backend -ne $Backend -or $run.scenarios -ne $ScenarioCount -or
         [string]$run.seed -ne [string]$Seed -or $run.input_mode -ne 'csv_calibration' -or
         @($run.estimates).Count -ne 2 -or $run.end_to_end_ms -lt 0) {
         throw "Unexpected application output for $runId"
+    }
+    if ($Backend -eq 'openmp' -and ($run.requested_threads -ne $Threads -or
+        $run.threads_used -lt 1 -or $run.threads_used -gt $Threads)) {
+        throw "Unexpected OpenMP team metadata for $runId"
     }
     $record = [ordered]@{run_id=$runId; phase=$Phase; index=$Index; result=$run}
     $line = ConvertTo-Json -InputObject $record -Depth 12 -Compress
@@ -89,6 +103,9 @@ try {
     if ($LASTEXITCODE -ne 0 -or $version -notmatch '^mc_var 0\.(2\.2|3\.0) ') {
         throw 'Build mc_var 0.2.2 or 0.3.0 before running serial experiments.'
     }
+    if ($Backend -eq 'openmp' -and $version -notmatch '^mc_var 0\.3\.0 ') {
+        throw 'OpenMP smoke requires mc_var 0.3.0 with OpenMP enabled.'
+    }
     $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
     $suffix = [Guid]::NewGuid().ToString('N').Substring(0, 8)
     $outputDirectory = Join-Path $projectRoot "results/$Mode-$stamp-$suffix"
@@ -101,12 +118,14 @@ try {
         started_utc=[DateTime]::UtcNow.ToString('o')
         git_commit=$commit; working_tree_dirty=($gitStatus.Count -gt 0)
         git_status=$gitStatus; executable_path=$exePath
+        recorder_sha256=(Get-Sha256 $PSCommandPath)
         executable_sha256=(Get-Sha256 $exePath); application_version=$version
         input_path=$csvPath; input_sha256=(Get-Sha256 $csvPath)
         input_hash_policy='SHA-256 of exact bytes, no newline normalization'
         scenario_counts=$ScenarioCounts; seeds=@($Seeds | ForEach-Object { [string]$_ })
         horizon_trading_days=$HorizonTradingDays; trading_days_per_year=$TradingDaysPerYear
-        backend='serial'; warmups=$warmups; measured_repetitions=$repetitions
+        backend=$Backend; requested_threads=$(if ($Backend -eq 'openmp') { $Threads } else { 0 })
+        warmups=$warmups; measured_repetitions=$repetitions
         process_policy='New CLI process for every run; engine time only'
         timing_scope='Excludes process startup, CSV calibration, serialization and file I/O'
         repetitions_use_same_seed=($Mode -eq 'benchmark')

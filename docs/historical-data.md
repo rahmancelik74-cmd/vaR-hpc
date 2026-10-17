@@ -11,6 +11,11 @@ accessible. The dated acquisition blocker below is retained as history, not the
 latest availability claim. See [Kibot evaluation](kibot-evaluation.md) for the
 explicit unadjusted format, restricted license and local-only workflow.
 
+Subsequent verified state: genuine local integration is complete. The current
+rights review and separate session-date audit are documented in
+[data-rights-and-calendar.md](data-rights-and-calendar.md). Final research and
+sharing rights remain unresolved; the older acquisition blocker below is history.
+
 ## Acquisition and policy status on 2026-10-16
 
 No provider dataset has been approved or imported. Genuine coverage, row
@@ -150,8 +155,9 @@ The supplied executable hash is recorded, but source-to-binary correspondence
 is not asserted by this runner. Keep the Release build log externally when
 running a genuine campaign. One process per backend includes the existing
 engine timing boundary; these are connectivity checks, not benchmarks or
-full-scale GPU statistical acceptance. GPU N remains capped at 10000. No genuine
-historical integration has been executed while acquisition/policy is blocked.
+full-scale GPU statistical acceptance. GPU N remains capped at 10000. At the
+2026-10-16 preparation stage, genuine historical integration was blocked; the
+later Kibot evaluation completed local integration as recorded above.
 
 ## Verification and publication
 
