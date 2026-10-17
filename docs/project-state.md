@@ -433,3 +433,36 @@ remain excluded. Engines, acceptance criteria and the CUDA cap are unchanged.
 The user reports that the provider has not replied to the permission request;
 final research/sharing rights remain unresolved. Full-scale CUDA acceptance,
 GPU benchmarking and academic authoring remain pending.
+
+## Hosted CPU CI verification for b0cd749: 2026-10-17
+
+GitHub Actions run [39058591082](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39058591082),
+attempt 1, completed successfully for pushed commit
+`b0cd749d62e05d8c04ed73e8d20d3e8cf342dd10` on main. The remote main reference
+was checked and matched this commit before this documentation update.
+Run metadata, individual job/step conclusions and decoded job logs were reviewed:
+
+- Ubuntu `cpu (ON)`, job 117471580693: Release configure/build and CTest
+  succeeded; 6/6 tests passed with OpenMP ON and CUDA OFF.
+- Ubuntu `cpu (OFF)`, job 117471580927: Release configure/build and CTest
+  succeeded; 5/5 tests passed with OpenMP OFF and CUDA OFF.
+- `windows-instrumentation`, job 117471580913, on windows-2022: the existing
+  CPU recorder smoke/instrumentation step succeeded, including one warm-up
+  round and two measured smoke rounds. Its console log does not print a
+  CTest count; the local Windows counts below are separate evidence.
+
+No CI failure required a source correction. Local Windows Release evidence
+remains in `results/calendar-demo-review-3a1607cf04fa47d29ec9e12bc2eafdec/`:
+OpenMP 9/9, serial-only 8/8, and thirteen artificial calendar checks, as recorded
+in the preceding review. Hosted CPU success is not local RTX execution,
+full-scale CUDA acceptance or a performance benchmark. This follow-up changes
+only this state document; `git diff --check` is the relevant local check.
+
+The user reports no Kibot permission response; final research, academic sharing
+and publication rights remain open. Next data step is to review a provider
+response when available, without treating evaluation access as research or
+redistribution permission. Completed historical integration was not repeated.
+No restricted data/results, local AGENTS.md or output/ are selected for commit.
+Full-scale CUDA, GPU benchmarking and academic authoring were not started.
+This documentation update is to be committed and pushed separately from the
+CI-tested source commit; that new commit is not covered by run 39058591082.
