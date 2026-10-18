@@ -20,6 +20,9 @@ struct Request {
 };
 struct Estimate { double confidence; double var; };
 struct CudaMetadata {
+    std::string mode = "full-device";
+    std::size_t requested_batch_size = 0, effective_batch_size = 0, batch_count = 0;
+    std::size_t normals_generated = 0, host_loss_bytes = 0, losses_transferred = 0;
     std::string device_name, compiler_version, curand_header_version;
     int compute_major = 0, compute_minor = 0;
     int driver_api_version = 0, runtime_version = 0, runtime_header_version = 0;

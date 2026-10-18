@@ -27,7 +27,7 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | Compute contract | include/mc/core.hpp | Define Model, Request, Result and Engine |
 | Serial implementation | src/core.cpp | Own RNG/buffers, simulate terminal losses, sort, return VaR |
 | OpenMP implementation | include/mc/openmp.hpp, src/openmp.cpp | Separate library; private fixed-block RNG, parallel loss generation, serial sort |
-| CUDA full-device engine | include/mc/cuda.hpp, src/cuda.cu | Optional mc_cuda library; device cuRAND, double losses, one global CUB sort and device rank gather; N <= 10000000 subject to memory preflight |
+| CUDA engine | include/mc/cuda.hpp, src/cuda.cu | Optional mc_cuda library; default global device CUB quantile or explicitly selected bounded batches with one global host quantile; N <= 10000000 subject to memory checks |
 | Structured export | include/mc/output.hpp, src/output.cpp | Serialize one complete run without changing Engine |
 | Offline equity conversion | scripts/equity-data-common.ps1, scripts/import-equity-data.ps1 | Validate provider CSV/provenance, preserve raw bytes and produce ignored strict date,close input |
 | Experiment recorders | scripts/run-experiment.ps1, scripts/run-openmp-validation.ps1 | Serial campaigns and separate clean-source OpenMP correctness evidence |
@@ -122,12 +122,13 @@ This proves connectivity, not full-scale analytical acceptance or speed.
 
 The first scale-up retains that path up to 10 million scenarios with checked
 sizes, device launch limits and an actual-request CUB workspace budget.
-Batching and the hybrid fallback remain the next separate step. CUB 3.4.3 is
+Explicit hybrid batching is now implemented separately from the default path;
+see [cuda-hybrid.md](cuda-hybrid.md). CUB 3.4.3 is
 validated locally for the skeleton and selected as the intended later quantile
 library. Changes to that decision must be explicit. Details, limits, transfer
 events and the initial VRAM estimate are in [cuda-skeleton.md](cuda-skeleton.md).
 
-The hybrid fallback generates batches on GPU and computes one global host
+The explicitly selected hybrid mode generates batches on GPU and computes one global host
 quantile from all scalar losses. Never average batch VaRs. Mark the hybrid
 backend and include transfers and host quantile time in its end-to-end result.
 

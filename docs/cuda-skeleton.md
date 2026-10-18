@@ -5,8 +5,9 @@ The first-term walking skeleton has been extended to support 1 through
 preflight and checked allocations. Application version remains 0.3.0; source
 revision and CUDA milestone metadata identify this change. The Engine interface,
 CPU numerical engines, native PHILOX stream and double precision are preserved.
-Batching and hybrid fallback are the next separate step. This does not complete
-Plan A's memory/batching milestone, statistical acceptance or benchmarking.
+The explicit bounded-memory hybrid mode is described in [cuda-hybrid.md](cuda-hybrid.md).
+Full-device remains the default. Implementation checks do not establish
+GPU statistical acceptance, sanitizer correctness or benchmark results.
 
 ## Device path and quantile library decision
 
@@ -151,6 +152,14 @@ revision and dirty source hashes separately rather than claim clean-commit testi
 The Windows driver package version, driver API version, nvcc, runtime header,
 API-returned runtime and DLL file versions remain distinct observations.
 Hosted CPU CI leaves CUDA disabled; local RTX execution is the GPU evidence.
+
+To add reproducible hybrid regression/native-reference checks, use
+-IncludeHybridChecks. With -IncludeScaleChecks it also records hybrid native
+and common-input checks at the three target sizes. -HybridBatchSize defaults
+to 65535 and controls the requested native hybrid batch size; output records
+show any native rounding. The clean-source policy is unchanged. Manifest
+host_sorting_used=false describes full-device; hybrid_host_sorting_used and
+verification_modes explicitly identify the additional host-quantile checks.
 
 The first-term evidence under evidence/v030-cuda-skeleton-windows-20261016 is
 unchanged and remains capped connectivity evidence, with its historical test

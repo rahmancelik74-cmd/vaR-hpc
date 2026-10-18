@@ -36,6 +36,18 @@ int main() {
         rejects<std::invalid_argument>([]{ validate_cuda_counts(1, 0); });
         rejects<std::invalid_argument>([]{ validate_cuda_counts(1, 17); });
         rejects<std::overflow_error>([&]{ normal_count(maximum, false); });
+        check(hybrid_batch_size(11,3,false)==4, "Odd native batch rounds up");
+        check(hybrid_batch_size(11,3,true)==3, "Odd common batch remains exact");
+        check(hybrid_batch_size(5,99,false)==5, "Batch larger than N clamps to N");
+        check(hybrid_batch_size(11,1,false)==2, "Native single request uses pairs");
+        check(hybrid_device_bytes(4,4)==8*sizeof(double)+sizeof(int), "Hybrid buffer budget");
+        rejects<std::invalid_argument>([]{hybrid_batch_size(11,0,false);});
+        rejects<std::invalid_argument>([&]{hybrid_batch_size(11,maximum,false);});
+        rejects<std::overflow_error>([&]{hybrid_device_bytes(maximum,1);});
+        rejects<std::overflow_error>([&]{host_loss_storage(maximum,maximum);});
+        rejects<std::length_error>([]{host_loss_storage(11,10);});
+        check(host_loss_storage(11,11)==11*sizeof(double), "Exact host loss storage");
+        rejects<std::runtime_error>([]{require_memory_budget(hybrid_device_bytes(4,4),1);});
         // Hand-accounted arrays: 6 normals, two 5-loss arrays, 2 values/indices, flag, workspace.
         check(explicit_device_bytes(6, 5, 2, 17) == 18*sizeof(double)
             + 2*sizeof(std::size_t) + sizeof(int) + 17, "Exact device budget");

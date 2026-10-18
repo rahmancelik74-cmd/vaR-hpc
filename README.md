@@ -8,6 +8,8 @@ Fresh CPU scaling procedure and recorded limits:
 [docs/cpu-benchmark.md](docs/cpu-benchmark.md).
 Optional full-device CUDA backend (N <= 10000000, memory preflight, disabled by default):
 [docs/cuda-skeleton.md](docs/cuda-skeleton.md).
+Explicit bounded-memory CUDA batching with a global host quantile:
+[docs/cuda-hybrid.md](docs/cuda-hybrid.md).
 Historical equity import and provenance requirements:
 [docs/historical-data.md](docs/historical-data.md).
 Current data rights and local session-date audit:

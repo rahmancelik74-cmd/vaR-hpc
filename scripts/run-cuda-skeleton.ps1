@@ -1,5 +1,6 @@
 [CmdletBinding()]
-param([string]$OutputDirectory='', [switch]$IncludeScaleChecks)
+param([string]$OutputDirectory='', [switch]$IncludeScaleChecks, [switch]$IncludeHybridChecks,
+      [ValidateRange(1,10000000)][int]$HybridBatchSize=65535)
 Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $PSScriptRoot
@@ -50,6 +51,25 @@ function Sample($Count,$Seed){
     foreach($estimate in $run.estimates){if([double]::IsNaN([double]$estimate.mc_var) -or
         [double]::IsInfinity([double]$estimate.mc_var)){throw 'Nonfinite native quantile'}}
     [IO.File]::WriteAllText((Join-Path $out "native-N$Count.json"),$raw+"`n",$utf8)
+    return $run
+}
+function HybridSample($Count,$Seed){
+    $raw=@(& $exe --csv data/synthetic_prices.csv $Count $Seed 10 252 --backend cuda --cuda-mode hybrid --batch-size $HybridBatchSize --json) -join "`n"
+    if($LASTEXITCODE -ne 0){throw 'Hybrid CUDA synthetic check failed'}
+    $run=$raw | ConvertFrom-Json
+    $effective=[Math]::Min($Count,$HybridBatchSize+$HybridBatchSize%2)
+    $batches=[long][Math]::Ceiling($Count/[double]$effective)
+    if($run.backend -cne 'cuda' -or $run.scenarios -ne $Count -or $run.seed -cne $Seed -or
+        $run.input_mode -cne 'csv_calibration' -or $run.random_source -cne 'cuRAND/PHILOX4_32_10/normal-double' -or
+        $run.cuda.mode -cne 'hybrid' -or $run.cuda.quantile_location -cne 'host' -or -not $run.cuda.host_sorting_used -or
+        $run.cuda.requested_batch_size -ne $HybridBatchSize -or $run.cuda.effective_batch_size -ne $effective -or
+        $run.cuda.batch_count -ne $batches -or $run.cuda.losses_transferred -ne $Count -or
+        $run.cuda.normals_generated -ne ($Count+$Count%2) -or $run.cuda.host_to_device_bytes -ne 0 -or
+        $run.cuda.device_to_host_bytes -ne (8*$Count+4*$batches) -or $run.cuda.cub_temporary_bytes -ne 0 -or
+        $run.cuda.explicit_device_bytes -gt $run.cuda.allocation_budget_limit_bytes){throw 'Hybrid metadata/accounting mismatch'}
+    foreach($estimate in $run.estimates){if([double]::IsNaN([double]$estimate.mc_var) -or
+        [double]::IsInfinity([double]$estimate.mc_var)){throw 'Nonfinite hybrid quantile'}}
+    [IO.File]::WriteAllText((Join-Path $out "hybrid-native-N$Count.json"),$raw+"`n",$utf8)
     return $run
 }
 function Read-DisplayDriver{
@@ -157,6 +177,30 @@ try{
             Check-Common $scaleCommon @(100000,1000000,10000000)
             [IO.File]::WriteAllText((Join-Path $out 'common-input-scale-checks.json'),$scaleRaw+"`n",$utf8)
             $manifest['common_input_scale_estimate_checks']=@($scaleCommon.cases).Count
+        }
+        if($IncludeHybridChecks){
+            $manifest['verification_modes']=@('full-device','hybrid')
+            $manifest['hybrid_host_sorting_used']=$true
+            $hybridTest=Join-Path $root 'build-cuda-skeleton/Release/mc_cuda_hybrid_tests.exe'
+            $manifest['hybrid_test_executable_sha256']=Get-CpuHash $hybridTest
+            $hybridArguments=@(); if($IncludeScaleChecks){$hybridArguments=@('--scale-common')}
+            $hybridRaw=@(& $hybridTest @hybridArguments) -join "`n"
+            if($LASTEXITCODE -ne 0){throw 'Hybrid common-input/native-reference checks failed'}
+            $hybridChecks=$hybridRaw | ConvertFrom-Json
+            if(-not $hybridChecks.native_reference_contract_passed -or -not $hybridChecks.invalid_input_and_recovery_checks_passed){
+                throw 'Incomplete hybrid verification'
+            }
+            if($IncludeScaleChecks){foreach($n in @(100000,1000000,10000000)){
+                if(@($hybridChecks.cases | Where-Object {$_.kind -ceq 'common-input' -and $_.scenarios -eq $n -and $_.passed}).Count -ne 1){
+                    throw "Missing hybrid common-input scale case $n"
+                }
+            }}
+            [IO.File]::WriteAllText((Join-Path $out 'hybrid-checks.json'),$hybridRaw+"`n",$utf8)
+            $null=HybridSample 11 '42'
+            if($IncludeScaleChecks){foreach($n in @(100000,1000000,10000000)){$null=HybridSample $n '42'}}
+            if((Get-CpuHash $hybridTest) -cne $manifest.hybrid_test_executable_sha256){throw 'Hybrid test executable changed'}
+            $manifest['hybrid_checks']=$hybridChecks
+            $manifest['hybrid_requested_batch_size']=$HybridBatchSize
         }
         $manifest['runtime_version_note']='Compiler, header, DLL file version and API-returned runtime/driver values are distinct observations; no substitution'
         foreach($backend in @('serial','openmp')){

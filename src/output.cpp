@@ -26,7 +26,19 @@ void number(std::ostream& out, double value) {
     out << value;
 }
 void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
-    out << "{\"milestone\":\"full_device_scale_up\",\"scenario_limit\":"
+    const bool hybrid = c.mode == "hybrid";
+    out << "{\"milestone\":";
+    string_value(out, hybrid ? "hybrid_batching" : "full_device_scale_up");
+    out << ",\"mode\":"; string_value(out, c.mode);
+    out << ",\"quantile_location\":"; string_value(out, hybrid ? "host" : "device");
+    out << ",\"requested_batch_size\":" << c.requested_batch_size
+        << ",\"effective_batch_size\":" << c.effective_batch_size << ",\"batch_count\":" << c.batch_count
+        << ",\"normals_generated\":" << c.normals_generated << ",\"host_loss_bytes\":" << c.host_loss_bytes
+        << ",\"losses_transferred\":" << c.losses_transferred
+        << ",\"rng_partition_policy\":";
+    string_value(out, hybrid ? "One persistent PHILOX generator; even interior calls; final total-request padding only; call partition is part of RNG configuration, no batch-size invariance promised"
+        : "One PHILOX normal-double call; final total-request padding only");
+    out << ",\"scenario_limit\":"
         << detail::cuda_scenario_limit << ",\"device\":";
     string_value(out, c.device_name);
     out << ",\"compute_major\":" << c.compute_major << ",\"compute_minor\":" << c.compute_minor
@@ -35,17 +47,22 @@ void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
         << ",\"runtime_header_version\":" << c.runtime_header_version << ",\"curand_header_version\":";
     string_value(out, c.curand_header_version);
     out << ",\"curand_runtime_version\":" << c.curand_runtime_version
-        << ",\"quantile_library\":\"CUB DeviceRadixSort::SortKeys<double> and device nearest-rank gather\""
-        << ",\"cub_version\":" << c.cub_version << ",\"host_sorting_used\":false"
+        << ",\"quantile_library\":";
+    string_value(out, hybrid ? "std::sort<double> and shared sorted_quantile over all N host losses"
+        : "CUB DeviceRadixSort::SortKeys<double> and device nearest-rank gather");
+    out << ",\"cub_version\":" << c.cub_version << ",\"host_sorting_used\":" << (hybrid ? "true" : "false")
         << ",\"host_to_device_ms\":"; number(out, c.host_to_device_ms);
     out << ",\"device_to_host_ms\":"; number(out, c.device_to_host_ms);
     out << ",\"host_to_device_bytes\":" << c.host_to_device_bytes << ",\"device_to_host_bytes\":" << c.device_to_host_bytes
-        << ",\"transfer_timer\":\"CUDA Events on the engine stream; pageable host staging is included only in primary wall time\""
+        << ",\"transfer_timer\":\"Sum of CUDA Event copy intervals on the engine stream across all batches; pageable host staging is included only in primary wall time\""
         << ",\"normals_allocated\":" << c.normals_allocated << ",\"cub_temporary_bytes\":" << c.cub_temporary_bytes
         << ",\"explicit_device_bytes\":" << c.explicit_device_bytes << ",\"total_vram_bytes\":" << c.total_vram_bytes
         << ",\"free_before_bytes\":" << c.free_before_bytes << ",\"free_with_pipeline_bytes\":" << c.free_with_pipeline_bytes
         << ",\"allocation_budget_limit_bytes\":" << c.allocation_budget_limit_bytes
-        << ",\"capacity_policy\":\"Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee\"}";
+        << ",\"capacity_policy\":";
+    string_value(out, hybrid ? "Reject three explicit batch buffers exceeding floor(4*free_before_bytes/5); queried after context/stream/events, before buffer allocation; excludes host losses, opaque library/context allocations and other GPU activity; not a capacity guarantee"
+        : "Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee");
+    out << '}';
 }
 }
 void write_run_json(std::ostream& output, const Request& r,

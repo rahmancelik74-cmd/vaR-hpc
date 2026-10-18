@@ -35,6 +35,22 @@ inline void validate_cuda_counts(std::size_t n, std::size_t k) {
 inline std::size_t normal_count(std::size_t n, bool common) {
     return common ? n : checked_add(n, n % 2);
 }
+inline std::size_t hybrid_batch_size(std::size_t n, std::size_t requested, bool common) {
+    if (n == 0 || n > cuda_scenario_limit || requested == 0 || requested > cuda_scenario_limit)
+        throw std::invalid_argument("Hybrid CUDA batch size must be 1 through 10000000");
+    // Interior native batches consume even counts; only the total request's tail is padded.
+    const auto rounded = common ? requested : normal_count(requested, false);
+    return rounded < n ? rounded : n;
+}
+inline std::size_t hybrid_device_bytes(std::size_t normals, std::size_t losses) {
+    return checked_add(checked_add(checked_multiply(normals, sizeof(double)),
+        checked_multiply(losses, sizeof(double))), sizeof(int));
+}
+inline std::size_t host_loss_storage(std::size_t n, std::size_t max_count) {
+    const auto bytes = checked_multiply(n, sizeof(double));
+    if (n > max_count) throw std::length_error("Hybrid host loss count exceeds vector capacity");
+    return bytes;
+}
 inline std::size_t explicit_device_bytes(std::size_t normals, std::size_t n,
                                          std::size_t k, std::size_t workspace) {
     auto bytes = checked_multiply(normals, sizeof(double));

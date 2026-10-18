@@ -50,6 +50,13 @@ int main() {
         check(device_out.str().find("\"milestone\":\"full_device_scale_up\"") != std::string::npos, "CUDA milestone");
         check(device_out.str().find("\"scenario_limit\":10000000") != std::string::npos, "CUDA support limit");
         check(device_out.str().find("\"allocation_budget_limit_bytes\":0") != std::string::npos, "CUDA budget metadata");
+        result.cuda->mode="hybrid";
+        result.cuda->requested_batch_size=3; result.cuda->effective_batch_size=4; result.cuda->batch_count=3;
+        std::ostringstream hybrid_out; mc::write_run_json(hybrid_out,request,result);
+        check(hybrid_out.str().find("\"quantile_location\":\"host\"") != std::string::npos
+            && hybrid_out.str().find("\"host_sorting_used\":true") != std::string::npos
+            && hybrid_out.str().find("\"requested_batch_size\":3,\"effective_batch_size\":4,\"batch_count\":3") != std::string::npos,
+            "Hybrid quantile and batch output");
         result.cuda->host_to_device_ms = std::numeric_limits<double>::infinity();
         std::ostringstream bad_device;
         bool bad_device_threw = false;

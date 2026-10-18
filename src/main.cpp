@@ -34,6 +34,9 @@ int main(int argc, char** argv) {
         if (json_mode) --argc;
         std::string backend = "serial";
         int threads = 0;
+        std::string cuda_mode = "full-device";
+        std::size_t batch_size = 0;
+        bool cuda_mode_seen = false, batch_seen = false;
         bool backend_seen = false, threads_seen = false;
         std::vector<char*> positional{argv[0]};
         for (int i = 1; i < argc; ++i) {
@@ -53,6 +56,21 @@ int main(int argc, char** argv) {
                 if (value == 0 || value > static_cast<std::uint64_t>((std::numeric_limits<int>::max)()))
                     throw std::invalid_argument("Threads must be a positive int");
                 threads = static_cast<int>(value);
+            } else if (option == "--cuda-mode") {
+                if (cuda_mode_seen || i + 1 >= argc)
+                    throw std::invalid_argument("Missing or duplicate --cuda-mode");
+                cuda_mode_seen = true;
+                cuda_mode = argv[++i];
+                if (cuda_mode != "full-device" && cuda_mode != "hybrid")
+                    throw std::invalid_argument("CUDA mode must be full-device or hybrid");
+            } else if (option == "--batch-size") {
+                if (batch_seen || i + 1 >= argc)
+                    throw std::invalid_argument("Missing or duplicate --batch-size");
+                batch_seen = true;
+                const auto value = positive_integer(argv[++i]);
+                if (value == 0 || value > 10000000 || value > (std::numeric_limits<std::size_t>::max)())
+                    throw std::invalid_argument("Hybrid CUDA batch size must be 1 through 10000000");
+                batch_size = static_cast<std::size_t>(value);
             } else {
                 if (option.rfind("--", 0) == 0 &&
                     !(option == "--csv" && positional.size() == 1))
@@ -62,6 +80,10 @@ int main(int argc, char** argv) {
         }
         if (threads_seen && backend != "openmp")
             throw std::invalid_argument("--threads requires the openmp backend");
+        if ((cuda_mode_seen || batch_seen) && backend != "cuda")
+            throw std::invalid_argument("--cuda-mode and --batch-size require the cuda backend");
+        if ((cuda_mode == "hybrid") != batch_seen)
+            throw std::invalid_argument("--batch-size is required only with --cuda-mode hybrid");
 #ifndef MC_HAS_OPENMP
         if (backend == "openmp")
             throw std::invalid_argument("OpenMP backend unavailable; configure MC_ENABLE_OPENMP=ON");
@@ -73,7 +95,7 @@ int main(int argc, char** argv) {
         argc = static_cast<int>(positional.size());
         argv = positional.data();
         const bool csv_mode = argc > 1 && std::string(argv[1]) == "--csv";
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer (append --json for structured output)";
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer (hybrid only; append --json for structured output)";
         if ((!csv_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)))
             throw std::invalid_argument(usage);
         mc::Request request;
@@ -117,7 +139,8 @@ int main(int argc, char** argv) {
         }
         std::unique_ptr<mc::Engine> engine;
 #ifdef MC_HAS_CUDA
-        if (backend == "cuda") engine = std::make_unique<mc::CudaEngine>();
+        if (backend == "cuda") engine = std::make_unique<mc::CudaEngine>(
+            cuda_mode == "hybrid" ? mc::CudaMode::Hybrid : mc::CudaMode::FullDevice, batch_size);
         else
 #endif
 #ifdef MC_HAS_OPENMP
@@ -135,6 +158,10 @@ int main(int argc, char** argv) {
                   << " requested_threads=" << result.requested_threads
                   << " threads_used=" << result.threads_used << '\n'
                   << std::setprecision(10);
+        if (result.cuda) std::cout << "cuda_mode=" << result.cuda->mode
+            << " requested_batch_size=" << result.cuda->requested_batch_size
+            << " effective_batch_size=" << result.cuda->effective_batch_size
+            << " batch_count=" << result.cuda->batch_count << '\n';
         for (const auto& e : result.estimates) {
             const auto reference = mc::analytical_var(request.model, e.confidence);
             std::cout << "confidence=" << e.confidence << " mc_var=" << e.var

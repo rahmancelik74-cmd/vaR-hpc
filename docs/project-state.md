@@ -77,7 +77,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8e3a7e1; run 39161829944 | Keep tested revisions distinct; GPU evidence remains local RTX execution |
-| CUDA path | Full-device path up to 10000000 with checked memory preflight and local scale checks; earlier skeleton evidence retained | Batching/hybrid fallback, five-seed acceptance and memory/race verification remain; no benchmark yet |
+| CUDA path | Default full-device path plus explicitly selected bounded-memory hybrid, with local implementation/scale checks; earlier evidence retained | Five-seed acceptance and memory/race verification remain; no benchmark yet |
 | Benchmark | Fresh serial and OpenMP CPU scaling archived from clean aa901a3; 180 measured processes and 54 excluded warm-ups | Later CPU/GPU comparison; package temperature/fan/power instrumentation remains unavailable in this recorder |
 
 The student is on a laptop. Later performance work must record thread placement,
@@ -758,3 +758,74 @@ or speedup evidence. Batching/hybrid support remains unimplemented. No academic
 document or submission was created. The source and this later documentation
 commit are to be pushed normally; hosted CI must be checked against the exact
 final pushed SHA separately and does not establish RTX execution.
+
+## Bounded-memory hybrid implementation: 2026-10-19
+
+Started on main at 9fa1d2772b0a6853342d8ece18c13c8eb5cf63fa with a clean tracked
+tree; untracked AGENTS.md/output/ and all historical evidence were preserved.
+This task makes no commit or push. Results describe the working-tree source,
+not a clean committed revision or hosted CI of these edits.
+
+The default full-device CUDA/cuRAND/CUB path remains available unchanged in
+numerical behavior, including N <= 10000000. Explicit --cuda-mode hybrid with
+--batch-size uses GPU normals/losses and three bounded device buffers, copies
+all N scalar losses to one host array and takes one global host sort/quantile.
+Engine::run, CPU numerical engines, precision and acceptance criteria are
+unchanged. No automatic fallback, N reduction or batch-VaR aggregation exists.
+See cuda-hybrid.md for selection, ownership and the exact memory/RNG contract.
+
+Native mode keeps one seeded PHILOX generator alive across even interior calls.
+An odd requested batch is rounded up to even before capping at N; only an odd
+total request pads its final call. Batch partition is part of RNG configuration;
+batch-size invariance is not claimed. Common input retains its exact requested
+partition (capped at N), bypasses RNG and remains caller-owned and unchanged.
+Independent native-reference tests concatenate explicitly specified cuRAND call
+outputs and compare CPU/global quantiles. One-batch native tests also compare
+against full-device. Per-batch errors and total transfer/normal counts are checked.
+
+Fresh Windows x64 Release configurations in build-cuda-hybrid (CUDA/OpenMP ON,
+architecture 89), build-hybrid-cpu (CUDA OFF/OpenMP ON) and build-hybrid-serial
+(both OFF), with testing ON/CPU tools OFF, passed 12/12, 10/10 and 9/9 final
+CTests. Current test lists were captured rather than assuming counts. Initial
+SDK access was sandbox-blocked; authorized SDK/toolchain builds succeeded.
+The Windows PowerShell module path adjustment was process-only. Artificial
+import/calendar regression fixtures ran; no historical-data workflow was repeated.
+
+The regular hybrid executable checks 16 common-input/native-reference cases;
+--scale-common checks 19 including N=100000/1000000/10000000. Small fixtures
+check all eleven nearest ranks, signed/tied losses, negative VaR, zero horizon,
+single/multiple/partial batches, odd/even sizes, batch > N, confidence limits,
+invalid data in first/middle/final batches and recovery. CPU-only planning tests
+cover overflow, synthetic device-budget rejection and host vector limits without
+memory exhaustion. Maximum common-input difference over all cases was
+2.8421709430404007e-14; each large-N case's maximum was
+4.440892098500626e-16, below the project absolute tolerance 0.00001*V0 and the
+retained stricter regression bound. Default native full-device synthetic smoke
+matched the earlier e4ae788 record exactly, and CPU CUDA ON/OFF smoke agreed.
+
+Forced multi-batch native scale checks used data/synthetic_prices.csv, seed 42,
+one unit, 10 intervals and 252 observations/year. Requested batch 65535 became
+native effective 65536: N=100000/1000000/10000000 used 2/16/153 batches.
+Explicit device storage stayed 1048580 bytes, with zero CUB scratch; host loss
+storage was 800000/8000000/80000000 bytes. Preflight snapshots showed
+7451181056 free bytes and an 80% budget limit of 5960944844 bytes. Native H2D
+was zero; D2H was 800008/8000064/80000612 bytes, including per-batch error flags.
+Common scale checks used effective 65535, also forcing multiple/partial batches.
+
+Evidence is under ignored results/cuda-hybrid-9fa1d27-working-20261019/;
+final-checks/ contains final native records and hybrid-checks.json. manifest.json
+binds the base SHA, dirty source hashes, build caches, binaries, synthetic input,
+test lists/logs and resulting records. These allocation snapshots are not peaks.
+Host time includes host/device allocation, all generation/transfers, global host
+quantile, synchronization and temporary cleanup. Copy Events sum across batches
+and remain separate diagnostics, with pageable staging covered by host time.
+
+The existing clean-source recorder now supports -IncludeHybridChecks and
+-HybridBatchSize, with -IncludeScaleChecks adding both hybrid native/common scale
+checks. Its parser and native Sample/HybridSample helpers were exercised against
+the built CLI; the complete clean-source workflow was not run on this uncommitted
+source. A later checkpoint can run that workflow from its exact committed SHA.
+No five-seed acceptance, sanitizer/memory-race checks, profiling, convergence or
+formal benchmark was run. Actual host/GPU exhaustion and broken-driver cleanup
+were not forced; thermal conditions are unmeasured. No academic material or
+automation was created. Later acceptance and measurement remain separate work.
