@@ -3,6 +3,32 @@ $ErrorActionPreference='Stop'
 function Write-GpuJson($Path,$Value) {
     [IO.File]::WriteAllText($Path,(ConvertTo-Json -InputObject $Value -Depth 30)+"`n",[Text.UTF8Encoding]::new($false))
 }
+function Read-GpuJson($Path) {
+    # Explicit return enumerates JSON arrays on Windows PowerShell 5.1.
+    $value=Get-Content -Encoding UTF8 -LiteralPath $Path -Raw | ConvertFrom-Json
+    return $value
+}
+function Get-GpuRecordedAcceptance($Runs) {
+    # Recorder uses Measure-Object. The independent auditor uses a separate sum.
+    foreach($mode in @('full-device','hybrid')){foreach($alpha in @(.95,.99)){
+        $group=@(foreach($r in $Runs){
+            if($r.mode -cne $mode -or $null -eq $r.result){continue}
+            foreach($e in $r.result.estimates){
+                # ConvertFrom-Json may preserve 0.94999999999999996 as Decimal.
+                if([double]$e.confidence -ne $alpha){continue}
+                [pscustomobject]@{mode=$mode;seed=$r.seed;confidence=$alpha;mc_var=[double]$e.mc_var;
+                    analytical_var=[double]$e.analytical_var;initial_value=[double]$r.result.model.initial_value}
+            }
+        })
+        if($group.Count -ne 5){continue}
+        $avg=($group | Measure-Object -Property mc_var -Average).Average
+        $reference=$group[0].analytical_var; $v0=$group[0].initial_value
+        $error=[Math]::Abs($avg-$reference); $limit=.01*[Math]::Max([Math]::Abs($reference),.01*$v0)
+        [pscustomobject]@{mode=$mode;confidence=$alpha;scenarios=10000000;seed_count=5;mean_var=$avg;
+            analytical_var=$reference;absolute_error_of_mean=$error;allowed_error=$limit;passed=($error -le $limit);
+            per_seed=@($group | Select-Object mode,seed,confidence,mc_var)}
+    }}
+}
 function Get-GpuHash($Path) { (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant() }
 function Assert-GpuBoundArtifact($Path,$ExpectedHash) {
     if((Get-GpuHash $Path) -cne $ExpectedHash){throw "Changed artifact bytes: $Path"}

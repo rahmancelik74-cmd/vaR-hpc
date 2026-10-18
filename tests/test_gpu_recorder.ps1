@@ -99,6 +99,18 @@ if(Test-GpuSanitizerLog 'no CUDA attachment'){throw 'Missing attachment accepted
 if(@(Get-GpuSanitizerMatrix).Count -ne 44){throw 'Incorrect sanitizer matrix'};$checks++
 $temp=Join-Path $root ('results/gpu-recorder-unit-'+[Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $temp | Out-Null
+# Exercise the actual application spelling and PowerShell 5.1 Decimal decoding.
+$decoded=ConvertFrom-Json '{"confidence":0.94999999999999996}'
+$roundtrip=Clone $runs
+foreach($r in $roundtrip){$r.result.estimates[0].confidence=$decoded.confidence}
+$recorded=@(Get-GpuRecordedAcceptance $roundtrip)
+Test-GpuAcceptanceSummary $recorded @(Get-IndependentGpuAcceptance $m $roundtrip $fixture);$checks++
+$jsonPath=Join-Path $temp 'summary-array.json'
+Write-GpuJson $jsonPath $recorded
+$read=@(Read-GpuJson $jsonPath)
+if($read.Count -ne 4){throw 'JSON array was nested rather than enumerated'};$checks++
+Test-GpuAcceptanceSummary $read $expected;$checks++
+Rejects 'corrupted decoded summary' {$a=@(Read-GpuJson $jsonPath);$a[0].mean_var+=1;Test-GpuAcceptanceSummary $a $expected}
 $file=Join-Path $temp 'bytes.txt'
 [IO.File]::WriteAllBytes($file,[byte[]]@(65,13,10));$hash=Get-GpuHash $file
 Assert-GpuBoundArtifact $file $hash;$checks++

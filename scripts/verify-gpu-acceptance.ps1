@@ -47,7 +47,7 @@ try {
             if($p.executable -cne $m.executable_path -or (@($p.arguments) -join "`n") -cne ($expected -join "`n")){throw 'Wrong acceptance invocation'}
         }
         $expected=@(Get-IndependentGpuAcceptance $m $runs $fixture)
-        $summary=@(Get-Content -Encoding UTF8 (Join-Path $dir 'acceptance.json') -Raw | ConvertFrom-Json)
+        $summary=@(Read-GpuJson (Join-Path $dir 'acceptance.json'))
         Test-GpuAcceptanceSummary $summary $expected
         $csv=@(Import-Csv (Join-Path $dir 'estimates.csv'));if($csv.Count -ne 20){throw 'Wrong CSV count'}
         $keys=@{}
@@ -57,7 +57,7 @@ try {
             $match=@($runs | Where-Object {$_.mode -ceq $row.mode -and $_.seed -ceq $row.seed})
             if($match.Count -ne 1 -or $row.scenarios -ne '10000000'){throw 'Wrong CSV configuration'}
             $alpha=[double]::Parse($row.confidence,[Globalization.CultureInfo]::InvariantCulture)
-            $e=@($match[0].result.estimates | Where-Object {$_.confidence -eq $alpha})
+            $e=@($match[0].result.estimates | Where-Object {[double]$_.confidence -eq $alpha})
             if($e.Count -ne 1){throw 'Wrong CSV confidence'}
             foreach($field in @('mc_var','analytical_var')){
                 Assert-GpuClose ([double]::Parse($row.$field,[Globalization.CultureInfo]::InvariantCulture)) $e[0].$field "CSV $field"
@@ -106,7 +106,7 @@ try {
                 $case[0].maximum_difference -gt $case[0].project_tolerance){throw 'Incomplete reusable common-input coverage'}
         }
         $audit['reused_common_input']='source-compatible; all exact-byte hashes rechecked; no new large-N run'
-        $san=@(Get-Content -Encoding UTF8 (Join-Path $dir 'sanitizer-results.json') -Raw | ConvertFrom-Json)
+        $san=@(Read-GpuJson (Join-Path $dir 'sanitizer-results.json'))
         $matrix=@([pscustomobject]@{id='attachment-memcheck';tool='memcheck';target='mc_var';mode='full-device';n=1;batch=0})+@(Get-GpuSanitizerMatrix)
         if($san.Count -ne $matrix.Count){throw 'Incomplete sanitizer matrix'}
         $allSanPassed=$true

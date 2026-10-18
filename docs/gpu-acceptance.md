@@ -54,6 +54,9 @@ preserving --fmad=false and /Zc:preprocessor. Hashes bind source SHA/tree/status
 scripts, caches, executables, deployed DLLs, CUDA project options, fixture and
 output bytes. Runtime DLL file/product versions and tool versions are recorded.
 CSV numbers use invariant-culture round-trip formatting, including under tr-TR.
+Application confidence numbers are explicitly compared as binary64 after JSON
+decoding; PowerShell 5.1 may decode the emitted 0.94999999999999996 as Decimal.
+JSON array reading explicitly enumerates elements rather than nesting the array.
 
 Raw stdout/stderr are copied from redirected process byte streams. Arguments are
 passed through ProcessStartInfo, never evaluated by a command shell. JSON files

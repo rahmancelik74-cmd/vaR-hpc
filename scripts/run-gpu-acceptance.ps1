@@ -116,19 +116,7 @@ try {
             [IO.File]::AppendAllText((Join-Path $out 'runs.jsonl'),(ConvertTo-Json $record -Depth 30 -Compress)+"`n",[Text.UTF8Encoding]::new($false))
         }}
         Write-GpuEstimates (Join-Path $out 'estimates.csv') $rows
-        # Recorder calculation is deliberately separate from the independent auditor.
-        foreach($mode in $manifest.modes){foreach($alpha in @(.95,.99)){
-            $group=@($rows | Where-Object {$_.mode -ceq $mode -and $_.confidence -eq $alpha})
-            if($group.Count -ne 5){continue}
-            $avg=($group | Measure-Object -Property mc_var -Average).Average
-            $reference=[double]$group[0].analytical_var
-            $validModeRun=@($runs | Where-Object {$_.mode -ceq $mode -and $null -ne $_.result})[0]
-            $v0=[double]$validModeRun.result.model.initial_value
-            $error=[Math]::Abs($avg-$reference);$limit=.01*[Math]::Max([Math]::Abs($reference),.01*$v0)
-            $summary += [pscustomobject]@{mode=$mode;confidence=$alpha;scenarios=10000000;seed_count=5;
-                mean_var=$avg;analytical_var=$reference;absolute_error_of_mean=$error;allowed_error=$limit;passed=($error -le $limit);
-                per_seed=@($group | Select-Object mode,seed,confidence,mc_var)}
-        }}
+        $summary=@(Get-GpuRecordedAcceptance $runs)
         Write-GpuJson (Join-Path $out 'acceptance.json') $summary
         $manifest.acceptance_status=if($failures.Count -eq 0 -and $summary.Count -eq 4 -and @($summary | Where-Object {-not $_.passed}).Count -eq 0){'passed'}else{'failed'}
         # Verify installed options and actual child-process attachment before matrix.
