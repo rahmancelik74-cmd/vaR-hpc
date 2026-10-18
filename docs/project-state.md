@@ -1,6 +1,6 @@
 # Project state
 
-Updated: 2026-10-17, Europe/Istanbul. Current source version: 0.3.0.
+Updated: 2026-10-18, Europe/Istanbul. Current source version: 0.3.0.
 Windows Release tests, CPU correctness/scaling records, the CUDA walking
 skeleton on RTX 4060 and hosted CPU CI are verified. Full-scale CUDA is pending.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
@@ -70,10 +70,10 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
 | Proposal source | Student confirmed Capstone_Project_Proposal_Form_Revised.docx as the approved file on 2026-10-16 | Reconcile the older candidate wording in acceptance-source.md when updating that register |
 | Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
-| Data provenance | Genuine MSFT local integration complete; subsequent session-date audit recorded privately; redistribution prohibited | Final research/academic sharing/publication rights remain unresolved; see data-rights-and-calendar.md |
+| Data provenance | Local integration and session-date audit complete; user-supplied correspondence permits scoped final academic use and derived sharing without raw data | Preserve private original-message archive and raw-data restrictions; see data-rights-and-calendar.md |
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
-| CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8951236; run 38934437451 | Keep all three CPU jobs passing; GPU evidence remains local RTX execution |
+| CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 69e558b; run 39059075567, separately verified from b0cd749/run 39058591082 | Keep all three CPU jobs passing; GPU evidence remains local RTX execution |
 | CUDA path | Capped walking skeleton verified on RTX 4060; cuRAND and CUB device quantiles through Engine | Later full-scale memory/batching and validation; no full-scale acceptance or benchmark yet |
 | Benchmark | Fresh serial and OpenMP CPU scaling archived from clean aa901a3; 180 measured processes and 54 excluded warm-ups | Later CPU/GPU comparison; package temperature/fan/power instrumentation remains unavailable in this recorder |
 
@@ -466,3 +466,51 @@ No restricted data/results, local AGENTS.md or output/ are selected for commit.
 Full-scale CUDA, GPU benchmarking and academic authoring were not started.
 This documentation update is to be committed and pushed separately from the
 CI-tested source commit; that new commit is not covered by run 39058591082.
+
+## Scoped correspondence and CI verification: 2026-10-18
+
+Initial branch main, HEAD and remote main matched
+`69e558b72ba97b79c7f4b0e98e96f6979d8ca5fd`. The tracked working tree was clean;
+untracked AGENTS.md and output/ were preserved and excluded from this task.
+GitHub Actions [run 39059075567](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39059075567),
+attempt 1, completed successfully for that exact commit. Reviewed job metadata
+and decoded logs show Ubuntu OpenMP ON 6/6 (job 117473127714), OpenMP OFF 5/5
+(job 117473127666), and successful windows-instrumentation smoke (job
+117473127716; one warm-up and two measured smoke rounds). Windows console output
+does not expose a CTest count. This run tests 69e558b; the earlier run 39058591082
+tests b0cd749. Neither run tests the new documentation commit from this task or
+establishes RTX execution, GPU acceptance or performance benchmarking.
+
+The user now reports a provider reply permitting retention and final academic
+experiments for internal use on the two computers normally used. Derived
+statistics, calibration parameters, VaR estimates and charts may be shared in
+reports, supervisor/committee copies, submissions, public thesis/project
+documentation and outside reviews, provided they contain no raw data. Raw
+prices may not be resold or redistributed. Acquisition methods, guest API
+requests and scripts may be described without price data; attribution is optional.
+
+The reply was accessible through connected Gmail and consistent with the user's
+supplied scope. A raw RFC 2822 mailbox export, including sender/date headers and
+attachment bytes, was preserved outside the repository at
+`../private-evidence/kibot-permission-20261018/provider-reply.eml`, with
+`archive-metadata.json` recording provenance and its exact-byte hash. This is
+user-supplied provider correspondence, not independent authentication of the
+sender or authority. Full email/contact details remain private. The current
+scope in data-rights-and-calendar.md supersedes the dated permission-pending
+statements above; those entries and acquisition-time manifests remain intact.
+
+Only rights and state documentation changed: data-rights-and-calendar.md,
+kibot-evaluation.md, historical-data.md and this file. The focused diff, local
+Markdown links and whitespace were checked; no code tests or completed
+integration were rerun. No dataset, calibration, model or engine setting changed.
+Raw data and derived local outputs remain ignored and are not selected for Git.
+This documentation patch is committed/pushed separately; its new CI result must
+not be inferred from 69e558b. No benchmark, CUDA expansion or academic deliverable
+was started. The remaining evidence limitation is independent authentication,
+not a provider-response-pending status within the supplied scope.
+
+Next first-term technical step: review the remaining hardware/software inventory
+and timing/acceptance-contract decisions against the approved proposal. The
+Requirements and Design delivery remains outstanding and its authoring stays
+deferred until explicitly requested. Preserve the completed integration and
+calendar work; full-scale CUDA and GPU benchmarking remain later tasks.

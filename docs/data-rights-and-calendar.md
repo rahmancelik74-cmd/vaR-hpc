@@ -1,10 +1,44 @@
 # Historical data rights and session-date audit
 
-Reviewed: 2026-10-17, Europe/Istanbul. The genuine MSFT local integration is
-already complete. This follow-up neither repeats acquisition/integration nor
-approves a final research dataset.
+Updated: 2026-10-18, Europe/Istanbul. The genuine MSFT local integration is
+already complete. No acquisition, calibration, model or engine setting changed.
 
-## Rights decision
+## Current permission scope: user-supplied correspondence, 2026-10-18
+
+The user supplied a Kibot reply permitting the following project-specific uses.
+Its contents were also read through the connected Gmail mailbox and match the
+supplied scope. This is provider correspondence supplied by the user, not an
+independently authenticated email or a general change to the published license.
+
+- Guest-downloaded data may be retained and used for final academic experiments
+  for the user's own internal use on the two computers normally used.
+- Raw prices may not be resold or redistributed. Raw and converted observations
+  remain private in ignored data/local; no price dataset is included in Git.
+- Derived statistics, calibration parameters, VaR estimates and charts may be
+  shared in reports, supervisor/committee copies, submissions, public thesis
+  or project documentation and outside reviews, provided they contain no raw
+  data. Charts must not reproduce raw price observations.
+- Acquisition methods, guest API requests and download scripts may be described
+  publicly without publishing price data. Attribution is optional.
+
+The reply was exported from Gmail in raw RFC 2822 form, including its headers
+and attachment bytes, to the private location outside this repository:
+`../private-evidence/kibot-permission-20261018/provider-reply.eml`.
+`archive-metadata.json` alongside it records the observed sender/date headers,
+export time and exact-byte SHA-256. The archive is a mailbox export; sender
+identity and authority were not independently authenticated. No complete email,
+personal contact details or private archive bytes are published in this repository.
+
+This scoped permission supersedes the permission-pending conclusion below and
+earlier pending statements in project records. It does not authorize raw-data
+sharing or use outside the stated scope. Derived local outputs stay ignored and
+are not automatically selected for Git: any future publication must select only
+permitted material containing no raw data. Existing raw bytes, metadata, hashes
+and import/integration manifests remain unchanged as historical provenance;
+their earlier evaluation-only flags describe the acquisition-time decision.
+No final study settings or computational acceptance results follow from permission.
+
+## Historical rights decision: 2026-10-17
 
 The current [Kibot license](https://www.kibot.com/license.html) restricts data
 to internal use, prohibits redistribution and transfer, and includes related

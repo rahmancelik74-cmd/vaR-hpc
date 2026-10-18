@@ -6,6 +6,18 @@ The workflow evaluates CSV integration on genuine data without changing any
 numerical engine or requirement ID. One share, ten trading days and 252
 observations/year remain working settings.
 
+Permission update, 2026-10-18: user-supplied provider correspondence now permits
+retention and final academic experiments for the user's internal use on their
+two normally used computers, and sharing derived statistics, calibration
+parameters, VaR estimates and charts without raw data in academic/public
+deliverables and outside reviews. Raw prices may not be resold or redistributed.
+Acquisition methods, guest requests and scripts may be described without price
+data; attribution is optional. The original mailbox export is archived outside
+the repository, without independent authentication. Scope, provenance and
+restrictions are recorded in [data-rights-and-calendar.md](data-rights-and-calendar.md).
+This update supersedes the historical permission-pending conclusion below;
+local data/results are not automatically selected for publication.
+
 ## Access and scope
 
 [Kibot's API overview](https://www.kibot.com/api/api-overview.html) documents
@@ -31,7 +43,7 @@ on its [currency-labelled instrument page](https://finance.yahoo.com/quote/MSFT/
 The CSV contains no currency field; metadata distinguishes that external currency
 basis from values actually returned by the endpoint. No currency conversion occurs.
 
-## License and publication boundary
+## Historical license and publication boundary: 2026-10-17
 
 The [Kibot license](https://www.kibot.com/license.html) permits internal use and
 archival copies and prohibits resale/redistribution, including related/derived
