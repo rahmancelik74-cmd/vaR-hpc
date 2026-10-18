@@ -2,7 +2,7 @@
 #include "mc/core.hpp"
 
 namespace mc {
-// Connectivity only. Explicit cap prevents accidental full-scale campaigns.
+// Full-device path, 1 through 10000000 scenarios, subject to memory preflight.
 class CudaEngine final : public Engine {
 public:
     Result run(const Request& request,

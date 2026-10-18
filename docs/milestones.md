@@ -36,14 +36,15 @@ with 32 common-input numerical comparisons and separately labeled native
 cuRAND smoke. CUB 3.4.3 is selected for the intended later GPU quantile path.
 H2D/D2H Event measurements and a qualified scratch-inclusive VRAM estimate are
 archived. This closes the requested connectivity task, not full-scale GPU
-acceptance, profiling or performance benchmarking. The N=10000 cap remains.
+acceptance, profiling or performance benchmarking. That historical version retained
+the N=10000 cap; the later full-device scale-up is described in cuda-skeleton.md.
 This early software result does not close the unfinished weeks 5-6 or 7-9 items.
 
 ## Second term Plan A
 
 | Weeks | Required outcome | State |
 | --- | --- | --- |
-| 1-5 | Grow skeleton to full scale, memory/batching, GPU quantile and hybrid fallback | Pending |
+| 1-5 | Grow skeleton to full scale, memory/batching, GPU quantile and hybrid fallback | Full-device scale-up implemented; batching/hybrid fallback pending; block not complete |
 | 6-7 | Analytical and common-input GPU validation; separate memory/race checks | Pending |
 | 8-10 | Full benchmark campaign against serial and best OpenMP | Pending |
 | 11-12 | Error and convergence analysis | Pending |

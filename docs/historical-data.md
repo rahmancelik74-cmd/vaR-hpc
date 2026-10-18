@@ -162,7 +162,8 @@ The supplied executable hash is recorded, but source-to-binary correspondence
 is not asserted by this runner. Keep the Release build log externally when
 running a genuine campaign. One process per backend includes the existing
 engine timing boundary; these are connectivity checks, not benchmarks or
-full-scale GPU statistical acceptance. GPU N remains capped at 10000. At the
+full-scale GPU statistical acceptance. This runner retains N=10000 connectivity
+checks even with the later full-device engine; see cuda-skeleton.md. At the
 2026-10-16 preparation stage, genuine historical integration was blocked; the
 later Kibot evaluation completed local integration as recorded above.
 

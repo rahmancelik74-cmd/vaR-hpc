@@ -2,8 +2,9 @@
 
 Updated: 2026-10-18. Application version: 0.3.0; original baseline: 0.2.1.
 This records the implemented design and planned extensions separately.
-OpenMP is implemented and Windows-verified. A capped CUDA walking skeleton
-is RTX-verified; full-scale CUDA Monte Carlo remains planned.
+OpenMP is implemented and Windows-verified. CUDA now supports the full-device
+path up to 10000000 scenarios with a checked 80%-free explicit-memory preflight.
+GPU statistical acceptance, memory/race checking and benchmarking remain separate.
 
 ## Purpose and scope
 
@@ -26,7 +27,7 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | Compute contract | include/mc/core.hpp | Define Model, Request, Result and Engine |
 | Serial implementation | src/core.cpp | Own RNG/buffers, simulate terminal losses, sort, return VaR |
 | OpenMP implementation | include/mc/openmp.hpp, src/openmp.cpp | Separate library; private fixed-block RNG, parallel loss generation, serial sort |
-| CUDA walking skeleton | include/mc/cuda.hpp, src/cuda.cu | Optional mc_cuda library; device cuRAND, double losses, CUB sort and device rank gather; N <= 10000 |
+| CUDA full-device engine | include/mc/cuda.hpp, src/cuda.cu | Optional mc_cuda library; device cuRAND, double losses, one global CUB sort and device rank gather; N <= 10000000 subject to memory preflight |
 | Structured export | include/mc/output.hpp, src/output.cpp | Serialize one complete run without changing Engine |
 | Offline equity conversion | scripts/equity-data-common.ps1, scripts/import-equity-data.ps1 | Validate provider CSV/provenance, preserve raw bytes and produce ignored strict date,close input |
 | Experiment recorders | scripts/run-experiment.ps1, scripts/run-openmp-validation.ps1 | Serial campaigns and separate clean-source OpenMP correctness evidence |
@@ -119,8 +120,9 @@ quantiles and an error flag return to the host; there is no host sorting.
 The RTX 4060 checks include common inputs separately from native RNG smoke.
 This proves connectivity, not full-scale analytical acceptance or speed.
 
-Full CUDA development will grow this capped skeleton to 10 million scenarios,
-memory management, batching and validated full-scale quantiles. CUB 3.4.3 is
+The first scale-up retains that path up to 10 million scenarios with checked
+sizes, device launch limits and an actual-request CUB workspace budget.
+Batching and the hybrid fallback remain the next separate step. CUB 3.4.3 is
 validated locally for the skeleton and selected as the intended later quantile
 library. Changes to that decision must be explicit. Details, limits, transfer
 events and the initial VRAM estimate are in [cuda-skeleton.md](cuda-skeleton.md).

@@ -16,7 +16,8 @@ ctest --test-dir build-historical-cpu -C Release --output-on-failure
 ```
 
 This is a build directory in the authoritative source tree. CUDA is unnecessary
-for this demo; its N <= 10000 guard is unchanged. A serial-only build explicitly
+for this demo. The separate full-device CUDA path is described in cuda-skeleton.md.
+A serial-only build explicitly
 rejects OpenMP selection.
 
 ## Run

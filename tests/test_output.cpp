@@ -47,6 +47,9 @@ int main() {
         mc::write_run_json(device_out, request, result);
         check(device_out.str().find("GPU\\\"test") != std::string::npos, "CUDA device JSON escaping");
         check(device_out.str().find("\"host_sorting_used\":false") != std::string::npos, "GPU quantile contract");
+        check(device_out.str().find("\"milestone\":\"full_device_scale_up\"") != std::string::npos, "CUDA milestone");
+        check(device_out.str().find("\"scenario_limit\":10000000") != std::string::npos, "CUDA support limit");
+        check(device_out.str().find("\"allocation_budget_limit_bytes\":0") != std::string::npos, "CUDA budget metadata");
         result.cuda->host_to_device_ms = std::numeric_limits<double>::infinity();
         std::ostringstream bad_device;
         bool bad_device_threw = false;

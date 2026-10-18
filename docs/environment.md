@@ -172,7 +172,9 @@ N=10000 native explicit allocation: 331939 bytes, including queried CUB scratch
 91903 bytes. Pre-allocation free memory: 7451181056 bytes; live pipeline free
 memory: 7442792448 bytes. Opaque library allocations and granularity prevent
 equating that delta with the explicit buffer budget. The 80%-free linear
-estimate is 179579526 scenarios, not tested capacity; N remains capped at 10000.
+estimate was 179579526 scenarios, not tested capacity; that source was capped at
+10000. The current full-device limit and actual-request preflight are documented
+in cuda-skeleton.md; this archived inventory is not a new scale measurement.
 CUDA Events measured H2D 0.0235520005 ms / 16 bytes and D2H 0.0706879981 ms /
 20 bytes in the archived native smoke. These are copy diagnostics, not a GPU
 performance benchmark. Primary wall time includes the complete engine boundary.

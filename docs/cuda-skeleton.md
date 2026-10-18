@@ -1,10 +1,12 @@
-# First-term CUDA walking skeleton
+# CUDA full-device scale-up
 
-This is an end-to-end connectivity milestone, limited explicitly to 1 through
-10000 scenarios and at most 16 confidence levels. It is not full-scale
-statistical acceptance, optimization or a performance benchmark. CPU engines
-retain their existing numerical code. Application version remains 0.3.0;
-the source revision and additive CUDA metadata identify this extension.
+The first-term walking skeleton has been extended to support 1 through
+10000000 scenarios and 1 through 16 confidence levels, subject to device-memory
+preflight and checked allocations. Application version remains 0.3.0; source
+revision and CUDA milestone metadata identify this change. The Engine interface,
+CPU numerical engines, native PHILOX stream and double precision are preserved.
+Batching and hybrid fallback are the next separate step. This does not complete
+Plan A's memory/batching milestone, statistical acceptance or benchmarking.
 
 ## Device path and quantile library decision
 
@@ -18,9 +20,8 @@ DeviceRadixSort::SortKeys<double>, ascending across all 64 bits, followed by a
 device gather at min(ceil(confidence*N)-1,N-1). Only scalar quantiles and an
 error flag return to the host. No loss vector returns for host sorting.
 
-**CUB is the intended quantile library for the later full implementation.**
-This milestone validates double sorting/rank selection on the actual RTX 4060.
-It does not validate CUB's full-scale memory use, batching or throughput.
+**CUB remains the quantile library for the full-device implementation.**
+Every run sorts all N losses once globally; no batch VaRs are computed.
 Any later library change must be explicit. The device library is header-only;
 its compiled CUB_VERSION is recorded, not inferred from the nvcc version.
 
@@ -60,7 +61,7 @@ explicit without changing the CPU targets. The build selects sm_89/compute_89
 for this GPU. On Windows the Toolkit cudart/curand DLLs are copied next to the
 executables, and their versions/hashes are recorded. No binaries are committed.
 
-## Timing and initial capacity estimate
+## Timing and allocation preflight
 
 The primary steady-clock engine timer begins after request validation/shared
 CSV calibration, before CUDA discovery/context work. It includes context/API
@@ -77,39 +78,88 @@ Event totals are not the full pipeline or host time. Host buffers are pageable;
 any host staging overhead is included in primary wall time, not guaranteed to
 be represented by the event interval. These one-run times are diagnostics only.
 
-Explicit device storage is padded_normals*8 + 2*N*8 + K*8 (values) +
-K*sizeof(size_t) (indices) + sizeof(int) (error flag) + queried CUB workspace
-(at least one byte allocated). Both input/output sort arrays and temporary
-storage are counted. cudaMemGetInfo records total/free memory before pipeline
-allocation and free memory with the completed pipeline/resources still live.
-Opaque cuRAND/context allocations and other GPU activity may affect the latter
-snapshot; it is not an exact allocation ledger or a measured peak.
+Explicit device storage is padded_normals*sizeof(double) + 2*N*sizeof(double)
++ K*sizeof(double) (values) + K*sizeof(size_t) (indices) + sizeof(int) (error
+flag) + max(1, queried CUB workspace bytes). Native odd-N padding is included;
+common-input mode allocates exactly N normals. The two loss arrays are distinct.
+CUB workspace is queried for the actual N with typed null data pointers in
+storage-query mode, before allocating any pipeline buffer.
 
-The initial capacity figure is floor(0.8*free_before*N/explicit_device_bytes),
-a rough linear extrapolation at N=10000 with a 20% free-memory reserve. It is
-not a tested maximum: workspace may scale nonlinearly, library allocations are
-opaque and other processes use VRAM. The hard scenario cap remains 10000
-regardless of this estimate. No large GPU allocation or full-scale run is made.
+After device/context discovery, stream/event creation and the CUB storage query,
+cudaMemGetInfo records free_before_bytes immediately before pipeline allocation.
+The preflight rejects explicit_device_bytes > floor(4*free_before_bytes/5).
+Integer arithmetic computes that limit without overflow or floating-point rounding.
+The budget includes all seven explicit cudaMalloc buffers. It excludes opaque
+context, stream, event and library allocations, host memory and competing GPU
+activity. Existing context/stream/event costs already affect the free snapshot;
+cuRAND generator creation follows preflight. This reserve is a guard, not a
+capacity guarantee. Every actual allocation and API call remains checked.
+free_with_pipeline_bytes is a later snapshot with resources live, not peak usage.
+
+All size additions, multiplications, native padding and byte totals are checked.
+Counts are checked before narrowing to int; launch dimensions are checked against
+device properties, and the largest launched index must fit int. The gather's
+32-thread block is covered by the stronger 256-thread loss-launch requirement.
+Every rank is validated before conversion and use. Zero or unsupported N fails
+before device work. Allocation/API/device-data errors throw without returning a
+partial Result, switching backend or reducing N. RAII releases resources on
+failure; cleanup errors do not replace an active exception. Successful-path
+cleanup errors are propagated before a Result can return.
+
+Current JSON reports milestone=full_device_scale_up, scenario_limit=10000000 and
+allocation_budget_limit_bytes. The old capacity_linear_estimate_80pct field is
+retired; historical JSON retains its original bytes and interpretation. The outer
+schema remains 1. A successful scale check establishes execution for that request,
+not a guaranteed maximum capacity.
 
 ## Checks and evidence
 
-The seven CUDA-enabled CTests retain all six CPU/OpenMP tests and add
-cuda_common_input_tests. Common tests separately check signed losses, ties,
-nearest ranks, sizes 1/5/257/9999/10000, zero horizon/volatility, all-zero losses,
+Query the current CTest registration after configuring; counts depend on build
+options and platform. CPU-only builds also run cuda_plan_tests, without CUDA
+headers or Toolkit discovery, covering arithmetic overflow, narrowing, padding,
+exact budgets, synthetic free-memory rejection, launch limits and rank boundaries.
+No test intentionally exhausts GPU memory. Common tests check signed losses, ties,
+nearest ranks, sizes 1/5/256/257/9999/10000/10001, zero horizon/volatility, all-zero losses,
 shared CSV calibration, unchanged caller inputs, invalid values/requests and
-recovery after device rejection. Quantiles use a fixed tolerance
-1e-10*max(1,abs(serial_var)) for CPU/GPU math-library differences. This small
-numerical check is not analytical five-seed GPU acceptance. Native smoke runs
+recovery after device rejection, 16 confidence levels and rejection of 17,
+N=0 and N>10000000. Quantiles retain the strict regression tolerance
+1e-10*max(1,abs(serial_var)) and also enforce the project absolute bound
+0.00001*V0. Neither replaces analytical five-seed GPU acceptance. Native smoke runs
 are archived separately and never compare CPU/GPU samples from equal seeds.
 
-scripts/run-cuda-skeleton.ps1 requires a clean source commit, rebuilds the CUDA
-path and CUDA-disabled OpenMP ON/OFF configurations (7/6/5 CTests), records
+The legacy-named scripts/run-cuda-skeleton.ps1 requires a clean source commit,
+allowing only the deliberately untracked AGENTS.md and output/ paths. Tracked
+changes and any other untracked paths are rejected before and after verification;
+those exclusions are recorded in the manifest. Outputs must use a new directory
+below ignored results/.
+It rebuilds the CUDA path and CUDA-disabled OpenMP ON/OFF configurations, records
+current CTest lists/counts instead of assuming historical counts, and records
 common-input JSON, native CSV smoke N=10000 plus an odd-count N=5 plumbing
 check, library/compiler/runtime/driver versions, exact-byte hashes and transfer/
 memory diagnostics. It checks fresh CPU ON/OFF-build estimates agree exactly.
+Its optional -IncludeScaleChecks adds one native seed-42 check at each of
+N=100000/1000000/10000000 using the existing synthetic CSV, plus focused
+common-input scale checks at those sizes. These are not statistical acceptance
+or benchmarks. The manifest binds the exact source commit/tree, CUDA/CPU build
+caches and executables, synthetic input and output record hashes. CPU ON/OFF
+comparison records and exact build caches remain in the local evidence directory.
+For focused common-input scale verification, run mc_cuda_tests --scale-common;
+it compares serial/GPU at those same N values and retains edge/recovery checks.
+CTest itself keeps the smaller regression sizes. The recorder's historical clean
+source requirement remains; working-tree verification must identify its base
+revision and dirty source hashes separately rather than claim clean-commit testing.
 The Windows driver package version, driver API version, nvcc, runtime header,
 API-returned runtime and DLL file versions remain distinct observations.
 Hosted CPU CI leaves CUDA disabled; local RTX execution is the GPU evidence.
+
+The first-term evidence under evidence/v030-cuda-skeleton-windows-20261016 is
+unchanged and remains capped connectivity evidence, with its historical test
+counts and linear capacity estimate. Current scale-up verification is recorded
+separately in project-state.md. No formal five-seed GPU acceptance, sanitizer
+memory/race checks or formal CPU/GPU benchmark is implied. The unchanged five-seed
+and common-input criteria are in acceptance-source.md. Later benchmarking retains
+three excluded warm-ups, ten measured repetitions and native backend RNG. Profiling
+is outside timed samples; bandwidth reporting remains required separately.
 
 ## Primary references
 

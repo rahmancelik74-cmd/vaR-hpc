@@ -2,7 +2,10 @@
 
 Updated: 2026-10-18, Europe/Istanbul. Current source version: 0.3.0.
 Windows Release tests, CPU correctness/scaling records, the CUDA walking
-skeleton on RTX 4060 and hosted CPU CI are verified. Full-scale CUDA is pending.
+skeleton on RTX 4060 and hosted CPU CI are verified. The later full-device
+scale-up is locally verified below; GPU statistical acceptance is pending.
+The full-device CUDA scale-up below supersedes the old N <= 10000 source limit;
+GPU five-seed acceptance, memory/race checks and benchmarking remain pending.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
 It does not replace the supervisor's roadmap or the requirements document.
 
@@ -74,7 +77,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8e3a7e1; run 39161829944 | Keep tested revisions distinct; GPU evidence remains local RTX execution |
-| CUDA path | Capped walking skeleton verified on RTX 4060; cuRAND and CUB device quantiles through Engine | Later full-scale memory/batching and validation; no full-scale acceptance or benchmark yet |
+| CUDA path | Full-device path up to 10000000 with checked memory preflight and local scale checks; earlier skeleton evidence retained | Batching/hybrid fallback, five-seed acceptance and memory/race verification remain; no benchmark yet |
 | Benchmark | Fresh serial and OpenMP CPU scaling archived from clean aa901a3; 180 measured processes and 54 excluded warm-ups | Later CPU/GPU comparison; package temperature/fan/power instrumentation remains unavailable in this recorder |
 
 The student is on a laptop. Later performance work must record thread placement,
@@ -609,3 +612,90 @@ readiness is not proof of a live demo or academic submission. Full-scale CUDA,
 batching/global hybrid fallback, GPU five-seed and memory/race checks, complete
 CPU/GPU comparisons, baseline bandwidth reporting, convergence and final
 reproducibility/reporting belong to term two. Optional Plan B remains optional.
+
+## First full-device CUDA scale-up: 2026-10-18
+
+Continued on main at 995cd0974fe9757da9a37ba27da550744da4a6e6 with a clean
+tracked tree and preserved untracked AGENTS.md/output/. This is working-tree
+implementation verification, not clean-commit testing. No commit or push was
+performed. Existing historical evidence was not edited or regenerated.
+
+CudaEngine retains Engine::run, device PHILOX/normal-double, caller-owned common
+inputs, double losses and one global CUB 3.4.3 sort/gather. Its explicit support
+limit is now 1 through 10000000 scenarios, still 1 through 16 confidence levels.
+Checked arithmetic covers padding, bytes and totals; counts, ranks and launch
+dimensions are validated before use. Actual-request workspace query precedes
+all seven pipeline buffer allocations. The following free-memory snapshot is
+used to reject explicit budgets above floor(4*free/5); opaque allocations and
+competing activity prevent a capacity guarantee. Every actual API/allocation
+remains checked. Current JSON replaces the old linear estimate with the budget
+limit and labels the milestone full_device_scale_up. See cuda-skeleton.md for
+ownership, error handling, policy exclusions and unchanged timing boundaries.
+
+Windows x64 Release was configured and built in build-cuda-scale-up (CUDA ON,
+OpenMP ON, architecture 89), build-cuda-scale-cpu (CUDA OFF, OpenMP ON), and
+build-cuda-scale-serial (both OFF). CPU instrumentation was OFF and testing ON.
+The initial sandbox configure could not access the Windows SDK directory;
+authorized builds outside the sandbox succeeded with MSVC 19.44.35227.0 and
+nvcc 13.4.92. Current test lists were inspected: 11, 10 and 9 registrations.
+Final CTest passed 11/11, 10/10 and 9/9 respectively. The initial CUDA CTest
+caught the integration recorder's stale scenario-limit expectation; that check
+was updated without rerunning genuine historical work.
+
+Final CTest logs and working-tree source/artifact hashes are recorded under
+ignored results/cuda-scale-up-995cd097-working-20261018/. Tests include pure CPU
+arithmetic and synthetic memory-budget rejection without GPU exhaustion,
+10000/10001, odd/even/partial blocks, upper-limit rejection, signed/tied losses,
+negative VaR, caller-input preservation and recovery after invalid device data.
+The integration/calendar tests use artificial fixtures, not provider campaigns.
+Serial and OpenMP smoke estimates agreed exactly across CUDA ON/OFF builds.
+The revised legacy recorder was syntax-checked and its native Sample function
+was exercised at odd N=5 with the maximum uint64 seed; its complete clean-source
+workflow was not invoked on this dirty/untracked working tree.
+
+Separate fresh-process native scale checks used the CLI's default synthetic
+GBM model, seed 42, alpha=0.95/0.99 and N=100000/1000000/10000000. All completed
+on RTX 4060 Laptop GPU with finite results and CUB_VERSION=300403. Observed
+explicit budgets were 3236387 / 32276003 / 322676259 bytes; workspace bytes were
+836351 / 8275967 / 82676223. Each preflight saw 7449083904 free bytes and an
+80% limit of 5959267123 bytes. An additional native N=10001 check allocated
+10002 normals and reported 331971 explicit bytes. These snapshots are not peaks.
+
+Focused common-input scale checks at those three N values passed the absolute
+project tolerance 0.00001*V0 as well as the retained stricter regression tolerance.
+At alpha=0.95/0.99 the default-model scale fixture differences were zero. All
+40 comparisons in the scale-check executable, including edge/recovery cases,
+had maximum absolute difference 7.105427357601002e-15; the regular regression
+executable emitted 56 comparisons. Repeated deterministic fixtures are numerical
+checks, not native random samples or statistical acceptance.
+
+No five-seed GPU acceptance, memory/race sanitizer, profiling or formal benchmark
+was run. Actual out-of-memory/driver failures were not forced. Package thermal
+conditions were not measured. Native scale timings are diagnostics only; no
+speedup claim follows. Batching and the explicitly labeled global host-quantile
+hybrid fallback remain the next separate implementation step; never average
+batch VaRs. This does not complete the Plan A memory/batching milestone or
+establish any academic submission. Data rights and historical integration remain
+as previously recorded; no acquisition, provider calibration or calendar audit
+was repeated.
+
+## CUDA checkpoint review: 2026-10-19
+
+Reviewed the scale-up diff and the existing working-tree evidence manifest.
+The recorded source, binary and evidence hashes matched before review edits.
+No numerical engine defect or unrelated source change was found. The recorder's
+clean-source check needed to preserve the deliberately untracked AGENTS.md and
+output/ paths; only those exact untracked entries are now excluded, with the
+policy recorded explicitly. All tracked edits and other untracked paths still
+fail the check. Deterministic helper checks covered these exclusions/rejections,
+missing common-input sizes and tolerance failures; PowerShell syntax passed.
+
+The complete recorder is to run from the source commit with -IncludeScaleChecks,
+using only data/synthetic_prices.csv and separate native/common-input records.
+It now records source commit/tree, exact build caches and executable hashes for
+CUDA ON and both CPU-only configurations, CPU equivalence records, and output
+record hashes. The option also invokes the common-input scale checks. Explicit
+build/testing options avoid stale-cache assumptions. Output must be a new
+directory below ignored results/. Clean-source verification results belong in
+a subsequent entry naming the tested source commit separately from the later
+documentation commit. No existing historical or working-tree record is replaced.

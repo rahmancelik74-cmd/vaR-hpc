@@ -6,7 +6,7 @@ Current OpenMP implementation and verification procedure:
 [docs/openmp.md](docs/openmp.md). Serial remains the default backend.
 Fresh CPU scaling procedure and recorded limits:
 [docs/cpu-benchmark.md](docs/cpu-benchmark.md).
-Optional RTX-verified CUDA walking skeleton (N <= 10000, disabled by default):
+Optional full-device CUDA backend (N <= 10000000, memory preflight, disabled by default):
 [docs/cuda-skeleton.md](docs/cuda-skeleton.md).
 Historical equity import and provenance requirements:
 [docs/historical-data.md](docs/historical-data.md).

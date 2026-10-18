@@ -1,10 +1,26 @@
 [CmdletBinding()]
-param([string]$OutputDirectory='')
+param([string]$OutputDirectory='', [switch]$IncludeScaleChecks)
 Set-StrictMode -Version 2.0
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $PSScriptRoot
 . (Join-Path $PSScriptRoot 'cpu-benchmark-common.ps1')
 $utf8=[Text.UTF8Encoding]::new($false)
+function Get-SourceChanges {
+    $status=@(& git status --porcelain --untracked-files=normal)
+    if($LASTEXITCODE -ne 0){throw 'Cannot inspect source status'}
+    # Only these deliberately private, untracked paths are outside the source check.
+    return @($status | Where-Object {$_ -cne '?? AGENTS.md' -and $_ -cne '?? output/'})
+}
+function Check-Common($Common, $RequiredSizes) {
+    if(-not $Common.invalid_input_and_recovery_checks_passed){throw 'Incomplete common-input checks'}
+    foreach($n in $RequiredSizes){
+        if(@($Common.cases | Where-Object {$_.scenarios -eq $n}).Count -eq 0){throw "Missing common-input size $n"}
+    }
+    foreach($case in $Common.cases){
+        if(-not $case.passed -or [double]$case.absolute_difference -gt [double]$case.tolerance -or
+            [double]$case.absolute_difference -gt [double]$case.project_tolerance){throw 'Common-input numerical tolerance exceeded'}
+    }
+}
 function Tool($Command,$Arguments,$Log){
     $captured=@(& $Command @Arguments 2>&1);$code=$LASTEXITCODE
     $text=($captured | Out-String).Replace($root,'<SOURCE>').Replace($root.Replace('\','/'),'<SOURCE>')
@@ -24,6 +40,8 @@ function Sample($Count,$Seed){
     if($run.schema_version -ne 1 -or $run.backend -ne 'cuda' -or $run.scenarios -ne $Count -or
         $run.seed -cne $Seed -or $run.input_mode -ne 'csv_calibration' -or
         $run.random_source -ne 'cuRAND/PHILOX4_32_10/normal-double' -or $run.cuda.host_sorting_used -ne $false -or
+        $run.cuda.milestone -cne 'full_device_scale_up' -or $run.cuda.scenario_limit -ne 10000000 -or
+        $run.cuda.explicit_device_bytes -gt $run.cuda.allocation_budget_limit_bytes -or
         $run.cuda.device -notlike '*RTX 4060 Laptop*' -or $run.cuda.cub_version -le 0 -or
         $run.cuda.curand_runtime_version -le 0 -or $run.cuda.normals_allocated -ne ($Count+$Count%2) -or
         $run.cuda.host_to_device_bytes -ne 16 -or $run.cuda.device_to_host_bytes -ne 20 -or
@@ -51,37 +69,57 @@ function Read-DisplayDriver{
 Push-Location -LiteralPath $root
 try{
     $revision=(& git rev-parse HEAD | Out-String).Trim()
-    if($LASTEXITCODE -ne 0 -or @(& git status --porcelain).Count -ne 0){throw 'A clean source commit is required'}
+    if($LASTEXITCODE -ne 0 -or @(Get-SourceChanges).Count -ne 0){throw 'A clean source commit is required (only untracked AGENTS.md and output/ are excluded)'}
     if(-not $OutputDirectory){$OutputDirectory='results/cuda-skeleton-'+(Get-Date -Format 'yyyyMMdd-HHmmss')}
+    if(-not [IO.Path]::IsPathRooted($OutputDirectory)){$OutputDirectory=Join-Path $root $OutputDirectory}
+    $OutputDirectory=[IO.Path]::GetFullPath($OutputDirectory)
+    $resultsRoot=[IO.Path]::GetFullPath((Join-Path $root 'results'))+[IO.Path]::DirectorySeparatorChar
+    if(-not $OutputDirectory.StartsWith($resultsRoot,[StringComparison]::OrdinalIgnoreCase)){
+        throw 'Recorder output must be a new directory below ignored results/'
+    }
     if(Test-Path -LiteralPath $OutputDirectory){throw 'Output directory already exists'}
     $out=(New-Item -ItemType Directory -Path $OutputDirectory).FullName
     $manifest=[ordered]@{
-        schema_version=1;purpose='First-term CUDA walking skeleton; connectivity only';status='running'
+        schema_version=1;purpose='CUDA full-device implementation checks; no statistical acceptance or benchmark';status='running'
         source_revision=$revision;clean_source=$true;started_utc=[DateTime]::UtcNow.ToString('o')
+        source_tree=(& git rev-parse 'HEAD^{tree}').Trim()
+        source_status_exclusions=@('untracked AGENTS.md','untracked output/')
         source_to_binary='Clean-first Windows x64 Release rebuild in this invocation'
         input='data/synthetic_prices.csv';input_sha256=(Get-CpuHash 'data/synthetic_prices.csv')
         build='build-cuda-skeleton';cuda_architectures='89';generator='Visual Studio 17 2022';toolset='cuda=13.4'
-        quantile_library='Toolkit CUB DeviceRadixSort<double>, intended for later full implementation'
-        host_sorting_used=$false;scenario_limit=10000;common_input_and_native_runs_separate=$true
+        quantile_library='Toolkit CUB DeviceRadixSort<double> and device nearest-rank gather'
+        host_sorting_used=$false;scenario_limit=10000000;common_input_and_native_runs_separate=$true
         full_scale_acceptance=$false;performance_benchmark=$false
     }
     Write-CpuJson (Join-Path $out 'manifest.json') $manifest
     try{
         Tool 'cmake' @('-S','.', '-B','build-cuda-skeleton','-G','Visual Studio 17 2022','-A','x64','-T','cuda=13.4',
-            '-DMC_ENABLE_CUDA=ON','-DMC_ENABLE_OPENMP=ON','-DCMAKE_CUDA_ARCHITECTURES=89') 'configure-cuda.log'
+            '-DMC_ENABLE_CUDA=ON','-DMC_ENABLE_OPENMP=ON','-DMC_BUILD_CPU_TOOLS=OFF','-DBUILD_TESTING=ON',
+            '-DCMAKE_CUDA_ARCHITECTURES=89') 'configure-cuda.log'
         Tool 'cmake' @('--build','build-cuda-skeleton','--config','Release','--clean-first','--parallel') 'build-cuda.log'
+        Tool 'ctest' @('--test-dir','build-cuda-skeleton','-C','Release','--show-only=json-v1') 'test-list-cuda.json'
         Tool 'ctest' @('--test-dir','build-cuda-skeleton','-C','Release','-V','--output-on-failure') 'ctest-cuda.log'
         foreach($openmp in @('ON','OFF')){
             $build='build-cuda-disabled-'+$openmp.ToLowerInvariant()
             Tool 'cmake' @('-S','.', '-B',$build,'-G','Visual Studio 17 2022','-A','x64',
-                '-DMC_ENABLE_CUDA=OFF',"-DMC_ENABLE_OPENMP=$openmp") "configure-cpu-$openmp.log"
+                '-DMC_ENABLE_CUDA=OFF',"-DMC_ENABLE_OPENMP=$openmp",'-DMC_BUILD_CPU_TOOLS=OFF','-DBUILD_TESTING=ON') "configure-cpu-$openmp.log"
             Tool 'cmake' @('--build',$build,'--config','Release','--clean-first','--parallel') "build-cpu-$openmp.log"
+            Tool 'ctest' @('--test-dir',$build,'-C','Release','--show-only=json-v1') "test-list-cpu-$openmp.json"
             Tool 'ctest' @('--test-dir',$build,'-C','Release','-V','--output-on-failure') "ctest-cpu-$openmp.log"
         }
         $exe=Join-Path $root 'build-cuda-skeleton/Release/mc_var.exe'
         $testExe=Join-Path $root 'build-cuda-skeleton/Release/mc_cuda_tests.exe'
         $manifest['executable_sha256']=Get-CpuHash $exe
         $manifest['test_executable_sha256']=Get-CpuHash $testExe
+        $buildArtifacts=@()
+        foreach($build in @('build-cuda-skeleton','build-cuda-disabled-on','build-cuda-disabled-off')){
+            foreach($file in @('CMakeCache.txt','Release/mc_var.exe')){
+                $path=Join-Path $build $file
+                $buildArtifacts += [pscustomobject]@{path=$path;sha256=(Get-CpuHash $path)}
+            }
+            Copy-Item -LiteralPath (Join-Path $build 'CMakeCache.txt') -Destination (Join-Path $out ($build+'-CMakeCache.txt'))
+        }
+        $manifest['build_artifacts']=$buildArtifacts
         $manifest['compiler_settings']=@(Get-Content 'build-cuda-skeleton/CMakeCache.txt' | Where-Object {
             $_ -match '^(CMAKE_(CUDA|CXX)_FLAGS[^:]*|CMAKE_CUDA_ARCHITECTURES|CMAKE_GENERATOR[^:]*|MC_ENABLE_CUDA|MC_ENABLE_OPENMP):'
         } | ForEach-Object {$_.ToString()})
@@ -103,16 +141,23 @@ try{
         $raw=@(& $testExe) -join "`n"
         if($LASTEXITCODE -ne 0){throw 'Common-input numerical checks failed'}
         $common=$raw | ConvertFrom-Json
-        if(@($common.cases).Count -ne 32 -or -not $common.invalid_input_and_recovery_checks_passed){throw 'Incomplete common-input checks'}
-        foreach($case in $common.cases){
-            if(-not $case.passed -or [double]$case.absolute_difference -gt [double]$case.tolerance){throw 'Common-input numerical tolerance exceeded'}
-        }
+        Check-Common $common @(1,5,256,257,9999,10000,10001)
         [IO.File]::WriteAllText((Join-Path $out 'common-input-checks.json'),$raw+"`n",$utf8)
         $native=Sample 10000 '42'
         $odd=Sample 5 '18446744073709551615'
         $manifest['observed_cuda_metadata']=$native.cuda
         $manifest['common_input_estimate_checks']=@($common.cases).Count
         $manifest['native_smoke_scenarios']=@(10000,5)
+        if($IncludeScaleChecks){
+            foreach($n in @(100000,1000000,10000000)){ $scale=Sample $n '42' }
+            $manifest['native_scale_checks']=@(100000,1000000,10000000)
+            $scaleRaw=@(& $testExe --scale-common) -join "`n"
+            if($LASTEXITCODE -ne 0){throw 'Common-input scale checks failed'}
+            $scaleCommon=$scaleRaw | ConvertFrom-Json
+            Check-Common $scaleCommon @(100000,1000000,10000000)
+            [IO.File]::WriteAllText((Join-Path $out 'common-input-scale-checks.json'),$scaleRaw+"`n",$utf8)
+            $manifest['common_input_scale_estimate_checks']=@($scaleCommon.cases).Count
+        }
         $manifest['runtime_version_note']='Compiler, header, DLL file version and API-returned runtime/driver values are distinct observations; no substitution'
         foreach($backend in @('serial','openmp')){
             $extra=if($backend -eq 'openmp'){@('--threads','4')}else{@()}
@@ -121,19 +166,30 @@ try{
             $cpuExe=Join-Path $root 'build-cuda-disabled-on/Release/mc_var.exe'
             $cpuBuild=(& $cpuExe --csv data/synthetic_prices.csv 10000 42 10 --backend $backend @extra --json) | ConvertFrom-Json
             if($LASTEXITCODE -ne 0){throw 'CPU-only build failed'}
+            Write-CpuJson (Join-Path $out ("cpu-$backend-cuda-on.json")) $gpuBuild
+            Write-CpuJson (Join-Path $out ("cpu-$backend-cuda-off.json")) $cpuBuild
             for($i=0;$i -lt 2;++$i){if($gpuBuild.estimates[$i].mc_var -ne $cpuBuild.estimates[$i].mc_var){throw 'CPU estimates changed across CUDA build setting'}}
         }
         if((Get-CpuHash $exe) -ne $manifest.executable_sha256 -or (Get-CpuHash $testExe) -ne $manifest.test_executable_sha256 -or
             (Get-CpuHash 'data/synthetic_prices.csv') -ne $manifest.input_sha256 -or (& git rev-parse HEAD).Trim() -ne $revision -or
-            @(& git status --porcelain).Count -ne 0){throw 'Source or artifacts changed during verification'}
+            @(Get-SourceChanges).Count -ne 0){throw 'Source or artifacts changed during verification'}
+        foreach($artifact in $buildArtifacts){
+            if((Get-CpuHash $artifact.path) -cne $artifact.sha256){throw 'Build artifacts changed during verification'}
+        }
         $manifest['cpu_compatibility']='Serial and OpenMP estimates match exactly between CUDA ON/OFF builds'
-        $manifest['ctest_counts']=[ordered]@{cuda_on=7;cuda_off_openmp_on=6;both_off=5}
+        $manifest['ctest_counts']=[ordered]@{
+            cuda_on=@((Get-Content -LiteralPath (Join-Path $out 'test-list-cuda.json') -Raw | ConvertFrom-Json).tests).Count
+            cuda_off_openmp_on=@((Get-Content -LiteralPath (Join-Path $out 'test-list-cpu-ON.json') -Raw | ConvertFrom-Json).tests).Count
+            both_off=@((Get-Content -LiteralPath (Join-Path $out 'test-list-cpu-OFF.json') -Raw | ConvertFrom-Json).tests).Count
+        }
         $manifest['status']='completed'
     }catch{
         $manifest['status']='failed';$manifest['failure']=$_.Exception.Message;throw
     }finally{
         $manifest['finished_utc']=[DateTime]::UtcNow.ToString('o')
+        $manifest['record_hashes']=@(Get-ChildItem -LiteralPath $out -File | Where-Object {$_.Name -cne 'manifest.json'} |
+            ForEach-Object {[pscustomobject]@{file=$_.Name;sha256=(Get-CpuHash $_.FullName)}})
         Write-CpuJson (Join-Path $out 'manifest.json') $manifest
-        Write-Host "CUDA skeleton evidence: $out"
+        Write-Host "CUDA implementation-check evidence: $out"
     }
 }finally{Pop-Location}

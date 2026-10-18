@@ -28,7 +28,7 @@ struct CudaMetadata {
     std::size_t host_to_device_bytes = 0, device_to_host_bytes = 0;
     std::size_t normals_allocated = 0, cub_temporary_bytes = 0, explicit_device_bytes = 0;
     std::size_t total_vram_bytes = 0, free_before_bytes = 0, free_with_pipeline_bytes = 0;
-    std::size_t capacity_linear_estimate_80pct = 0;
+    std::size_t allocation_budget_limit_bytes = 0;
 };
 struct Result {
     std::string backend;

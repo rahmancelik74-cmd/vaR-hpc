@@ -36,7 +36,17 @@ if(CUDA_ENABLED)
   if(NOT last_output MATCHES "\"backend\":\"cuda\"" OR NOT last_output MATCHES "\"host_sorting_used\":false")
     message(FATAL_ERROR "CUDA device quantile metadata missing")
   endif()
-  rejects(10001 --backend cuda --json)
+  succeeds(10001 42 --backend cuda --json)
+  if(NOT last_output MATCHES "\"milestone\":\"full_device_scale_up\"" OR
+     NOT last_output MATCHES "\"scenario_limit\":10000000" OR
+     NOT last_output MATCHES "\"normals_allocated\":10002" OR
+     NOT last_output MATCHES "\"allocation_budget_limit_bytes\":[1-9]")
+    message(FATAL_ERROR "CUDA scale-up policy or odd-N metadata missing")
+  endif()
+  rejects(10000001 --backend cuda --json)
+  if(NOT last_error MATCHES "1 through 10000000 scenarios")
+    message(FATAL_ERROR "CUDA supported-limit rejection missing")
+  endif()
 else()
   rejects(--backend cuda)
   if(NOT last_error MATCHES "CUDA backend unavailable")

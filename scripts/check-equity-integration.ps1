@@ -74,8 +74,10 @@ try {
             }
         }
         if($run.backend -ceq 'cuda') {
-            if($run.cuda.scenario_limit -ne 10000 -or $run.cuda.host_sorting_used -ne $false -or $run.cuda.cub_version -ne 300403 -or
-                $run.random_source -cne 'cuRAND/PHILOX4_32_10/normal-double'){throw 'CUDA skeleton metadata mismatch'}
+            if($run.cuda.milestone -cne 'full_device_scale_up' -or $run.cuda.scenario_limit -ne 10000000 -or
+                $run.cuda.explicit_device_bytes -gt $run.cuda.allocation_budget_limit_bytes -or
+                $run.cuda.host_sorting_used -ne $false -or $run.cuda.cub_version -ne 300403 -or
+                $run.random_source -cne 'cuRAND/PHILOX4_32_10/normal-double'){throw 'CUDA full-device metadata mismatch'}
             $manifest.cuda_smoke='passed_connectivity_only'
         }
     }

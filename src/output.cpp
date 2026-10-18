@@ -1,4 +1,5 @@
 #include "mc/output.hpp"
+#include "mc/detail/cuda_plan.hpp"
 #include "mc/version.hpp"
 #include <cmath>
 #include <iomanip>
@@ -25,7 +26,8 @@ void number(std::ostream& out, double value) {
     out << value;
 }
 void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
-    out << "{\"milestone\":\"walking_skeleton\",\"scenario_limit\":10000,\"device\":";
+    out << "{\"milestone\":\"full_device_scale_up\",\"scenario_limit\":"
+        << detail::cuda_scenario_limit << ",\"device\":";
     string_value(out, c.device_name);
     out << ",\"compute_major\":" << c.compute_major << ",\"compute_minor\":" << c.compute_minor
         << ",\"nvcc_version\":"; string_value(out, c.compiler_version);
@@ -42,8 +44,8 @@ void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
         << ",\"normals_allocated\":" << c.normals_allocated << ",\"cub_temporary_bytes\":" << c.cub_temporary_bytes
         << ",\"explicit_device_bytes\":" << c.explicit_device_bytes << ",\"total_vram_bytes\":" << c.total_vram_bytes
         << ",\"free_before_bytes\":" << c.free_before_bytes << ",\"free_with_pipeline_bytes\":" << c.free_with_pipeline_bytes
-        << ",\"capacity_linear_estimate_80pct\":" << c.capacity_linear_estimate_80pct
-        << ",\"capacity_policy\":\"Rough 80%-free linear extrapolation of explicit arrays plus queried CUB workspace at this N; opaque library/context memory and nonlinear scaling prevent a capacity guarantee\"}";
+        << ",\"allocation_budget_limit_bytes\":" << c.allocation_budget_limit_bytes
+        << ",\"capacity_policy\":\"Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee\"}";
 }
 }
 void write_run_json(std::ostream& output, const Request& r,
