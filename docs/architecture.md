@@ -1,6 +1,6 @@
 # Architecture baseline
 
-Updated: 2026-10-16. Application version: 0.3.0; original baseline: 0.2.1.
+Updated: 2026-10-18. Application version: 0.3.0; original baseline: 0.2.1.
 This records the implemented design and planned extensions separately.
 OpenMP is implemented and Windows-verified. A capped CUDA walking skeleton
 is RTX-verified; full-scale CUDA Monte Carlo remains planned.
@@ -33,7 +33,7 @@ prediction are outside Plan A. Multi-asset work is a conditional extension.
 | CPU scaling recorder | scripts/run-cpu-benchmark.ps1, tools/cpu_probe.cpp | Fresh native serial/OpenMP pipeline timings, separate Windows topology/affinity/power instrumentation |
 | Analytical reference | src/core.cpp | Compute GBM VaR independently of Monte Carlo samples |
 | Verification | tests/test_core.cpp, tests/test_data.cpp, tests/test_output.cpp | Model, quantile, data, calibration and JSON checks |
-| Build and smoke test | CMakeLists.txt | Four original tests plus CLI contract; OpenMP ON adds the sixth backend test |
+| Build and smoke test | CMakeLists.txt | Core/data/JSON/CLI tests plus platform/option-dependent recorder and backend regressions; query current CTest registration |
 
 Current data flow: CLI parses options; data loading produces observations;
 calibration creates Model; CLI creates Request; Engine returns Result;
@@ -58,9 +58,9 @@ implementation may copy validation inputs to the device without requiring
 host-generated inputs in normal performance mode. The run call must not return
 until its reported results are ready; CUDA synchronization belongs inside it.
 
-The interface is designed to admit a GPU implementation, but only the planned
-walking skeleton can demonstrate that it actually does. Small changes based on
-that evidence are allowed and must be recorded.
+The RTX-verified walking skeleton demonstrates a GPU implementation through this
+interface. It does not establish full-scale capacity or performance. Small later
+interface changes based on evidence are allowed and must be recorded.
 
 ## Model and data decisions already implemented
 
@@ -75,8 +75,9 @@ that evidence are allowed and must be recorded.
   and one unit. These are documented defaults, not confirmed final choices.
 - Dates must be valid, unique and increasing; prices finite and positive.
 - The CSV contract is deliberately narrow: date,close; ISO dates; decimal dot.
-- Each row is the next trading observation. A missing-session calendar check
-  is not implemented; record this limitation when choosing real input data.
+- Each row is the next trading observation. The CLI does not infer exchange
+  sessions. A separate offline check-equity-calendar.ps1 audits imported dates
+  against a bounded calendar; it neither fills observations nor validates prices.
 
 GBM assumes constant drift/volatility, independent normal log increments and
 continuous paths. Time-varying/clustered volatility, jumps and heavy tails in
@@ -145,7 +146,8 @@ checking remain later work; no benchmark claim is made for the skeleton.
 
 1. Preserve the established Git baseline adb49bc and Windows test evidence
    commit 48429b5; continue in the same authoritative source folder.
-2. Finalize numbered requirements and the supervisor-confirmed acceptance source.
+2. Preserve the reconciled acceptance-source register; numbered requirements
+   authoring/delivery remains deferred until explicitly requested.
 3. Maintain the implemented result export and experiment metadata without
    replacing Engine with a CPU-specific loop or requiring all losses on the host.
 4. Preserve the completed CPU scaling baseline and its placement/thermal limits;

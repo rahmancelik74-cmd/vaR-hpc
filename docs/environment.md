@@ -5,7 +5,7 @@ assistant's execution server is not used as the benchmark hardware.
 
 | Field | Value |
 | --- | --- |
-| Operating system and version | Windows 11; build number pending |
+| Operating system and version | Windows 11 reported by student; archived process OS version 10.0.26200.0 in CPU correctness/scaling records |
 | Full CPU model | 12th Gen Intel Core i7-12650H |
 | Physical cores / logical threads | 10 / 16, from the student's CIM output |
 | RAM | 16 GB, reported by the student |
@@ -17,9 +17,19 @@ assistant's execution server is not used as the benchmark hardware.
 | CMake version | 3.31.6-msvc6 |
 | Common C++ compiler flags | `/DWIN32 /D_WINDOWS /GR /EHsc`, from build-foundation/CMakeCache.txt |
 | Release compiler flags | `/O2 /Ob2 /DNDEBUG`, from build-foundation/CMakeCache.txt |
-| CMake generator | Visual Studio 17 2022; cached generator platform is empty |
-| OpenMP runtime / affinity settings | MSVC -openmp, OpenMP 2.0 (_OPENMP=200203); runtime DLL version not inventoried; affinity variables unset in correctness campaign |
+| CMake generator | Visual Studio 17 2022; scaling/skeleton builds explicitly x64; initial foundation cache had an empty platform field |
+| OpenMP runtime / affinity settings | MSVC -openmp, _OPENMP=200203; scaling probe vcomp140.dll 14.50.35719.0; process pool mask ffff, no per-core pinning; campaign-specific variables below |
 | GPU quantile library / version | CUB 3.4.3 (CUB_VERSION=300403), RTX-verified walking skeleton; intended later library |
+| CUDA runtime / driver API | Both returned 13030 in the archived skeleton; compiled runtime header 13040; discrepancy unexplained |
+| Deployed CUDA runtime DLL | cudart64_13.dll file version 6,14,11,13040; hash in skeleton manifest |
+| cuRAND | Header 10.4.4.72; runtime query 10404; curand64_10.dll file version 6,14,11,1044 |
+
+Table reconciled against archived evidence on 2026-10-18; it is not a new machine
+measurement. RAM remains a student-reported nominal 16 GB, not a newly verified
+byte count. Later campaign-specific evidence below supersedes the initial pending
+inventory statements without rewriting their historical context. The runtime/API
+version discrepancy, unmeasured temperature and absent per-core pinning do not
+establish failure of the archived results. Preserve these limits in later comparisons.
 
 Initial inventory commands in Windows PowerShell:
 

@@ -1,6 +1,8 @@
 # Milestone ledger
 
-Source: supervisor Plan A / Plan B v2.0, dated 2026-10-14.
+Source: supervisor Plan A / Plan B v2.0, dated 2026-10-14; original Downloads
+copies directly reviewed on 2026-10-18. File hashes and source provenance are in
+[acceptance-source.md](acceptance-source.md).
 Week numbers follow the academic plan, not a guessed mapping from calendar dates.
 Implemented later-week code does not by itself close unfinished foundation work.
 
@@ -8,12 +10,12 @@ Implemented later-week code does not by itself close unfinished foundation work.
 
 | Weeks | Required outcome | Current state | Completion evidence |
 | --- | --- | --- | --- |
-| 1-4 | Topic, proposal revision and roadmap | Roadmap records revised proposal approval | Identify the exact approved proposal file |
+| 1-4 | Topic, proposal revision and roadmap | Roadmap records revised proposal approval; student identified the Revised file on 2026-10-16 | Source identity reconciled in acceptance-source.md; no submission receipt inferred |
 | 5-6 | Conventions, hardware/toolchain inventory, CMake/repository/CI, Requirements and Design v1.0 | In progress | One repository, actual CI result, complete inventory and uploaded document |
-| 7-9 | CSV/calibration, analytical reference, serial, five-seed validation | Software and synthetic runs available; milestone not closed | Data provenance, acceptance-source confirmation and archived validation evidence |
+| 7-9 | CSV/calibration, analytical reference, serial, five-seed validation | Synthetic serial acceptance archived; local historical integration/calendar verified separately | evidence/v022-validation-20261016; scoped data rights in data-rights-and-calendar.md; not historical full-scale acceptance |
 | 10-11 | OpenMP, common-input validation and thread scaling | Implementation, Windows correctness and CPU scaling baseline complete; limitations recorded | v0.3.0 correctness evidence plus evidence/v030-cpu-scaling-windows-20261016 |
 | 12-13 | GPU walking skeleton through all layers | Connectivity verified early on RTX 4060; capped at N=10000 | evidence/v030-cuda-skeleton-windows-20261016: CSV, device cuRAND/CUB quantile, transfer Events and initial VRAM estimate |
-| 14 | CPU demonstration and interim report | Not started | Live validated CPU demo, timing output and interim report |
+| 14 | CPU demonstration and interim report | Offline synthetic demo ready; live demonstration and interim delivery not verified | synthetic-demo.md and local calendar/demo test logs; no live demo or submission claim |
 
 The 12-13 week skeleton includes host/device transfer timing and a VRAM capacity
 estimate. No accuracy/performance claim or optimization is required then.
@@ -55,9 +57,12 @@ multi-asset extension is optional, considered with the supervisor in second-term
 week 11, and needs an additional validation strategy. It never replaces the
 single-asset analytical benchmark. Returning to Plan A is allowed by agreement.
 
-The revised proposal also names profiling and DRAM bandwidth reporting. Its
-relationship to the later Plan A/B split needs explicit reconciliation; do not
-erase proposal success conditions or silently make Plan B mandatory.
+Plan A expressly retains the proposal's success criteria. Baseline achieved
+DRAM GB/s and percentage-of-documented-peak reporting, with metric definitions
+and profiling outside timed samples, remain required in term two. Plan B adds
+targeted optimization and before/after evidence. Profile stage coverage and peak
+basis must be specified before that later reporting; no new profiling is started
+by this reconciliation. No bandwidth threshold or GFLOPS target is introduced.
 
 ## Reporting discipline
 

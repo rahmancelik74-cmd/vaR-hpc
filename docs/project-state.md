@@ -68,12 +68,12 @@ No real-market predictive validity or universal error guarantee is claimed.
 | --- | --- | --- |
 | One authoritative local folder / Git | Continued from clean 254de8d; OpenMP source verified at 05f982e and pushed normally | Continue in the existing repository |
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
-| Proposal source | Student confirmed Capstone_Project_Proposal_Form_Revised.docx as the approved file on 2026-10-16 | Reconcile the older candidate wording in acceptance-source.md when updating that register |
-| Core timing / data contract | Recorded in architecture baseline | Review against numbered requirements |
+| Proposal source | Student identified the approved Revised file on 2026-10-16; original proposal and v2.0 Plan A/B directly reviewed on 2026-10-18 | Hashes and reconciled criteria in acceptance-source.md; approval/submission receipt not independently verified |
+| Core timing / data contract | Implementation and documentation compared with proposal and Plan A; numerical conventions preserved | Preserve primary host scope and separate device diagnostics; academic requirement mapping/delivery remains deferred |
 | Data provenance | Local integration and session-date audit complete; user-supplied correspondence permits scoped final academic use and derived sharing without raw data | Preserve private original-message archive and raw-data restrictions; see data-rights-and-calendar.md |
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
-| CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 69e558b; run 39059075567, separately verified from b0cd749/run 39058591082 | Keep all three CPU jobs passing; GPU evidence remains local RTX execution |
+| CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8e3a7e1; run 39161829944 | Keep tested revisions distinct; GPU evidence remains local RTX execution |
 | CUDA path | Capped walking skeleton verified on RTX 4060; cuRAND and CUB device quantiles through Engine | Later full-scale memory/batching and validation; no full-scale acceptance or benchmark yet |
 | Benchmark | Fresh serial and OpenMP CPU scaling archived from clean aa901a3; 180 measured processes and 54 excluded warm-ups | Later CPU/GPU comparison; package temperature/fan/power instrumentation remains unavailable in this recorder |
 
@@ -514,3 +514,98 @@ and timing/acceptance-contract decisions against the approved proposal. The
 Requirements and Design delivery remains outstanding and its authoring stays
 deferred until explicitly requested. Preserve the completed integration and
 calendar work; full-scale CUDA and GPU benchmarking remain later tasks.
+
+## First-term readiness audit: 2026-10-18
+
+Initial main HEAD and remote main both matched
+`8e3a7e1d18ed759b327aef4b3f42b839e57ac363`; tracked files were clean and
+untracked AGENTS.md/output/ were preserved. GitHub Actions
+[run 39161829944](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39161829944),
+attempt 1, passed for that exact commit. Job metadata and logs show Ubuntu
+OpenMP ON 6/6 (117776554574), OFF 5/5 (117776554548), and Windows instrumentation
+smoke success (117776554336; one warm-up/two measured rounds, no console CTest
+count). Earlier run 39059075567 tests 69e558b. Neither run tests this audit patch.
+
+Sources were accessible: existing Downloads copies of the Revised proposal,
+Plan A and Plan B v2.0 dated 2026-10-14 were read directly, including tables;
+their exact-byte hashes are in [acceptance-source.md](acceptance-source.md).
+The student-reported approved-file identity remains distinct from a signed
+approval/submission receipt, which was not verified. No private academic source
+was copied into Git. The comparison uses proposal sections 5/8/9 and the original
+roadmaps, rather than treating older repository summaries as authoritative.
+
+Inventory comparison: the required CPU/GPU, topology, memory and toolchain fields
+are recorded in [environment.md](environment.md). Archived CPU inventory confirms
+i7-12650H, 10 physical/16 logical cores, process OS version 10.0.26200.0 and
+vcomp140.dll 14.50.35719.0 (_OPENMP=200203). Windows 11 edition, nominal 16 GB RAM
+and VS 17.14.32 include earlier student reports; RAM was not newly measured.
+CUDA records confirm RTX 4060 Laptop GPU, 8585216000 bytes VRAM (8187 MiB),
+compute capability 8.9, nvcc 13.4.92, MSVC 19.44.35227.0 and CMake 3.31.6-msvc6.
+Release x64 uses /O2 /Ob2 /DNDEBUG plus /DWIN32 /D_WINDOWS /GR /EHsc; core/OpenMP
+targets add /W4 and OpenMP uses -openmp. CUDA uses architecture 89, --fmad=false and
+-Xcompiler=/Zc:preprocessor. Driver package 32.0.16.1088, driver/runtime APIs
+13030, runtime header 13040 and DLL file version 6,14,11,13040 remain distinct.
+cuRAND header 10.4.4.72/runtime 10404 and CUB 300403 (3.4.3) match the skeleton
+record. The API/header discrepancy is documented without an invented explanation.
+
+The numerical/timing contract agrees with the source criteria: five independent
+seeds at N=10000000, separately per engine and alpha=0.95/0.99, use
+abs(mean(VaR)-analytical) <= 0.01*max(abs(analytical),0.01*V0); common-input
+absolute difference <= 0.00001*V0. Mean absolute error and individual-seed checks
+do not replace error of the mean. Double precision, ascending nearest rank
+ceil(alpha*N)-1, negative VaR, lower analytical terminal quantile 1-alpha,
+log-return sample variance n-1 and annual price drift m/dt+0.5*sigma^2 remain
+implemented conventions. The proposal requires explicit consistent conventions;
+it does not itself specify every calibration/quantile formula. Native RNG checks
+remain separate from common inputs and memory/race verification.
+
+Primary host time includes allocation, RNG, simulation, global quantile,
+required transfers, synchronization and cleanup; shared input/calibration and
+output are excluded. Fresh-process/context policy is explicit; the skeleton
+includes initial CUDA context/API work. CUDA Events are separate device stages,
+not a substitute for host time. Plan A also requires clearly scoped transfer-
+excluded figures. Final benchmarking remains N=100000/1000000/10000000,
+3 excluded warm-ups and 10 measured repetitions, mean/sample SD/scenarios per
+second, OpenMP 1/2/4/8/10, and GPU speedups against fresh serial and best measured
+OpenMP for the same workload. The 10x serial target is not guaranteed.
+
+The proposal's baseline achieved DRAM GB/s and percentage of documented peak,
+with metric definitions and profiling outside timed samples, remain required.
+Plan A preserves those criteria; Plan B adds optional targeted optimization and
+before/after evidence. Stage coverage, aggregation and peak-source selection
+remain explicit term-two reporting decisions, not a reason to delete the
+baseline requirement or start optimization now. No fixed bandwidth/GFLOPS target.
+
+Readiness evidence reviewed: serial validation at 33102c4
+(`evidence/v022-validation-20261016`), OpenMP correctness at 05f982e
+(`evidence/v030-openmp-windows-correctness-20261016`), CPU scaling at aa901a3
+(`evidence/v030-cpu-scaling-windows-20261016/benchmark/manifest.json`,
+`inventory.json`, `independent-audit.json`), and CUDA skeleton at 8951236
+(`evidence/v030-cuda-skeleton-windows-20261016/manifest.json` and
+`native-N10000.json`). Existing CPU aggregate acceptance/scaling and capped GPU
+connectivity are complete for their documented cases, not full project acceptance.
+Calendar/integration and scoped Kibot correspondence remain as previously recorded
+and were not repeated. No independent email authentication is newly claimed.
+
+Unknown package temperatures, actual turbo clocks, cooling/fan mode and thermal
+equilibrium remain unknown. Full-pool process affinity ffff was verified; runtime
+binding requests did not establish per-core pinning. These limits and the version
+discrepancy do not prove past results failed. Final study units/horizon/day scale
+remain working choices. No new hardware query, campaign, profiling or dependency
+was introduced; this audit reviewed stored evidence and current source only.
+
+Corrected stale approval/evidence wording in acceptance-source.md, top inventory
+fields in environment.md, source/milestone/reporting distinctions in milestones.md,
+and obsolete planned-interface/calendar/test-count wording in architecture.md.
+Academic requirements/report/presentation files and README cleanup were untouched.
+Documentation checks cover the focused diff, whitespace, ASCII and local links.
+Only these four technical documents and this state file are selected for the
+separate audit commit/push; its CI result is not inferred from 8e3a7e1.
+
+Next first-term step: confirm the existing Requirements and Design delivery
+status and its numbered mapping to this audited contract when that work is
+requested, then the live CPU demonstration/interim delivery. Offline demo
+readiness is not proof of a live demo or academic submission. Full-scale CUDA,
+batching/global hybrid fallback, GPU five-seed and memory/race checks, complete
+CPU/GPU comparisons, baseline bandwidth reporting, convergence and final
+reproducibility/reporting belong to term two. Optional Plan B remains optional.
