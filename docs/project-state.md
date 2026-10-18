@@ -699,3 +699,62 @@ build/testing options avoid stale-cache assumptions. Output must be a new
 directory below ignored results/. Clean-source verification results belong in
 a subsequent entry naming the tested source commit separately from the later
 documentation commit. No existing historical or working-tree record is replaced.
+
+## Clean-source CUDA checkpoint verification: 2026-10-19
+
+Tested source commit: e4ae78849d3a55baf08b21ccc86934d3ec0ed86a on main.
+Source tree: 4f425dde682dd6f41d07264d404f488c06c38320. The tracked source was
+clean before and after the complete recorder workflow; the only untracked paths
+were AGENTS.md and output/, explicitly excluded from the source check and left
+untouched. This entry is recorded in a later documentation-only commit, which
+must not be described as the locally GPU-tested source revision.
+
+Invocation: scripts/run-cuda-skeleton.ps1 -OutputDirectory
+results/cuda-scale-up-e4ae788-clean-20261019 -IncludeScaleChecks.
+The complete workflow ran from 2026-10-18T21:21:36.5485301Z through
+2026-10-18T21:22:37.7617766Z (October 19 locally), with status completed.
+Windows SDK/CUDA build access used the authorized execution outside the sandbox.
+Standard Windows PowerShell module directories were supplied only in that
+process's PSModulePath; no persistent environment setting changed.
+
+Clean-first Windows x64 Release builds passed all registered tests: CUDA ON /
+OpenMP ON 11/11, CUDA OFF / OpenMP ON 10/10, and both OFF 9/9. CPU tools were
+explicitly OFF, testing ON and CUDA architecture 89. No CPU-only configuration
+discovered the CUDA Toolkit. CUB_VERSION remained 300403. Serial and OpenMP
+synthetic smoke estimates matched exactly across CUDA ON/OFF builds. Only
+artificial import/calendar regression fixtures ran, not historical acquisition,
+provider calibration or a historical calendar audit.
+
+Native seed-42 scale checks at N=100000/1000000/10000000 used the documented
+hand-written data/synthetic_prices.csv, one unit, 10 observation intervals and
+252 observations/year. The separate native odd-N smoke used N=5 and seed
+18446744073709551615. Common-input regression produced 56 comparisons; the
+separate common-input scale executable produced 40 including edge/recovery
+cases, with maximum absolute difference 7.105427357601002e-15. All satisfied
+both the retained regression tolerance and the project bound 0.00001*V0.
+
+Native explicit device budgets at the three target N values were
+3236387 / 32276003 / 322676259 bytes, including CUB workspace of
+836351 / 8275967 / 82676223 bytes. Each observed 7449083904 free bytes at
+preflight and a floor(4*free/5) budget limit of 5959267123 bytes. These are
+allocation budgets and snapshots, not measured peaks or capacity guarantees.
+
+The ignored local evidence directory is
+results/cuda-scale-up-e4ae788-clean-20261019/. Its manifest binds the exact
+source revision/tree, synthetic input, CUDA executable/test executable, all
+three build caches and CLI executables, and resulting record hashes. Each
+record hash and current build artifact hash was independently rechecked.
+Exact-byte SHA-256 values:
+
+- manifest.json: 42fcb301fad4755d514690eaa229502babce33662d185734aec317d9c778597e
+- synthetic input: 8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210
+- CUDA CLI: 51493016071b6f6b64eedf46f56e157857c27c2b17f209a07aa060a0a0a9ef97
+- CUDA test executable: f69c60dc3977d7122c18c6b457a05c3eaa36d675039640488a882573f29b0ad0
+
+Previous working-tree and first-term evidence remains unchanged. This is
+implementation/scale verification with fresh-process native calls, not five-seed
+GPU acceptance, memory/race sanitizer evidence, profiling, formal benchmarking
+or speedup evidence. Batching/hybrid support remains unimplemented. No academic
+document or submission was created. The source and this later documentation
+commit are to be pushed normally; hosted CI must be checked against the exact
+final pushed SHA separately and does not establish RTX execution.
