@@ -829,3 +829,80 @@ No five-seed acceptance, sanitizer/memory-race checks, profiling, convergence or
 formal benchmark was run. Actual host/GPU exhaustion and broken-driver cleanup
 were not forced; thermal conditions are unmeasured. No academic material or
 automation was created. Later acceptance and measurement remain separate work.
+
+## Clean-source hybrid CUDA checkpoint: 2026-10-19
+
+Reviewed the focused hybrid diff against the prior working-tree manifest; source,
+binary and evidence hashes matched. Coverage, global host quantile, requested /
+effective batches, final padding, independent native reference, checked memory,
+cleanup/recovery, timing and default full-device/CPU-only behavior were inspected.
+No source correction or unrelated change was required. Only the 18 cohesive
+implementation/test/technical-document files were explicitly selected for the
+source commit; private data/results, AGENTS.md and output/ were excluded.
+
+Tested source commit: f03903402ddfb3bfc591dcb092dec73603448854 on main.
+Source tree: ea1ddbf8852cf17d09b9d411561c585ce80d2b08. The tracked source was
+clean throughout the complete recorder; only deliberately untracked AGENTS.md
+and output/ remained. This outcome is recorded in a subsequent documentation-only
+commit, which must not be called the locally RTX-tested source revision.
+
+Invocation: scripts/run-cuda-skeleton.ps1 -OutputDirectory
+results/cuda-hybrid-f039034-clean-20261019 -IncludeHybridChecks
+-IncludeScaleChecks -HybridBatchSize 65535. It completed successfully from
+2026-10-18T21:40:46.8011552Z through 2026-10-18T21:41:50.4340115Z (October 19
+locally). Authorized execution outside the sandbox supplied Windows SDK/CUDA
+access. The Windows PowerShell module path adjustment affected that process only.
+
+All three Windows x64 Release configurations were rebuilt clean-first: CUDA /
+OpenMP ON, architecture 89, passed 12/12; CUDA OFF / OpenMP ON passed 10/10; both
+OFF passed 9/9. Current test registration was captured. Testing was ON and CPU
+tools OFF; CPU-only configurations did not discover the Toolkit. CUB remained
+300403. CPU synthetic smoke estimates matched exactly across CUDA ON/OFF builds.
+Only artificial import/calendar fixtures ran; no historical-data work or completed
+CPU performance campaign was repeated.
+
+Separate native and common-input records cover N=100000/1000000/10000000.
+Native uses the hand-written synthetic CSV, seed 42, one unit, ten observation
+intervals and 252 observations/year. Requested batch 65535 produced effective
+65536, with 2/16/153 batches. All N losses and N native normal outputs were
+accounted for; H2D was zero and D2H bytes were 800008/8000064/80000612 including
+per-batch error flags. Explicit device bytes stayed 1048580 and host loss bytes
+were 800000/8000000/80000000. Each preflight observed 7451181056 free bytes and
+an 80% limit of 5960944844 bytes. These are budgets/snapshots, not memory peaks.
+Odd total-request padding and requested batch rounding are covered separately by
+small native-reference tests; batch-size invariance remains unclaimed.
+
+Hybrid checks passed 19 common-input/native-reference cases including scale and
+edge/recovery cases. Maximum common-input difference was 2.8421709430404007e-14;
+the three large-N cases each had maximum 4.440892098500626e-16, below the
+0.00001*V0 project bound and retained stricter regression bound. Full-device
+common-input checks remained separate (56 regression comparisons and 40 in the
+scale executable). An independent audit compared full-device native results with
+clean source e4ae78849d3a55baf08b21ccc86934d3ec0ed86a: model/calibration and both
+VaR estimates matched exactly at N=10000/100000/1000000/10000000. This compares
+the same native CUDA configuration; it does not assert CPU/GPU native equality.
+
+Local evidence: results/cuda-hybrid-f039034-clean-20261019/. The recorder manifest
+binds source SHA/tree, build caches, executable/test/runtime/input hashes and all
+recorder outputs. A separate independent-audit.json rechecks those bindings,
+CPU-only isolation, all-N transfer/normal accounting, budgets, case completeness
+and the earlier full-device records. Prior evidence files remain unchanged.
+Exact-byte SHA-256 values:
+
+- manifest.json: 4352958e62f77d0b059d7362056fb66b09d6dcfae95cc352bcdd61d84149d9b8
+- independent-audit.json: b91d0df65d4347d8bee42601f9bd30ac02dcab92502705d3b23a6ca96d632af3
+- synthetic input: 8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210
+- CUDA CLI: e08a64ae46a1cefe56b593a33dec68413903b69b0196033b5f821ee7b34a9c76
+- full-device test: 28f73147f142f723155399611fa00d41bb5826ab140c031945be29c559ae1f5c
+- hybrid test: c365b928f2107d18431b8d0755f92409c361cf56421808483520d4478af5a8e0
+
+Plan A's full-scale/memory/batching implementation is complete for this scoped
+single-asset engine, including the explicitly selected hybrid fallback. This is
+not full project acceptance. Five-seed analytical GPU acceptance, separate
+sanitizer/memory-race checks, profiling/bandwidth reporting, convergence, formal
+CPU/GPU benchmarking and later reproducibility/reporting remain separate work.
+Host timing still includes allocation, RNG, all transfers, global quantile,
+synchronization and cleanup; summed copy Events remain separate diagnostics.
+No prohibited campaign, academic file or automation was created. Source and this
+later documentation commit are to be pushed normally; hosted CPU CI must be
+checked for the exact final pushed SHA and is separate from local RTX evidence.

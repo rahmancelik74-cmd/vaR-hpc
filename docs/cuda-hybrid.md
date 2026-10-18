@@ -132,3 +132,19 @@ It retains its clean-source requirement (only untracked AGENTS.md/output/ are
 excluded). Working-tree implementation checks must instead identify the base SHA,
 source hashes and dirty status explicitly. See project-state.md for the current
 local evidence and limitations. Historical records are not relabeled or replaced.
+
+## Verified source checkpoint
+
+The complete clean-source recorder with both verification switches and requested
+batch size 65535 passed for f03903402ddfb3bfc591dcb092dec73603448854 on the
+Windows RTX 4060. Local evidence is under ignored
+results/cuda-hybrid-f039034-clean-20261019/, including manifest.json and a separate
+independent-audit.json. CUDA/OpenMP ON passed 12/12 tests; CPU-only OpenMP ON and
+OFF passed 10/10 and 9/9. Native target sizes used 2/16/153 batches with effective
+65536 and 1048580 explicit device bytes. Separate common-input scale checks used
+effective 65535. The independent native cuRAND reference and one-batch full-device
+comparisons passed; no batch-size invariance is claimed. The default full-device
+native results also matched the earlier e4ae788 clean-source records exactly at
+N=10000/100000/1000000/10000000. These are implementation checks, not acceptance
+or benchmark results. The later documentation commit is distinct from the tested
+source; detailed source/hash/timing bindings are in project-state.md.
