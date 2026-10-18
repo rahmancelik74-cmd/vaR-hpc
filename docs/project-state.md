@@ -906,3 +906,13 @@ synchronization and cleanup; summed copy Events remain separate diagnostics.
 No prohibited campaign, academic file or automation was created. Source and this
 later documentation commit are to be pushed normally; hosted CPU CI must be
 checked for the exact final pushed SHA and is separate from local RTX evidence.
+
+## GPU acceptance recorder preparation: 2026-10-19
+
+The next scoped task adds recording, independent numerical auditing and separate
+Compute Sanitizer orchestration; see [gpu-acceptance.md](gpu-acceptance.md).
+It preserves engines/RNG/quantile and reuses compatible f039034 large common-input
+evidence. Focused corruption tests are registered in Windows CTest. The authorized
+campaign is to bind a clean local source commit, ten native acceptance processes
+and the separate representative sanitizer matrix. This preparation entry does
+not claim acceptance or sanitizer success. No push is authorized in this task.
