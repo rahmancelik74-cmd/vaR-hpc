@@ -53,6 +53,7 @@ configurations must not discover the Toolkit. The sanitizer build adds -lineinfo
 preserving --fmad=false and /Zc:preprocessor. Hashes bind source SHA/tree/status,
 scripts, caches, executables, deployed DLLs, CUDA project options, fixture and
 output bytes. Runtime DLL file/product versions and tool versions are recorded.
+CSV numbers use invariant-culture round-trip formatting, including under tr-TR.
 
 Raw stdout/stderr are copied from redirected process byte streams. Arguments are
 passed through ProcessStartInfo, never evaluated by a command shell. JSON files

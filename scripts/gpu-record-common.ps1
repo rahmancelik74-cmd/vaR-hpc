@@ -7,6 +7,16 @@ function Get-GpuHash($Path) { (Get-FileHash -LiteralPath $Path -Algorithm SHA256
 function Assert-GpuBoundArtifact($Path,$ExpectedHash) {
     if((Get-GpuHash $Path) -cne $ExpectedHash){throw "Changed artifact bytes: $Path"}
 }
+function Write-GpuEstimates($Path,$Rows) {
+    # Export-Csv otherwise calls culture-sensitive, non-round-trip Double.ToString().
+    $invariant=[Globalization.CultureInfo]::InvariantCulture
+    @($Rows | ForEach-Object {
+        [pscustomobject][ordered]@{mode=$_.mode;seed=$_.seed;scenarios=([long]$_.scenarios).ToString($invariant);
+            confidence=([double]$_.confidence).ToString('R',$invariant);
+            mc_var=([double]$_.mc_var).ToString('R',$invariant);
+            analytical_var=([double]$_.analytical_var).ToString('R',$invariant)}
+    }) | Export-Csv -LiteralPath $Path -NoTypeInformation -Encoding UTF8
+}
 function Get-GpuSourceChanges {
     $s=@(& git status --porcelain --untracked-files=normal)
     if($LASTEXITCODE -ne 0){throw 'Cannot inspect Git status'}

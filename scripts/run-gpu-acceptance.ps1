@@ -115,7 +115,7 @@ try {
             $runs += [pscustomobject]$record
             [IO.File]::AppendAllText((Join-Path $out 'runs.jsonl'),(ConvertTo-Json $record -Depth 30 -Compress)+"`n",[Text.UTF8Encoding]::new($false))
         }}
-        $rows | Export-Csv (Join-Path $out 'estimates.csv') -NoTypeInformation -Encoding UTF8
+        Write-GpuEstimates (Join-Path $out 'estimates.csv') $rows
         # Recorder calculation is deliberately separate from the independent auditor.
         foreach($mode in $manifest.modes){foreach($alpha in @(.95,.99)){
             $group=@($rows | Where-Object {$_.mode -ceq $mode -and $_.confidence -eq $alpha})

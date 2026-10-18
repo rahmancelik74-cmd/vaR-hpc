@@ -108,4 +108,16 @@ $process=Invoke-GpuProcess 'powershell.exe' @('-NoProfile','-Command',"[Console]
 if($process.exit_code -ne 7 -or [IO.File]::ReadAllText($process.stdout) -cne 'unit-out' -or
     [IO.File]::ReadAllText($process.stderr) -cne 'unit-err' -or $process -is [array]){throw 'Raw process capture/status failed'};$checks++
 Rejects 'failed process' {Assert-GpuProcess $process}
+$csvPath=Join-Path $temp 'roundtrip.csv'
+$priorCulture=[Threading.Thread]::CurrentThread.CurrentCulture
+try {
+    [Threading.Thread]::CurrentThread.CurrentCulture=[Globalization.CultureInfo]::GetCultureInfo('tr-TR')
+    $value=6.144657330828541
+    Write-GpuEstimates $csvPath @([pscustomobject]@{mode='full-device';seed='42';scenarios=10000000;
+        confidence=.95;mc_var=$value;analytical_var=6.143576939418958})
+    $row=Import-Csv -LiteralPath $csvPath
+    if($row.confidence -cne '0.95' -or [double]::Parse($row.mc_var,[Globalization.CultureInfo]::InvariantCulture) -ne $value){
+        throw 'CSV is not culture-independent binary64 round-trip'
+    };$checks++
+} finally {[Threading.Thread]::CurrentThread.CurrentCulture=$priorCulture}
 Write-Host "GPU recorder/auditor corruption checks passed: $checks"
