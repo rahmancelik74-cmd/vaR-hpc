@@ -91,6 +91,11 @@ evidence at 05f982e includes five-seed error-of-mean acceptance and common input
 (evidence/v030-openmp-windows-correctness-20261016). The CPU scaling baseline at
 aa901a3 is separate performance evidence (evidence/v030-cpu-scaling-windows-20261016).
 CUDA evidence at 8951236 is capped connectivity/common-input smoke, not full-scale
-five-seed acceptance (evidence/v030-cuda-skeleton-windows-20261016). Full project
-acceptance still needs term-two GPU validation and CPU/GPU measurement evidence;
-proposal identity is no longer pending. None establishes market predictive validity.
+five-seed acceptance (evidence/v030-cuda-skeleton-windows-20261016). Later clean
+source 8df5f28 separately passes both full-device and fixed-partition hybrid
+five-seed analytical acceptance, reuses compatible f039034 large common-input
+evidence, and passes representative sanitizer checks. Exact records and coverage
+limits are in project-state.md and gpu-acceptance.md; numerical acceptance does
+not establish general global-memory race freedom or performance. Full project
+acceptance still needs CPU/GPU measurement and later delivery evidence. Proposal
+identity is no longer pending. None establishes market predictive validity.

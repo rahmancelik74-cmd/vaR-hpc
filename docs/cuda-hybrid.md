@@ -148,3 +148,9 @@ native results also matched the earlier e4ae788 clean-source records exactly at
 N=10000/100000/1000000/10000000. These are implementation checks, not acceptance
 or benchmark results. The later documentation commit is distinct from the tested
 source; detailed source/hash/timing bindings are in project-state.md.
+
+The later clean source 8df5f28 passes five-seed analytical acceptance separately
+for full-device and hybrid (requested batch 65535, native effective 65536), plus
+the representative sanitizer matrix. See gpu-acceptance.md and project-state.md
+for source/provenance bindings, four outcomes and memory/concurrency limitations.
+The earlier implementation evidence above remains unchanged.

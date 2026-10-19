@@ -1,11 +1,12 @@
 # Project state
 
-Updated: 2026-10-18, Europe/Istanbul. Current source version: 0.3.0.
-Windows Release tests, CPU correctness/scaling records, the CUDA walking
-skeleton on RTX 4060 and hosted CPU CI are verified. The later full-device
-scale-up is locally verified below; GPU statistical acceptance is pending.
-The full-device CUDA scale-up below supersedes the old N <= 10000 source limit;
-GPU five-seed acceptance, memory/race checks and benchmarking remain pending.
+Updated: 2026-10-19, Europe/Istanbul. Current source version: 0.3.0.
+Windows Release tests, CPU correctness/scaling and full-device/hybrid GPU
+five-seed analytical acceptance are verified for their documented cases.
+Representative Compute Sanitizer checks passed separately at source 8df5f28;
+their coverage limits remain explicit. Earlier hosted CPU CI is distinct from
+these new local-only commits. Formal CPU/GPU benchmarking remains pending.
+The full-device/hybrid implementation supersedes the old N <= 10000 source cap.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
 It does not replace the supervisor's roadmap or the requirements document.
 
@@ -77,7 +78,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness and fresh serial/OpenMP scaling baseline verified | Preserve baseline limitations; sorting remains serial; later full CPU/GPU campaign pending |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8e3a7e1; run 39161829944 | Keep tested revisions distinct; GPU evidence remains local RTX execution |
-| CUDA path | Default full-device path plus explicitly selected bounded-memory hybrid, with local implementation/scale checks; earlier evidence retained | Five-seed acceptance and memory/race verification remain; no benchmark yet |
+| CUDA path | Full-device/hybrid implementation plus separate five-seed analytical acceptance and representative sanitizer evidence at 8df5f28 | Preserve coverage limits; profiling/bandwidth reporting and formal benchmark remain separate |
 | Benchmark | Fresh serial and OpenMP CPU scaling archived from clean aa901a3; 180 measured processes and 54 excluded warm-ups | Later CPU/GPU comparison; package temperature/fan/power instrumentation remains unavailable in this recorder |
 
 The student is on a laptop. Later performance work must record thread placement,
@@ -916,3 +917,94 @@ evidence. Focused corruption tests are registered in Windows CTest. The authoriz
 campaign is to bind a clean local source commit, ten native acceptance processes
 and the separate representative sanitizer matrix. This preparation entry does
 not claim acceptance or sanitizer success. No push is authorized in this task.
+
+## GPU analytical acceptance and representative sanitizer checks: 2026-10-19
+
+Tested clean source: 8df5f28b877b15d0d2b513b8e8786e41d4af7c05; source tree:
+8b8dbdb14a952fa808c29d2d9a938b88b941edf7. The complete recorder ran from
+2026-10-18T22:23:07.0645698Z through 2026-10-18T22:30:38.6026727Z. HEAD and
+the tracked source remained unchanged during execution; only untracked AGENTS.md
+and output/ were excluded. The subsequent result-documentation commit is not
+the RTX-tested source revision. All task commits remain local; no push or new
+hosted CI result is claimed.
+
+Recording support was added in 0807400e73b64e73b79b70d80ad30b4fb13dd181.
+Two concrete recording defects were fixed in separate commits: d40c6ec corrected
+culture-sensitive/non-round-trip CSV numbers; 8df5f28 corrected PowerShell 5.1
+Decimal confidence grouping and JSON array enumeration. The earlier incomplete
+attempts are preserved under results/gpu-acceptance-0807400-20261019/ and
+results/gpu-acceptance-d40c6ec-20261019/, including interruption.json records.
+The first stopped before native acceptance; the second retained all ten native
+attempts and its completed/partial sanitizer records but produced an empty
+acceptance summary. Neither is presented as a completed campaign. Development
+attachment/option probes also remain separately labeled under results/.
+No engine, RNG, quantile, CPU numerical behavior or acceptance threshold changed.
+
+New separate Windows x64 Release builds used VS 2022/MSVC 19.44.35227.0,
+nvcc 13.4.92, architecture 89, CUB 300403 and existing --fmad=false and
+/Zc:preprocessor flags. Actual discovery and CTest results: CUDA/OpenMP 13/13,
+CUDA OFF/OpenMP ON 11/11, serial-only 10/10, separate -lineinfo CUDA build 13/13.
+The added recorder/auditor contract passes 57 positive/corrupted-record checks,
+including actual JSON Decimal spelling, array reading, tr-TR CSV round-trip,
+source/input/build/model/batch changes, duplicate/missing seeds, nonfinite values,
+incorrect summaries, failed processes and unexplained sanitizer diagnostics.
+CPU-only caches did not discover the Toolkit.
+
+Ten fresh native CLI processes used the exact synthetic CSV bytes (SHA-256
+8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210), one unit,
+10/252 years, N=10000000, seeds 42/123/456/789/2026 and confidence .95/.99.
+Hybrid requested batch 65535, effective 65536, 153 batches was checked separately
+from full-device. All per-seed results, raw stdout/stderr, exit codes, JSONL and
+CSV are retained. These are acceptance observations, not benchmark samples.
+
+The independent auditor recalibrated the CSV and recomputed analytical references
+without calling engine code. The following rows use that independent reference;
+its exp-based arithmetic differs from application expm1 by about 3e-14, within
+the separately documented rounding check, without changing project acceptance.
+
+| Mode | Confidence | Five-seed mean | Independent analytical VaR | Absolute error of mean | Allowed error | Outcome |
+| --- | --- | --- | --- | --- | --- | --- |
+| full-device | 0.95 | 6.1433827450657184 | 6.14357693941893 | 0.00019419435321132994 | 0.0614357693941893 | Pass |
+| full-device | 0.99 | 8.713878291342505 | 8.7154467162009155 | 0.0015684248584104665 | 0.087154467162009155 | Pass |
+| hybrid | 0.95 | 6.1433827450657184 | 6.14357693941893 | 0.00019419435321132994 | 0.0614357693941893 | Pass |
+| hybrid | 0.99 | 8.713878291342505 | 8.7154467162009155 | 0.0015684248584104665 | 0.087154467162009155 | Pass |
+
+The criterion remains abs(mean(VaR)-analytical) <= .01*max(abs(analytical),.01*V0),
+separately per mode/confidence. Matching observed native means across these two
+partitions does not establish batch-size invariance or native CPU/GPU equality.
+Existing f039034 large-N common-input evidence was reused after source
+compatibility, pinned manifest/audit hashes and every original record hash were
+verified. That campaign was not repeated; its absolute .00001*V0 bound remains.
+
+Compute Sanitizer 2026.3.0.0 build 38855100 attached successfully on RTX 4060
+Laptop, driver 610.88, SM 8.9. The separate native N=1 attachment pilot and all
+44 matrix invocations passed: memcheck 12, initcheck 12, synccheck 10, racecheck 10.
+Every target and tool exit status was zero; exact clean summaries were checked.
+Both CUDA test executables ran under every tool. Both native modes ran at
+N=65535/65536/65537/131073; memcheck/initcheck additionally ran at N=1000000.
+Hybrid always requested 65535. Memcheck ran first, with leak checking/padding;
+initcheck covered global/shared memory. No filters, suppressions, forced blocking
+launches, TDR/registry changes or profiling were used.
+
+This is representative dynamic memory/concurrency evidence, not sanitizer-at-
+10-million coverage or proof of all global-memory race freedom. Racecheck covers
+shared-memory hazards; CPU host-buffer accesses/leaks outside CUDA APIs remain
+outside coverage. Source reasoning about per-index writers, atomics, stream
+ordering, copy completion/reuse, host-buffer lifetime and RAII is recorded
+separately in gpu-acceptance.md and sanitizer-coverage.json.
+
+Evidence: results/gpu-acceptance-8df5f28-20261019/. The separate independent audit
+passed numerical, source/build/fixture/record provenance, common-input reuse and
+all sanitizer outcome/invocation checks. The manifest binds 474 output files and
+44 source/build/runtime/tool artifacts. Exact-byte SHA-256:
+
+- manifest.json: 662282694ce64120baa666c424d2920efb440123753c50f9557a67b6ce074111
+- independent-audit.json: ca69dae55186b0efe9a766e5d7aea6bf692850378db3c285d6350a1317f7768e
+- acceptance.json: c43193c4064d34e5ef78f5aeab2dcad116c96d58c8337530d99c5d25646bf135
+- sanitizer-results.json: ae1c9b6577474d3f4f014788d764876d8773a71dbd8c1d6fcf7dc706e37c696f
+
+Formal profiling/bandwidth reporting, CPU/GPU performance benchmarking,
+convergence and final reproducibility/reporting remain separate project work.
+Academic submission and live demonstration are not established as completed.
+No historical-data campaign, academic document, automation or public upload was
+created. Private data, AGENTS.md, output/ and historical evidence were preserved.

@@ -45,7 +45,7 @@ This early software result does not close the unfinished weeks 5-6 or 7-9 items.
 | Weeks | Required outcome | State |
 | --- | --- | --- |
 | 1-5 | Grow skeleton to full scale, memory/batching, GPU quantile and hybrid fallback | Implementation complete; full-device and explicit bounded-memory hybrid verified from clean source f039034; later acceptance remains separate |
-| 6-7 | Analytical and common-input GPU validation; separate memory/race checks | Pending |
+| 6-7 | Analytical and common-input GPU validation; separate memory/race checks | Both native modes pass five-seed analytical acceptance at 8df5f28; compatible large common-input evidence reused; representative sanitizer matrix passed with documented limits (project-state.md) |
 | 8-10 | Full benchmark campaign against serial and best OpenMP | Pending |
 | 11-12 | Error and convergence analysis | Pending |
 | 13 | Reproducibility package and requirements revision | Pending |
