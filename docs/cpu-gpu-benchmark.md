@@ -1,8 +1,9 @@
-# Unified CPU/GPU benchmark preparation
+# Unified CPU/GPU benchmark
 
 This infrastructure implements Plan A recording, auditing and opt-in timing.
-It does not establish a completed formal benchmark, measured DRAM bandwidth,
-documented-peak utilization, convergence or profiling-driven optimization.
+The formal primary benchmark is complete; see the dated result below.
+Measured DRAM bandwidth, documented-peak utilization, convergence and
+profiling-driven optimization are not established by that primary campaign.
 The engine numerical contract, native RNG partition and primary timer are unchanged.
 
 ## Commands and source policy
@@ -18,8 +19,8 @@ creates a dedicated build directory; it does not reuse historical build trees.
 ./scripts/run-benchmark.ps1 -Mode diagnostic -AllowDirtySource -UseExistingBuild -OutputDirectory results/benchmark-diagnostic-unique
 ./scripts/verify-benchmark.ps1 -Directory results/benchmark-smoke-unique
 
-# Future formal execution ONLY after separate authorization, clean source,
-# physical-condition recording and review. Not executed during preparation.
+# Formal command reference; completed campaign below used a dedicated build.
+# Any new campaign requires separate authorization; closure does not rerun it.
 ./scripts/run-benchmark.ps1 -Mode formal -ConditionsFile results/conditions.json -OutputDirectory results/benchmark-formal-unique
 ```
 
@@ -134,10 +135,10 @@ Record the actual existing settings; do not change power/driver/registry/fan mod
 NVSMI before/after snapshots record GPU temperature/power/clocks/pstate where
 available; raw N/A/error remains unavailable. These point observations do not
 measure CPU temperature, fan speed or prove thermal equilibrium/no throttling.
-CPU OS frequency reports are not measured turbo clocks. A future formal run should
-add the reviewed bounded 2-minute pre-observation / 30-second post-observation
-procedure before execution; this thermal observation window is not implemented
-by the preparation smoke recorder and must not be claimed as performed.
+CPU OS frequency reports are not measured turbo clocks. The preparation smoke
+recorder does not implement observation windows. The formal session wrapper
+separately completed the reviewed 2-minute pre / 30-second post procedure;
+actual spans and gaps are documented in the dated result below.
 
 `mc_cpu_probe --run-timeout milliseconds mask_hex executable [args]` bounds the
 owned process tree, including descendants that retain output pipes after their
@@ -290,3 +291,115 @@ Prepare and execute the bounded two-minute pre-observation / thirty-second
 post-observation procedure described above; it is still separate operational work
 and cannot establish thermal equilibrium. Resolve counter access and the exact
 peak specification separately before claiming the Plan A bandwidth measurements.
+
+## Formal primary result: 2026-10-19
+
+The primary checkpoint is closed after review of the existing records; no
+benchmark sample, diagnostic measurement or optimization was run during closure.
+Tested clean source: 89536e38b01230fce3b4667096c29dde56795c23, tree
+8edb98064ec2a8d6ed5ab8ac40fef62c9d905e51. Fresh Release preflight passed all
+18 discovered CTests. All 312 processes completed: 72 excluded warm-ups and
+240 measurements, three plus ten per configuration. No sample was discarded,
+replaced or selectively rerun. The fixture/model, native RNGs, double precision,
+signed losses and global nearest-rank quantile follow the contract above.
+
+The [curated record](../evidence/v030-primary-benchmark-windows-20261019/README.md)
+contains [all 24 full-precision summary rows](../evidence/v030-primary-benchmark-windows-20261019/summary.csv),
+[all 312 timing samples](../evidence/v030-primary-benchmark-windows-20261019/samples.csv)
+and the [original session report with a complete readable table](../evidence/v030-primary-benchmark-windows-20261019/session-report.md).
+The following GPU-only table is a rounded summary; full records are authoritative.
+Means and sample standard deviations use ten measured runs; scenarios/s is
+1000*N/mean_ms. Ratios divide the fresh CPU configuration mean by GPU mean.
+
+| N | GPU mode | Mean ms | Sample stddev ms | Scenarios/s | Serial/GPU | Best OpenMP/GPU | Best OpenMP threads |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 100000 | full-device | 98.58712 | 15.92891 | 1014331.28 | 0.092797 | 0.084707 | 2 |
+| 100000 | hybrid | 104.55102 | 21.56428 | 956470.82 | 0.087503 | 0.079875 | 2 |
+| 1000000 | full-device | 105.34656 | 18.26856 | 9492478.92 | 1.017803 | 0.914771 | 4 |
+| 1000000 | hybrid | 187.94319 | 23.76113 | 5320756.77 | 0.570502 | 0.512750 | 4 |
+| 10000000 | full-device | 126.72010 | 21.83381 | 78914079.14 | 9.739931 | 8.307209 | 4 |
+| 10000000 | hybrid | 1087.93442 | 74.89774 | 9191730.51 | 1.134485 | 0.967605 | 4 |
+
+At N=10000000, full-device serial speedup is exactly the recorded
+9.7399305240447234x, below the 10x target; hybrid is 1.1344847146209416x.
+Neither meets 10x. Full-device beats best measured OpenMP there; hybrid does not.
+At smaller N, full-device is slower than best OpenMP; hybrid is slower than
+best OpenMP at every measured N. Lowest OpenMP means select 2,4,4 threads;
+the close 2/4-thread means at N=1000000 do not establish a universal best team.
+No bottleneck or general speed guarantee is inferred from these host timings.
+
+### Audit and evidence trail
+
+Original successful session: results/benchmark-formal-89536e3-20261019-run2/.
+campaign/manifest.json binds 3163 recorder outputs and 15 build artifacts.
+The recorder and supplemental independent audits passed originally and again
+during closure. Existing auditor logic checked complete canonical order,
+unique phase/repetition coverage, raw launcher/result equality, native estimates,
+model/calibration, actual teams, batches/transfers, source/build/fixture hashes,
+diagnostics OFF, independent two-pass statistics, best-team selection and both
+ratios. The supplemental auditor checked every CSV field and observation record.
+Closure also verified all 3391 session-file hashes and run1's 226 hashes;
+all 3619 original files, including session manifests, remained byte-identical.
+Reaudit reports were redirected to a separate review directory; original audit
+files were not overwritten. No numerical or evidence discrepancy was found.
+Stale current documentation labels were corrected in this closure; historical
+dated entries and the original session report remain unchanged.
+
+The retained results/benchmark-formal-89536e3-20261019-run1/ stopped on an
+absolute-versus-relative build-path caller error before campaign creation.
+Its recorder exit code was 1 and it launched zero benchmark samples. The new
+run2 session used the relative build argument with unchanged recorder source.
+This was not replacement of a slow or failed benchmark sample.
+
+| Original local artifact | Exact-byte SHA-256 |
+| --- | --- |
+| run2/campaign/manifest.json | 6f7e9c26291df236b755f16ff210aef0fa3070ae7cad1231b4c5175f7f1a2771 |
+| run2/campaign/independent-audit.json | 7910c56bbe62bdff8e81ced9990cc222f6a7b18a3a0a9d373e3c882da5a2221b |
+| run2/session-independent-audit.json | 253bf296163b6dcd5efb07f3e260df16e4270e26330622a177faed0db5fe561c |
+| run2/session-manifest.json | c3733885fba543889d34afbd3a529e5dd95d5cd949bd318ad3f93d7ba02815b8 |
+| run1/session-manifest.json | 95795db7a39243c14635f97478b5fff04786780cbecd5d7fed425c8423df7c9a |
+
+### Timing and recorded conditions
+
+Each sample used a fresh CLI process and CUDA context. end_to_end_ms includes
+initial CUDA context/API work inside the engine, per-run allocation, native RNG,
+simulation, global quantile, required transfers, synchronization and temporary
+cleanup. Process startup, shared CSV/calibration, output, telemetry and the fixed
+100 ms delay are excluded. Warm-ups precondition the machine, not a retained
+context. All primary samples omitted --cuda-diagnostics and cuda.diagnostics;
+no profiler ran. Copy Event fields remain separate from host time and are not
+subtracted to construct a transfer-free total. Hybrid requested/effective batch
+is 65535/65536, with 2/16/153 batches; one global host quantile covers all losses.
+
+Recorded hardware/software: i7-12650H, 10 physical/16 logical CPUs; RTX 4060
+Laptop GPU, 8 GB class; Windows 10.0.26200.0; PowerShell 5.1.26100.9711;
+Visual Studio 17 2022 generator, MSVC 19.44.35227.0, CMake 3.31.6-msvc6,
+nvcc 13.4.92, driver 610.88, architecture 89, CUB 3.4.3. Release C++ flags
+are /O2 /Ob2 /DNDEBUG; CUDA retains --fmad=false and /Zc:preprocessor.
+OpenMP is version 2.0 (200203), vcomp140.dll 14.50.35719.0. All processes
+used the verified ffff pool and normal priority; actual teams matched requests.
+Windows scheduled threads within the pool; no per-core pinning is established.
+OMP_DYNAMIC and OMP_NESTED were FALSE, other listed binding controls unset.
+
+User declarations: adapter connected, unobstructed intakes (surface unknown),
+built-in cooling, no external pad reported, vendor performance/fan modes unknown,
+GPT/Codex open. Approximately 15 C ambient was an estimate without an instrument.
+Measured AC connection, saver and active power scheme remained stable. The
+two-minute pre-window had 25 points spanning 119.999651 s; the thirty-second
+post-window had 7 points spanning 30.0151721 s. Preflight produced a
+16.6744291 s gap before the first attempt; audit/statistics work produced a
+27.3165226 s gap before post-observation. Gaps are outside primary timing.
+All 657 GPU point queries were available, with 44-51 C temperatures; GPU power
+limit was N/A throughout. CPU temperature, thermal equilibrium and absence of
+throttling are not established; OS CPU frequency fields are not measured turbo
+clocks. Open applications and unmeasured laptop thermal/clock variation qualify
+these results. All slow samples remain retained.
+
+Separate stage/transfer-excluded diagnostics, measured DRAM GB/s and percentage
+of documented peak, verified profiler orchestration, convergence and final
+reproducibility remain separate work. ERR_NVGPUCTRPERM persists from prior
+discovery; this primary campaign requested no new discovery or profiling.
+Exact-laptop documented peak is unavailable. Plan B optimization is optional.
+Academic delivery and live demonstration are not established. Hosted CPU CI for
+the closure commit is distinct from this local RTX-tested source and cannot
+serve as benchmark evidence.

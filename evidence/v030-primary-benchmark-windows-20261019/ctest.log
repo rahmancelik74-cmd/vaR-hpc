@@ -1,0 +1,42 @@
+Internal ctest changing into directory: C:/Users/rahma/OneDrive/Masaüstü/graduation_project/gpu-montecarlo-starter/build-benchmark-formal-89536e3-20261019-run2
+Test project C:/Users/rahma/OneDrive/Masaüstü/graduation_project/gpu-montecarlo-starter/build-benchmark-formal-89536e3-20261019-run2
+      Start  1: cuda_plan_tests
+ 1/18 Test  #1: cuda_plan_tests ..................   Passed    0.04 sec
+      Start  2: core_tests
+ 2/18 Test  #2: core_tests .......................   Passed    0.04 sec
+      Start  3: json_output_tests
+ 3/18 Test  #3: json_output_tests ................   Passed    0.04 sec
+      Start  4: csv_calibration_tests
+ 4/18 Test  #4: csv_calibration_tests ............   Passed    0.04 sec
+      Start  5: csv_cli_smoke
+ 5/18 Test  #5: csv_cli_smoke ....................   Passed    0.01 sec
+      Start  6: cli_contract_tests
+ 6/18 Test  #6: cli_contract_tests ...............   Passed    1.16 sec
+      Start  7: openmp_tests
+ 7/18 Test  #7: openmp_tests .....................   Passed    0.09 sec
+      Start  8: cuda_diagnostics_contract
+ 8/18 Test  #8: cuda_diagnostics_contract ........   Passed    0.17 sec
+      Start  9: cuda_common_input_tests
+ 9/18 Test  #9: cuda_common_input_tests ..........   Passed    0.17 sec
+      Start 10: cuda_hybrid_tests
+10/18 Test #10: cuda_hybrid_tests ................   Passed    0.19 sec
+      Start 11: launcher_timeout_contract
+11/18 Test #11: launcher_timeout_contract ........   Passed    2.51 sec
+      Start 12: cpu_recorder_statistics
+12/18 Test #12: cpu_recorder_statistics ..........   Passed    0.44 sec
+      Start 13: cpu_probe_contract
+13/18 Test #13: cpu_probe_contract ...............   Passed    0.54 sec
+      Start 14: unified_benchmark_contract
+14/18 Test #14: unified_benchmark_contract .......   Passed    2.94 sec
+      Start 15: gpu_recorder_contract
+15/18 Test #15: gpu_recorder_contract ............   Passed    1.30 sec
+      Start 16: demo_recorder_tests
+16/18 Test #16: demo_recorder_tests ..............   Passed    1.15 sec
+      Start 17: equity_calendar_tests
+17/18 Test #17: equity_calendar_tests ............   Passed    2.32 sec
+      Start 18: equity_import_tests
+18/18 Test #18: equity_import_tests ..............   Passed    1.74 sec
+
+100% tests passed, 0 tests failed out of 18
+
+Total Test time (real) =  14.94 sec

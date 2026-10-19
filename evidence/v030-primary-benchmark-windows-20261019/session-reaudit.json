@@ -1,0 +1,60 @@
+{
+    "purpose":  "Supplemental independent session, telemetry and full CSV audit",
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T12:55:03.2402531Z",
+    "errors":  [
+
+               ],
+    "bandwidth_measured":  false,
+    "source_revision":  "89536e38b01230fce3b4667096c29dde56795c23",
+    "campaign_manifest_sha256":  "6f7e9c26291df236b755f16ff210aef0fa3070ae7cad1231b4c5175f7f1a2771",
+    "campaign_audit_sha256":  "7910c56bbe62bdff8e81ced9990cc222f6a7b18a3a0a9d373e3c882da5a2221b",
+    "process_counts":  {
+                           "measured":  240,
+                           "all":  312,
+                           "filtered_or_replaced_samples":  0,
+                           "warmups_excluded":  72,
+                           "summary_rows":  24
+                       },
+    "observation_windows":  [
+                                {
+                                    "phase":  "pre",
+                                    "points":  25,
+                                    "requested_span_seconds":  120,
+                                    "actual_point_span_seconds":  119.999651,
+                                    "minimum_actual_interval_seconds":  4.9782063,
+                                    "maximum_actual_interval_seconds":  5.0239578
+                                },
+                                {
+                                    "phase":  "post",
+                                    "points":  7,
+                                    "requested_span_seconds":  30,
+                                    "actual_point_span_seconds":  30.015172099999997,
+                                    "minimum_actual_interval_seconds":  4.9901697,
+                                    "maximum_actual_interval_seconds":  5.0112103999999995
+                                }
+                            ],
+    "pre_window_end_to_first_attempt_seconds":  16.674429099999998,
+    "last_attempt_to_post_first_point_seconds":  27.3165226,
+    "telemetry":  {
+                      "thermal_equilibrium":  "not-established",
+                      "cpu_temperature":  "unmeasured",
+                      "driver_versions":  [
+                                              "610.88"
+                                          ],
+                      "available_queries":  657,
+                      "observed_gpu_temperature_min_c":  44,
+                      "throttling_absence":  "not-established",
+                      "observed_gpu_temperature_max_c":  51,
+                      "unavailable_queries":  0,
+                      "fan_mode":  "unknown",
+                      "unsupported_field_counts":  {
+                                                       "power.limit [W]":  657
+                                                   },
+                      "gpu_names":  [
+                                        "NVIDIA GeForce RTX 4060 Laptop GPU"
+                                    ]
+                  },
+    "conditions":  "User declarations copied consistently; approximate ambient estimate and unknown modes preserved separately from telemetry",
+    "csv":  "Every numeric/text/boolean/null summary field cross-checked against JSON"
+}

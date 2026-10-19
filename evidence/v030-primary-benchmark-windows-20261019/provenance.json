@@ -1,0 +1,141 @@
+{
+    "source_revision":  "89536e38b01230fce3b4667096c29dde56795c23",
+    "source_tree":  "8edb98064ec2a8d6ed5ab8ac40fef62c9d905e51",
+    "executable_sha256":  "3c5c7e47ed870fb99ad733326ebbd9c8edf88558909b9905c1b2d5faa647d255",
+    "input_sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+    "source_snapshot_sha256":  "451d98673c5ea1bb172d7d3a31814bdd3136965f816ef0cd4bf8661677e68b23",
+    "build_cache_sha256":  "47f2b2897b96f22b36c21ba9252d89faa4422d3364f099f0e0fc94ab7bd4951b",
+    "process_policy":  "Fresh suspended CLI per attempt; owned Job Object; same full allowed CPU pool; normal priority; no per-core pinning; fresh CUDA context",
+    "timing_policy":  "Existing end_to_end_ms includes engine allocation/RNG/simulation/global quantile/transfers/synchronization/cleanup and initial CUDA context/API work; excludes process startup/shared calibration/output/telemetry/delays",
+    "original_local_bindings":  [
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run2/session-manifest.json",
+                                        "sha256":  "c3733885fba543889d34afbd3a529e5dd95d5cd949bd318ad3f93d7ba02815b8"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run2/campaign/manifest.json",
+                                        "sha256":  "6f7e9c26291df236b755f16ff210aef0fa3070ae7cad1231b4c5175f7f1a2771"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run2/campaign/runs.jsonl",
+                                        "sha256":  "a848f564ecc18e9d79f330f6ffacf9d83d38c892759b12648edd0e520d00e9c8"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run2/campaign/source-snapshot.json",
+                                        "sha256":  "451d98673c5ea1bb172d7d3a31814bdd3136965f816ef0cd4bf8661677e68b23"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run2/campaign/CMakeCache.txt",
+                                        "sha256":  "47f2b2897b96f22b36c21ba9252d89faa4422d3364f099f0e0fc94ab7bd4951b"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run2/campaign/mc_cuda.vcxproj",
+                                        "sha256":  "d91be80be14677b3be0aecf9a89f33d10e8da63d5887e4e8eb1307f5476fc64e"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run2/session.ps1",
+                                        "sha256":  "6344de44146453ea8636ffdc942bec86a88209dfb94ae79482a258f332ed293a"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run1/session-manifest.json",
+                                        "sha256":  "95795db7a39243c14635f97478b5fff04786780cbecd5d7fed425c8423df7c9a"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run1/formal-recorder.process.json",
+                                        "sha256":  "8bdf1f99b12a40bcf3ccb9dd4856d8a74f2f499e914909c850ccd4b9d4194e6b"
+                                    },
+                                    {
+                                        "local_file":  "results/benchmark-formal-89536e3-20261019-run1/formal-recorder.stderr.txt",
+                                        "sha256":  "1513ea754fd505f4bc7f912e8b919012896a63032d6891ffbed9e8cac005b80e"
+                                    }
+                                ],
+    "publication":  "Reviewed subset only; original manifests, raw launcher outputs, telemetry and build files retained locally unchanged",
+    "samples_csv":  "Derived lossless round-trip projection of 312 JSONL records; no filtering; shared timer counted once",
+    "exact_copies":  [
+                         {
+                             "file":  "summary.csv",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/summary.csv",
+                             "sha256":  "f4e6d9a615d476ab29e737d65e172e0b4a3100a73f88b1c7bcd5f1604d515ebc"
+                         },
+                         {
+                             "file":  "summary.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/summary.json",
+                             "sha256":  "18e785ffc7ad4dfb54274ea5698d3d74aa5f75e16c7df8d120e67d1801a1bcbd"
+                         },
+                         {
+                             "file":  "plan.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/plan.json",
+                             "sha256":  "0ef13f3c2f43e96c782a169a20c457bf827efb197f2f8b00da3b4c20c3bb5638"
+                         },
+                         {
+                             "file":  "fixture.csv",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/fixture.csv",
+                             "sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210"
+                         },
+                         {
+                             "file":  "independent-fixture.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/independent-fixture.json",
+                             "sha256":  "d5a463b0cd5389dea5ed32323c8f4acb8c75fc5d1d81f069388a2a766bbe379b"
+                         },
+                         {
+                             "file":  "recorder-audit.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/independent-audit.json",
+                             "sha256":  "7910c56bbe62bdff8e81ced9990cc222f6a7b18a3a0a9d373e3c882da5a2221b"
+                         },
+                         {
+                             "file":  "session-audit.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/session-independent-audit.json",
+                             "sha256":  "253bf296163b6dcd5efb07f3e260df16e4270e26330622a177faed0db5fe561c"
+                         },
+                         {
+                             "file":  "session-report.md",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/report.md",
+                             "sha256":  "7f3329dde7bc6345bbd3c7c10e43b1c1c892e188d6a7669ccea51a59542fe88b"
+                         },
+                         {
+                             "file":  "user-conditions.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/conditions.json",
+                             "sha256":  "00d8f3d3c0f742580d6f66700a8b780f5768ef6e8d477c1bc35f851d36187626"
+                         },
+                         {
+                             "file":  "runtime-environment.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/runtime-environment.json",
+                             "sha256":  "f45e55d1e8198da7e8c6ab57cf8e40a669c91767c45640336cc24093bc5b725d"
+                         },
+                         {
+                             "file":  "ctest.log",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/campaign/ctest.stdout.txt",
+                             "sha256":  "3e9424c58188dd47e81b85a77a76fbe9b1916d728d0c12ad9ed21c82382fa6e2"
+                         },
+                         {
+                             "file":  "first-invocation-failure.json",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run1/failure-diagnosis.json",
+                             "sha256":  "585313442c0fda65c804992d0d0e10d9e3bc2c0e8e4c1cdc33e18ffc6d28d1da"
+                         },
+                         {
+                             "file":  "closure-audit.json",
+                             "local_source":  "results/benchmark-closure-20261019/closure-audit.json",
+                             "sha256":  "1956de2925c75bab0a511275bdc68d7aee621124d700b4930eff1e00178bbd0d"
+                         },
+                         {
+                             "file":  "recorder-reaudit.json",
+                             "local_source":  "results/benchmark-closure-20261019/recorder-reaudit.json",
+                             "sha256":  "45d29155f7c1a190ff60b2b01b57954f4fb44781edfc2689a5b57d3493cc96a3"
+                         },
+                         {
+                             "file":  "session-reaudit.json",
+                             "local_source":  "results/benchmark-closure-20261019/session-reaudit.json",
+                             "sha256":  "d3ab5b434fe469a4f3b61ad730b63295a65e115e594c0e4583c726d990f6bfa9"
+                         },
+                         {
+                             "file":  "review.ps1",
+                             "local_source":  "results/benchmark-closure-20261019/review.ps1",
+                             "sha256":  "319b293cd4276adfbcc353de613117a82741a519906261966f8a425a7c6c1941"
+                         },
+                         {
+                             "file":  "audit-session.ps1",
+                             "local_source":  "results/benchmark-formal-89536e3-20261019-run2/audit-session.ps1",
+                             "sha256":  "ea69d58748cd7949d69d4ab1a67db815e96e9fbbbb52dc4721059284d520d59e"
+                         }
+                     ]
+}

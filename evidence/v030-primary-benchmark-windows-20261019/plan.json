@@ -1,0 +1,2419 @@
+{
+    "schema_version":  1,
+    "mode":  "formal",
+    "seed":  "42",
+    "confidence_levels":  [
+                              0.95,
+                              0.99
+                          ],
+    "warmups_per_configuration":  3,
+    "measured_repetitions_per_configuration":  10,
+    "configurations":  [
+                           {
+                               "id":  "serial-N100000",
+                               "backend":  "serial",
+                               "cuda_mode":  "",
+                               "scenarios":  100000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-1-N100000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  100000,
+                               "requested_threads":  1,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-2-N100000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  100000,
+                               "requested_threads":  2,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-4-N100000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  100000,
+                               "requested_threads":  4,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-8-N100000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  100000,
+                               "requested_threads":  8,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-10-N100000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  100000,
+                               "requested_threads":  10,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "full-device-N100000",
+                               "backend":  "cuda",
+                               "cuda_mode":  "full-device",
+                               "scenarios":  100000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  100000
+                           },
+                           {
+                               "id":  "hybrid-N100000",
+                               "backend":  "cuda",
+                               "cuda_mode":  "hybrid",
+                               "scenarios":  100000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  65535,
+                               "effective_batch_size":  65536
+                           },
+                           {
+                               "id":  "serial-N1000000",
+                               "backend":  "serial",
+                               "cuda_mode":  "",
+                               "scenarios":  1000000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-1-N1000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  1000000,
+                               "requested_threads":  1,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-2-N1000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  1000000,
+                               "requested_threads":  2,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-4-N1000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  1000000,
+                               "requested_threads":  4,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-8-N1000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  1000000,
+                               "requested_threads":  8,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-10-N1000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  1000000,
+                               "requested_threads":  10,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "full-device-N1000000",
+                               "backend":  "cuda",
+                               "cuda_mode":  "full-device",
+                               "scenarios":  1000000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  1000000
+                           },
+                           {
+                               "id":  "hybrid-N1000000",
+                               "backend":  "cuda",
+                               "cuda_mode":  "hybrid",
+                               "scenarios":  1000000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  65535,
+                               "effective_batch_size":  65536
+                           },
+                           {
+                               "id":  "serial-N10000000",
+                               "backend":  "serial",
+                               "cuda_mode":  "",
+                               "scenarios":  10000000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-1-N10000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  10000000,
+                               "requested_threads":  1,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-2-N10000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  10000000,
+                               "requested_threads":  2,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-4-N10000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  10000000,
+                               "requested_threads":  4,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-8-N10000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  10000000,
+                               "requested_threads":  8,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "openmp-10-N10000000",
+                               "backend":  "openmp",
+                               "cuda_mode":  "",
+                               "scenarios":  10000000,
+                               "requested_threads":  10,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  0
+                           },
+                           {
+                               "id":  "full-device-N10000000",
+                               "backend":  "cuda",
+                               "cuda_mode":  "full-device",
+                               "scenarios":  10000000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  0,
+                               "effective_batch_size":  10000000
+                           },
+                           {
+                               "id":  "hybrid-N10000000",
+                               "backend":  "cuda",
+                               "cuda_mode":  "hybrid",
+                               "scenarios":  10000000,
+                               "requested_threads":  0,
+                               "requested_batch_size":  65535,
+                               "effective_batch_size":  65536
+                           }
+                       ],
+    "execution_order":  [
+                            {
+                                "sequence":  1,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  2,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  3,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  4,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  5,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  6,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  7,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  8,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  9,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  10,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  11,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  12,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  13,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  14,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  15,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  16,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  17,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  18,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  19,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  20,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  21,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  22,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  23,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  24,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "warmup",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  25,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  26,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  27,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  28,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  29,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  30,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  31,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  32,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  33,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  34,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  35,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  36,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  37,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  38,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  39,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  40,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  41,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  42,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  43,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  44,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  45,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  46,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  47,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  48,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "warmup",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  49,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  50,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  51,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  52,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  53,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  54,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  55,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  56,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  57,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  58,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  59,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  60,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  61,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  62,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  63,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  64,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  65,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  66,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  67,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  68,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  69,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  70,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  71,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  72,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "warmup",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  73,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  74,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  75,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  76,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  77,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  78,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  79,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  80,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  81,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  82,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  83,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  84,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  85,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  86,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  87,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  88,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  89,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  90,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  91,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  92,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  93,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  94,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  95,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  96,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  1,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  97,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  98,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  99,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  100,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  101,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  102,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  103,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  104,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  105,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  106,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  107,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  108,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  109,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  110,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  111,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  112,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  113,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  114,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  115,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  116,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  117,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  118,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  119,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  120,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  2,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  121,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  122,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  123,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  124,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  125,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  126,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  127,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  128,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  129,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  130,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  131,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  132,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  133,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  134,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  135,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  136,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  137,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  138,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  139,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  140,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  141,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  142,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  143,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  144,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  3,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  145,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  146,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  147,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  148,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  149,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  150,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  151,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  152,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  153,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  154,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  155,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  156,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  157,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  158,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  159,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  160,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  161,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  162,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  163,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  164,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  165,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  166,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  167,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  168,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  4,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  169,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  170,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  171,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  172,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  173,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  174,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  175,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  176,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  177,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  178,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  179,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  180,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  181,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  182,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  183,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  184,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  185,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  186,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  187,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  188,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  189,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  190,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  191,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  192,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  5,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  193,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  194,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  195,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  196,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  197,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  198,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  199,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  200,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  201,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  202,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  203,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  204,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  205,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  206,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  207,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  208,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  209,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  210,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  211,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  212,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  213,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  214,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  215,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  216,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  6,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  217,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  218,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  219,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  220,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  221,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  222,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  223,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  224,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  225,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  226,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  227,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  228,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  229,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  230,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  231,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  232,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  233,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  234,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  235,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  236,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  237,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  238,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  239,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  240,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  7,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  241,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  242,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  243,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  244,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  245,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  246,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  247,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  248,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  249,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  250,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  251,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  252,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  253,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  254,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  255,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  256,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  257,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  258,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  259,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  260,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  261,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  262,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  263,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  264,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  8,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  265,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  266,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  267,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  268,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  269,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  270,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  271,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  272,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  273,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  274,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  275,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  276,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  277,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  278,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  279,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  280,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  281,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  282,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  283,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  284,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  285,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  286,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  287,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  288,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  9,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  289,
+                                "configuration_id":  "openmp-10-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  290,
+                                "configuration_id":  "full-device-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  291,
+                                "configuration_id":  "hybrid-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  292,
+                                "configuration_id":  "serial-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  293,
+                                "configuration_id":  "openmp-1-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  294,
+                                "configuration_id":  "openmp-2-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  295,
+                                "configuration_id":  "openmp-4-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  296,
+                                "configuration_id":  "openmp-8-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  297,
+                                "configuration_id":  "openmp-10-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  298,
+                                "configuration_id":  "full-device-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  299,
+                                "configuration_id":  "hybrid-N100000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  300,
+                                "configuration_id":  "serial-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  301,
+                                "configuration_id":  "openmp-1-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  302,
+                                "configuration_id":  "openmp-2-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  303,
+                                "configuration_id":  "openmp-4-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  304,
+                                "configuration_id":  "openmp-8-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  305,
+                                "configuration_id":  "openmp-10-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  306,
+                                "configuration_id":  "full-device-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  307,
+                                "configuration_id":  "hybrid-N1000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  308,
+                                "configuration_id":  "serial-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  309,
+                                "configuration_id":  "openmp-1-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  310,
+                                "configuration_id":  "openmp-2-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  311,
+                                "configuration_id":  "openmp-4-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            },
+                            {
+                                "sequence":  312,
+                                "configuration_id":  "openmp-8-N10000000",
+                                "phase":  "measured",
+                                "repetition":  10,
+                                "diagnostics":  false
+                            }
+                        ],
+    "planned_processes":  312,
+    "ordering":  "Reverse odd rounds; cyclic shift by 5 positions per round; all warm-ups first; serial processes",
+    "inter_run_delay_ms":  100,
+    "formal_campaign":  true
+}

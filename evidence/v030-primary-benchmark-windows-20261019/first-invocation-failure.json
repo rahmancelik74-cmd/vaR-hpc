@@ -1,0 +1,11 @@
+{
+    "campaign_directory_created":  false,
+    "benchmark_processes_started":  0,
+    "recorder_exit_code":  1,
+    "source_revision":  "89536e38b01230fce3b4667096c29dde56795c23",
+    "planned_processes":  312,
+    "reason":  "Caller passed absolute -BuildDirectory to a recorder that joins it to repository root. Windows PowerShell Join-Path produced a path with an embedded drive colon; GetFullPath rejected it before campaign directory creation.",
+    "correction":  "Use a repository-relative build directory argument in a new separately labeled session. No tracked source edits and no repeated benchmark samples.",
+    "status":  "incomplete",
+    "source_defect":  false
+}

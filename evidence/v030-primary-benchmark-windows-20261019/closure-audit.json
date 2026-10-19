@@ -1,0 +1,17 @@
+{
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T12:55:15.7746279Z",
+    "source_revision":  "89536e38b01230fce3b4667096c29dde56795c23",
+    "session_record_counts":  {
+                                  "benchmark-formal-89536e3-20261019-run1":  226,
+                                  "benchmark-formal-89536e3-20261019-run2":  3391
+                              },
+    "original_files_unchanged":  3619,
+    "benchmark_processes_launched":  0,
+    "first_invocation":  "Incomplete, path error before campaign creation, zero samples; retained unchanged",
+    "existing_auditors":  "Passed with only final report destinations redirected; original evidence unchanged",
+    "verifier_sha256":  "d39feab0cc51d0a90c03dc730b5b7cf9691ae8c9a820dfacb13291e9de9edaa8",
+    "session_auditor_sha256":  "ea69d58748cd7949d69d4ab1a67db815e96e9fbbbb52dc4721059284d520d59e",
+    "session_manifest_sha256":  "c3733885fba543889d34afbd3a529e5dd95d5cd949bd318ad3f93d7ba02815b8",
+    "first_session_manifest_sha256":  "95795db7a39243c14635f97478b5fff04786780cbecd5d7fed425c8423df7c9a"
+}

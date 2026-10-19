@@ -1,0 +1,18 @@
+{
+    "record_type":  "USER_DECLARATIONS",
+    "provenance":  "User declarations in the current benchmark request, not measured telemetry",
+    "recorded_utc":  "2026-10-19T12:38:11.3844593Z",
+    "charger":  "Adapter connected",
+    "surface_and_ventilation":  "Air intakes unobstructed; surface type unknown",
+    "cooling":  "Laptop built-in cooling is being used; no external cooling pad was reported",
+    "cooling_pad":  "No external cooling pad was reported; not independently verified",
+    "vendor_performance_mode":  "unknown",
+    "vendor_fan_mode":  "unknown",
+    "competing_applications":  "GPT and Codex remain open, per user",
+    "ambient_temperature":  {
+                                "value_c":  15,
+                                "status":  "estimated, not instrument-measured",
+                                "approximate":  true,
+                                "instrument_measured":  false
+                            }
+}

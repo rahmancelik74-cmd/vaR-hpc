@@ -1,0 +1,16 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T12:54:55.0910014Z",
+    "errors":  [
+
+               ],
+    "formal_campaign":  true,
+    "bandwidth_measured":  false,
+    "manifest_sha256":  "6f7e9c26291df236b755f16ff210aef0fa3070ae7cad1231b4c5175f7f1a2771",
+    "source_revision":  "89536e38b01230fce3b4667096c29dde56795c23",
+    "mode":  "formal",
+    "attempted_processes":  312,
+    "bandwidth_discovery":  "not-requested",
+    "statistics":  "Independent explicit sum/two-pass sample variance and baseline selection; all rows retained"
+}

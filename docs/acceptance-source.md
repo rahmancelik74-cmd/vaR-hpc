@@ -97,5 +97,8 @@ five-seed analytical acceptance, reuses compatible f039034 large common-input
 evidence, and passes representative sanitizer checks. Exact records and coverage
 limits are in project-state.md and gpu-acceptance.md; numerical acceptance does
 not establish general global-memory race freedom or performance. Full project
-acceptance still needs CPU/GPU measurement and later delivery evidence. Proposal
+acceptance still needs separate stage/bandwidth reporting, convergence and later
+delivery evidence. The formal primary CPU/GPU benchmark at 89536e3 is complete;
+its full-device serial speedup at N=10000000 is 9.7399305240447234x, below the
+unchanged 10x target. See cpu-gpu-benchmark.md for all rows and limits. Proposal
 identity is no longer pending. None establishes market predictive validity.

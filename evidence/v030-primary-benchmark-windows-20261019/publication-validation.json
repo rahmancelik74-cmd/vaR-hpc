@@ -1,0 +1,12 @@
+{
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T12:59:48.2383041Z",
+    "exact_copy_files":  17,
+    "sample_rows":  312,
+    "summary_rows":  24,
+    "sample_projection":  "Every field matches original JSONL; doubles round-trip exactly; no dropped rows",
+    "statistics":  "Existing independent Test-BenchmarkSummary passed against original runs and published projection",
+    "links":  "Relative links in changed technical documents resolve",
+    "code":  "Published PowerShell scripts are ASCII",
+    "benchmark_processes_launched":  0
+}
