@@ -122,6 +122,8 @@ if(BUILD_TESTING)
       -Probe "$<TARGET_FILE:mc_cpu_probe>" -Executable "$<TARGET_FILE:mc_var>")
   endif()
   if(WIN32)
+    add_test(NAME convergence_statistics_contract COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
+      -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_convergence_statistics.ps1")
     add_test(NAME unified_benchmark_contract COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
       -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_benchmark.ps1")
     add_test(NAME gpu_recorder_contract COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass

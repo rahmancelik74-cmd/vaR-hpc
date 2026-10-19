@@ -1,0 +1,81 @@
+{
+    "source_base":  "fc0ba0c2e88eef35c0229cf21582467fce427f39",
+    "clean_source":  false,
+    "previous_bindings_checked":  611,
+    "previous_binding_failures":  0,
+    "previous_statistics_independently_verified":  true,
+    "previous_run_count":  55,
+    "previous_value_count":  110,
+    "focused_checks":  87,
+    "simulation_processes":  0,
+    "original_plan_sha256":  "84f1da88778d56a9880ef7a252243654b6cbed3cffbaf4c4b7f1c2e7fceea322",
+    "preserved_agents_sha256":  "f7a515d0214f02c57fbbf81661d114746cb50c26586ce686ae16abc0f249877c",
+    "review_files":  [
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/analyze-convergence.ps1",
+                             "sha256":  "90cfbb609cd297e447a7be04dc04b742e8fe349cae99f89af9a44186f1699a6c"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/convergence-analysis.ps1",
+                             "sha256":  "25602143fa4c6a6168778c7109ca406bf6614b7b6bf5d80956aa92318f9e6b65"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/convergence-audit.ps1",
+                             "sha256":  "e82635fa641a86a3edb5eef1a43f2daa70c724838de54dab560bedbda262224f"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/convergence-common.ps1",
+                             "sha256":  "bc77ceb7daa1b66534b295c76447f3360d8af892cfadc24a5649694405016861"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/convergence-paths.ps1",
+                             "sha256":  "48e32152082f62bd1ede39b3fdb5835b6d28fe805174afa101eca4c48719ad3e"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/convergence-record.ps1",
+                             "sha256":  "58608191a38124ba3e4ae02c6b7201adc5331ae0e11f192e55a591454632cbbd"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/new-convergence-plan.ps1",
+                             "sha256":  "096413aeff8f869e36935da0f6ab35db63230beacd2e936c3b03dc5c49920cd9"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/run-convergence.ps1",
+                             "sha256":  "05bf289317982a7bf961158be569b54997b45e3a892afbfbbff6bd360a524bfb"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/scripts/verify-convergence.ps1",
+                             "sha256":  "4284bd82210f156056ac6414bf0a51136c2f00421dedd2ea7d4050b220ce2afd"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/tests/test_convergence.ps1",
+                             "sha256":  "3ee0164e8c537feb966811b06c4e49c88d59d7031f4cc485a2def6de52ba0b71"
+                         },
+                         {
+                             "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/tests/test_convergence_statistics.ps1",
+                             "sha256":  "b4915787d41a27abda4c16fac979b8c75c56abb5761575d56978278de04158b1"
+                         },
+                         {
+                             "path":  "docs/convergence.md",
+                             "sha256":  "733b8df1ac6f5f7609da1d29ead22f8e4080f5c87a286ab37732a367a1dda3e0"
+                         },
+                         {
+                             "path":  "docs/project-state.md",
+                             "sha256":  "9849f6ee19b46502bd7190e1ae0657be07a5f3711fadb064e87a6669fac51d7a"
+                         },
+                         {
+                             "path":  "CMakeLists.txt",
+                             "sha256":  "b3b13a0b46201dd9c7af8d9fe6dc8266a23d0da5c643f2cb1d1bf2fcc608d938"
+                         }
+                     ],
+    "focused_log":  {
+                        "path":  "results/convergence-review-20261020/focused.stdout.txt",
+                        "sha256":  "1aaf284ea22a380202589fae0048040deffb2e00bb638583a6f9e7c038c9d102"
+                    },
+    "focused_report":  {
+                           "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/review-focused-tests.json",
+                           "sha256":  "6b997381262f166819cb746698b5c3a2df2530b46f783682a541a70c1c952435"
+                       },
+    "relocation_policy":  "Exact former OneDrive root to current repository root; no raw byte/path mutation",
+    "status":  "passed"
+}

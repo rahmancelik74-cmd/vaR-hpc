@@ -1,0 +1,1169 @@
+{
+    "schema_version":  1,
+    "purpose":  "Native convergence reuse and fixed missing-run plan; no new simulation",
+    "contract":  "GBM/double/q=1/T=10/252/nearest-rank/alpha=.95,.99/native",
+    "reviewed_revision":  "fc0ba0c2e88eef35c0229cf21582467fce427f39",
+    "fixture":  {
+                    "path":  "data/synthetic_prices.csv",
+                    "sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210"
+                },
+    "expected_runs":  80,
+    "expected_values":  160,
+    "origins":  [
+                    {
+                        "id":  "serial",
+                        "manifest_path":  "evidence/v022-validation-20261016/manifest.json",
+                        "source_revision":  "33102c48b9251beb6317969ffb7edc03abe773b4",
+                        "source_tree":  "147cd46e2a247dd2dc92ff5a19dc82b9d00f6e33",
+                        "executable_sha256":  "d605b0078b16bdffd862ba936435d164a5359122e5f15849f1f4ee72b9ac215d",
+                        "build_cache_sha256":  "498a6f608070717bb914ff1a3b56760722e64dc331e9a81df5535cd89ad4932e",
+                        "limitation":  "Historical manifest explicitly sets executable_source_commit_verified=false. Matching archived binary hash and unchanged core/data implementations do not prove source-to-binary correspondence.",
+                        "artifacts":  [
+                                          {
+                                              "path":  "evidence/v022-validation-20261016/manifest.json",
+                                              "sha256":  "91d0a5d5e5f48450f535689db05168ab2f05aa8157b2ef2ff7fb533fb45657d4"
+                                          },
+                                          {
+                                              "path":  "build-foundation/Release/mc_var.exe",
+                                              "sha256":  "d605b0078b16bdffd862ba936435d164a5359122e5f15849f1f4ee72b9ac215d"
+                                          },
+                                          {
+                                              "path":  "build-foundation/CMakeCache.txt",
+                                              "sha256":  "498a6f608070717bb914ff1a3b56760722e64dc331e9a81df5535cd89ad4932e"
+                                          },
+                                          {
+                                              "path":  "evidence/v022-validation-20261016/runs.jsonl",
+                                              "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329"
+                                          },
+                                          {
+                                              "path":  "evidence/v022-validation-20261016/estimates.csv",
+                                              "sha256":  "80295900dcba8b07b0bfd72c669e4274f4ad62268594a44c01099e32dbe30a58"
+                                          }
+                                      ]
+                    },
+                    {
+                        "id":  "openmp",
+                        "manifest_path":  "evidence/v030-openmp-windows-correctness-20261016/manifest.json",
+                        "source_revision":  "05f982effc570366597fc5f13f8b3a0440b293a8",
+                        "source_tree":  "6b8fbbcda87b24a4f160f59935cc9345b77c3cae",
+                        "executable_sha256":  "43956a62190c57ca675e2a44fe4b95a2b1e4fc548e178463d1bb10c35badb297",
+                        "build_cache_sha256":  null,
+                        "limitation":  "Requested and actual threads=4. Build settings/log and executable are archived; no standalone CMakeCache was published with this correctness evidence.",
+                        "artifacts":  [
+                                          {
+                                              "path":  "evidence/v030-openmp-windows-correctness-20261016/manifest.json",
+                                              "sha256":  "8cc830d5a84cb113526d2cf03db0ee0783241d8c47ca3d36351c13b7cb3b7439"
+                                          },
+                                          {
+                                              "path":  "build-openmp/Release/mc_var.exe",
+                                              "sha256":  "43956a62190c57ca675e2a44fe4b95a2b1e4fc548e178463d1bb10c35badb297"
+                                          },
+                                          {
+                                              "path":  "evidence/v030-openmp-windows-correctness-20261016/runs.jsonl",
+                                              "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c"
+                                          },
+                                          {
+                                              "path":  "evidence/v030-openmp-windows-correctness-20261016/estimates.csv",
+                                              "sha256":  "74996befd36e57f45607a374eed5b7bef5640a5ac86dcd6cbdc38e7993e313c7"
+                                          },
+                                          {
+                                              "path":  "evidence/v030-openmp-windows-correctness-20261016/build-settings.json",
+                                              "sha256":  "6a4d951aedb54419b62a4c9df1ef42991efbc8ddf85ec0dff377377d28b1416b"
+                                          },
+                                          {
+                                              "path":  "evidence/v030-openmp-windows-correctness-20261016/artifact-sha256.json",
+                                              "sha256":  "c6c08862bbdf61fdc8c209d2bc50799bf131cbb288e8d998320a2e81f80dde92"
+                                          },
+                                          {
+                                              "path":  "evidence/v030-openmp-windows-correctness-20261016/audit.json",
+                                              "sha256":  "e0b2aa9348846ac53a776f24b47e16ad43775ef60e3e7d966fd55cdc928b2eee"
+                                          },
+                                          {
+                                              "path":  "evidence/v030-openmp-windows-correctness-20261016/build-ON.log",
+                                              "sha256":  "258b34edd2219505fe8f5f9d4a294fac5c6f57d74e24e3ec06db4b5625727b09"
+                                          }
+                                      ]
+                    },
+                    {
+                        "id":  "small-gpu",
+                        "manifest_path":  "results/cuda-hybrid-f039034-clean-20261019/manifest.json",
+                        "source_revision":  "f03903402ddfb3bfc591dcb092dec73603448854",
+                        "source_tree":  "ea1ddbf8852cf17d09b9d411561c585ce80d2b08",
+                        "executable_sha256":  "e08a64ae46a1cefe56b593a33dec68413903b69b0196033b5f821ee7b34a9c76",
+                        "build_cache_sha256":  "5cb15a4da06d8816c2c51fa622c93be50905eb0f2408726e04fdfe93bdcb6212",
+                        "limitation":  "Only five selected native singleton observations. Implementation checks are not a complete seed campaign; common-input and connectivity records are excluded.",
+                        "artifacts":  [
+                                          {
+                                              "path":  "results/cuda-hybrid-f039034-clean-20261019/manifest.json",
+                                              "sha256":  "4352958e62f77d0b059d7362056fb66b09d6dcfae95cc352bcdd61d84149d9b8"
+                                          },
+                                          {
+                                              "path":  "build-cuda-skeleton/Release/mc_var.exe",
+                                              "sha256":  "e08a64ae46a1cefe56b593a33dec68413903b69b0196033b5f821ee7b34a9c76"
+                                          },
+                                          {
+                                              "path":  "results/cuda-hybrid-f039034-clean-20261019/build-cuda-skeleton-CMakeCache.txt",
+                                              "sha256":  "5cb15a4da06d8816c2c51fa622c93be50905eb0f2408726e04fdfe93bdcb6212"
+                                          },
+                                          {
+                                              "path":  "results/cuda-hybrid-f039034-clean-20261019/independent-audit.json",
+                                              "sha256":  "b91d0df65d4347d8bee42601f9bd30ac02dcab92502705d3b23a6ca96d632af3"
+                                          }
+                                      ]
+                    },
+                    {
+                        "id":  "acceptance-gpu",
+                        "manifest_path":  "results/gpu-acceptance-8df5f28-20261019/manifest.json",
+                        "source_revision":  "8df5f28b877b15d0d2b513b8e8786e41d4af7c05",
+                        "source_tree":  "8b8dbdb14a952fa808c29d2d9a938b88b941edf7",
+                        "executable_sha256":  "7a4fa7759284f7158c2d57a380eca932d8518b70d5674a78d9713b18ee93ba26",
+                        "build_cache_sha256":  "653c93710a52565a9e2647e9451f6f5fa0c171d70477bce525a5436bd0033f41",
+                        "limitation":  "Separate five-seed 10M acceptance source/build. Later revisions add optional diagnostics; no fresh common-build convergence campaign is claimed.",
+                        "artifacts":  [
+                                          {
+                                              "path":  "results/gpu-acceptance-8df5f28-20261019/manifest.json",
+                                              "sha256":  "662282694ce64120baa666c424d2920efb440123753c50f9557a67b6ce074111"
+                                          },
+                                          {
+                                              "path":  "C:/Users/rahma/OneDrive/Masaüstü/graduation_project/gpu-montecarlo-starter/build-gpu-8df5f28-edcf3e-cuda/Release/mc_var.exe",
+                                              "sha256":  "7a4fa7759284f7158c2d57a380eca932d8518b70d5674a78d9713b18ee93ba26"
+                                          },
+                                          {
+                                              "path":  "results/gpu-acceptance-8df5f28-20261019/cuda-CMakeCache.txt",
+                                              "sha256":  "653c93710a52565a9e2647e9451f6f5fa0c171d70477bce525a5436bd0033f41"
+                                          },
+                                          {
+                                              "path":  "results/gpu-acceptance-8df5f28-20261019/independent-audit.json",
+                                              "sha256":  "ca69dae55186b0efe9a766e5d7aea6bf692850378db3c285d6350a1317f7768e"
+                                          }
+                                      ]
+                    }
+                ],
+    "compatibility":  [
+                          {
+                              "from":  "33102c48b9251beb6317969ffb7edc03abe773b4",
+                              "to":  "fc0ba0c2e88eef35c0229cf21582467fce427f39",
+                              "paths":  [
+                                            "src/core.cpp",
+                                            "src/data.cpp",
+                                            "include/mc/core.hpp",
+                                            "include/mc/data.hpp"
+                                        ],
+                              "diff":  [
+                                           "diff --git a/include/mc/core.hpp b/include/mc/core.hpp",
+                                           "index 7d4dc34..4b45708 100644",
+                                           "--- a/include/mc/core.hpp",
+                                           "+++ b/include/mc/core.hpp",
+                                           "@@ -1,6 +1,7 @@",
+                                           " #pragma once",
+                                           " #include \u003ccstddef\u003e",
+                                           " #include \u003ccstdint\u003e",
+                                           "+#include \u003coptional\u003e",
+                                           " #include \u003cstring\u003e",
+                                           " #include \u003cvector\u003e",
+                                           " ",
+                                           "@@ -18,11 +19,36 @@ struct Request {",
+                                           "     std::vector\u003cdouble\u003e confidence_levels{0.95, 0.99};",
+                                           " };",
+                                           " struct Estimate { double confidence; double var; };",
+                                           "+struct CudaDiagnostics {",
+                                           "+    double initialization_ms = 0, rng_ms = 0, loss_ms = 0, cub_ms = 0, gather_ms = 0;",
+                                           "+    double pipeline_span_ms = 0, host_quantile_ms = 0;",
+                                           "+    std::size_t initialization_intervals = 0, rng_intervals = 0, loss_intervals = 0;",
+                                           "+    std::size_t cub_intervals = 0, gather_intervals = 0;",
+                                           "+};",
+                                           "+struct CudaMetadata {",
+                                           "+    std::optional\u003cCudaDiagnostics\u003e diagnostics;",
+                                           "+    std::string mode = \"full-device\";",
+                                           "+    std::size_t requested_batch_size = 0, effective_batch_size = 0, batch_count = 0;",
+                                           "+    std::size_t normals_generated = 0, host_loss_bytes = 0, losses_transferred = 0;",
+                                           "+    std::string device_name, compiler_version, curand_header_version;",
+                                           "+    int compute_major = 0, compute_minor = 0;",
+                                           "+    int driver_api_version = 0, runtime_version = 0, runtime_header_version = 0;",
+                                           "+    int curand_runtime_version = 0, cub_version = 0;",
+                                           "+    double host_to_device_ms = 0, device_to_host_ms = 0;",
+                                           "+    std::size_t host_to_device_bytes = 0, device_to_host_bytes = 0;",
+                                           "+    std::size_t normals_allocated = 0, cub_temporary_bytes = 0, explicit_device_bytes = 0;",
+                                           "+    std::size_t total_vram_bytes = 0, free_before_bytes = 0, free_with_pipeline_bytes = 0;",
+                                           "+    std::size_t allocation_budget_limit_bytes = 0;",
+                                           "+};",
+                                           " struct Result {",
+                                           "     std::string backend;",
+                                           "     std::string random_source;",
+                                           "     std::vector\u003cEstimate\u003e estimates;",
+                                           "     double end_to_end_ms = 0.0;",
+                                           "+    int requested_threads = 0; // Zero means runtime default; serial always uses one.",
+                                           "+    int threads_used = 1;",
+                                           "+    int openmp_version = 0; // _OPENMP date value; zero for serial.",
+                                           "+    std::optional\u003cCudaMetadata\u003e cuda;",
+                                           " };",
+                                           " // A backend owns RNG, buffers, simulation, quantile and synchronization.",
+                                           " // No per-scenario CPU callback and no mandatory host loss vector."
+                                       ]
+                          },
+                          {
+                              "from":  "05f982effc570366597fc5f13f8b3a0440b293a8",
+                              "to":  "fc0ba0c2e88eef35c0229cf21582467fce427f39",
+                              "paths":  [
+                                            "src/core.cpp",
+                                            "src/data.cpp",
+                                            "src/openmp.cpp",
+                                            "include/mc/openmp.hpp"
+                                        ],
+                              "diff":  [
+
+                                       ]
+                          },
+                          {
+                              "from":  "f03903402ddfb3bfc591dcb092dec73603448854",
+                              "to":  "8df5f28b877b15d0d2b513b8e8786e41d4af7c05",
+                              "paths":  [
+                                            "src",
+                                            "include",
+                                            "data/synthetic_prices.csv"
+                                        ],
+                              "diff":  [
+
+                                       ]
+                          },
+                          {
+                              "from":  "8df5f28b877b15d0d2b513b8e8786e41d4af7c05",
+                              "to":  "fc0ba0c2e88eef35c0229cf21582467fce427f39",
+                              "paths":  [
+                                            "src",
+                                            "include",
+                                            "data/synthetic_prices.csv"
+                                        ],
+                              "diff":  [
+                                           "diff --git a/include/mc/core.hpp b/include/mc/core.hpp",
+                                           "index 098a995..4b45708 100644",
+                                           "--- a/include/mc/core.hpp",
+                                           "+++ b/include/mc/core.hpp",
+                                           "@@ -19,7 +19,14 @@ struct Request {",
+                                           "     std::vector\u003cdouble\u003e confidence_levels{0.95, 0.99};",
+                                           " };",
+                                           " struct Estimate { double confidence; double var; };",
+                                           "+struct CudaDiagnostics {",
+                                           "+    double initialization_ms = 0, rng_ms = 0, loss_ms = 0, cub_ms = 0, gather_ms = 0;",
+                                           "+    double pipeline_span_ms = 0, host_quantile_ms = 0;",
+                                           "+    std::size_t initialization_intervals = 0, rng_intervals = 0, loss_intervals = 0;",
+                                           "+    std::size_t cub_intervals = 0, gather_intervals = 0;",
+                                           "+};",
+                                           " struct CudaMetadata {",
+                                           "+    std::optional\u003cCudaDiagnostics\u003e diagnostics;",
+                                           "     std::string mode = \"full-device\";",
+                                           "     std::size_t requested_batch_size = 0, effective_batch_size = 0, batch_count = 0;",
+                                           "     std::size_t normals_generated = 0, host_loss_bytes = 0, losses_transferred = 0;",
+                                           "diff --git a/include/mc/cuda.hpp b/include/mc/cuda.hpp",
+                                           "index 9567da9..be70c9c 100644",
+                                           "--- a/include/mc/cuda.hpp",
+                                           "+++ b/include/mc/cuda.hpp",
+                                           "@@ -6,12 +6,14 @@ enum class CudaMode { FullDevice, Hybrid };",
+                                           " // Full-device path, 1 through 10000000 scenarios, subject to memory preflight.",
+                                           " class CudaEngine final : public Engine {",
+                                           " public:",
+                                           "-    explicit CudaEngine(CudaMode mode = CudaMode::FullDevice, std::size_t batch_size = 0)",
+                                           "-        : mode_(mode), batch_size_(batch_size) {}",
+                                           "+    explicit CudaEngine(CudaMode mode = CudaMode::FullDevice, std::size_t batch_size = 0,",
+                                           "+                        bool diagnostics = false)",
+                                           "+        : mode_(mode), batch_size_(batch_size), diagnostics_(diagnostics) {}",
+                                           "     Result run(const Request\u0026 request,",
+                                           "                const std::vector\u003cdouble\u003e* common_normals = nullptr) const override;",
+                                           " private:",
+                                           "     CudaMode mode_;",
+                                           "     std::size_t batch_size_;",
+                                           "+    bool diagnostics_;",
+                                           " };",
+                                           " } // namespace mc",
+                                           "diff --git a/src/cuda.cu b/src/cuda.cu",
+                                           "index 314f5b6..0b2e9e2 100644",
+                                           "--- a/src/cuda.cu",
+                                           "+++ b/src/cuda.cu",
+                                           "@@ -22,11 +22,54 @@ void check_rng(curandStatus_t status, const char* operation) {",
+                                           "         throw std::runtime_error(std::string(operation) + \": cuRAND status \" + std::to_string(status));",
+                                           " }",
+                                           " struct Resources {",
+                                           "+    struct Interval { cudaEvent_t begin, end; int stage; };",
+                                           "+    CudaDiagnostics* diagnostics = nullptr;",
+                                           "+    std::vector\u003ccudaEvent_t\u003e diagnostic_events;",
+                                           "+    std::vector\u003cInterval\u003e intervals;",
+                                           "     cudaStream_t stream = nullptr;",
+                                           "     cudaEvent_t begin = nullptr, end = nullptr;",
+                                           "     curandGenerator_t generator = nullptr;",
+                                           "     std::vector\u003cvoid*\u003e buffers;",
+                                           "     ~Resources() { release(false); }",
+                                           "+    cudaEvent_t event() {",
+                                           "+        cudaEvent_t value = nullptr;",
+                                           "+        check(cudaEventCreate(\u0026value), \"Diagnostic event creation\");",
+                                           "+        try { diagnostic_events.push_back(value); }",
+                                           "+        catch (...) { cudaEventDestroy(value); throw; }",
+                                           "+        return value;",
+                                           "+    }",
+                                           "+    std::size_t start(int stage) {",
+                                           "+        if (!diagnostics) return 0;",
+                                           "+        const auto a = event(), b = event();",
+                                           "+        intervals.push_back({a, b, stage});",
+                                           "+        check(cudaEventRecord(a, stream), \"Diagnostic interval start\");",
+                                           "+        return intervals.size() - 1;",
+                                           "+    }",
+                                           "+    void stop(std::size_t token) {",
+                                           "+        if (diagnostics) check(cudaEventRecord(intervals[token].end, stream), \"Diagnostic interval stop\");",
+                                           "+    }",
+                                           "+    template\u003cclass F\u003e void measure(int stage, F operation) {",
+                                           "+        const auto token = start(stage);",
+                                           "+        operation();",
+                                           "+        stop(token);",
+                                           "+    }",
+                                           "+    void collect() {",
+                                           "+        if (!diagnostics) return;",
+                                           "+        check(cudaStreamSynchronize(stream), \"Diagnostic completion\");",
+                                           "+        for (const auto\u0026 interval : intervals) {",
+                                           "+            float ms = 0;",
+                                           "+            check(cudaEventElapsedTime(\u0026ms, interval.begin, interval.end), \"Diagnostic elapsed time\");",
+                                           "+            auto\u0026 d = *diagnostics;",
+                                           "+            switch (interval.stage) {",
+                                           "+            case 0: d.initialization_ms += ms; ++d.initialization_intervals; break;",
+                                           "+            case 1: d.rng_ms += ms; ++d.rng_intervals; break;",
+                                           "+            case 2: d.loss_ms += ms; ++d.loss_intervals; break;",
+                                           "+            case 3: d.cub_ms += ms; ++d.cub_intervals; break;",
+                                           "+            case 4: d.gather_ms += ms; ++d.gather_intervals; break;",
+                                           "+            case 5: d.pipeline_span_ms = ms; break;",
+                                           "+            }",
+                                           "+        }",
+                                           "+    }",
+                                           "     template\u003cclass T\u003e T* allocate(std::size_t count) {",
+                                           "         void* pointer = nullptr;",
+                                           "         const auto bytes = detail::checked_multiply(count, sizeof(T));",
+                                           "@@ -49,6 +92,8 @@ struct Resources {",
+                                           "         buffers.clear();",
+                                           "         if (begin) { remember(cudaEventDestroy(begin)); begin = nullptr; }",
+                                           "         if (end) { remember(cudaEventDestroy(end)); end = nullptr; }",
+                                           "+        for (auto value : diagnostic_events) remember(cudaEventDestroy(value));",
+                                           "+        diagnostic_events.clear();",
+                                           "         if (stream) { remember(cudaStreamDestroy(stream)); stream = nullptr; }",
+                                           "         if (checked) { check_rng(rng_status, \"cuRAND cleanup\"); check(first, \"CUDA cleanup\"); }",
+                                           "     }",
+                                           "@@ -117,6 +162,7 @@ void hybrid_pipeline(const Request\u0026 r, const std::vector\u003cdouble\u003e* common, std::s",
+                                           "         check_rng(curandSetPseudoRandomGeneratorSeed(resources.generator, r.seed), \"Hybrid cuRAND seed\");",
+                                           "     }",
+                                           "     std::size_t offset = 0;",
+                                           "+    const auto pipeline = resources.start(5);",
+                                           "     while (offset \u003c r.scenarios) {",
+                                           "         const auto count = (std::min)(info.effective_batch_size, r.scenarios - offset);",
+                                           "         const auto bytes = detail::checked_multiply(count, sizeof(double));",
+                                           "@@ -126,15 +172,21 @@ void hybrid_pipeline(const Request\u0026 r, const std::vector\u003cdouble\u003e* common, std::s",
+                                           "         else {",
+                                           "             const auto generated = detail::normal_count(count, false);",
+                                           "             if (generated \u003e info.normals_allocated) throw std::runtime_error(\"Hybrid normal buffer too small\");",
+                                           "-            check_rng(curandGenerateNormalDouble(resources.generator, normals, generated, 0.0, 1.0), \"Hybrid cuRAND normal generation\");",
+                                           "+            resources.measure(1, [\u0026] {",
+                                           "+                check_rng(curandGenerateNormalDouble(resources.generator, normals, generated, 0.0, 1.0), \"Hybrid cuRAND normal generation\");",
+                                           "+            });",
+                                           "             info.normals_generated = detail::checked_add(info.normals_generated, generated);",
+                                           "         }",
+                                           "-        check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), \"Hybrid error flag initialization\");",
+                                           "+        resources.measure(0, [\u0026] {",
+                                           "+            check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), \"Hybrid error flag initialization\");",
+                                           "+        });",
+                                           "         const auto blocks = detail::loss_blocks(count, properties.maxGridSize[0],",
+                                           "             properties.maxThreadsDim[0], properties.maxThreadsPerBlock);",
+                                           "-        losses_kernel\u003c\u003c\u003cblocks, detail::cuda_loss_threads, 0, resources.stream\u003e\u003e\u003e(",
+                                           "+        resources.measure(2, [\u0026] {",
+                                           "+          losses_kernel\u003c\u003c\u003cblocks, detail::cuda_loss_threads, 0, resources.stream\u003e\u003e\u003e(",
+                                           "             r.model, normals, losses, detail::checked_int(count), invalid_device);",
+                                           "         check(cudaGetLastError(), \"Hybrid loss kernel launch\");",
+                                           "+        });",
+                                           "         int invalid = 0;",
+                                           "         resources.copy(\u0026invalid, invalid_device, sizeof(int), cudaMemcpyDeviceToHost, info);",
+                                           "         if (invalid == 1) throw std::invalid_argument(\"Normal input must be finite\");",
+                                           "@@ -144,14 +196,19 @@ void hybrid_pipeline(const Request\u0026 r, const std::vector\u003cdouble\u003e* common, std::s",
+                                           "         info.batch_count = detail::checked_add(info.batch_count, 1);",
+                                           "         offset = next;",
+                                           "     }",
+                                           "+    resources.stop(pipeline);",
+                                           "     if (offset != r.scenarios || info.losses_transferred != r.scenarios",
+                                           "         || (!common \u0026\u0026 info.normals_generated != detail::normal_count(r.scenarios, false)))",
+                                           "         throw std::runtime_error(\"Hybrid scenario accounting mismatch\");",
+                                           "     check(cudaStreamSynchronize(resources.stream), \"Hybrid pipeline completion\");",
+                                           "     check(cudaMemGetInfo(\u0026info.free_with_pipeline_bytes, \u0026info.total_vram_bytes), \"Hybrid VRAM pipeline snapshot\");",
+                                           "+    const auto quantile_start = resources.diagnostics ? std::chrono::steady_clock::now()",
+                                           "+                                                     : std::chrono::steady_clock::time_point{};",
+                                           "     std::sort(host_losses.begin(), host_losses.end());",
+                                           "     for (double confidence : r.confidence_levels)",
+                                           "         result.estimates.push_back({confidence, sorted_quantile(host_losses, confidence)});",
+                                           "+    if (resources.diagnostics) resources.diagnostics-\u003ehost_quantile_ms =",
+                                           "+        std::chrono::duration\u003cdouble, std::milli\u003e(std::chrono::steady_clock::now() - quantile_start).count();",
+                                           " }",
+                                           " std::string compiler_version() {",
+                                           "     return std::to_string(__CUDACC_VER_MAJOR__) + \".\" + std::to_string(__CUDACC_VER_MINOR__) + \".\" + std::to_string(__CUDACC_VER_BUILD__);",
+                                           "@@ -192,6 +249,10 @@ Result CudaEngine::run(const Request\u0026 r, const std::vector\u003cdouble\u003e* common) cons",
+                                           "         check_rng(curandGetVersion(\u0026info.curand_runtime_version), \"cuRAND runtime version\");",
+                                           "         Resources resources;",
+                                           "         resources.initialize();",
+                                           "+        if (diagnostics_) {",
+                                           "+            info.diagnostics.emplace();",
+                                           "+            resources.diagnostics = \u0026*info.diagnostics;",
+                                           "+        }",
+                                           "         if (mode_ == CudaMode::Hybrid) {",
+                                           "             hybrid_pipeline(r, common, batch_size_, resources, properties, result);",
+                                           "         } else {",
+                                           "@@ -228,27 +289,39 @@ Result CudaEngine::run(const Request\u0026 r, const std::vector\u003cdouble\u003e* common) cons",
+                                           "             auto values_device = resources.allocate\u003cdouble\u003e(k);",
+                                           "             auto invalid_device = resources.allocate\u003cint\u003e(1);",
+                                           "             auto workspace = resources.allocate\u003cunsigned char\u003e(workspace_bytes);",
+                                           "+            const auto pipeline = resources.start(5);",
+                                           "             resources.copy(indices_device, indices.data(), index_bytes, cudaMemcpyHostToDevice, info);",
+                                           "             if (common) resources.copy(normals, common-\u003edata(), loss_bytes, cudaMemcpyHostToDevice, info);",
+                                           "             else {",
+                                           "                 check_rng(curandCreateGenerator(\u0026resources.generator, CURAND_RNG_PSEUDO_PHILOX4_32_10), \"cuRAND device generator creation\");",
+                                           "                 check_rng(curandSetStream(resources.generator, resources.stream), \"cuRAND stream selection\");",
+                                           "                 check_rng(curandSetPseudoRandomGeneratorSeed(resources.generator, r.seed), \"cuRAND seed\");",
+                                           "-                check_rng(curandGenerateNormalDouble(resources.generator, normals, info.normals_allocated, 0.0, 1.0), \"cuRAND device normal generation\");",
+                                           "+                resources.measure(1, [\u0026] {",
+                                           "+                    check_rng(curandGenerateNormalDouble(resources.generator, normals, info.normals_allocated, 0.0, 1.0), \"cuRAND device normal generation\");",
+                                           "+                });",
+                                           "                 info.normals_generated = info.normals_allocated;",
+                                           "             }",
+                                           "-            check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), \"Device error flag initialization\");",
+                                           "+            resources.measure(0, [\u0026] {",
+                                           "+                check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), \"Device error flag initialization\");",
+                                           "+            });",
+                                           "+            resources.measure(2, [\u0026] {",
+                                           "             losses_kernel\u003c\u003c\u003cblocks, detail::cuda_loss_threads, 0, resources.stream\u003e\u003e\u003e(r.model, normals, losses, n, invalid_device);",
+                                           "             check(cudaGetLastError(), \"Loss kernel launch\");",
+                                           "+            });",
+                                           "             int invalid = 0;",
+                                           "             resources.copy(\u0026invalid, invalid_device, sizeof(int), cudaMemcpyDeviceToHost, info);",
+                                           "             if (invalid == 1) throw std::invalid_argument(\"Normal input must be finite\");",
+                                           "             if (invalid) throw std::overflow_error(\"CUDA scenario loss overflow\");",
+                                           "-            check(cub::DeviceRadixSort::SortKeys(workspace, info.cub_temporary_bytes, losses, sorted, n, 0, 64, resources.stream), \"CUB device radix sort\");",
+                                           "+            resources.measure(3, [\u0026] {",
+                                           "+                check(cub::DeviceRadixSort::SortKeys(workspace, info.cub_temporary_bytes, losses, sorted, n, 0, 64, resources.stream), \"CUB device radix sort\");",
+                                           "+            });",
+                                           "+            resources.measure(4, [\u0026] {",
+                                           "             quantile_kernel\u003c\u003c\u003c1, 32, 0, resources.stream\u003e\u003e\u003e(sorted, indices_device, values_device, quantile_count);",
+                                           "             check(cudaGetLastError(), \"Device nearest-rank gather launch\");",
+                                           "+            });",
+                                           "             std::vector\u003cdouble\u003e values(k);",
+                                           "             resources.copy(values.data(), values_device, value_bytes, cudaMemcpyDeviceToHost, info);",
+                                           "+            resources.stop(pipeline);",
+                                           "             check(cudaStreamSynchronize(resources.stream), \"Pipeline completion\");",
+                                           "             check(cudaMemGetInfo(\u0026info.free_with_pipeline_bytes, \u0026info.total_vram_bytes), \"VRAM pipeline snapshot\");",
+                                           "             for (std::size_t i = 0; i \u003c k; ++i) {",
+                                           "@@ -256,6 +329,7 @@ Result CudaEngine::run(const Request\u0026 r, const std::vector\u003cdouble\u003e* common) cons",
+                                           "                 result.estimates.push_back({r.confidence_levels[i], values[i]});",
+                                           "             }",
+                                           "         }",
+                                           "+        resources.collect();",
+                                           "         resources.release(true);",
+                                           "     }",
+                                           "     result.end_to_end_ms = std::chrono::duration\u003cdouble, std::milli\u003e(std::chrono::steady_clock::now() - start).count();",
+                                           "diff --git a/src/main.cpp b/src/main.cpp",
+                                           "index d9540bc..d5f534f 100644",
+                                           "--- a/src/main.cpp",
+                                           "+++ b/src/main.cpp",
+                                           "@@ -37,6 +37,7 @@ int main(int argc, char** argv) {",
+                                           "         std::string cuda_mode = \"full-device\";",
+                                           "         std::size_t batch_size = 0;",
+                                           "         bool cuda_mode_seen = false, batch_seen = false;",
+                                           "+        bool diagnostics = false;",
+                                           "         bool backend_seen = false, threads_seen = false;",
+                                           "         std::vector\u003cchar*\u003e positional{argv[0]};",
+                                           "         for (int i = 1; i \u003c argc; ++i) {",
+                                           "@@ -48,6 +49,9 @@ int main(int argc, char** argv) {",
+                                           "                 backend = argv[++i];",
+                                           "                 if (backend != \"serial\" \u0026\u0026 backend != \"openmp\" \u0026\u0026 backend != \"cuda\")",
+                                           "                     throw std::invalid_argument(\"Backend must be serial, openmp or cuda\");",
+                                           "+            } else if (option == \"--cuda-diagnostics\") {",
+                                           "+                if (diagnostics) throw std::invalid_argument(\"Duplicate --cuda-diagnostics\");",
+                                           "+                diagnostics = true;",
+                                           "             } else if (option == \"--threads\") {",
+                                           "                 if (threads_seen || i + 1 \u003e= argc)",
+                                           "                     throw std::invalid_argument(\"Missing or duplicate --threads\");",
+                                           "@@ -80,7 +84,7 @@ int main(int argc, char** argv) {",
+                                           "         }",
+                                           "         if (threads_seen \u0026\u0026 backend != \"openmp\")",
+                                           "             throw std::invalid_argument(\"--threads requires the openmp backend\");",
+                                           "-        if ((cuda_mode_seen || batch_seen) \u0026\u0026 backend != \"cuda\")",
+                                           "+        if ((cuda_mode_seen || batch_seen || diagnostics) \u0026\u0026 backend != \"cuda\")",
+                                           "             throw std::invalid_argument(\"--cuda-mode and --batch-size require the cuda backend\");",
+                                           "         if ((cuda_mode == \"hybrid\") != batch_seen)",
+                                           "             throw std::invalid_argument(\"--batch-size is required only with --cuda-mode hybrid\");",
+                                           "@@ -95,7 +99,7 @@ int main(int argc, char** argv) {",
+                                           "         argc = static_cast\u003cint\u003e(positional.size());",
+                                           "         argv = positional.data();",
+                                           "         const bool csv_mode = argc \u003e 1 \u0026\u0026 std::string(argv[1]) == \"--csv\";",
+                                           "-        const std::string usage = \"Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer (hybrid only; append --json for structured output)\";",
+                                           "+        const std::string usage = \"Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output)\";",
+                                           "         if ((!csv_mode \u0026\u0026 argc \u003e 3) || (csv_mode \u0026\u0026 (argc \u003c 3 || argc \u003e 7)))",
+                                           "             throw std::invalid_argument(usage);",
+                                           "         mc::Request request;",
+                                           "@@ -140,7 +144,7 @@ int main(int argc, char** argv) {",
+                                           "         std::unique_ptr\u003cmc::Engine\u003e engine;",
+                                           " #ifdef MC_HAS_CUDA",
+                                           "         if (backend == \"cuda\") engine = std::make_unique\u003cmc::CudaEngine\u003e(",
+                                           "-            cuda_mode == \"hybrid\" ? mc::CudaMode::Hybrid : mc::CudaMode::FullDevice, batch_size);",
+                                           "+            cuda_mode == \"hybrid\" ? mc::CudaMode::Hybrid : mc::CudaMode::FullDevice, batch_size, diagnostics);",
+                                           "         else",
+                                           " #endif",
+                                           " #ifdef MC_HAS_OPENMP",
+                                           "diff --git a/src/output.cpp b/src/output.cpp",
+                                           "index ee237b8..db80a15 100644",
+                                           "--- a/src/output.cpp",
+                                           "+++ b/src/output.cpp",
+                                           "@@ -62,6 +62,24 @@ void cuda_metadata(std::ostream\u0026 out, const CudaMetadata\u0026 c) {",
+                                           "         \u003c\u003c \",\\\"capacity_policy\\\":\";",
+                                           "     string_value(out, hybrid ? \"Reject three explicit batch buffers exceeding floor(4*free_before_bytes/5); queried after context/stream/events, before buffer allocation; excludes host losses, opaque library/context allocations and other GPU activity; not a capacity guarantee\"",
+                                           "         : \"Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee\");",
+                                           "+    if (c.diagnostics) {",
+                                           "+        const auto\u0026 d = *c.diagnostics;",
+                                           "+        out \u003c\u003c \",\\\"diagnostics\\\":{\\\"schema_version\\\":1,\\\"enabled\\\":true\";",
+                                           "+        out \u003c\u003c \",\\\"initialization_ms\\\":\"; number(out, d.initialization_ms);",
+                                           "+        out \u003c\u003c \",\\\"rng_ms\\\":\"; number(out, d.rng_ms);",
+                                           "+        out \u003c\u003c \",\\\"loss_ms\\\":\"; number(out, d.loss_ms);",
+                                           "+        out \u003c\u003c \",\\\"cub_ms\\\":\"; number(out, d.cub_ms);",
+                                           "+        out \u003c\u003c \",\\\"gather_ms\\\":\"; number(out, d.gather_ms);",
+                                           "+        out \u003c\u003c \",\\\"pipeline_span_ms\\\":\"; number(out, d.pipeline_span_ms);",
+                                           "+        out \u003c\u003c \",\\\"host_quantile_ms\\\":\"; number(out, d.host_quantile_ms);",
+                                           "+        out \u003c\u003c \",\\\"covered_device_stage_sum_ms\\\":\";",
+                                           "+        number(out, d.initialization_ms + d.rng_ms + d.loss_ms + d.cub_ms + d.gather_ms);",
+                                           "+        out \u003c\u003c \",\\\"initialization_intervals\\\":\" \u003c\u003c d.initialization_intervals",
+                                           "+            \u003c\u003c \",\\\"rng_intervals\\\":\" \u003c\u003c d.rng_intervals \u003c\u003c \",\\\"loss_intervals\\\":\" \u003c\u003c d.loss_intervals",
+                                           "+            \u003c\u003c \",\\\"cub_intervals\\\":\" \u003c\u003c d.cub_intervals \u003c\u003c \",\\\"gather_intervals\\\":\" \u003c\u003c d.gather_intervals;",
+                                           "+        out \u003c\u003c \",\\\"scope\\\":\\\"Same-stream Event intervals; stage durations summed across batches; initialization is device error-flag memset only; RNG includes device work enqueued by generation call, not host generator setup; span from first pipeline enqueue through final required D2H, includes host submission gaps; excludes allocations/context/cleanup and hybrid host quantile\\\"\"",
+                                           "+            \u003c\u003c \",\\\"transfer_excluded_scope\\\":\\\"Explicit initialization+RNG+loss+CUB+gather Event sum; excludes copies, host setup/quantile/staging, allocation, context, cleanup and gaps between intervals; not host wall time minus copies\\\"}\";",
+                                           "+    }",
+                                           "     out \u003c\u003c \u0027}\u0027;",
+                                           " }",
+                                           " }"
+                                       ]
+                          }
+                      ],
+    "compatibility_reasoning":  "core.cpp/data.cpp and OpenMP implementation unchanged; serial header additions are metadata. f039034 to 8df5f28 has no src/include/fixture differences. Later GPU changes add optional diagnostic instrumentation and CLI/output metadata. Equal native seeds do not establish equal samples across engines/modes. Reuse spans source/build revisions.",
+    "reuse":  [
+                  {
+                      "key":  "serial/10000/42",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  1
+                  },
+                  {
+                      "key":  "serial/10000/123",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  2
+                  },
+                  {
+                      "key":  "serial/10000/456",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  3
+                  },
+                  {
+                      "key":  "serial/10000/789",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  4
+                  },
+                  {
+                      "key":  "serial/10000/2026",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  5
+                  },
+                  {
+                      "key":  "serial/100000/42",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  6
+                  },
+                  {
+                      "key":  "serial/100000/123",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  7
+                  },
+                  {
+                      "key":  "serial/100000/456",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  8
+                  },
+                  {
+                      "key":  "serial/100000/789",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  9
+                  },
+                  {
+                      "key":  "serial/100000/2026",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  10
+                  },
+                  {
+                      "key":  "serial/1000000/42",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  11
+                  },
+                  {
+                      "key":  "serial/1000000/123",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  12
+                  },
+                  {
+                      "key":  "serial/1000000/456",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  13
+                  },
+                  {
+                      "key":  "serial/1000000/789",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  14
+                  },
+                  {
+                      "key":  "serial/1000000/2026",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  15
+                  },
+                  {
+                      "key":  "serial/10000000/42",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  16
+                  },
+                  {
+                      "key":  "serial/10000000/123",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  17
+                  },
+                  {
+                      "key":  "serial/10000000/456",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  18
+                  },
+                  {
+                      "key":  "serial/10000000/789",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  19
+                  },
+                  {
+                      "key":  "serial/10000000/2026",
+                      "origin":  "serial",
+                      "path":  "evidence\\v022-validation-20261016/runs.jsonl",
+                      "sha256":  "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+                      "line":  20
+                  },
+                  {
+                      "key":  "openmp/10000/42",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  1
+                  },
+                  {
+                      "key":  "openmp/10000/123",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  2
+                  },
+                  {
+                      "key":  "openmp/10000/456",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  3
+                  },
+                  {
+                      "key":  "openmp/10000/789",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  4
+                  },
+                  {
+                      "key":  "openmp/10000/2026",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  5
+                  },
+                  {
+                      "key":  "openmp/100000/42",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  6
+                  },
+                  {
+                      "key":  "openmp/100000/123",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  7
+                  },
+                  {
+                      "key":  "openmp/100000/456",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  8
+                  },
+                  {
+                      "key":  "openmp/100000/789",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  9
+                  },
+                  {
+                      "key":  "openmp/100000/2026",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  10
+                  },
+                  {
+                      "key":  "openmp/1000000/42",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  11
+                  },
+                  {
+                      "key":  "openmp/1000000/123",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  12
+                  },
+                  {
+                      "key":  "openmp/1000000/456",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  13
+                  },
+                  {
+                      "key":  "openmp/1000000/789",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  14
+                  },
+                  {
+                      "key":  "openmp/1000000/2026",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  15
+                  },
+                  {
+                      "key":  "openmp/10000000/42",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  16
+                  },
+                  {
+                      "key":  "openmp/10000000/123",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  17
+                  },
+                  {
+                      "key":  "openmp/10000000/456",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  18
+                  },
+                  {
+                      "key":  "openmp/10000000/789",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  19
+                  },
+                  {
+                      "key":  "openmp/10000000/2026",
+                      "origin":  "openmp",
+                      "path":  "evidence\\v030-openmp-windows-correctness-20261016/runs.jsonl",
+                      "sha256":  "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+                      "line":  20
+                  },
+                  {
+                      "key":  "full-device/10000/42",
+                      "origin":  "small-gpu",
+                      "path":  "results/cuda-hybrid-f039034-clean-20261019/native-N10000.json",
+                      "sha256":  "51eb8a31bdbbc4b78682878150f946ef3479245125f5aa4c91ca19158f0e65a8",
+                      "line":  0
+                  },
+                  {
+                      "key":  "full-device/100000/42",
+                      "origin":  "small-gpu",
+                      "path":  "results/cuda-hybrid-f039034-clean-20261019/native-N100000.json",
+                      "sha256":  "cb3581f5931ba843b2e6fdfbe153996a9a3d220a13308ad3e11f13ab9e707793",
+                      "line":  0
+                  },
+                  {
+                      "key":  "full-device/1000000/42",
+                      "origin":  "small-gpu",
+                      "path":  "results/cuda-hybrid-f039034-clean-20261019/native-N1000000.json",
+                      "sha256":  "575556c20a439f5fa99749533f913d17f0655e746500647dfc1c040d34c6156d",
+                      "line":  0
+                  },
+                  {
+                      "key":  "hybrid/100000/42",
+                      "origin":  "small-gpu",
+                      "path":  "results/cuda-hybrid-f039034-clean-20261019/hybrid-native-N100000.json",
+                      "sha256":  "03e04a21527d244d8c63cece32eb9982916d3816cb8c0eb583bc2ac5cb7b5411",
+                      "line":  0
+                  },
+                  {
+                      "key":  "hybrid/1000000/42",
+                      "origin":  "small-gpu",
+                      "path":  "results/cuda-hybrid-f039034-clean-20261019/hybrid-native-N1000000.json",
+                      "sha256":  "36f8905ca633df1e841e57910cdb5a6d40db8b0999ff513ece11fb76d1ed7f62",
+                      "line":  0
+                  },
+                  {
+                      "key":  "full-device/10000000/42",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  1
+                  },
+                  {
+                      "key":  "full-device/10000000/123",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  2
+                  },
+                  {
+                      "key":  "full-device/10000000/456",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  3
+                  },
+                  {
+                      "key":  "full-device/10000000/789",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  4
+                  },
+                  {
+                      "key":  "full-device/10000000/2026",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  5
+                  },
+                  {
+                      "key":  "hybrid/10000000/42",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  6
+                  },
+                  {
+                      "key":  "hybrid/10000000/123",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  7
+                  },
+                  {
+                      "key":  "hybrid/10000000/456",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  8
+                  },
+                  {
+                      "key":  "hybrid/10000000/789",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  9
+                  },
+                  {
+                      "key":  "hybrid/10000000/2026",
+                      "origin":  "acceptance-gpu",
+                      "path":  "results/gpu-acceptance-8df5f28-20261019/runs.jsonl",
+                      "sha256":  "76878101a24c8900e4242b808040ba0eca52e3c510b4a69cb8f1f8b67706b3fb",
+                      "line":  10
+                  }
+              ],
+    "missing":  [
+                    {
+                        "key":  "full-device/10000/123",
+                        "engine":  "full-device",
+                        "scenarios":  10000,
+                        "seed":  "123",
+                        "requested_batch":  0,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/10000/456",
+                        "engine":  "full-device",
+                        "scenarios":  10000,
+                        "seed":  "456",
+                        "requested_batch":  0,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/10000/789",
+                        "engine":  "full-device",
+                        "scenarios":  10000,
+                        "seed":  "789",
+                        "requested_batch":  0,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/10000/2026",
+                        "engine":  "full-device",
+                        "scenarios":  10000,
+                        "seed":  "2026",
+                        "requested_batch":  0,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/100000/123",
+                        "engine":  "full-device",
+                        "scenarios":  100000,
+                        "seed":  "123",
+                        "requested_batch":  0,
+                        "effective_batch":  100000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/100000/456",
+                        "engine":  "full-device",
+                        "scenarios":  100000,
+                        "seed":  "456",
+                        "requested_batch":  0,
+                        "effective_batch":  100000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/100000/789",
+                        "engine":  "full-device",
+                        "scenarios":  100000,
+                        "seed":  "789",
+                        "requested_batch":  0,
+                        "effective_batch":  100000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/100000/2026",
+                        "engine":  "full-device",
+                        "scenarios":  100000,
+                        "seed":  "2026",
+                        "requested_batch":  0,
+                        "effective_batch":  100000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/1000000/123",
+                        "engine":  "full-device",
+                        "scenarios":  1000000,
+                        "seed":  "123",
+                        "requested_batch":  0,
+                        "effective_batch":  1000000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/1000000/456",
+                        "engine":  "full-device",
+                        "scenarios":  1000000,
+                        "seed":  "456",
+                        "requested_batch":  0,
+                        "effective_batch":  1000000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/1000000/789",
+                        "engine":  "full-device",
+                        "scenarios":  1000000,
+                        "seed":  "789",
+                        "requested_batch":  0,
+                        "effective_batch":  1000000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "full-device/1000000/2026",
+                        "engine":  "full-device",
+                        "scenarios":  1000000,
+                        "seed":  "2026",
+                        "requested_batch":  0,
+                        "effective_batch":  1000000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "hybrid/10000/42",
+                        "engine":  "hybrid",
+                        "scenarios":  10000,
+                        "seed":  "42",
+                        "requested_batch":  65535,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "hybrid/10000/123",
+                        "engine":  "hybrid",
+                        "scenarios":  10000,
+                        "seed":  "123",
+                        "requested_batch":  65535,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "hybrid/10000/456",
+                        "engine":  "hybrid",
+                        "scenarios":  10000,
+                        "seed":  "456",
+                        "requested_batch":  65535,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "hybrid/10000/789",
+                        "engine":  "hybrid",
+                        "scenarios":  10000,
+                        "seed":  "789",
+                        "requested_batch":  65535,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "hybrid/10000/2026",
+                        "engine":  "hybrid",
+                        "scenarios":  10000,
+                        "seed":  "2026",
+                        "requested_batch":  65535,
+                        "effective_batch":  10000,
+                        "batch_count":  1
+                    },
+                    {
+                        "key":  "hybrid/100000/123",
+                        "engine":  "hybrid",
+                        "scenarios":  100000,
+                        "seed":  "123",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  2
+                    },
+                    {
+                        "key":  "hybrid/100000/456",
+                        "engine":  "hybrid",
+                        "scenarios":  100000,
+                        "seed":  "456",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  2
+                    },
+                    {
+                        "key":  "hybrid/100000/789",
+                        "engine":  "hybrid",
+                        "scenarios":  100000,
+                        "seed":  "789",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  2
+                    },
+                    {
+                        "key":  "hybrid/100000/2026",
+                        "engine":  "hybrid",
+                        "scenarios":  100000,
+                        "seed":  "2026",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  2
+                    },
+                    {
+                        "key":  "hybrid/1000000/123",
+                        "engine":  "hybrid",
+                        "scenarios":  1000000,
+                        "seed":  "123",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  16
+                    },
+                    {
+                        "key":  "hybrid/1000000/456",
+                        "engine":  "hybrid",
+                        "scenarios":  1000000,
+                        "seed":  "456",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  16
+                    },
+                    {
+                        "key":  "hybrid/1000000/789",
+                        "engine":  "hybrid",
+                        "scenarios":  1000000,
+                        "seed":  "789",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  16
+                    },
+                    {
+                        "key":  "hybrid/1000000/2026",
+                        "engine":  "hybrid",
+                        "scenarios":  1000000,
+                        "seed":  "2026",
+                        "requested_batch":  65535,
+                        "effective_batch":  65536,
+                        "batch_count":  16
+                    }
+                ],
+    "figure_spec":  {
+                        "status":  "specification-only",
+                        "panels":  [
+                                       "absolute error of mean vs N by engine/mode and alpha",
+                                       "per-seed signed error and seed sample standard deviation vs N"
+                                   ],
+                        "x":  "N, logarithmic",
+                        "error_y":  "logarithmic for positive absolute errors; separate zero-error markers at labeled zero strip",
+                        "seed_y":  "linear signed error with zero reference line",
+                        "zero_policy":  "Preserve raw zeros; never substitute epsilon",
+                        "incomplete_policy":  "Mark partial groups with seed count; no fitted rate, monotonicity requirement or universal guarantee"
+                    }
+}

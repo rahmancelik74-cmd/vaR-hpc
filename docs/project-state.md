@@ -1,5 +1,33 @@
 # Project state
 
+## Convergence source checkpoint preparation: 2026-10-20
+
+The authorized follow-up verified all 611 prior artifact bindings after the
+repository moved out of OneDrive. The original 55-run/110-value dataset and
+statistics passed independent recomputation. Raw evidence and the plan remain
+unchanged. Scoped path relocation, preflight regression/focused gates and raw
+output-binding checks were added. Pre-commit focused tests passed 87 checks
+using mocked processes only. Clean-source execution results will be recorded
+separately. No new simulation had run at this preparation checkpoint; no push
+is authorized.
+
+## Convergence recorder/analyzer preparation: 2026-10-19
+
+Local implementation on top of fc0ba0c2e88eef35c0229cf21582467fce427f39 adds
+native convergence import/recording, independent calibration/statistics auditing
+and focused corruption/mock-process tests. No new simulation, figure, benchmark,
+profiling, bandwidth work or academic authoring was performed. No commit or push
+is claimed. See [convergence.md](convergence.md) and the
+[bound plan and verification evidence](../evidence/v030-convergence-preparation-20261019/README.md).
+
+Verified reusable coverage is 55/80 runs (110/160 VaR values): serial 20,
+OpenMP four-thread 20, full-device 8 and hybrid 7. Exactly 25 GPU processes
+remain missing (full-device 12, hybrid 13). The imported dataset explicitly stays
+incomplete. Historical serial source-to-binary verification remains false;
+mixed source/build provenance and native RNG partition limitations are retained.
+The next task must separately authorize clean-source checkpointing and the
+missing GPU runs. Earlier completed campaigns remain closed.
+
 ## CUDA stage-diagnostic checkpoint closed: 2026-10-19
 
 Tested clean source: 80148cee0ba5a52b1c67ca98a6ad4eb91e4d7817. All
