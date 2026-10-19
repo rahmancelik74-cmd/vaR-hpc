@@ -1,0 +1,68 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "complete":  true,
+    "errors":  [
+
+               ],
+    "new_simulation_claimed":  true,
+    "run_count":  80,
+    "value_count":  160,
+    "missing_processes":  0,
+    "plan_sha256":  "84f1da88778d56a9880ef7a252243654b6cbed3cffbaf4c4b7f1c2e7fceea322",
+    "dataset_sha256":  "088bbb4ad0463169e1fb62533d441b15eb2a18066c59521e68aa583fd395be00",
+    "analysis_sha256":  "4fdea77ee04d249eca48d921e0e92c19f6b016558f90f1ec2f051729198d43c4",
+    "recorded_path_relocations":  [
+                                      {
+                                          "recorded_path":  "C:/Users/rahma/OneDrive/Masaüstü/graduation_project/gpu-montecarlo-starter/build-gpu-8df5f28-edcf3e-cuda/Release/mc_var.exe",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\build-gpu-8df5f28-edcf3e-cuda\\Release\\mc_var.exe"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-123.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-123.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-2026.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-2026.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-42.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-42.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-456.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-456.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-789.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-789.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-123.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-123.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-2026.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-2026.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-42.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-42.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-456.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-456.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-789.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-789.stdout.txt"
+                                      }
+                                  ],
+    "statistics":  "Independent fixture calibration, analytical reference, per-seed errors, explicit sums, two-pass seed variance and exact 10M acceptance",
+    "limitations":  [
+                        "Historical manifest explicitly sets executable_source_commit_verified=false. Matching archived binary hash and unchanged core/data implementations do not prove source-to-binary correspondence.",
+                        "Requested and actual threads=4. Build settings/log and executable are archived; no standalone CMakeCache was published with this correctness evidence.",
+                        "Only five selected native singleton observations. Implementation checks are not a complete seed campaign; common-input and connectivity records are excluded.",
+                        "Separate five-seed 10M acceptance source/build. Later revisions add optional diagnostics; no fresh common-build convergence campaign is claimed."
+                    ]
+}

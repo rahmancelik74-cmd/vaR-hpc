@@ -1,5 +1,30 @@
 # Project state
 
+## Native convergence checkpoint completed: 2026-10-20
+
+Tested clean source: b5f1a0f5b72bca8f1f21555236d938501f7faee8. Fresh Windows
+x64 Release CUDA/OpenMP discovery found 16 CTests; all 16 passed, followed by
+87 focused convergence checks. Exactly 25 missing native GPU processes passed
+(12 full-device, 13 hybrid), producing 50 new VaR estimates. No existing native
+campaign observation was repeated. Merged coverage is 80/80 unique runs and
+160/160 estimates. Both independent audits passed source/build/input/raw-output
+bindings, calibration, analytical references, all statistics and the separate
+eight existing 10M acceptance rows. All 122 original new-campaign files remained
+unchanged during closure. No numerical discrepancy or failed native attempt
+occurred. Source stayed clean through execution; this later result-documentation
+commit is separate from the tested source. No push was performed.
+
+Complete per-seed data, 32 group summaries, acceptance rows, hashes, actual
+batch metadata and limits are in
+[evidence/v030-convergence-windows-20261020](../evidence/v030-convergence-windows-20261020/README.md).
+Error is not monotonic in N. No fitted/universal convergence rate, batch-size
+invariance or predictive market validity is claimed. Historical serial
+source-to-binary=false, OpenMP cache-publication limits and mixed-revision reuse
+remain explicit. Read-only path resolution handles the moved repository without
+rewriting old evidence. Figures, bandwidth/counter permissions/documented laptop
+peak and final delivery remain separate work; no optimization or academic
+authoring was performed. Earlier entries retain their historical status.
+
 ## Convergence source checkpoint preparation: 2026-10-20
 
 The authorized follow-up verified all 611 prior artifact bindings after the

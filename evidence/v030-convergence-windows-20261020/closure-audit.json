@@ -1,0 +1,572 @@
+{
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T22:15:09.0464224Z",
+    "tested_source_revision":  "b5f1a0f5b72bca8f1f21555236d938501f7faee8",
+    "source_tree":  "aa7e90ba6f99d0c95a28e694bdceffb57ef94296",
+    "clean_source_before_and_after":  true,
+    "new_native_attempts":  25,
+    "successful_native_attempts":  25,
+    "failed_native_attempts":  0,
+    "merged_runs":  80,
+    "merged_values":  160,
+    "missing_processes":  0,
+    "independent_calibration_statistics_and_acceptance":  "passed",
+    "all_8_existing_10m_acceptance_rows_pass":  true,
+    "ctest_discovered":  16,
+    "ctest_passed":  16,
+    "focused_checks":  87,
+    "per_seed_csv_values_round_trip":  "exact binary64 equality",
+    "original_campaign_files_unchanged":  true,
+    "original_campaign_file_count":  122,
+    "original_campaign_artifacts":  [
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/analysis.json",
+                                            "sha256":  "4fdea77ee04d249eca48d921e0e92c19f6b016558f90f1ec2f051729198d43c4"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-001.json",
+                                            "sha256":  "1969d0fe905ef3e70f4d9291801f7c44fac131157795c6d506cf03b67b7e763b"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-001.process.json",
+                                            "sha256":  "28cadcec47ae553ebfebf586151f759ee7eaf1c848eaf4186ffd2234ffe4a942"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-001.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-001.stdout.txt",
+                                            "sha256":  "a6b22c4eceb359e831529fa923e38adf89f67f182d55d30607d63d75f1aab7f3"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-002.json",
+                                            "sha256":  "8d42592bf6ca8b3b7cc8776788d7424bd39a4da37d18418ec7207a085e417628"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-002.process.json",
+                                            "sha256":  "2bca85ce2a4906a3de2a5441f01c14a97b3dc4aaf45b77abd329145df15d44a1"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-002.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-002.stdout.txt",
+                                            "sha256":  "014c99ce641a8d214e377db664c8b20b0ff074223032e6cdb946c2bcd34aa00c"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-003.json",
+                                            "sha256":  "abde38a4e9a42b9ee64e96e6390ce02286ecad9dce6438ccd5b699b6083d9381"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-003.process.json",
+                                            "sha256":  "ff4b0034d1b42c50dbc0f957454c69ca80062acc592dd1cc587b374d36b33c6e"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-003.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-003.stdout.txt",
+                                            "sha256":  "e5cd1b30e0983da6a05f62c08449f58487ca63ddd969bf95a650f3a58a8b9385"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-004.json",
+                                            "sha256":  "21258048fca92b6a3f9ea3fff768f4fa279148ba8eabc548428e47834255e2fe"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-004.process.json",
+                                            "sha256":  "4811f06e35eee3e5ae020d280e48cfca101c5660c7ca38453365fa31af84e5fa"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-004.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-004.stdout.txt",
+                                            "sha256":  "f25fc3a10bd3db3ca4447ad191fe8ca8d34c3124140a0147e496648c6d0be9f6"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-005.json",
+                                            "sha256":  "3f3050b032fbee43d23ee059ed0454fb31e1e931ce98d41fde2580b4ad686cc4"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-005.process.json",
+                                            "sha256":  "c3e078963fd90da4a68b83bed2ecd02871cc3cd5238459359e3da5cfb9874839"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-005.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-005.stdout.txt",
+                                            "sha256":  "58dd24f18bee184b2d6e3c6b687258405052e88b314284abb9ef500601e2f05d"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-006.json",
+                                            "sha256":  "ef9b5caf0ad5d22d494fa95ad518666a23abf22b6c89af4baecebb534b98b88f"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-006.process.json",
+                                            "sha256":  "98512d3d2d713f2a251a2a891c8b226eac8132e7edc4112ed04f7d97acf85101"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-006.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-006.stdout.txt",
+                                            "sha256":  "bbf31bfbebc0e1dfecd9928d37db7bf367f1d4b753746ddb2986775006ed6bc6"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-007.json",
+                                            "sha256":  "5f73a2d05644bd9c5b71b47a10ede356a03d2f3b176ef081433e7352a569dfc1"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-007.process.json",
+                                            "sha256":  "d55d847e95ef0f321aaaaa1f98e3c1418225f38edda5c6c3a3e68f2fdc9ab3d0"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-007.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-007.stdout.txt",
+                                            "sha256":  "f2189f327184efc1ef2731cd2e53e1d83df46faaf2de8da0573d61e36eb40bc2"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-008.json",
+                                            "sha256":  "77484fdb10ac51c32d9fa9a1c0467d8e481412bfec87bf7c7e03e40079841441"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-008.process.json",
+                                            "sha256":  "fdf6be78969ccfb8420324340ba719f4151b33d2df2608a430c9b61c2d3e24b5"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-008.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-008.stdout.txt",
+                                            "sha256":  "76f67a6513294b1702faa617ee94e95b80c94a8dc7c5f3f8f09a1e2734da632c"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-009.json",
+                                            "sha256":  "c37b0760044b3e8fdb82b62ff7a7969078e3253ff19e625df8a132e5bba26bb4"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-009.process.json",
+                                            "sha256":  "f6dd38c064db2addb4473b3c10b69661caa17456812cdd6344a7e939d4101d9c"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-009.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-009.stdout.txt",
+                                            "sha256":  "bc077f34d8928feeb2b3d0d566036533cb11bc62833d57fce60361ea889a4af1"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-010.json",
+                                            "sha256":  "ca2a6a988e825cea1be1aef94f5bb1abd948d6d888ff2507615246d2db74c13d"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-010.process.json",
+                                            "sha256":  "49c9cb81aead616b3d62aa649a4b712a9b7d420512359aab0860b6f24a3490f1"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-010.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-010.stdout.txt",
+                                            "sha256":  "02118eef9b9653213653d37aeaefd42f286b04fdcc51564e6e5b5547b504f0e5"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-011.json",
+                                            "sha256":  "cfe08eaf7c6748f73132bf8862d6ba19de568acef3a4b00810a6e1b7ba3381ba"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-011.process.json",
+                                            "sha256":  "c9dbe83ad6dc1f61968e15c62ae5a288847118da310133a7a2caaed08e0ec321"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-011.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-011.stdout.txt",
+                                            "sha256":  "a574d77da37ce2c79f1b1e63d1ec9abb1aec0352e30d531a3fe42311e7589d23"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-012.json",
+                                            "sha256":  "6cc41c133305038f14c53a48e9d92ca777ce8e8ee60b880ba95a8c7cbc6705e4"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-012.process.json",
+                                            "sha256":  "5bfd92f7f96cba1d30e64594ce94019b552be386775e71c88a6e4776cc5f8904"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-012.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-012.stdout.txt",
+                                            "sha256":  "1e1a37adc96a08bf34440c9057d527ee4e0066e602dbf23be98d75858f0950e7"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-013.json",
+                                            "sha256":  "64aa62f9516627b52f415a0db39c911cc01347b8451d3f4d2d57065fcc168ae3"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-013.process.json",
+                                            "sha256":  "feea691f90ebfbb5e29ad3781b557138129d052fb92e079bc726832eedce5bee"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-013.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-013.stdout.txt",
+                                            "sha256":  "1868f14366ea16a2837c72b5a6a45a11e1798549a0a19069ebae97e7ca35a8a8"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-014.json",
+                                            "sha256":  "caffd20c279a61bdd0f14edb23a32ad1bf6018302ad6dc75f329c2b5bb89e24e"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-014.process.json",
+                                            "sha256":  "34c4a19114d88a096871541c7cf1f62eef0ae73e49ae2c81f98350fc3eeb6cd3"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-014.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-014.stdout.txt",
+                                            "sha256":  "19ed87968decffd0eb6a1f0005a15fd635d1d02acf7a476f4fd05c2b5f15b5cd"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-015.json",
+                                            "sha256":  "54ba1bdcbbfa9aa078211ea8a5a8c7838950f2d8d7355c46a0da2f945cd37cf6"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-015.process.json",
+                                            "sha256":  "5c4acb7d20b37e5c37edbf143189ee0cd127fe848fea7e43e6bf0589144b27ae"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-015.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-015.stdout.txt",
+                                            "sha256":  "8a209ac5140157de92336e197a4a3141ca89a145b1aa1631473c4e7f08672e4a"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-016.json",
+                                            "sha256":  "397c4a20542e305d0ae83da905a50caaa29a41123e66627e4411db8e12f29477"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-016.process.json",
+                                            "sha256":  "5573d8649c01f0bd2bb7300190e60c65e6c527be6027ce54532d502d445732fd"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-016.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-016.stdout.txt",
+                                            "sha256":  "e96635fd43c6d3342f06ab54baeed800513e35c171052adec78c470548ab9d71"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-017.json",
+                                            "sha256":  "e54ceea3236c98a53ffa2898c4c50f347cc2afc7785223e0ea275c63f3817d80"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-017.process.json",
+                                            "sha256":  "1f6c96eea9cfa837e9b27885ef5ae1883251b0b4cd10e8b2c56699e6e308a42f"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-017.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-017.stdout.txt",
+                                            "sha256":  "1bc731bdc4f5cf9e2d1f95beeff6a79e5bb00c47b0de1cf5ee297ee143d023db"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-018.json",
+                                            "sha256":  "aae2affa2f99cc2a98ba3211c06923d2da85a40b84926539da5c686ad4ad267e"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-018.process.json",
+                                            "sha256":  "2de432d9edcc9259a1ea38178e900593196da86d27ab74885c52a1e15b825c8b"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-018.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-018.stdout.txt",
+                                            "sha256":  "776e119740911603cba062b09daba0363d358411e201dcdc1d91af97a76e8658"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-019.json",
+                                            "sha256":  "2a431d11d1ebb059be4f58b2fc89cfccdcb1f6f81b0a0ed4342249e61a788222"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-019.process.json",
+                                            "sha256":  "17d285d96cf0e09175c39bddab642ecff15b84f2b084c9af8e3acd8263c119b4"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-019.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-019.stdout.txt",
+                                            "sha256":  "790e42f1e6174b59241175783a72ebe424c3690f0a1e3940afc17b53c84cedfb"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-020.json",
+                                            "sha256":  "add2359768f7660be209c48a1810b300445740b858ebfaffadfb5b9a14f2f670"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-020.process.json",
+                                            "sha256":  "ca7420087e7241c91e8de8658b6dcd91790ba82d27de3c96ed1dffad80d02cc4"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-020.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-020.stdout.txt",
+                                            "sha256":  "9d3f627707b9021514e2f4215f4394df2860ab625fd5decca485e9d2404e4479"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-021.json",
+                                            "sha256":  "15ac96df2b0c5ec7728bb4c4ed43d69c8a7a2b48da529f5c1b55406e59923f67"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-021.process.json",
+                                            "sha256":  "58a98c78267b9849f2255a87a2f16663ac567ea5c6c1ded25c9aa1e64ba9e168"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-021.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-021.stdout.txt",
+                                            "sha256":  "5b34992dc3f00b23d0d4c9afc2ada06673238e3b0a2357d493dbda137caed70a"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-022.json",
+                                            "sha256":  "0468e3cfeba14c1413caa5c5e399f8743d8745ff9a144591e377d52611f39253"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-022.process.json",
+                                            "sha256":  "6f5f3746daa412df85c236383919602017d13c85a82aa37f77e2bb6a7196a8dc"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-022.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-022.stdout.txt",
+                                            "sha256":  "f8cb83851c6b9f83d45e56971c3d1cf29d004de7b94a8b4da7f92f087a3574fd"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-023.json",
+                                            "sha256":  "cb9c5c8a85e14bd8159975e10e7721fde3cf90d0425461ddcc53d6b9e73fabe8"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-023.process.json",
+                                            "sha256":  "5b8d7662d5d4bdd7dec5e77d7a9c2a741260aed33d1201698521c6e23d785c16"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-023.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-023.stdout.txt",
+                                            "sha256":  "e2b2cf4d49b5320103c73f6268d279c37d56273d647590f889d6d5b73b4020da"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-024.json",
+                                            "sha256":  "4f9c5525ad4c5db49de7cb4b5898f92c53bf0388c2b5676a22726db9b7ba39d0"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-024.process.json",
+                                            "sha256":  "b52fe5b93e784a7795341b236127fc890d04aa760452361a25f34da5ea0c7bb6"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-024.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-024.stdout.txt",
+                                            "sha256":  "1a15ded94aaeaf630bb59e3fe8af0f0787dc04811a050a0562c95f10f5e1f043"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-025.json",
+                                            "sha256":  "96d029eaffb8fdfdb029a5cbc9beb8382973746f2ce2b0e22273c6bf8a520d82"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-025.process.json",
+                                            "sha256":  "3ed7e440086c309822f81bed2cc8759dea1c0cd6d7979c9f2e9cd668c1ceeebd"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-025.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempt-025.stdout.txt",
+                                            "sha256":  "91be56122a44496b5948f172a7daee97eec20f83bb0dfff8b0e1977f197ffa62"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/attempts.json",
+                                            "sha256":  "ff8197eaefd76080ceeae3ba69d609903d8ca463bc5125766c5b970997924b48"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/binding.json",
+                                            "sha256":  "d5d2b1946189119fb5799671310bad4abb9da7e5330cc1e92936fdef5a750f2a"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/build.process.json",
+                                            "sha256":  "6ba018b5ee3dca621e70f13b31d1e9e51f731764d1afad81b4f66b53dfa3220f"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/build.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/build.stdout.txt",
+                                            "sha256":  "00b36d7de227ab9d4a63a141b77c21affc213e8df551c8d41065b9bcba37c7ba"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/configure.process.json",
+                                            "sha256":  "7274190cffda23628467cc9b564044d409b0aaa6232b1125458ef00c7c23ea57"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/configure.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/configure.stdout.txt",
+                                            "sha256":  "41c1559d47150c1d64055dd050e010c6569a4453a7c427171e33cfc6ba11c24b"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/ctest.process.json",
+                                            "sha256":  "2125b2de08723c22641336caf4f6ea5a9054896f1b5cd0e0e906aa5cfc165751"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/ctest.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/ctest.stdout.txt",
+                                            "sha256":  "c1946b2bb14aa002a7d90a700da093dc60530a9e9ed70de8cc5da9031cb47a40"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/dataset.json",
+                                            "sha256":  "088bbb4ad0463169e1fb62533d441b15eb2a18066c59521e68aa583fd395be00"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/fixture.csv",
+                                            "sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/focused.process.json",
+                                            "sha256":  "5e125f15c2ded0e2a8e481b1ec6c2d2746dc076a7af8e1e6b3027aedb9b6a04c"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/focused.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/focused.stdout.txt",
+                                            "sha256":  "b487f245f95927855ed8e21b01aa8e23927b73939fd85770943f8d1c4625cd31"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/independent-audit.json",
+                                            "sha256":  "34d10d9fee3de4aa25b44075a0839e21611c2cb9404a0baddae3ab6138155bc6"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/session.json",
+                                            "sha256":  "cd796852a33afd5117a40efb82939a295051fa471e9822528ba0a2d5789c3446"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/test-list.process.json",
+                                            "sha256":  "d1bac7d012045f8418c313139d1221aaa8eb5ec98f90d34361031dee04fbf207"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/test-list.stderr.txt",
+                                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                        },
+                                        {
+                                            "path":  "C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1/test-list.stdout.txt",
+                                            "sha256":  "8fd429c71ee945c0b0b463190b6fc00300fed152881828a8cf3f624e13c63798"
+                                        }
+                                    ],
+    "original_audit":  {
+                           "path":  "results/convergence-b5f1a0f-20261020-run1/independent-audit.json",
+                           "sha256":  "34d10d9fee3de4aa25b44075a0839e21611c2cb9404a0baddae3ab6138155bc6"
+                       },
+    "binding":  {
+                    "path":  "results/convergence-b5f1a0f-20261020-run1/binding.json",
+                    "sha256":  "d5d2b1946189119fb5799671310bad4abb9da7e5330cc1e92936fdef5a750f2a"
+                },
+    "plan":  {
+                 "path":  "evidence/v030-convergence-preparation-20261019/plan.json",
+                 "sha256":  "84f1da88778d56a9880ef7a252243654b6cbed3cffbaf4c4b7f1c2e7fceea322"
+             },
+    "recorded_path_relocations":  [
+                                      {
+                                          "recorded_path":  "C:/Users/rahma/OneDrive/Masaüstü/graduation_project/gpu-montecarlo-starter/build-gpu-8df5f28-edcf3e-cuda/Release/mc_var.exe",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\build-gpu-8df5f28-edcf3e-cuda\\Release\\mc_var.exe"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-123.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-123.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-2026.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-2026.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-42.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-42.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-456.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-456.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-789.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-full-device-789.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-123.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-123.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-2026.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-2026.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-42.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-42.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-456.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-456.stdout.txt"
+                                      },
+                                      {
+                                          "recorded_path":  "C:\\Users\\rahma\\OneDrive\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-789.stdout.txt",
+                                          "resolved_path":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\gpu-acceptance-8df5f28-20261019\\acceptance-hybrid-789.stdout.txt"
+                                      }
+                                  ],
+    "new_simulation_campaign_repeated":  false,
+    "figures_produced":  false,
+    "push_performed":  false
+}

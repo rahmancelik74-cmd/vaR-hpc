@@ -171,3 +171,16 @@ newline conversion so a clean checkout can retain its exact-byte hash.
 The earlier preparation snapshots and verification.json describe their original
 uncommitted implementation. Later fixes have separate review and execution
 records; old source hashes are not relabeled as hashes of the fixed source.
+
+## Completed fixed-fixture checkpoint, 2026-10-20
+
+The separately authorized clean-source run at
+b5f1a0f5b72bca8f1f21555236d938501f7faee8 completed exactly the 25 missing GPU
+observations after 16/16 Release CTests and 87 focused checks passed. The merged
+80-run/160-value dataset and all statistics passed two independent audits.
+The preparation and missing-matrix descriptions above remain dated history;
+the selected complete data and numerical findings are in
+[evidence/v030-convergence-windows-20261020](../evidence/v030-convergence-windows-20261020/README.md).
+No figure, additional campaign, optimization, profiler or push was performed.
+Historical provenance limitations remain unchanged. A clean-source execution
+must continue to reject duplicate or already-covered configurations.
