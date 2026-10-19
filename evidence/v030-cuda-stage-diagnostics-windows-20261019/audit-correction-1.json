@@ -1,0 +1,9 @@
+{
+    "original_auditor_sha256":  "63398481e362c4a526a03ef472482de0e6735bda18ea02c655faaf6de2b1032f",
+    "original_failed_audit_sha256":  "bc3c415623f963df85b81bde1006c1bfc9871f1502a7d538cbad01e2ec081ead",
+    "source_revision":  "80148cee0ba5a52b1c67ca98a6ad4eb91e4d7817",
+    "sample_reruns":  0,
+    "reason":  "Session auditor expected internal C++ member names compiler_version/device_name instead of exported JSON nvcc_version/device",
+    "corrected_auditor_sha256":  "eb363abb9b2a35e0b210813f6cb6a40819cd5231e1edbe92c4e6c18add6a0898",
+    "impact":  "Auditor stopped before timing summary validation; no instrumentation defect or failed benchmark process; all raw samples unchanged"
+}

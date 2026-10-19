@@ -1,0 +1,6 @@
+{
+    "prior_declarations":  "Exact dated primary-session copy only; not a current confirmation",
+    "measured_current":  "AC/saver/scheme and GPU point telemetry recorded separately",
+    "interpretation":  "Diagnostic stage observations only; no uninstrumented speedup comparison or thermal-equilibrium claim",
+    "current_user_conditions":  "Not freshly confirmed; surface/cooling/vendor/fan/apps/ambient unknown"
+}

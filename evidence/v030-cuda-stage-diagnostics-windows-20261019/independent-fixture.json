@@ -1,0 +1,24 @@
+{
+    "model":  {
+                  "initial_value":  100.4,
+                  "drift_annual":  0.11221749496730957,
+                  "volatility_annual":  0.20378379127127666,
+                  "horizon_years":  0.03968253968253968
+              },
+    "mean_log_return":  0.00036291102450342039,
+    "sample_log_variance":  0.00016479299041625102,
+    "observations":  12,
+    "returns_count":  11,
+    "date_start":  "2026-09-01",
+    "date_end":  "2026-09-16",
+    "references":  [
+                       {
+                           "confidence":  0.95,
+                           "analytical_var":  6.14357693941893
+                       },
+                       {
+                           "confidence":  0.99,
+                           "analytical_var":  8.7154467162009155
+                       }
+                   ]
+}

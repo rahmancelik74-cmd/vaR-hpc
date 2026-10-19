@@ -1,0 +1,9 @@
+{
+    "final_script_sha256":  "434d58f1edd10f9bc11c3ade0627f21663fa5f23c74e34b8fce7cb5eb7bb0579",
+    "original_failed_review_sha256":  "09d1c1e864ae7850328c240cddae5c8377dbaa14998fb1cf58e85445f9cd1413",
+    "resolution":  "Compare CSV and JSON numeric tokens with direct invariant binary64 parsing and exact equality; existing independent-statistics Assert-GpuClose threshold unchanged",
+    "raw_samples_changed":  false,
+    "sample_reruns":  0,
+    "original_review_script_sha256":  "eb363abb9b2a35e0b210813f6cb6a40819cd5231e1edbe92c4e6c18add6a0898",
+    "reason":  "PowerShell 5.1 ConvertFrom-Json decodes summary values as Decimal; later binary64 cast differs by one ULP from direct numeric-token parsing in 16 fields"
+}

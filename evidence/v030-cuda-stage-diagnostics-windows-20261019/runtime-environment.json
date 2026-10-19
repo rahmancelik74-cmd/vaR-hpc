@@ -1,0 +1,20 @@
+{
+    "campaign":  {
+                     "others":  "unset",
+                     "OMP_DYNAMIC":  "FALSE",
+                     "OMP_NESTED":  "FALSE"
+                 },
+    "original":  {
+                     "GOMP_CPU_AFFINITY":  null,
+                     "OMP_THREAD_LIMIT":  null,
+                     "KMP_AFFINITY":  null,
+                     "OMP_NUM_THREADS":  null,
+                     "OMP_PROC_BIND":  null,
+                     "OMP_WAIT_POLICY":  null,
+                     "KMP_BLOCKTIME":  null,
+                     "OMP_NESTED":  null,
+                     "OMP_DYNAMIC":  null,
+                     "OMP_PLACES":  null,
+                     "OMP_SCHEDULE":  null
+                 }
+}

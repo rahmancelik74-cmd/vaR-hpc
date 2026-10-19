@@ -1,0 +1,596 @@
+[
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "end_to_end_ms",
+        "mean_ms":  76.926600000000008,
+        "sample_stddev_ms":  1.7613433254195465
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "pipeline_span_ms",
+        "mean_ms":  6.7388585408528643,
+        "sample_stddev_ms":  0.50452296713497413
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "initialization_ms",
+        "mean_ms":  0.003072000108659267,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "rng_ms",
+        "mean_ms":  5.5197013219197588,
+        "sample_stddev_ms":  0.5185014674212477
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "loss_ms",
+        "mean_ms":  0.10786133259534836,
+        "sample_stddev_ms":  0.002577011026315826
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "cub_ms",
+        "mean_ms":  0.35181867082913715,
+        "sample_stddev_ms":  0.012089761689646204
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "gather_ms",
+        "mean_ms":  0.0703146681189537,
+        "sample_stddev_ms":  0.0059120687579477561
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "host_quantile_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "covered_device_stage_sum_ms",
+        "mean_ms":  6.0527679935718579,
+        "sample_stddev_ms":  0.51008986064218675
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "host_to_device_ms",
+        "mean_ms":  0.003072000108659267,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "full-device-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "device_to_host_ms",
+        "mean_ms":  0.084863999237616852,
+        "sample_stddev_ms":  0.0090570164542317661
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "end_to_end_ms",
+        "mean_ms":  84.577566666666669,
+        "sample_stddev_ms":  1.1155355858659688
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "pipeline_span_ms",
+        "mean_ms":  6.71783463160197,
+        "sample_stddev_ms":  0.5488071712039102
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "initialization_ms",
+        "mean_ms":  0.0058026668460418778,
+        "sample_stddev_ms":  0.00059120674136994085
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "rng_ms",
+        "mean_ms":  5.6371732329328852,
+        "sample_stddev_ms":  0.45044954334756154
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "loss_ms",
+        "mean_ms":  0.72393600145975745,
+        "sample_stddev_ms":  0.041198558466531761
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "cub_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "gather_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "host_quantile_ms",
+        "mean_ms":  6.4460999999999995,
+        "sample_stddev_ms":  0.1023995605459322
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "covered_device_stage_sum_ms",
+        "mean_ms":  6.3669119012386846,
+        "sample_stddev_ms":  0.48985965198868864
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "host_to_device_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N100000",
+        "scenarios":  100000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "device_to_host_ms",
+        "mean_ms":  0.28270933032035828,
+        "sample_stddev_ms":  0.05413902189232047
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "end_to_end_ms",
+        "mean_ms":  91.640366666666665,
+        "sample_stddev_ms":  9.0788884877683849
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "pipeline_span_ms",
+        "mean_ms":  8.6226240793863926,
+        "sample_stddev_ms":  1.2062765374150952
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "initialization_ms",
+        "mean_ms":  0.003072000108659267,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "rng_ms",
+        "mean_ms":  6.5607679684956866,
+        "sample_stddev_ms":  0.81436265881004455
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "loss_ms",
+        "mean_ms":  0.52872532606124878,
+        "sample_stddev_ms":  0.011044646918826031
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "cub_ms",
+        "mean_ms":  0.8237760066986084,
+        "sample_stddev_ms":  0.37832437686436504
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "gather_ms",
+        "mean_ms":  0.0624640000363191,
+        "sample_stddev_ms":  0.002709248851681017
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "host_quantile_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "covered_device_stage_sum_ms",
+        "mean_ms":  7.9788053014005227,
+        "sample_stddev_ms":  1.1746417587180287
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "host_to_device_ms",
+        "mean_ms":  0.0034133334023257094,
+        "sample_stddev_ms":  0.00059120660694510631
+    },
+    {
+        "configuration_id":  "full-device-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "device_to_host_ms",
+        "mean_ms":  0.14096000169714293,
+        "sample_stddev_ms":  0.035323360797396
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "end_to_end_ms",
+        "mean_ms":  162.10286666666667,
+        "sample_stddev_ms":  7.1692235516360654
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "pipeline_span_ms",
+        "mean_ms":  11.159061113993326,
+        "sample_stddev_ms":  0.74421316424365669
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "initialization_ms",
+        "mean_ms":  0.046421334768335022,
+        "sample_stddev_ms":  0.0029560337068496975
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "rng_ms",
+        "mean_ms":  6.77237326403459,
+        "sample_stddev_ms":  0.46544925992093233
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "loss_ms",
+        "mean_ms":  1.2418026610588035,
+        "sample_stddev_ms":  0.12530809216823885
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "cub_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "gather_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "host_quantile_ms",
+        "mean_ms":  76.012333333333331,
+        "sample_stddev_ms":  2.9472607287672
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "covered_device_stage_sum_ms",
+        "mean_ms":  8.0605972598617281,
+        "sample_stddev_ms":  0.57416000346592133
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "host_to_device_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N1000000",
+        "scenarios":  1000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "device_to_host_ms",
+        "mean_ms":  2.59899731973807,
+        "sample_stddev_ms":  0.11764560443013108
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "end_to_end_ms",
+        "mean_ms":  110.99656666666667,
+        "sample_stddev_ms":  8.16528525547842
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "pipeline_span_ms",
+        "mean_ms":  24.25981839497884,
+        "sample_stddev_ms":  1.3730115506558753
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "initialization_ms",
+        "mean_ms":  0.003072000108659267,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "rng_ms",
+        "mean_ms":  10.887114842732746,
+        "sample_stddev_ms":  0.62620692681532775
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "loss_ms",
+        "mean_ms":  4.8561600049336748,
+        "sample_stddev_ms":  0.34557218681898355
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "cub_ms",
+        "mean_ms":  7.6721707979838056,
+        "sample_stddev_ms":  0.76646459897834029
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "gather_ms",
+        "mean_ms":  0.10103466361761095,
+        "sample_stddev_ms":  0.0021316267050849403
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "host_quantile_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "covered_device_stage_sum_ms",
+        "mean_ms":  23.519552309376497,
+        "sample_stddev_ms":  1.3813271685311201
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "host_to_device_ms",
+        "mean_ms":  0.0037546666959921518,
+        "sample_stddev_ms":  0.00059120660694510609
+    },
+    {
+        "configuration_id":  "full-device-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "full-device",
+        "sample_count":  3,
+        "field":  "device_to_host_ms",
+        "mean_ms":  0.16377600282430649,
+        "sample_stddev_ms":  0.032141621967322322
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "end_to_end_ms",
+        "mean_ms":  1020.9570666666666,
+        "sample_stddev_ms":  65.930354530317345
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "pipeline_span_ms",
+        "mean_ms":  50.215679168701172,
+        "sample_stddev_ms":  1.8233345293894456
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "initialization_ms",
+        "mean_ms":  0.41779200950016582,
+        "sample_stddev_ms":  0.0071679996492873387
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "rng_ms",
+        "mean_ms":  15.274026745309433,
+        "sample_stddev_ms":  0.7908232802340337
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "loss_ms",
+        "mean_ms":  5.8895680494606495,
+        "sample_stddev_ms":  0.14633076851835525
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "cub_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "gather_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "host_quantile_ms",
+        "mean_ms":  882.8683,
+        "sample_stddev_ms":  68.314773666389328
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "covered_device_stage_sum_ms",
+        "mean_ms":  21.581386804270249,
+        "sample_stddev_ms":  0.912191445369872
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "host_to_device_ms",
+        "mean_ms":  0,
+        "sample_stddev_ms":  0
+    },
+    {
+        "configuration_id":  "hybrid-N10000000",
+        "scenarios":  10000000,
+        "cuda_mode":  "hybrid",
+        "sample_count":  3,
+        "field":  "device_to_host_ms",
+        "mean_ms":  24.443232007324696,
+        "sample_stddev_ms":  0.99851433833468728
+    }
+]

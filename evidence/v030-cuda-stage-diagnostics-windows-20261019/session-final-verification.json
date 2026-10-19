@@ -1,0 +1,17 @@
+{
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T13:13:39.9986259Z",
+    "tested_source":  "80148cee0ba5a52b1c67ca98a6ad4eb91e4d7817",
+    "original_campaign_manifest_sha256":  "58c55440b5bd99cce53802d0179b18145271582a9d922b28af56381e94286add",
+    "passed_independent_audit_sha256":  "6a08f4c6b740d0beeb87297a5922871cf71391ecd7c30c60b37af712de809f78",
+    "unchanged_campaign_record_hashes":  260,
+    "unchanged_incomplete_preflight_records":  12,
+    "unchanged_primary_session_records":  3391,
+    "native_var_comparison":  "All 36 raw JSON numerical tokens match prior OFF results by exact binary64 parse",
+    "summary":  "All six wide rows exactly match 66 long-field rows; all three repetitions retained",
+    "report_links":  "All local links resolve",
+    "scripts":  "ASCII",
+    "source":  "HEAD unchanged; tracked files clean",
+    "commit_or_push":  false,
+    "additional_measurement_processes":  0
+}

@@ -1,0 +1,12 @@
+{
+    "status":  "failed",
+    "checked_utc":  "2026-10-19T13:09:19.1371972Z",
+    "errors":  [
+                   "The property \u0027compiler_version\u0027 cannot be found on this object. Verify that the property exists."
+               ],
+    "campaign":  "Separate CUDA stage diagnostic matrix",
+    "primary_benchmark":  false,
+    "profiler_enabled":  false,
+    "bandwidth_measured":  false,
+    "manifest_sha256":  "58c55440b5bd99cce53802d0179b18145271582a9d922b28af56381e94286add"
+}

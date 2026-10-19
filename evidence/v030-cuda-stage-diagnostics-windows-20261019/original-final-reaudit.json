@@ -1,0 +1,22 @@
+{
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T13:17:37.2702497Z",
+    "errors":  [
+
+               ],
+    "campaign":  "Separate CUDA stage diagnostic matrix",
+    "primary_benchmark":  false,
+    "profiler_enabled":  false,
+    "bandwidth_measured":  false,
+    "manifest_sha256":  "58c55440b5bd99cce53802d0179b18145271582a9d922b28af56381e94286add",
+    "tested_source":  "80148cee0ba5a52b1c67ca98a6ad4eb91e4d7817",
+    "attempts":  18,
+    "configurations":  6,
+    "repetitions_per_configuration":  3,
+    "summary_fields_per_configuration":  11,
+    "statistics":  "Explicit sum/two-pass sample variance n-1 independently matches Welford; all CSV fields checked",
+    "numerics":  "All 36 native VaR estimates exactly match compatible prior uninstrumented same-configuration results; prior evidence not rerun",
+    "preflight":  "Fresh diagnostic equivalence/scope CTest passed; prior full regression evidence reused after implementation/runtime compatibility checks",
+    "hash_bound_records":  260,
+    "unchanged_prior_bindings":  8
+}

@@ -5,6 +5,8 @@ The formal primary benchmark is complete; see the dated result below.
 Measured DRAM bandwidth, documented-peak utilization, convergence and
 profiling-driven optimization are not established by that primary campaign.
 The engine numerical contract, native RNG partition and primary timer are unchanged.
+The separate [18-process stage-diagnostic checkpoint](cuda-stage-diagnostics.md)
+is also closed; its instrumented samples do not enter primary statistics.
 
 ## Commands and source policy
 
@@ -395,9 +397,11 @@ throttling are not established; OS CPU frequency fields are not measured turbo
 clocks. Open applications and unmeasured laptop thermal/clock variation qualify
 these results. All slow samples remain retained.
 
-Separate stage/transfer-excluded diagnostics, measured DRAM GB/s and percentage
-of documented peak, verified profiler orchestration, convergence and final
-reproducibility remain separate work. ERR_NVGPUCTRPERM persists from prior
+Separate stage/transfer-excluded diagnostics are complete; see
+[the six-configuration result](cuda-stage-diagnostics.md) for definitions, spread
+and limitations. Measured DRAM GB/s and percentage of documented peak, verified
+profiler orchestration, convergence and final reproducibility remain separate
+work. ERR_NVGPUCTRPERM persists from prior
 discovery; this primary campaign requested no new discovery or profiling.
 Exact-laptop documented peak is unavailable. Plan B optimization is optional.
 Academic delivery and live demonstration are not established. Hosted CPU CI for

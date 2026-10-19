@@ -10,6 +10,8 @@ Completed formal primary CPU/GPU comparison, all 24 rows and limitations:
 [docs/cpu-gpu-benchmark.md](docs/cpu-gpu-benchmark.md#formal-primary-result-2026-10-19).
 At 10 million scenarios, full-device reached 9.739930524x serial and 8.307208722x
 best measured OpenMP; the 10x serial target was not met.
+Separate instrumented CUDA stage timings and limits:
+[docs/cuda-stage-diagnostics.md](docs/cuda-stage-diagnostics.md).
 Optional full-device CUDA backend (N <= 10000000, memory preflight, disabled by default):
 [docs/cuda-skeleton.md](docs/cuda-skeleton.md).
 Explicit bounded-memory CUDA batching with a global host quantile:

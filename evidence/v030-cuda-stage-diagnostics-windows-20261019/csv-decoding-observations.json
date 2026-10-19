@@ -1,0 +1,146 @@
+[
+    {
+        "id":  "full-device-N100000",
+        "field":  "end_to_end_ms",
+        "stat":  "mean_ms",
+        "csv":  "76.926600000000008",
+        "json_type":  "Decimal",
+        "json_binary64":  "76.9266",
+        "absolute_difference":  1.4210854715202004E-14
+    },
+    {
+        "id":  "full-device-N100000",
+        "field":  "end_to_end_ms",
+        "stat":  "sample_stddev_ms",
+        "csv":  "1.7613433254195465",
+        "json_type":  "Decimal",
+        "json_binary64":  "1.7613433254195463",
+        "absolute_difference":  2.2204460492503131E-16
+    },
+    {
+        "id":  "full-device-N1000000",
+        "field":  "rng_ms",
+        "stat":  "sample_stddev_ms",
+        "csv":  "0.81436265881004455",
+        "json_type":  "Decimal",
+        "json_binary64":  "0.81436265881004444",
+        "absolute_difference":  1.1102230246251565E-16
+    },
+    {
+        "id":  "full-device-N1000000",
+        "field":  "loss_ms",
+        "stat":  "sample_stddev_ms",
+        "csv":  "0.011044646918826031",
+        "json_type":  "Decimal",
+        "json_binary64":  "0.011044646918826033",
+        "absolute_difference":  1.7347234759768071E-18
+    },
+    {
+        "id":  "full-device-N1000000",
+        "field":  "covered_device_stage_sum_ms",
+        "stat":  "mean_ms",
+        "csv":  "7.9788053014005227",
+        "json_type":  "Decimal",
+        "json_binary64":  "7.9788053014005236",
+        "absolute_difference":  8.8817841970012523E-16
+    },
+    {
+        "id":  "full-device-N1000000",
+        "field":  "covered_device_stage_sum_ms",
+        "stat":  "sample_stddev_ms",
+        "csv":  "1.1746417587180287",
+        "json_type":  "Decimal",
+        "json_binary64":  "1.1746417587180289",
+        "absolute_difference":  2.2204460492503131E-16
+    },
+    {
+        "id":  "full-device-N1000000",
+        "field":  "host_to_device_ms",
+        "stat":  "mean_ms",
+        "csv":  "0.0034133334023257094",
+        "json_type":  "Decimal",
+        "json_binary64":  "0.00341333340232571",
+        "absolute_difference":  4.3368086899420177E-19
+    },
+    {
+        "id":  "full-device-N10000000",
+        "field":  "end_to_end_ms",
+        "stat":  "mean_ms",
+        "csv":  "110.99656666666667",
+        "json_type":  "Decimal",
+        "json_binary64":  "110.99656666666668",
+        "absolute_difference":  1.4210854715202004E-14
+    },
+    {
+        "id":  "full-device-N10000000",
+        "field":  "pipeline_span_ms",
+        "stat":  "sample_stddev_ms",
+        "csv":  "1.3730115506558753",
+        "json_type":  "Decimal",
+        "json_binary64":  "1.3730115506558751",
+        "absolute_difference":  2.2204460492503131E-16
+    },
+    {
+        "id":  "full-device-N10000000",
+        "field":  "cub_ms",
+        "stat":  "mean_ms",
+        "csv":  "7.6721707979838056",
+        "json_type":  "Decimal",
+        "json_binary64":  "7.6721707979838047",
+        "absolute_difference":  8.8817841970012523E-16
+    },
+    {
+        "id":  "full-device-N10000000",
+        "field":  "gather_ms",
+        "stat":  "mean_ms",
+        "csv":  "0.10103466361761095",
+        "json_type":  "Decimal",
+        "json_binary64":  "0.10103466361761096",
+        "absolute_difference":  1.3877787807814457E-17
+    },
+    {
+        "id":  "full-device-N10000000",
+        "field":  "covered_device_stage_sum_ms",
+        "stat":  "sample_stddev_ms",
+        "csv":  "1.3813271685311201",
+        "json_type":  "Decimal",
+        "json_binary64":  "1.38132716853112",
+        "absolute_difference":  2.2204460492503131E-16
+    },
+    {
+        "id":  "full-device-N10000000",
+        "field":  "host_to_device_ms",
+        "stat":  "mean_ms",
+        "csv":  "0.0037546666959921518",
+        "json_type":  "Decimal",
+        "json_binary64":  "0.0037546666959921522",
+        "absolute_difference":  4.3368086899420177E-19
+    },
+    {
+        "id":  "hybrid-N10000000",
+        "field":  "pipeline_span_ms",
+        "stat":  "mean_ms",
+        "csv":  "50.215679168701172",
+        "json_type":  "Decimal",
+        "json_binary64":  "50.215679168701165",
+        "absolute_difference":  7.1054273576010019E-15
+    },
+    {
+        "id":  "hybrid-N10000000",
+        "field":  "rng_ms",
+        "stat":  "mean_ms",
+        "csv":  "15.274026745309433",
+        "json_type":  "Decimal",
+        "json_binary64":  "15.274026745309431",
+        "absolute_difference":  1.7763568394002505E-15
+    },
+    {
+        "id":  "hybrid-N10000000",
+        "field":  "device_to_host_ms",
+        "stat":  "sample_stddev_ms",
+        "csv":  "0.99851433833468728",
+        "json_type":  "Decimal",
+        "json_binary64":  "0.99851433833468739",
+        "absolute_difference":  1.1102230246251565E-16
+    }
+]

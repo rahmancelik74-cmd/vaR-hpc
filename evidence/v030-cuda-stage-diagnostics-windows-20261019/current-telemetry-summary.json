@@ -1,0 +1,19 @@
+{
+    "gpu_queries":  37,
+    "unavailable":  0,
+    "gpu_temperature_min_c":  49,
+    "gpu_temperature_max_c":  52,
+    "gpu_names":  [
+                      "NVIDIA GeForce RTX 4060 Laptop GPU"
+                  ],
+    "drivers":  [
+                    "610.88"
+                ],
+    "unavailable_power_limit_readings":  37,
+    "current_ac_observations":  37,
+    "physical_user_declarations":  "Not freshly confirmed; prior declarations remain dated only",
+    "cpu_temperature":  "unmeasured",
+    "thermal_equilibrium":  "not-established",
+    "absence_of_throttling":  "not-established",
+    "observation_windows":  "No bounded pre/post thermal-observation windows in this diagnostic campaign"
+}

@@ -1,0 +1,12 @@
+{
+    "status":  "failed",
+    "checked_utc":  "2026-10-19T13:09:52.6411740Z",
+    "errors":  [
+                   "CSV round-trip mismatch"
+               ],
+    "campaign":  "Separate CUDA stage diagnostic matrix",
+    "primary_benchmark":  false,
+    "profiler_enabled":  false,
+    "bandwidth_measured":  false,
+    "manifest_sha256":  "58c55440b5bd99cce53802d0179b18145271582a9d922b28af56381e94286add"
+}

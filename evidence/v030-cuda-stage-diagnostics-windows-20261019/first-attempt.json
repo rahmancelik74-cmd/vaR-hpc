@@ -1,0 +1,8 @@
+{
+    "attempted_diagnostic_processes":  0,
+    "directory":  "results/cuda-stage-diagnostics-80148ce-20261019-run1",
+    "correction":  "New evidence/build directory; same source and compiler settings; required build access; no sample replacement",
+    "reason":  "MSBuild SDK discovery denied by sandbox at AppData/Local/Microsoft SDKs; configuration failed before samples",
+    "status":  "incomplete",
+    "manifest_sha256":  "32c1ba4e4a6f6d3c36a7d6678d1c20953aa38bc996fee50a7502890fbe7b96bf"
+}

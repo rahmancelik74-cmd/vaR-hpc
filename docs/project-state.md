@@ -1,5 +1,37 @@
 # Project state
 
+## CUDA stage-diagnostic checkpoint closed: 2026-10-19
+
+Tested clean source: 80148cee0ba5a52b1c67ca98a6ad4eb91e4d7817. All
+18 diagnostic processes completed: N=100000/1000000/10000000, full-device
+and hybrid, three repetitions each, diagnostics ON and profiler OFF. The final
+auditor passed again at closure without launching measurements. All 11 timing
+fields, six configurations and 36 native VaRs were verified; native estimates
+match compatible uninstrumented records. No instrumentation defect was found.
+
+See [all six configurations and timing definitions](cuda-stage-diagnostics.md)
+and [selected technical evidence](../evidence/v030-cuda-stage-diagnostics-windows-20261019/README.md).
+RNG has the largest mean among covered device-stage intervals, not necessarily
+the largest end-to-end cost. Hybrid host global quantile means/sample standard
+deviations are 6.446100 +/- 0.102400, 76.012333 +/- 2.947261 and
+882.868300 +/- 68.314774 ms at increasing N. Host total, pipeline span,
+cumulative device stages, copy intervals and host quantile remain distinct.
+
+The original 260 campaign records and 289 delivery-record hashes verified;
+all 290 original files stayed unchanged. The incomplete first invocation stopped
+in sandbox-denied SDK discovery before any sample. Failed auditors and their
+JSON-name/PowerShell Decimal corrections remain preserved; calculations and
+unchanged tolerances are reproducible. This is a later documentation/evidence
+commit, distinct from the tested source and the closed primary benchmark.
+
+Physical conditions were not freshly confirmed. AC/power records were stable,
+GPU point readings were 49-52 C; CPU temperature, thermal equilibrium and
+absence of throttling remain unknown. The earlier ambient estimate is not a
+current measurement. The primary 9.739930524x/8.307208722x findings are unchanged.
+Bandwidth/counter permissions/documented peak, convergence and final
+reproducibility/delivery remain separate open items. No profiling, optimization,
+academic authoring or new measurement was performed to close this checkpoint.
+
 ## Formal primary benchmark closed: 2026-10-19
 
 Clean tested source: 89536e38b01230fce3b4667096c29dde56795c23. The fresh
@@ -32,8 +64,8 @@ were 44-51 C; ambient 15 C was only an estimate. CPU temperature, thermal
 equilibrium and absence of throttling were not established. Full conditions
 and timing exclusions are retained in the linked result.
 
-The primary benchmark checkpoint is complete. Separate stage/transfer-excluded
-diagnostics, achieved DRAM GB/s and percentage-of-documented-peak reporting,
+The primary benchmark checkpoint is complete. Stage/transfer-excluded diagnostics
+are now separately closed above. Achieved DRAM GB/s and percentage-of-documented-peak reporting,
 profiling orchestration, convergence and final reproducibility work remain.
 ERR_NVGPUCTRPERM and the unverified exact-laptop peak remain blockers to bandwidth
 reporting. Plan B optimization is optional and was not started. Academic
@@ -69,7 +101,7 @@ five-seed analytical acceptance are verified for their documented cases.
 Representative Compute Sanitizer checks passed separately at source 8df5f28;
 their coverage limits remain explicit. Earlier hosted CPU CI is distinct from
 later checkpoint commits. Formal primary CPU/GPU benchmarking is now complete
-as recorded above; separate diagnostic/bandwidth reporting remains pending.
+as recorded above; stage diagnostics are separately closed; bandwidth reporting remains pending.
 The full-device/hybrid implementation supersedes the old N <= 10000 source cap.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
 It does not replace the supervisor's roadmap or the requirements document.
@@ -142,7 +174,7 @@ No real-market predictive validity or universal error guarantee is claimed.
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness, CPU scaling and formal primary CPU/GPU comparison verified | Preserve baseline limitations; sorting remains serial; all five team sizes retained |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8e3a7e1; run 39161829944 | Keep tested revisions distinct; GPU evidence remains local RTX execution |
-| CUDA path | Full-device/hybrid implementation, five-seed acceptance, representative sanitizer checks and formal primary benchmark complete | Preserve coverage limits; separate stage diagnostics and profiling/bandwidth reporting remain |
+| CUDA path | Full-device/hybrid implementation, five-seed acceptance, representative sanitizer checks, primary benchmark and separate stage diagnostics complete | Preserve coverage limits; profiling/bandwidth reporting remains |
 | Benchmark | Formal primary comparison at 89536e3: 240 measurements, 72 excluded warm-ups, 24 rows; 10x target not met | Primary checkpoint closed; preserve all samples and condition limits; do not selectively rerun |
 
 The student is on a laptop. Later performance work must record thread placement,

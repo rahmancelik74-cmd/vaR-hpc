@@ -1,0 +1,130 @@
+[
+    {
+        "file":  ".gitattributes",
+        "sha256":  "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+        "file":  "audit-corrected-failed.ps1",
+        "sha256":  "eb363abb9b2a35e0b210813f6cb6a40819cd5231e1edbe92c4e6c18add6a0898"
+    },
+    {
+        "file":  "audit-correction-1.json",
+        "sha256":  "939f86fc1383f02033598763d6ef6cccd35e092884aed286da5496864b9acaa8"
+    },
+    {
+        "file":  "audit-correction-2.json",
+        "sha256":  "cbcaf85cc4da19849a886b8b8ba5ddf24f7b1dfc5419925195512c4615b5f3d8"
+    },
+    {
+        "file":  "audit-failed-1.json",
+        "sha256":  "bc3c415623f963df85b81bde1006c1bfc9871f1502a7d538cbad01e2ec081ead"
+    },
+    {
+        "file":  "audit-failed-2.json",
+        "sha256":  "09d1c1e864ae7850328c240cddae5c8377dbaa14998fb1cf58e85445f9cd1413"
+    },
+    {
+        "file":  "auditor-final-original.ps1",
+        "sha256":  "434d58f1edd10f9bc11c3ade0627f21663fa5f23c74e34b8fce7cb5eb7bb0579"
+    },
+    {
+        "file":  "audit-original-failed.ps1",
+        "sha256":  "63398481e362c4a526a03ef472482de0e6735bda18ea02c655faaf6de2b1032f"
+    },
+    {
+        "file":  "closure-audit.json",
+        "sha256":  "0cb0016d93ed3987b918df2f6c2dae3529aa821c9991dd113b24c1fa6d560285"
+    },
+    {
+        "file":  "conditions-status.json",
+        "sha256":  "27f24fa698b38dd8271a97a792d5df911e0d446cc0508de4cb8cc79370a9a3ff"
+    },
+    {
+        "file":  "csv-decoding-observations.json",
+        "sha256":  "09f3bf8cee3ad3a18cfaf4904c68ddbcd41afc6c4ddeb05d1ce187bea33123d4"
+    },
+    {
+        "file":  "ctest-diagnostics.log",
+        "sha256":  "12308f82e9c63ee6fb2b55d602bfdb1b6042c0613b40f0f666636fea88632ffa"
+    },
+    {
+        "file":  "current-telemetry-summary.json",
+        "sha256":  "1d16a3c6651f5ca1fc4720cb1aec285570d01ffd0e91d69911ed390e2a4dbd61"
+    },
+    {
+        "file":  "first-attempt.json",
+        "sha256":  "743ac4e0830785571cbbd5949ebe7f2ac3ab2b05031cca5cf97a05a233b96057"
+    },
+    {
+        "file":  "fixture.csv",
+        "sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210"
+    },
+    {
+        "file":  "independent-audit-final.json",
+        "sha256":  "6a08f4c6b740d0beeb87297a5922871cf71391ecd7c30c60b37af712de809f78"
+    },
+    {
+        "file":  "independent-fixture.json",
+        "sha256":  "d5a463b0cd5389dea5ed32323c8f4acb8c75fc5d1d81f069388a2a766bbe379b"
+    },
+    {
+        "file":  "original-final-reaudit.json",
+        "sha256":  "574ee866153113edf94ee92a248bcba8c31aa417247fce91a00840e39a5fde49"
+    },
+    {
+        "file":  "plan.json",
+        "sha256":  "d0f8e8996fd99e376922082ae059d85cb1701759920441369426f26394899d87"
+    },
+    {
+        "file":  "provenance.json",
+        "sha256":  "41bd0c17dc3adf33b2749367f5ff1b46e0875c2ce15f910dcd1069de0e10bc54"
+    },
+    {
+        "file":  "publication-validation.json",
+        "sha256":  "048e626c8c90619352650cf06274c6402f1b3540666cf2db00514dfbd844cddf"
+    },
+    {
+        "file":  "README.md",
+        "sha256":  "49aa043b7007e1e983f6034f1677a681b35dfcc049c58fa8299144c80871effd"
+    },
+    {
+        "file":  "reusable-auditor-tests.json",
+        "sha256":  "acaaf7902e4e5873fbd9438b4f808eae3467fccd99b4fc7e22a6143da618c826"
+    },
+    {
+        "file":  "reusable-reaudit.json",
+        "sha256":  "8952dc4153400bf5684a4ff045595bb248723cb48dbedeabc525afb8202fdf72"
+    },
+    {
+        "file":  "runtime-environment.json",
+        "sha256":  "f45e55d1e8198da7e8c6ab57cf8e40a669c91767c45640336cc24093bc5b725d"
+    },
+    {
+        "file":  "samples.csv",
+        "sha256":  "734d0428a574356c6c266bf9419d70a967460eb932f1b90af53de3c0432cc6b7"
+    },
+    {
+        "file":  "session-final-verification.json",
+        "sha256":  "493431c8f47314f7b90aebabddc63e525c0bfbeb9959efee9419c91c170ab324"
+    },
+    {
+        "file":  "six-configuration-summary.csv",
+        "sha256":  "1de69d2ec75951161ddbf573ed8affd3b2470c4be5c679d7b58ac60a187a4f5c"
+    },
+    {
+        "file":  "six-configuration-summary.json",
+        "sha256":  "8cc8ae91a079a9f8fbfbd69023d468f29105a8595b2b2820130c08f4d82023f2"
+    },
+    {
+        "file":  "summary.csv",
+        "sha256":  "60cbae49689ebde10cb9571f2c85563c38e39406ad6d0f8dcf30bc241c8c3bec"
+    },
+    {
+        "file":  "summary.json",
+        "sha256":  "919742e52f989df78b526a31cb681a10328542b161f8e190fa4fa42804ef8062"
+    },
+    {
+        "file":  "verify.ps1",
+        "sha256":  "48e98ce92717a0b7d7d91fe6b0fad1cd5e392678fdccea11f3f099ca27586dc8"
+    }
+]

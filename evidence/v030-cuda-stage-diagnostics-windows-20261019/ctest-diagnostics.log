@@ -1,0 +1,8 @@
+Internal ctest changing into directory: C:/Users/rahma/OneDrive/Masaüstü/graduation_project/gpu-montecarlo-starter/build-stage-diagnostics-80148ce-20261019-run2
+Test project C:/Users/rahma/OneDrive/Masaüstü/graduation_project/gpu-montecarlo-starter/build-stage-diagnostics-80148ce-20261019-run2
+    Start 8: cuda_diagnostics_contract
+1/1 Test #8: cuda_diagnostics_contract ........   Passed    0.20 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.21 sec

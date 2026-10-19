@@ -1,0 +1,17 @@
+{
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T13:22:35.0299088Z",
+    "exact_copy_records":  24,
+    "original_delivery_hashes":  289,
+    "sample_rows":  18,
+    "configuration_rows":  6,
+    "timing_fields":  11,
+    "calculations":  "All 66 mean/sample-stddev rows independently reproduced from published raw numeric-token projections; wide/long summaries agree",
+    "correction_history":  "Exact copied failed/final auditor scripts, reports and correction hashes preserved",
+    "reusable_auditor":  "Passed before and after documentation changes; rehashed wrong-summary rejection and output overwrite protection passed",
+    "code":  "Published PowerShell is ASCII",
+    "links":  "Changed technical-document links resolve",
+    "measurements_launched":  0,
+    "wrapper_sha256":  "48e98ce92717a0b7d7d91fe6b0fad1cd5e392678fdccea11f3f099ca27586dc8",
+    "archived_auditor_sha256":  "434d58f1edd10f9bc11c3ade0627f21663fa5f23c74e34b8fce7cb5eb7bb0579"
+}

@@ -1,0 +1,13 @@
+{
+    "status":  "passed",
+    "checked_utc":  "2026-10-19T13:17:40.1907670Z",
+    "tested_source":  "80148cee0ba5a52b1c67ca98a6ad4eb91e4d7817",
+    "original_final_auditor_sha256":  "434d58f1edd10f9bc11c3ade0627f21663fa5f23c74e34b8fce7cb5eb7bb0579",
+    "delivery_manifest_sha256":  "472e2e0f15bbf816f294013a125f6757efbc78f26bdcdc7057f9bc0ba67ceb83",
+    "verified_delivery_records":  289,
+    "original_files_unchanged":  290,
+    "first_attempt":  "Incomplete CMake/MSBuild sandbox SDK failure, exit 1, zero diagnostic samples",
+    "correction_history":  "Original failed audits, all auditor revisions and correction hashes verified",
+    "measurements_launched":  0,
+    "adaptation":  "Original final auditor rerun with only its output path redirected"
+}

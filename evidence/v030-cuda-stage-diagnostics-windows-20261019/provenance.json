@@ -1,0 +1,180 @@
+{
+    "tested_source":  "80148cee0ba5a52b1c67ca98a6ad4eb91e4d7817",
+    "source_tree":  "4a530557352469275564892e3b3e31cc508285c9",
+    "source_snapshot_sha256":  "819530e9e7f9e31e6e1637d38e25bd3fe518f90e538d7a7bf7f258cc96c33894",
+    "executable_sha256":  "9611292b31fa465c25d6fa3863b00b13427dc0685fa34ec59a51753045810166",
+    "input_sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+    "build_cache_sha256":  "4adf9b2f05c7df5351cf584cd11f21bfe32ee3219693c2547516de683afafeb2",
+    "timing_policy":  "Existing engine host timer includes allocation/RNG/simulation/global quantile/transfers/synchronization/cleanup/context/API and diagnostic overhead; excludes process startup/shared calibration/output/telemetry/delay",
+    "process_policy":  "Fresh suspended CLI and CUDA context; owned Job Object; full allowed CPU pool; normal priority; no per-core pinning",
+    "copies":  [
+                   {
+                       "file":  "summary.csv",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/summary.csv",
+                       "sha256":  "60cbae49689ebde10cb9571f2c85563c38e39406ad6d0f8dcf30bc241c8c3bec"
+                   },
+                   {
+                       "file":  "summary.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/summary.json",
+                       "sha256":  "919742e52f989df78b526a31cb681a10328542b161f8e190fa4fa42804ef8062"
+                   },
+                   {
+                       "file":  "six-configuration-summary.csv",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/six-configuration-summary.csv",
+                       "sha256":  "1de69d2ec75951161ddbf573ed8affd3b2470c4be5c679d7b58ac60a187a4f5c"
+                   },
+                   {
+                       "file":  "six-configuration-summary.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/six-configuration-summary.json",
+                       "sha256":  "8cc8ae91a079a9f8fbfbd69023d468f29105a8595b2b2820130c08f4d82023f2"
+                   },
+                   {
+                       "file":  "plan.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/plan.json",
+                       "sha256":  "d0f8e8996fd99e376922082ae059d85cb1701759920441369426f26394899d87"
+                   },
+                   {
+                       "file":  "fixture.csv",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/fixture.csv",
+                       "sha256":  "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210"
+                   },
+                   {
+                       "file":  "independent-fixture.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/independent-fixture.json",
+                       "sha256":  "d5a463b0cd5389dea5ed32323c8f4acb8c75fc5d1d81f069388a2a766bbe379b"
+                   },
+                   {
+                       "file":  "audit-original-failed.ps1",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/audit.ps1",
+                       "sha256":  "63398481e362c4a526a03ef472482de0e6735bda18ea02c655faaf6de2b1032f"
+                   },
+                   {
+                       "file":  "audit-corrected-failed.ps1",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/audit-corrected.ps1",
+                       "sha256":  "eb363abb9b2a35e0b210813f6cb6a40819cd5231e1edbe92c4e6c18add6a0898"
+                   },
+                   {
+                       "file":  "auditor-final-original.ps1",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/audit-final.ps1",
+                       "sha256":  "434d58f1edd10f9bc11c3ade0627f21663fa5f23c74e34b8fce7cb5eb7bb0579"
+                   },
+                   {
+                       "file":  "audit-failed-1.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/independent-audit.json",
+                       "sha256":  "bc3c415623f963df85b81bde1006c1bfc9871f1502a7d538cbad01e2ec081ead"
+                   },
+                   {
+                       "file":  "audit-failed-2.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/independent-audit.json",
+                       "sha256":  "09d1c1e864ae7850328c240cddae5c8377dbaa14998fb1cf58e85445f9cd1413"
+                   },
+                   {
+                       "file":  "audit-correction-1.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/audit-correction.json",
+                       "sha256":  "939f86fc1383f02033598763d6ef6cccd35e092884aed286da5496864b9acaa8"
+                   },
+                   {
+                       "file":  "audit-correction-2.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/audit-correction-2.json",
+                       "sha256":  "cbcaf85cc4da19849a886b8b8ba5ddf24f7b1dfc5419925195512c4615b5f3d8"
+                   },
+                   {
+                       "file":  "csv-decoding-observations.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/csv-decoding-observations.json",
+                       "sha256":  "09f3bf8cee3ad3a18cfaf4904c68ddbcd41afc6c4ddeb05d1ce187bea33123d4"
+                   },
+                   {
+                       "file":  "independent-audit-final.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/independent-audit-final.json",
+                       "sha256":  "6a08f4c6b740d0beeb87297a5922871cf71391ecd7c30c60b37af712de809f78"
+                   },
+                   {
+                       "file":  "original-final-reaudit.json",
+                       "local_source":  "results/cuda-stage-closure-20261019/original-final-reaudit.json",
+                       "sha256":  "574ee866153113edf94ee92a248bcba8c31aa417247fce91a00840e39a5fde49"
+                   },
+                   {
+                       "file":  "closure-audit.json",
+                       "local_source":  "results/cuda-stage-closure-20261019/closure-audit.json",
+                       "sha256":  "0cb0016d93ed3987b918df2f6c2dae3529aa821c9991dd113b24c1fa6d560285"
+                   },
+                   {
+                       "file":  "session-final-verification.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/final-verification.json",
+                       "sha256":  "493431c8f47314f7b90aebabddc63e525c0bfbeb9959efee9419c91c170ab324"
+                   },
+                   {
+                       "file":  "first-attempt.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/prior-incomplete-attempt.json",
+                       "sha256":  "743ac4e0830785571cbbd5949ebe7f2ac3ab2b05031cca5cf97a05a233b96057"
+                   },
+                   {
+                       "file":  "conditions-status.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/conditions-status.json",
+                       "sha256":  "27f24fa698b38dd8271a97a792d5df911e0d446cc0508de4cb8cc79370a9a3ff"
+                   },
+                   {
+                       "file":  "runtime-environment.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/runtime-environment.json",
+                       "sha256":  "f45e55d1e8198da7e8c6ab57cf8e40a669c91767c45640336cc24093bc5b725d"
+                   },
+                   {
+                       "file":  "current-telemetry-summary.json",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-review/current-telemetry-summary.json",
+                       "sha256":  "1d16a3c6651f5ca1fc4720cb1aec285570d01ffd0e91d69911ed390e2a4dbd61"
+                   },
+                   {
+                       "file":  "ctest-diagnostics.log",
+                       "local_source":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/ctest-diagnostics.stdout.txt",
+                       "sha256":  "12308f82e9c63ee6fb2b55d602bfdb1b6042c0613b40f0f666636fea88632ffa"
+                   }
+               ],
+    "original_local_bindings":  [
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/manifest.json",
+                                        "sha256":  "58c55440b5bd99cce53802d0179b18145271582a9d922b28af56381e94286add"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/delivery-manifest.json",
+                                        "sha256":  "472e2e0f15bbf816f294013a125f6757efbc78f26bdcdc7057f9bc0ba67ceb83"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/runs.jsonl",
+                                        "sha256":  "812921bf38f2c8e6c6704814851be3ccc85af91f20cd63a7b145fddb3a36f2c3"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/source-snapshot.json",
+                                        "sha256":  "819530e9e7f9e31e6e1637d38e25bd3fe518f90e538d7a7bf7f258cc96c33894"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/report.md",
+                                        "sha256":  "dcc4c27f0e646b1645ee814913d8319eab3240c46effb8c5482ceb4e0958c772"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/session.ps1",
+                                        "sha256":  "39f24bf6349994724d50b7db0b71e6da36fd08a993a99948a2d4912fd6647c65"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/CMakeCache.txt",
+                                        "sha256":  "4adf9b2f05c7df5351cf584cd11f21bfe32ee3219693c2547516de683afafeb2"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run2/mc_cuda.vcxproj",
+                                        "sha256":  "845230261948a314423854a65c95d558defdd6650aba386eceb366b4cff24685"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run1/manifest.json",
+                                        "sha256":  "32c1ba4e4a6f6d3c36a7d6678d1c20953aa38bc996fee50a7502890fbe7b96bf"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run1/configure.process.json",
+                                        "sha256":  "3f13bde2d7d49f9b5b58053bf55a5a66b34fc0c3d08169890290b8f1f7347074"
+                                    },
+                                    {
+                                        "local_file":  "results/cuda-stage-diagnostics-80148ce-20261019-run1/configure.stderr.txt",
+                                        "sha256":  "87db7bb05c88f6a6b5b1612599fe60945aa6f58ed7ae4f6e9f8548bec3320cce"
+                                    }
+                                ],
+    "samples_csv":  "Lossless raw numeric-token projection of all 18 attempts, including 11 timing fields, interval counts, batches, bytes and both VaRs; no filtering",
+    "publication":  "Reviewed subset only; original raw stdout/stderr, manifests, telemetry and build outputs stay local unchanged; no provider/private/academic data"
+}
