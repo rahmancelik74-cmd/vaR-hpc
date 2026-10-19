@@ -19,7 +19,14 @@ struct Request {
     std::vector<double> confidence_levels{0.95, 0.99};
 };
 struct Estimate { double confidence; double var; };
+struct CudaDiagnostics {
+    double initialization_ms = 0, rng_ms = 0, loss_ms = 0, cub_ms = 0, gather_ms = 0;
+    double pipeline_span_ms = 0, host_quantile_ms = 0;
+    std::size_t initialization_intervals = 0, rng_intervals = 0, loss_intervals = 0;
+    std::size_t cub_intervals = 0, gather_intervals = 0;
+};
 struct CudaMetadata {
+    std::optional<CudaDiagnostics> diagnostics;
     std::string mode = "full-device";
     std::size_t requested_batch_size = 0, effective_batch_size = 0, batch_count = 0;
     std::size_t normals_generated = 0, host_loss_bytes = 0, losses_transferred = 0;

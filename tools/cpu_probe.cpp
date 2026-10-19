@@ -180,12 +180,23 @@ std::wstring quote(const std::wstring& argument) {
     out.append(slashes * 2, L'\\');
     return out + L'"';
 }
-std::string read_pipe(HANDLE pipe) {
-    std::string out; char bytes[4096]; DWORD count = 0;
-    while (ReadFile(pipe, bytes, sizeof(bytes), &count, nullptr) && count) out.append(bytes, count);
-    return out;
+void drain_pipe(HANDLE pipe, std::string& output) {
+    // A bounded nonblocking drain keeps the execution deadline observable even
+    // when a child writes continuously or a descendant retains an inherited pipe.
+    for (int chunk = 0; chunk < 16; ++chunk) {
+        DWORD available = 0;
+        if (!PeekNamedPipe(pipe, nullptr, 0, nullptr, &available, nullptr)) {
+            require(GetLastError() == ERROR_BROKEN_PIPE, "Pipe query failed");
+            return;
+        }
+        if (!available) return;
+        char bytes[4096]; DWORD count = 0;
+        require(ReadFile(pipe, bytes, (std::min)(available, DWORD(sizeof(bytes))), &count, nullptr) != 0,
+                "Pipe read failed");
+        output.append(bytes, count);
+    }
 }
-void launch(std::uint64_t mask, int argc, wchar_t** argv) {
+void launch(std::uint64_t mask, int argc, wchar_t** argv, int first = 3, DWORD timeout_ms = 60000) {
     SECURITY_ATTRIBUTES security{sizeof(SECURITY_ATTRIBUTES), nullptr, TRUE};
     Handle out_read, out_write, err_read, err_write;
     require(CreatePipe(&out_read.value, &out_write.value, &security, 0) != 0, "stdout pipe failed");
@@ -196,34 +207,70 @@ void launch(std::uint64_t mask, int argc, wchar_t** argv) {
     startup.hStdOutput = out_write.value; startup.hStdError = err_write.value;
     PROCESS_INFORMATION child{};
     std::wstring command;
-    for (int i = 3; i < argc; ++i) { if (i > 3) command += L' '; command += quote(argv[i]); }
-    require(CreateProcessW(argv[3], &command[0], nullptr, nullptr, TRUE,
+    for (int i = first; i < argc; ++i) { if (i > first) command += L' '; command += quote(argv[i]); }
+    Handle job;
+    job.value = CreateJobObjectW(nullptr, nullptr);
+    require(job.value != nullptr, "Job creation failed");
+    JOBOBJECT_EXTENDED_LIMIT_INFORMATION limits{};
+    limits.BasicLimitInformation.LimitFlags = JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE;
+    require(SetInformationJobObject(job.value, JobObjectExtendedLimitInformation, &limits, sizeof(limits)) != 0,
+            "Job limit setup failed");
+    require(CreateProcessW(argv[first], &command[0], nullptr, nullptr, TRUE,
         CREATE_SUSPENDED | CREATE_NO_WINDOW | NORMAL_PRIORITY_CLASS, nullptr, nullptr, &startup, &child) != 0,
         "CreateProcess failed");
     Handle process{child.hProcess}, thread{child.hThread};
     try {
+        // Assign while suspended: descendants cannot escape between creation and assignment.
+        require(AssignProcessToJobObject(job.value, process.value) != 0, "Job assignment failed");
         require(SetProcessAffinityMask(process.value, static_cast<DWORD_PTR>(mask)) != 0, "Child affinity failed");
         DWORD_PTR effective{}, system{}; masks(process.value, effective, system);
         require(effective == mask, "Child affinity did not match request");
-        // Read both pipes concurrently; stderr cannot block a successful stdout read.
         CloseHandle(out_write.value); out_write.value = nullptr;
         CloseHandle(err_write.value); err_write.value = nullptr;
-        std::cout << "{\"process_mask_hex\":\"" << hex(effective)
-                  << "\",\"priority_class\":" << GetPriorityClass(process.value) << ",\"before\":";
-        power();
+        std::ostringstream before;
+        auto* saved = std::cout.rdbuf(before.rdbuf());
+        try { power(); } catch (...) { std::cout.rdbuf(saved); throw; }
+        std::cout.rdbuf(saved);
+        const auto priority = GetPriorityClass(process.value);
+        const auto started = std::chrono::steady_clock::now();
         require(ResumeThread(thread.value) != static_cast<DWORD>(-1), "ResumeThread failed");
-        // The known CLI emits one small JSON object or a short error. Drain stderr
-        // on a separate reader to avoid pipe backpressure for invalid commands.
-        std::string error_text;
-        std::thread error_reader([&]{ error_text = read_pipe(err_read.value); });
-        const auto output = read_pipe(out_read.value);
-        error_reader.join();
-        require(WaitForSingleObject(process.value, 60000) == WAIT_OBJECT_0, "Child did not complete");
+        std::string output, error_text;
+        bool timed_out = false, terminated = false;
+        DWORD active_at_timeout = 0;
+        for (;;) {
+            drain_pipe(out_read.value, output); drain_pipe(err_read.value, error_text);
+            JOBOBJECT_BASIC_ACCOUNTING_INFORMATION accounting{};
+            require(QueryInformationJobObject(job.value, JobObjectBasicAccountingInformation,
+                    &accounting, sizeof(accounting), nullptr) != 0, "Job status failed");
+            if (accounting.ActiveProcesses == 0) break;
+            if (std::chrono::steady_clock::now() - started >= std::chrono::milliseconds(timeout_ms)) {
+                timed_out = true; active_at_timeout = accounting.ActiveProcesses;
+                require(TerminateJobObject(job.value, 124) != 0, "Owned job termination failed");
+                terminated = true;
+                require(WaitForSingleObject(process.value, 5000) == WAIT_OBJECT_0, "Termination wait failed");
+                break;
+            }
+            Sleep(1);
+        }
+        // Once the owned tree is gone, consume finite buffered output. Never wait
+        // for EOF: a foreign inherited handle must not make the launcher hang.
+        for (int i = 0; i < 100; ++i) {
+            const auto prior = output.size() + error_text.size();
+            drain_pipe(out_read.value, output); drain_pipe(err_read.value, error_text);
+            if (prior == output.size() + error_text.size()) break;
+        }
         DWORD code = 0; require(GetExitCodeProcess(process.value, &code) != 0, "Child exit code failed");
+        const auto elapsed = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - started).count();
+        std::cout << "{\"process_mask_hex\":\"" << hex(effective)
+                  << "\",\"priority_class\":" << priority << ",\"before\":" << before.str();
         std::cout << ",\"after\":"; power();
-        std::cout << ",\"exit_code\":" << code << ",\"stdout\":"; string(output);
+        std::cout << ",\"timeout_ms\":" << timeout_ms << ",\"timed_out\":" << (timed_out ? "true" : "false")
+                  << ",\"owned_job_terminated\":" << (terminated ? "true" : "false")
+                  << ",\"active_processes_at_timeout\":" << active_at_timeout
+                  << ",\"launcher_elapsed_ms\":" << elapsed
+                  << ",\"exit_code\":" << code << ",\"stdout\":"; string(output);
         std::cout << ",\"stderr\":"; string(error_text); std::cout << "}\n";
-    } catch (...) { TerminateProcess(process.value, 1); throw; }
+    } catch (...) { TerminateJobObject(job.value, 1); TerminateProcess(process.value, 1); throw; }
 }
 }
 int wmain(int argc, wchar_t** argv) {
@@ -236,6 +283,13 @@ int wmain(int argc, wchar_t** argv) {
             const int threads = std::stoi(argv[2]);
             if (threads < 1 || threads > 64) throw std::invalid_argument("Invalid probe thread count");
             affinity(threads, mask_argument(argv[3]));
+        } else if (argc >= 5 && std::wstring(argv[1]) == L"--run-timeout") {
+            std::size_t used = 0;
+            const std::wstring text(argv[2]);
+            const auto timeout = std::stoull(text, &used);
+            if (used != text.size() || timeout == 0 || timeout > 3600000)
+                throw std::invalid_argument("Timeout must be 1 through 3600000 milliseconds");
+            launch(mask_argument(argv[3]), argc, argv, 4, static_cast<DWORD>(timeout));
         } else if (argc >= 4 && std::wstring(argv[1]) == L"--run") launch(mask_argument(argv[2]), argc, argv);
         else throw std::invalid_argument("Usage: mc_cpu_probe --inventory | --affinity threads mask_hex | --run mask_hex executable [arguments]");
         return 0;

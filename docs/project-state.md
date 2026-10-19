@@ -1,5 +1,18 @@
 # Project state
 
+## Benchmark infrastructure preparation: 2026-10-19
+
+The working tree adds a unified CPU/GPU recorder/auditor, opt-in CUDA stage
+diagnostics and owned-process-tree launcher timeouts. See
+[cpu-gpu-benchmark.md](cpu-gpu-benchmark.md) for commands, schemas, timing scope,
+formal counts and conditions. This prepares a future fresh CPU/GPU comparison;
+it does not replace the accepted 8df5f28 GPU campaign or historical CPU baseline.
+Development smoke evidence is explicitly labeled with its base HEAD and exact
+dirty-source snapshot; it is not clean-commit acceptance or formal performance.
+Counter permission and exact-laptop documented-peak bandwidth remain unresolved.
+No formal benchmark, profiling, convergence, optimization or academic delivery
+is established by this preparation. Existing evidence remains unchanged.
+
 Updated: 2026-10-19, Europe/Istanbul. Current source version: 0.3.0.
 Windows Release tests, CPU correctness/scaling and full-device/hybrid GPU
 five-seed analytical acceptance are verified for their documented cases.

@@ -62,6 +62,24 @@ void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
         << ",\"capacity_policy\":";
     string_value(out, hybrid ? "Reject three explicit batch buffers exceeding floor(4*free_before_bytes/5); queried after context/stream/events, before buffer allocation; excludes host losses, opaque library/context allocations and other GPU activity; not a capacity guarantee"
         : "Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee");
+    if (c.diagnostics) {
+        const auto& d = *c.diagnostics;
+        out << ",\"diagnostics\":{\"schema_version\":1,\"enabled\":true";
+        out << ",\"initialization_ms\":"; number(out, d.initialization_ms);
+        out << ",\"rng_ms\":"; number(out, d.rng_ms);
+        out << ",\"loss_ms\":"; number(out, d.loss_ms);
+        out << ",\"cub_ms\":"; number(out, d.cub_ms);
+        out << ",\"gather_ms\":"; number(out, d.gather_ms);
+        out << ",\"pipeline_span_ms\":"; number(out, d.pipeline_span_ms);
+        out << ",\"host_quantile_ms\":"; number(out, d.host_quantile_ms);
+        out << ",\"covered_device_stage_sum_ms\":";
+        number(out, d.initialization_ms + d.rng_ms + d.loss_ms + d.cub_ms + d.gather_ms);
+        out << ",\"initialization_intervals\":" << d.initialization_intervals
+            << ",\"rng_intervals\":" << d.rng_intervals << ",\"loss_intervals\":" << d.loss_intervals
+            << ",\"cub_intervals\":" << d.cub_intervals << ",\"gather_intervals\":" << d.gather_intervals;
+        out << ",\"scope\":\"Same-stream Event intervals; stage durations summed across batches; initialization is device error-flag memset only; RNG includes device work enqueued by generation call, not host generator setup; span from first pipeline enqueue through final required D2H, includes host submission gaps; excludes allocations/context/cleanup and hybrid host quantile\""
+            << ",\"transfer_excluded_scope\":\"Explicit initialization+RNG+loss+CUB+gather Event sum; excludes copies, host setup/quantile/staging, allocation, context, cleanup and gaps between intervals; not host wall time minus copies\"}";
+    }
     out << '}';
 }
 }

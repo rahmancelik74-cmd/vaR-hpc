@@ -1,5 +1,10 @@
 # Serial and OpenMP CPU scaling recorder
 
+For the later unified CPU/GPU preparation, use
+[cpu-gpu-benchmark.md](cpu-gpu-benchmark.md). The historical CPU recorder and
+its archived campaign remain separate; their old timing rows are not fresh
+baselines for a new CPU/GPU comparison.
+
 The validated v0.3.0 numerical engines and serial sorting are unchanged.
 scripts/run-cpu-benchmark.ps1 builds a clean source revision with MSVC x64
 Release, MC_ENABLE_OPENMP=ON and MC_BUILD_CPU_TOOLS=ON. It runs all retained

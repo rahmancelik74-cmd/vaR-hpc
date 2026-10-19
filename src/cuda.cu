@@ -22,11 +22,54 @@ void check_rng(curandStatus_t status, const char* operation) {
         throw std::runtime_error(std::string(operation) + ": cuRAND status " + std::to_string(status));
 }
 struct Resources {
+    struct Interval { cudaEvent_t begin, end; int stage; };
+    CudaDiagnostics* diagnostics = nullptr;
+    std::vector<cudaEvent_t> diagnostic_events;
+    std::vector<Interval> intervals;
     cudaStream_t stream = nullptr;
     cudaEvent_t begin = nullptr, end = nullptr;
     curandGenerator_t generator = nullptr;
     std::vector<void*> buffers;
     ~Resources() { release(false); }
+    cudaEvent_t event() {
+        cudaEvent_t value = nullptr;
+        check(cudaEventCreate(&value), "Diagnostic event creation");
+        try { diagnostic_events.push_back(value); }
+        catch (...) { cudaEventDestroy(value); throw; }
+        return value;
+    }
+    std::size_t start(int stage) {
+        if (!diagnostics) return 0;
+        const auto a = event(), b = event();
+        intervals.push_back({a, b, stage});
+        check(cudaEventRecord(a, stream), "Diagnostic interval start");
+        return intervals.size() - 1;
+    }
+    void stop(std::size_t token) {
+        if (diagnostics) check(cudaEventRecord(intervals[token].end, stream), "Diagnostic interval stop");
+    }
+    template<class F> void measure(int stage, F operation) {
+        const auto token = start(stage);
+        operation();
+        stop(token);
+    }
+    void collect() {
+        if (!diagnostics) return;
+        check(cudaStreamSynchronize(stream), "Diagnostic completion");
+        for (const auto& interval : intervals) {
+            float ms = 0;
+            check(cudaEventElapsedTime(&ms, interval.begin, interval.end), "Diagnostic elapsed time");
+            auto& d = *diagnostics;
+            switch (interval.stage) {
+            case 0: d.initialization_ms += ms; ++d.initialization_intervals; break;
+            case 1: d.rng_ms += ms; ++d.rng_intervals; break;
+            case 2: d.loss_ms += ms; ++d.loss_intervals; break;
+            case 3: d.cub_ms += ms; ++d.cub_intervals; break;
+            case 4: d.gather_ms += ms; ++d.gather_intervals; break;
+            case 5: d.pipeline_span_ms = ms; break;
+            }
+        }
+    }
     template<class T> T* allocate(std::size_t count) {
         void* pointer = nullptr;
         const auto bytes = detail::checked_multiply(count, sizeof(T));
@@ -49,6 +92,8 @@ struct Resources {
         buffers.clear();
         if (begin) { remember(cudaEventDestroy(begin)); begin = nullptr; }
         if (end) { remember(cudaEventDestroy(end)); end = nullptr; }
+        for (auto value : diagnostic_events) remember(cudaEventDestroy(value));
+        diagnostic_events.clear();
         if (stream) { remember(cudaStreamDestroy(stream)); stream = nullptr; }
         if (checked) { check_rng(rng_status, "cuRAND cleanup"); check(first, "CUDA cleanup"); }
     }
@@ -117,6 +162,7 @@ void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::s
         check_rng(curandSetPseudoRandomGeneratorSeed(resources.generator, r.seed), "Hybrid cuRAND seed");
     }
     std::size_t offset = 0;
+    const auto pipeline = resources.start(5);
     while (offset < r.scenarios) {
         const auto count = (std::min)(info.effective_batch_size, r.scenarios - offset);
         const auto bytes = detail::checked_multiply(count, sizeof(double));
@@ -126,15 +172,21 @@ void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::s
         else {
             const auto generated = detail::normal_count(count, false);
             if (generated > info.normals_allocated) throw std::runtime_error("Hybrid normal buffer too small");
-            check_rng(curandGenerateNormalDouble(resources.generator, normals, generated, 0.0, 1.0), "Hybrid cuRAND normal generation");
+            resources.measure(1, [&] {
+                check_rng(curandGenerateNormalDouble(resources.generator, normals, generated, 0.0, 1.0), "Hybrid cuRAND normal generation");
+            });
             info.normals_generated = detail::checked_add(info.normals_generated, generated);
         }
-        check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), "Hybrid error flag initialization");
+        resources.measure(0, [&] {
+            check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), "Hybrid error flag initialization");
+        });
         const auto blocks = detail::loss_blocks(count, properties.maxGridSize[0],
             properties.maxThreadsDim[0], properties.maxThreadsPerBlock);
-        losses_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(
+        resources.measure(2, [&] {
+          losses_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(
             r.model, normals, losses, detail::checked_int(count), invalid_device);
         check(cudaGetLastError(), "Hybrid loss kernel launch");
+        });
         int invalid = 0;
         resources.copy(&invalid, invalid_device, sizeof(int), cudaMemcpyDeviceToHost, info);
         if (invalid == 1) throw std::invalid_argument("Normal input must be finite");
@@ -144,14 +196,19 @@ void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::s
         info.batch_count = detail::checked_add(info.batch_count, 1);
         offset = next;
     }
+    resources.stop(pipeline);
     if (offset != r.scenarios || info.losses_transferred != r.scenarios
         || (!common && info.normals_generated != detail::normal_count(r.scenarios, false)))
         throw std::runtime_error("Hybrid scenario accounting mismatch");
     check(cudaStreamSynchronize(resources.stream), "Hybrid pipeline completion");
     check(cudaMemGetInfo(&info.free_with_pipeline_bytes, &info.total_vram_bytes), "Hybrid VRAM pipeline snapshot");
+    const auto quantile_start = resources.diagnostics ? std::chrono::steady_clock::now()
+                                                     : std::chrono::steady_clock::time_point{};
     std::sort(host_losses.begin(), host_losses.end());
     for (double confidence : r.confidence_levels)
         result.estimates.push_back({confidence, sorted_quantile(host_losses, confidence)});
+    if (resources.diagnostics) resources.diagnostics->host_quantile_ms =
+        std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - quantile_start).count();
 }
 std::string compiler_version() {
     return std::to_string(__CUDACC_VER_MAJOR__) + "." + std::to_string(__CUDACC_VER_MINOR__) + "." + std::to_string(__CUDACC_VER_BUILD__);
@@ -192,6 +249,10 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
         check_rng(curandGetVersion(&info.curand_runtime_version), "cuRAND runtime version");
         Resources resources;
         resources.initialize();
+        if (diagnostics_) {
+            info.diagnostics.emplace();
+            resources.diagnostics = &*info.diagnostics;
+        }
         if (mode_ == CudaMode::Hybrid) {
             hybrid_pipeline(r, common, batch_size_, resources, properties, result);
         } else {
@@ -228,27 +289,39 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
             auto values_device = resources.allocate<double>(k);
             auto invalid_device = resources.allocate<int>(1);
             auto workspace = resources.allocate<unsigned char>(workspace_bytes);
+            const auto pipeline = resources.start(5);
             resources.copy(indices_device, indices.data(), index_bytes, cudaMemcpyHostToDevice, info);
             if (common) resources.copy(normals, common->data(), loss_bytes, cudaMemcpyHostToDevice, info);
             else {
                 check_rng(curandCreateGenerator(&resources.generator, CURAND_RNG_PSEUDO_PHILOX4_32_10), "cuRAND device generator creation");
                 check_rng(curandSetStream(resources.generator, resources.stream), "cuRAND stream selection");
                 check_rng(curandSetPseudoRandomGeneratorSeed(resources.generator, r.seed), "cuRAND seed");
-                check_rng(curandGenerateNormalDouble(resources.generator, normals, info.normals_allocated, 0.0, 1.0), "cuRAND device normal generation");
+                resources.measure(1, [&] {
+                    check_rng(curandGenerateNormalDouble(resources.generator, normals, info.normals_allocated, 0.0, 1.0), "cuRAND device normal generation");
+                });
                 info.normals_generated = info.normals_allocated;
             }
-            check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), "Device error flag initialization");
+            resources.measure(0, [&] {
+                check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), "Device error flag initialization");
+            });
+            resources.measure(2, [&] {
             losses_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(r.model, normals, losses, n, invalid_device);
             check(cudaGetLastError(), "Loss kernel launch");
+            });
             int invalid = 0;
             resources.copy(&invalid, invalid_device, sizeof(int), cudaMemcpyDeviceToHost, info);
             if (invalid == 1) throw std::invalid_argument("Normal input must be finite");
             if (invalid) throw std::overflow_error("CUDA scenario loss overflow");
-            check(cub::DeviceRadixSort::SortKeys(workspace, info.cub_temporary_bytes, losses, sorted, n, 0, 64, resources.stream), "CUB device radix sort");
+            resources.measure(3, [&] {
+                check(cub::DeviceRadixSort::SortKeys(workspace, info.cub_temporary_bytes, losses, sorted, n, 0, 64, resources.stream), "CUB device radix sort");
+            });
+            resources.measure(4, [&] {
             quantile_kernel<<<1, 32, 0, resources.stream>>>(sorted, indices_device, values_device, quantile_count);
             check(cudaGetLastError(), "Device nearest-rank gather launch");
+            });
             std::vector<double> values(k);
             resources.copy(values.data(), values_device, value_bytes, cudaMemcpyDeviceToHost, info);
+            resources.stop(pipeline);
             check(cudaStreamSynchronize(resources.stream), "Pipeline completion");
             check(cudaMemGetInfo(&info.free_with_pipeline_bytes, &info.total_vram_bytes), "VRAM pipeline snapshot");
             for (std::size_t i = 0; i < k; ++i) {
@@ -256,6 +329,7 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
                 result.estimates.push_back({r.confidence_levels[i], values[i]});
             }
         }
+        resources.collect();
         resources.release(true);
     }
     result.end_to_end_ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count();

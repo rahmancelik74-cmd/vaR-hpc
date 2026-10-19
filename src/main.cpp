@@ -37,6 +37,7 @@ int main(int argc, char** argv) {
         std::string cuda_mode = "full-device";
         std::size_t batch_size = 0;
         bool cuda_mode_seen = false, batch_seen = false;
+        bool diagnostics = false;
         bool backend_seen = false, threads_seen = false;
         std::vector<char*> positional{argv[0]};
         for (int i = 1; i < argc; ++i) {
@@ -48,6 +49,9 @@ int main(int argc, char** argv) {
                 backend = argv[++i];
                 if (backend != "serial" && backend != "openmp" && backend != "cuda")
                     throw std::invalid_argument("Backend must be serial, openmp or cuda");
+            } else if (option == "--cuda-diagnostics") {
+                if (diagnostics) throw std::invalid_argument("Duplicate --cuda-diagnostics");
+                diagnostics = true;
             } else if (option == "--threads") {
                 if (threads_seen || i + 1 >= argc)
                     throw std::invalid_argument("Missing or duplicate --threads");
@@ -80,7 +84,7 @@ int main(int argc, char** argv) {
         }
         if (threads_seen && backend != "openmp")
             throw std::invalid_argument("--threads requires the openmp backend");
-        if ((cuda_mode_seen || batch_seen) && backend != "cuda")
+        if ((cuda_mode_seen || batch_seen || diagnostics) && backend != "cuda")
             throw std::invalid_argument("--cuda-mode and --batch-size require the cuda backend");
         if ((cuda_mode == "hybrid") != batch_seen)
             throw std::invalid_argument("--batch-size is required only with --cuda-mode hybrid");
@@ -95,7 +99,7 @@ int main(int argc, char** argv) {
         argc = static_cast<int>(positional.size());
         argv = positional.data();
         const bool csv_mode = argc > 1 && std::string(argv[1]) == "--csv";
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer (hybrid only; append --json for structured output)";
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output)";
         if ((!csv_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)))
             throw std::invalid_argument(usage);
         mc::Request request;
@@ -140,7 +144,7 @@ int main(int argc, char** argv) {
         std::unique_ptr<mc::Engine> engine;
 #ifdef MC_HAS_CUDA
         if (backend == "cuda") engine = std::make_unique<mc::CudaEngine>(
-            cuda_mode == "hybrid" ? mc::CudaMode::Hybrid : mc::CudaMode::FullDevice, batch_size);
+            cuda_mode == "hybrid" ? mc::CudaMode::Hybrid : mc::CudaMode::FullDevice, batch_size, diagnostics);
         else
 #endif
 #ifdef MC_HAS_OPENMP

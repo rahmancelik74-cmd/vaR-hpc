@@ -89,6 +89,12 @@ if(BUILD_TESTING)
     add_test(NAME openmp_tests COMMAND mc_openmp_tests)
   endif()
   if(MC_ENABLE_CUDA)
+    add_executable(mc_cuda_diagnostic_tests tests/test_cuda_diagnostics.cpp)
+    target_link_libraries(mc_cuda_diagnostic_tests PRIVATE mc_cuda)
+    if(WIN32)
+      mc_copy_cuda_runtime(mc_cuda_diagnostic_tests)
+    endif()
+    add_test(NAME cuda_diagnostics_contract COMMAND mc_cuda_diagnostic_tests)
     add_executable(mc_cuda_tests tests/test_cuda.cpp)
     target_link_libraries(mc_cuda_tests PRIVATE mc_cuda)
     if(WIN32)
@@ -104,6 +110,11 @@ if(BUILD_TESTING)
     add_test(NAME cuda_hybrid_tests COMMAND mc_cuda_hybrid_tests)
   endif()
   if(MC_BUILD_CPU_TOOLS)
+    add_executable(mc_launcher_child tests/launcher_child.cpp)
+    add_test(NAME launcher_timeout_contract COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
+      -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_launcher.ps1"
+      -Probe "$<TARGET_FILE:mc_cpu_probe>" -Child "$<TARGET_FILE:mc_launcher_child>")
+    set_tests_properties(launcher_timeout_contract PROPERTIES TIMEOUT 40)
     add_test(NAME cpu_recorder_statistics COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
       -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cpu_recorder.ps1")
     add_test(NAME cpu_probe_contract COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
@@ -111,6 +122,8 @@ if(BUILD_TESTING)
       -Probe "$<TARGET_FILE:mc_cpu_probe>" -Executable "$<TARGET_FILE:mc_var>")
   endif()
   if(WIN32)
+    add_test(NAME unified_benchmark_contract COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
+      -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_benchmark.ps1")
     add_test(NAME gpu_recorder_contract COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
       -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_gpu_recorder.ps1")
     add_test(NAME demo_recorder_tests COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
