@@ -145,6 +145,8 @@ parent exits. A Job Object is assigned while suspended, with kill-on-close.
 Nonblocking bounded pipe drains allow deadline checks even under continuous output.
 Timeout terminates the owned job and retains stdout/stderr, actual root exit code,
 timed_out, owned_job_terminated, active_processes_at_timeout and launcher_elapsed_ms.
+owned_tree_exited confirms zero active processes in the job, including after a
+bounded five-second termination drain; incomplete cleanup cannot pass auditing.
 The legacy --run command retains a 60000 ms default. Launcher time is not engine time.
 
 ## Evidence schema
@@ -159,6 +161,11 @@ inventory/affinity outputs, GPU snapshots, per-attempt process/raw/JSON files an
 runs.jsonl are retained. summary.json/CSV exist only for primary smoke/formal modes.
 independent-audit.json records the manifest hash and explicit mode/formal verdict.
 Evidence stays ignored/local pending a separate publication review.
+Clean snapshots additionally record each index blob ID, independently checked
+against the tested commit's complete tree. The recorder verifies unchanged exact
+source bytes, HEAD and clean status at run end. This allows audit after a later
+documentation commit without changing archived SHA-256 values or restoring old
+files. Dirty development snapshots still require their matching local files.
 
 ## Bandwidth discovery and unresolved limits
 

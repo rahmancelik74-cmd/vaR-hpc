@@ -50,12 +50,36 @@ function Get-BenchmarkArguments($Config,[bool]$Diagnostics,[string]$InputPath) {
     $values+='--json';return $values
 }
 function Get-BenchmarkSourceSnapshot {
+    $index=@{}
+    foreach($line in @(& git ls-files --stage)){
+        if($line -match '^\d+ ([0-9a-f]{40}) 0\t(.+)$'){$index[$Matches[2]]=$Matches[1]}
+    }
     $paths=@(& git ls-files --cached --others --exclude-standard)
     if($LASTEXITCODE -ne 0){throw 'Cannot enumerate source'}
     foreach($p in ($paths | Sort-Object -Unique)){
         if($p -ceq 'AGENTS.md' -or $p.StartsWith('output/')){continue}
         if(-not (Test-Path -LiteralPath $p -PathType Leaf)){throw "Missing source: $p"}
-        [pscustomobject]@{path=$p;sha256=(Get-GpuHash $p)}
+        [pscustomobject]@{path=$p;sha256=(Get-GpuHash $p);index_blob_sha1=$index[$p]}
+    }
+}
+function Test-BenchmarkSourceBinding($Manifest,$Snapshot) {
+    if(-not $Manifest.clean_source){
+        foreach($s in $Snapshot){Assert-GpuBoundArtifact $s.path $s.sha256}
+        return
+    }
+    # The clean recorder checks both source status and exact bytes at run end.
+    # Verify its archived index against that commit, allowing later documentation
+    # commits without replacing any recorded raw-byte SHA-256 or checking out files.
+    $tree=@{}
+    foreach($line in @(& git ls-tree -r $Manifest.source_revision)){
+        if($line -match '^\d+ blob ([0-9a-f]{40})\t(.+)$'){$tree[$Matches[2]]=$Matches[1]}
+    }
+    if($LASTEXITCODE -ne 0 -or @($Snapshot).Count -ne $tree.Count){throw 'Incomplete committed source snapshot'}
+    $seen=@{}
+    foreach($s in $Snapshot){
+        if($seen.ContainsKey($s.path) -or -not $tree.ContainsKey($s.path) -or
+            $s.index_blob_sha1 -cne $tree[$s.path] -or $s.sha256 -cnotmatch '^[0-9a-f]{64}$'){throw 'Source snapshot/commit mismatch'}
+        $seen[$s.path]=$true
     }
 }
 function Get-BenchmarkSummary($Runs) {
@@ -123,7 +147,7 @@ function Test-BenchmarkRecords($Manifest,$Plan,$Runs,$Fixture) {
             [DateTime]$r.finished_utc -lt [DateTime]$r.started_utc){throw 'Failed attempt or invalid timestamps'}
         $lastFinish=[DateTime]$r.finished_utc
         $o=$r.observation
-        if($o.timed_out -or $o.owned_job_terminated -or $o.exit_code -ne 0 -or $o.stderr -cne '' -or
+        if($o.timed_out -or $o.owned_job_terminated -or -not $o.owned_tree_exited -or $o.exit_code -ne 0 -or $o.stderr -cne '' -or
             $o.process_mask_hex -cne $Manifest.process_mask_hex -or $o.priority_class -ne 32){throw 'Process contract failed'}
         foreach($s in @($o.before,$o.after)){
             if($s.ac_line_status -ne $Manifest.power_reference.ac_line_status -or

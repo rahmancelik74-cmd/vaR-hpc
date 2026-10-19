@@ -10,7 +10,8 @@ function Run($Mode,$Timeout=1000){
     if($LASTEXITCODE -ne 0){throw 'Launcher failed'}
     if($watch.ElapsedMilliseconds -gt $Timeout+5000){throw 'Launcher deadline was not bounded'}
     $r=$raw | ConvertFrom-Json
-    if($r.timeout_ms -ne $Timeout -or $r.priority_class -ne 32 -or $r.process_mask_hex -cne $inventory.process_mask_hex){throw 'Launcher metadata failed'}
+    if($r.timeout_ms -ne $Timeout -or $r.priority_class -ne 32 -or $r.process_mask_hex -cne $inventory.process_mask_hex -or
+        -not $r.owned_tree_exited){throw 'Launcher metadata/tree exit failed'}
     $script:checks++;return $r
 }
 $r=Run 'normal';if($r.exit_code -ne 0 -or $r.timed_out -or $r.stdout -cne 'normal-out' -or $r.stderr -cne 'normal-err'){throw 'Normal completion failed'}

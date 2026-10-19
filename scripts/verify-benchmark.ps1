@@ -26,7 +26,8 @@ try {
         Assert-GpuBoundArtifact $m.executable_path $m.executable_sha256
         Assert-GpuBoundArtifact $m.probe_path $m.probe_sha256
         Assert-GpuBoundArtifact (Join-Path $dir 'source-snapshot.json') $m.source_snapshot_sha256
-        foreach($s in @(Read-GpuJson (Join-Path $dir 'source-snapshot.json'))){Assert-GpuBoundArtifact (Join-Path $root $s.path) $s.sha256}
+        Test-BenchmarkSourceBinding $m @(Read-GpuJson (Join-Path $dir 'source-snapshot.json'))
+        if($m.end_source_revision -cne $m.source_revision -or ($m.clean_source -and @($m.end_source_changes).Count)){throw 'Source changed during execution'}
         Assert-GpuBoundArtifact (Join-Path $dir 'fixture.csv') $m.input_sha256
         Assert-GpuBoundArtifact $m.input_path $m.input_sha256
         Assert-GpuBoundArtifact (Join-Path $m.build_directory 'CMakeCache.txt') $m.build_cache_sha256
@@ -42,7 +43,11 @@ try {
         $runs=@(Get-Content -LiteralPath (Join-Path $dir 'runs.jsonl') -Encoding UTF8 | ForEach-Object {$_ | ConvertFrom-Json})
         Test-BenchmarkRecords $m $plan $runs $fixture
         if($m.attempted_processes -ne $runs.Count){throw 'Wrong attempt count'}
+        $attemptFiles=@(Get-ChildItem -LiteralPath $dir -File | Where-Object {$_.Name -cmatch '^attempt-\d+\.json$'})
+        if($attemptFiles.Count -ne $runs.Count){throw 'Unaccounted attempt files'}
         foreach($r in $runs){
+            $attempt=Read-GpuJson (Join-Path $dir ('attempt-'+('{0:D3}' -f $r.sequence)+'.json'))
+            if((ConvertTo-Json $attempt -Depth 30 -Compress) -cne (ConvertTo-Json $r -Depth 30 -Compress)){throw 'Attempt/JSONL mismatch'}
             $p=Read-GpuJson (Join-Path $dir $r.launcher_process);Assert-GpuProcess $p
             $args=@('--run-timeout','60000',$m.process_mask_hex,$m.executable_path)+@($r.arguments)
             if($p.executable -cne $m.probe_path -or (@($p.arguments) -join "`n") -cne ($args -join "`n")){throw 'Launcher invocation mismatch'}

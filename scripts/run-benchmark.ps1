@@ -155,8 +155,11 @@ try {
         $recordedSnapshot=@(Read-GpuJson (Join-Path $out 'source-snapshot.json'))
         if((ConvertTo-Json $snapshot -Depth 20 -Compress) -cne (ConvertTo-Json $recordedSnapshot -Depth 20 -Compress) -or
             (& git rev-parse HEAD).Trim() -cne $manifest.source_revision){throw 'Source changed during run'}
+        if($manifest.clean_source -and @(Get-GpuSourceChanges).Count){throw 'Clean source status changed during run'}
     }catch{$manifest.status='failed';$manifest.formal_campaign=$false;$manifest.errors+= $_.Exception.Message}
     finally{
+        $manifest['end_source_revision']=(& git rev-parse HEAD).Trim()
+        $manifest['end_source_changes']=@(Get-GpuSourceChanges)
         $manifest['attempted_processes']=$runs.Count;$manifest['finished_utc']=[DateTime]::UtcNow.ToString('o')
         $manifest.record_hashes=@(Get-ChildItem -LiteralPath $out -File | Where-Object {$_.Name -cne 'manifest.json'} |
             ForEach-Object {[pscustomobject]@{file=$_.Name;sha256=(Get-GpuHash $_.FullName)}})

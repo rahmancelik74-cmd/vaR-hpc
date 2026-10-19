@@ -59,7 +59,7 @@ function Samples($Plan){
             threads_used=$(if($c.backend -ceq 'openmp'){$c.requested_threads}else{1});input_mode='csv_calibration';end_to_end_ms=$time;
             random_source=$(if($gpu){'cuRAND/PHILOX4_32_10/normal-double'}elseif($c.backend -ceq 'serial'){'mt19937_64/std::normal_distribution'}else{
                 'block4096/splitmix64/mt19937_64/std::normal_distribution'});model=(Clone $fixture.model);calibration=$cal;estimates=$est;cuda=$gpu}
-        $obs=[pscustomobject]@{exit_code=0;timed_out=$false;owned_job_terminated=$false;stderr='';stdout=(ConvertTo-Json $v -Depth 20 -Compress);
+        $obs=[pscustomobject]@{exit_code=0;timed_out=$false;owned_job_terminated=$false;owned_tree_exited=$true;stderr='';stdout=(ConvertTo-Json $v -Depth 20 -Compress);
             process_mask_hex='ffff';priority_class=32;before=(Clone $manifest.power_reference);after=(Clone $manifest.power_reference)}
         $timeStamp=([DateTime]'2026-01-01T00:00:00Z').AddSeconds($step.sequence).ToString('o')
         [pscustomobject]@{sequence=$step.sequence;configuration_id=$step.configuration_id;phase=$step.phase;repetition=$step.repetition;diagnostics=$step.diagnostics;
@@ -115,4 +115,15 @@ $formalRuns=@(Samples $formal);Test-BenchmarkRecords $manifest $formal $formalRu
 $formalRows=@(Get-BenchmarkSummary $formalRuns);Test-BenchmarkSummary $formal $formalRuns $formalRows;$checks++
 Rejects 'false 10x claim' {$s=Clone $formalRows;foreach($a in $s){if($a.backend -ceq 'cuda' -and $a.scenarios -eq 10000000){$a.serial_target_10x=$true}};Test-BenchmarkSummary $formal $formalRuns $s}
 Rejects 'dirty formal' {$m=Clone $manifest;$m.clean_source=$false;Test-BenchmarkRecords $m $formal $formalRuns $fixture}
+Rejects 'unconfirmed process cleanup' {$r=Clone $runs;$r[0].observation.owned_tree_exited=$false;Check $r}
+$sourceManifest=[pscustomobject]@{clean_source=$true;source_revision=(& git rev-parse HEAD).Trim()}
+$committedSnapshot=@(foreach($line in @(& git ls-tree -r HEAD)){
+    if($line -match '^\d+ blob ([0-9a-f]{40})\t(.+)$'){
+        [pscustomobject]@{path=$Matches[2];index_blob_sha1=$Matches[1];sha256=('a'*64)}
+    }
+})
+# Unit binding checks use placeholder raw hashes; not execution evidence.
+Test-BenchmarkSourceBinding $sourceManifest $committedSnapshot;$checks++
+Rejects 'wrong committed source blob' {$s=Clone $committedSnapshot;$s[0].index_blob_sha1=('b'*40);Test-BenchmarkSourceBinding $sourceManifest $s}
+Rejects 'missing committed source' {Test-BenchmarkSourceBinding $sourceManifest $committedSnapshot[1..($committedSnapshot.Count-1)]}
 Write-Host "Unified benchmark plan/auditor checks passed: $checks"

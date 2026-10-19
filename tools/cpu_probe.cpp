@@ -235,19 +235,27 @@ void launch(std::uint64_t mask, int argc, wchar_t** argv, int first = 3, DWORD t
         const auto started = std::chrono::steady_clock::now();
         require(ResumeThread(thread.value) != static_cast<DWORD>(-1), "ResumeThread failed");
         std::string output, error_text;
-        bool timed_out = false, terminated = false;
+        bool timed_out = false, terminated = false, tree_exited = false;
         DWORD active_at_timeout = 0;
         for (;;) {
             drain_pipe(out_read.value, output); drain_pipe(err_read.value, error_text);
             JOBOBJECT_BASIC_ACCOUNTING_INFORMATION accounting{};
             require(QueryInformationJobObject(job.value, JobObjectBasicAccountingInformation,
                     &accounting, sizeof(accounting), nullptr) != 0, "Job status failed");
-            if (accounting.ActiveProcesses == 0) break;
+            if (accounting.ActiveProcesses == 0) { tree_exited = true; break; }
             if (std::chrono::steady_clock::now() - started >= std::chrono::milliseconds(timeout_ms)) {
                 timed_out = true; active_at_timeout = accounting.ActiveProcesses;
                 require(TerminateJobObject(job.value, 124) != 0, "Owned job termination failed");
                 terminated = true;
-                require(WaitForSingleObject(process.value, 5000) == WAIT_OBJECT_0, "Termination wait failed");
+                const auto cleanup_deadline = std::chrono::steady_clock::now() + std::chrono::seconds(5);
+                // Root exit alone is insufficient when a descendant owns a pipe.
+                do {
+                    drain_pipe(out_read.value, output); drain_pipe(err_read.value, error_text);
+                    require(QueryInformationJobObject(job.value, JobObjectBasicAccountingInformation,
+                            &accounting, sizeof(accounting), nullptr) != 0, "Termination status failed");
+                    if (accounting.ActiveProcesses == 0) { tree_exited = true; break; }
+                    Sleep(1);
+                } while (std::chrono::steady_clock::now() < cleanup_deadline);
                 break;
             }
             Sleep(1);
@@ -266,6 +274,7 @@ void launch(std::uint64_t mask, int argc, wchar_t** argv, int first = 3, DWORD t
         std::cout << ",\"after\":"; power();
         std::cout << ",\"timeout_ms\":" << timeout_ms << ",\"timed_out\":" << (timed_out ? "true" : "false")
                   << ",\"owned_job_terminated\":" << (terminated ? "true" : "false")
+                  << ",\"owned_tree_exited\":" << (tree_exited ? "true" : "false")
                   << ",\"active_processes_at_timeout\":" << active_at_timeout
                   << ",\"launcher_elapsed_ms\":" << elapsed
                   << ",\"exit_code\":" << code << ",\"stdout\":"; string(output);
