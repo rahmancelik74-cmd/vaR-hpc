@@ -71,7 +71,7 @@ function Test-BenchmarkSourceBinding($Manifest,$Snapshot) {
     # Verify its archived index against that commit, allowing later documentation
     # commits without replacing any recorded raw-byte SHA-256 or checking out files.
     $tree=@{}
-    foreach($line in @(& git ls-tree -r $Manifest.source_revision)){
+    foreach($line in @(& git ls-tree -r --full-tree $Manifest.source_revision)){
         if($line -match '^\d+ blob ([0-9a-f]{40})\t(.+)$'){$tree[$Matches[2]]=$Matches[1]}
     }
     if($LASTEXITCODE -ne 0 -or @($Snapshot).Count -ne $tree.Count){throw 'Incomplete committed source snapshot'}

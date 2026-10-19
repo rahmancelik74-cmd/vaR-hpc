@@ -117,11 +117,12 @@ Rejects 'false 10x claim' {$s=Clone $formalRows;foreach($a in $s){if($a.backend 
 Rejects 'dirty formal' {$m=Clone $manifest;$m.clean_source=$false;Test-BenchmarkRecords $m $formal $formalRuns $fixture}
 Rejects 'unconfirmed process cleanup' {$r=Clone $runs;$r[0].observation.owned_tree_exited=$false;Check $r}
 $sourceManifest=[pscustomobject]@{clean_source=$true;source_revision=(& git rev-parse HEAD).Trim()}
-$committedSnapshot=@(foreach($line in @(& git ls-tree -r HEAD)){
+$committedSnapshot=@(foreach($line in @(& git ls-tree -r --full-tree HEAD)){
     if($line -match '^\d+ blob ([0-9a-f]{40})\t(.+)$'){
         [pscustomobject]@{path=$Matches[2];index_blob_sha1=$Matches[1];sha256=('a'*64)}
     }
 })
+if($committedSnapshot.Count -lt 1){throw 'Committed-source test fixture must not be empty'}
 # Unit binding checks use placeholder raw hashes; not execution evidence.
 Test-BenchmarkSourceBinding $sourceManifest $committedSnapshot;$checks++
 Rejects 'wrong committed source blob' {$s=Clone $committedSnapshot;$s[0].index_blob_sha1=('b'*40);Test-BenchmarkSourceBinding $sourceManifest $s}

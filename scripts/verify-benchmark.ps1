@@ -12,6 +12,7 @@ try {
     try {
         $m=Read-GpuJson (Join-Path $dir 'manifest.json');$plan=Read-GpuJson (Join-Path $dir 'plan.json')
         $audit['manifest_sha256']=Get-GpuHash (Join-Path $dir 'manifest.json');$audit['source_revision']=$m.source_revision
+        if($m.status -cne 'completed'){throw ('Incomplete recorder: '+($m.errors -join '; '))}
         if($m.mode -cne $plan.mode -or $m.formal_campaign -ne ($plan.mode -ceq 'formal')){throw 'Wrong campaign label'}
         if((& git rev-parse ($m.source_revision+'^{tree}')).Trim() -cne $m.source_tree){throw 'Source tree mismatch'}
         $seen=@{}
