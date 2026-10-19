@@ -207,3 +207,86 @@ Official references:
 - https://docs.nvidia.com/nsight-compute/ReleaseNotes/index.html
 - https://developer.nvidia.com/ERR_NVGPUCTRPERM
 - https://www.nvidia.com/en-me/geforce/laptops/compare/
+
+## Clean-source preparation checkpoint: 2026-10-19
+
+Tested source: df34111faa3c64b52f03d493ef5aaeb0b41a82b1.
+Source tree: 51cd74478c232d3b2b9d8efb8d432df34034815b.
+This result entry belongs to a subsequent documentation-only commit. No formal
+benchmark, full diagnostic/profiling, acceptance/sanitizer, convergence or
+optimization campaign was run to close this infrastructure checkpoint.
+
+Implementation was committed as 231fbf6. Follow-up ffc8375 added explicit
+owned-job zero-active-process confirmation and clean snapshot Git-tree binding.
+Its clean CTest exposed a working-directory dependency in the new source-binding
+unit fixture: relative git ls-tree returned an empty list inside build directories.
+df34111 uses --full-tree and rejects an empty fixture. Focused tests passed from
+both the repository root and a build directory before clean verification.
+
+The ffc8375 attempt stopped in CTest before any recorder sample. Its failed
+manifest/audit remain in results/benchmark-prep-ffc8375-clean-20261019-smoke/;
+the partial CPU regression attempt and interruption.json remain in the matching
+-regressions/ directory. They are not successful smoke evidence. Original dirty
+evidence in benchmark-prep-smoke-20261019-attempt1/,
+benchmark-prep-diagnostic-20261019-attempt1/ and benchmark-prep-regressions-20261019/
+was inspected and preserved, not relabeled as clean-source evidence.
+
+Successful clean evidence, all below ignored results/:
+
+| Directory | Verified outcome |
+| --- | --- |
+| benchmark-prep-df34111-clean-20261019-smoke | 24 processes: 8 warm-ups excluded, 16 measured infrastructure samples; all eight configurations; independent audit passed |
+| benchmark-prep-df34111-clean-20261019-diagnostic | 4 processes: two baseline OFF, two diagnostic ON; exact same-build per-mode estimates; independent audit passed |
+| benchmark-prep-df34111-clean-20261019-regressions | Separately rebuilt CUDA OFF/OpenMP ON 12/12 and serial-only 11/11; CPU-only caches did not discover the Toolkit |
+| benchmark-prep-df34111-clean-20261019-review | Read-only compatibility checks: default result/CUDA key sets unchanged; model, calibration and estimates match the prior same-configuration dirty smoke |
+
+The unified CUDA/OpenMP/CPU-tools Release build passed all 18 discovered CTests,
+including 61 recorder/auditor checks, 9 launcher checks and CUDA diagnostic
+equivalence/scope tests. Diagnostic runs also passed the same 18-test suite.
+Native diagnostic batches were 1 for full-device and 2 for hybrid at N=100000;
+hybrid reported zero CUB/gather intervals and a separately timed host quantile.
+All primary CUDA samples omitted diagnostics. No source/HEAD change occurred
+during either successful clean run; only untracked AGENTS.md and output/ were
+excluded. Each manifest binds 15 build artifacts; output hashes cover 295 smoke
+records and 81 diagnostic records. Both audits explicitly report formal=false.
+
+Exact-byte SHA-256 bindings:
+
+| Artifact | SHA-256 |
+| --- | --- |
+| Clean source snapshot (both smokes) | 7c3b6504207d568327c9fcb2f545c6b80321e422fb1c26e648f9a9c53f52e282 |
+| Smoke manifest.json | e20acca2ddca3d3d3aa9b3d4bf6fdf5ab4dd6c6c6cb66d960ca7d9a094c0af00 |
+| Smoke independent-audit.json | fb488b107c69d6af700de6640b2e8bc708e46f217f5c594d3bd9df3a42531d9b |
+| Diagnostic manifest.json | 8e5d6c0e61eb5531a412594707066c3f71d5e78b9d9db8aa227863af6f6ee38f |
+| Diagnostic independent-audit.json | 968bf5a3254e18f8f1d110425c24e050fec3b4e543705d7b67559f768ee88e82 |
+| Shared CUDA/OpenMP CLI | b998132680254a10a9ee44789e1243749d93df0a885d6032e3c61773a70a7c53 |
+| Shared synthetic fixture | 8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210 |
+
+Read-only Nsight discovery again reported ERR_NVGPUCTRPERM, correctly classified
+despite exit code zero. Measured DRAM traffic and exact-laptop documented peak
+remain unavailable. Profiler orchestration is unverified; permissions, registry,
+drivers and machine-wide power settings were not changed. Hosted CPU CI must be
+checked for the exact final pushed SHA and is not local RTX acceptance evidence.
+
+## Inputs and operational prerequisites for a later formal benchmark
+
+Before separately authorized formal execution, supply an English conditions JSON
+object containing charger, surface_and_ventilation, cooling_pad,
+vendor_performance_mode, vendor_fan_mode, competing_applications and
+ambient_temperature {status, value_c}. Values must describe actual conditions;
+unknown/unmeasured/null are allowed and must remain explicit. User declarations
+are separate from AC/battery/power-scheme and GPU telemetry. This checkpoint does
+not establish those physical conditions for a later run.
+
+Use a clean reviewed source revision, a new dedicated build/evidence directory,
+all required backend/tool/runtime availability, successful applicable regressions
+and recorder preflight, the exact synthetic fixture and independent calibration.
+Keep diagnostics/profilers off for the 312 primary processes, use the fixed hybrid
+batch, record actual teams and the shared affinity/priority/environment policy,
+retain every attempt and stop on detected power-source/saver/scheme changes.
+Formal mode requires actual AC connection. Record the existing vendor/fan/display
+and competing-application conditions without changing machine-wide settings.
+Prepare and execute the bounded two-minute pre-observation / thirty-second
+post-observation procedure described above; it is still separate operational work
+and cannot establish thermal equilibrium. Resolve counter access and the exact
+peak specification separately before claiming the Plan A bandwidth measurements.

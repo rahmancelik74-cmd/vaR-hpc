@@ -2,13 +2,23 @@
 
 ## Benchmark infrastructure preparation: 2026-10-19
 
-The working tree adds a unified CPU/GPU recorder/auditor, opt-in CUDA stage
-diagnostics and owned-process-tree launcher timeouts. See
+Clean source df34111faa3c64b52f03d493ef5aaeb0b41a82b1 verifies the unified
+CPU/GPU recorder/auditor, opt-in CUDA stage diagnostics and owned-process-tree
+launcher timeouts. Windows Release CTest passed CUDA/OpenMP 18/18, CPU/OpenMP
+12/12 and serial-only 11/11. Focused auditor tests passed 61 checks and launcher
+tests passed 9 checks. A 24-process primary smoke and separate 4-process
+diagnostic smoke both passed independent audits; diagnostics OFF/ON numerical
+results matched in each CUDA mode. These are infrastructure smokes, not formal
+performance samples. The later documentation commit is not the tested source.
+See
 [cpu-gpu-benchmark.md](cpu-gpu-benchmark.md) for commands, schemas, timing scope,
 formal counts and conditions. This prepares a future fresh CPU/GPU comparison;
 it does not replace the accepted 8df5f28 GPU campaign or historical CPU baseline.
-Development smoke evidence is explicitly labeled with its base HEAD and exact
-dirty-source snapshot; it is not clean-commit acceptance or formal performance.
+Clean evidence: results/benchmark-prep-df34111-clean-20261019-smoke/,
+results/benchmark-prep-df34111-clean-20261019-diagnostic/ and the matching
+-regressions/ and -review/ directories. Earlier dirty-source evidence and the
+stopped ffc8375 verification remain separate. Exact bindings and limitations
+are recorded in cpu-gpu-benchmark.md.
 Counter permission and exact-laptop documented-peak bandwidth remain unresolved.
 No formal benchmark, profiling, convergence, optimization or academic delivery
 is established by this preparation. Existing evidence remains unchanged.
@@ -18,7 +28,7 @@ Windows Release tests, CPU correctness/scaling and full-device/hybrid GPU
 five-seed analytical acceptance are verified for their documented cases.
 Representative Compute Sanitizer checks passed separately at source 8df5f28;
 their coverage limits remain explicit. Earlier hosted CPU CI is distinct from
-these new local-only commits. Formal CPU/GPU benchmarking remains pending.
+later checkpoint commits. Formal CPU/GPU benchmarking remains pending.
 The full-device/hybrid implementation supersedes the old N <= 10000 source cap.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
 It does not replace the supervisor's roadmap or the requirements document.
