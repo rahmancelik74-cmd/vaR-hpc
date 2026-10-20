@@ -1,0 +1,405 @@
+Device NVIDIA GeForce RTX 4060 Laptop GPU (AD107)
+--------------------------------------------------------------------------- --------------- --------------- ----------------------------------------------------------------------
+Metric Name                                                                 Metric Type     Metric Unit     Metric Description                                                    
+--------------------------------------------------------------------------- --------------- --------------- ----------------------------------------------------------------------
+dram__bytes_read.avg                                                        Counter         byte            # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.avg.peak_sustained                                         Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_read.avg.peak_sustained_active                                  Counter         byte            # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_read.avg.peak_sustained_active.per_second                       Counter         byte/s          # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.avg.peak_sustained_elapsed                                 Counter         byte            # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_read.avg.peak_sustained_elapsed.per_second                      Counter         byte/s          # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_read.avg.per_cycle_active                                       Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the avg of  
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_read.avg.per_cycle_elapsed                                      Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the avg of  
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_read.avg.per_second                                             Counter         byte/s          # of bytes read from DRAM (This counter metric represents the avg of  
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_read.avg.pct_of_peak_sustained_active                           Counter         %               # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_read.avg.pct_of_peak_sustained_elapsed                          Counter         %               # of bytes read from DRAM (This counter metric represents the avg     
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.max                                                        Counter         byte            # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.max.peak_sustained                                         Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_read.max.peak_sustained_active                                  Counter         byte            # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_read.max.peak_sustained_active.per_second                       Counter         byte/s          # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.max.peak_sustained_elapsed                                 Counter         byte            # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_read.max.peak_sustained_elapsed.per_second                      Counter         byte/s          # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_read.max.per_cycle_active                                       Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the max of  
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_read.max.per_cycle_elapsed                                      Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the max of  
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_read.max.per_second                                             Counter         byte/s          # of bytes read from DRAM (This counter metric represents the max of  
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_read.max.pct_of_peak_sustained_active                           Counter         %               # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_read.max.pct_of_peak_sustained_elapsed                          Counter         %               # of bytes read from DRAM (This counter metric represents the max     
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.min                                                        Counter         byte            # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.min.peak_sustained                                         Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_read.min.peak_sustained_active                                  Counter         byte            # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_read.min.peak_sustained_active.per_second                       Counter         byte/s          # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.min.peak_sustained_elapsed                                 Counter         byte            # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_read.min.peak_sustained_elapsed.per_second                      Counter         byte/s          # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_read.min.per_cycle_active                                       Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the min of  
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_read.min.per_cycle_elapsed                                      Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the min of  
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_read.min.per_second                                             Counter         byte/s          # of bytes read from DRAM (This counter metric represents the min of  
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_read.min.pct_of_peak_sustained_active                           Counter         %               # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_read.min.pct_of_peak_sustained_elapsed                          Counter         %               # of bytes read from DRAM (This counter metric represents the min     
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.sum                                                        Counter         byte            # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.sum.peak_sustained                                         Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_read.sum.peak_sustained_active                                  Counter         byte            # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_read.sum.peak_sustained_active.per_second                       Counter         byte/s          # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_read.sum.peak_sustained_elapsed                                 Counter         byte            # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_read.sum.peak_sustained_elapsed.per_second                      Counter         byte/s          # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_read.sum.per_cycle_active                                       Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the sum of  
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_read.sum.per_cycle_elapsed                                      Counter         byte/cycle      # of bytes read from DRAM (This counter metric represents the sum of  
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_read.sum.per_second                                             Counter         byte/s          # of bytes read from DRAM (This counter metric represents the sum of  
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_read.sum.pct_of_peak_sustained_active                           Counter         %               # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_read.sum.pct_of_peak_sustained_elapsed                          Counter         %               # of bytes read from DRAM (This counter metric represents the sum     
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.avg                                                       Counter         byte            # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.avg.peak_sustained                                        Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_write.avg.peak_sustained_active                                 Counter         byte            # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_write.avg.peak_sustained_active.per_second                      Counter         byte/s          # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.avg.peak_sustained_elapsed                                Counter         byte            # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_write.avg.peak_sustained_elapsed.per_second                     Counter         byte/s          # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_write.avg.per_cycle_active                                      Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the avg of 
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_write.avg.per_cycle_elapsed                                     Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the avg of 
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_write.avg.per_second                                            Counter         byte/s          # of bytes written to DRAM (This counter metric represents the avg of 
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_write.avg.pct_of_peak_sustained_active                          Counter         %               # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_write.avg.pct_of_peak_sustained_elapsed                         Counter         %               # of bytes written to DRAM (This counter metric represents the avg    
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.max                                                       Counter         byte            # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.max.peak_sustained                                        Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_write.max.peak_sustained_active                                 Counter         byte            # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_write.max.peak_sustained_active.per_second                      Counter         byte/s          # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.max.peak_sustained_elapsed                                Counter         byte            # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_write.max.peak_sustained_elapsed.per_second                     Counter         byte/s          # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_write.max.per_cycle_active                                      Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the max of 
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_write.max.per_cycle_elapsed                                     Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the max of 
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_write.max.per_second                                            Counter         byte/s          # of bytes written to DRAM (This counter metric represents the max of 
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_write.max.pct_of_peak_sustained_active                          Counter         %               # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_write.max.pct_of_peak_sustained_elapsed                         Counter         %               # of bytes written to DRAM (This counter metric represents the max    
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.min                                                       Counter         byte            # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.min.peak_sustained                                        Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_write.min.peak_sustained_active                                 Counter         byte            # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_write.min.peak_sustained_active.per_second                      Counter         byte/s          # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.min.peak_sustained_elapsed                                Counter         byte            # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_write.min.peak_sustained_elapsed.per_second                     Counter         byte/s          # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_write.min.per_cycle_active                                      Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the min of 
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_write.min.per_cycle_elapsed                                     Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the min of 
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_write.min.per_second                                            Counter         byte/s          # of bytes written to DRAM (This counter metric represents the min of 
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_write.min.pct_of_peak_sustained_active                          Counter         %               # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_write.min.pct_of_peak_sustained_elapsed                         Counter         %               # of bytes written to DRAM (This counter metric represents the min    
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.sum                                                       Counter         byte            # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.sum.peak_sustained                                        Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            peak sustained rate across all unit instances)                        
+dram__bytes_write.sum.peak_sustained_active                                 Counter         byte            # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            peak sustained rate achieved during unit active cycles across all     
+                                                                                                            unit instances)                                                       
+dram__bytes_write.sum.peak_sustained_active.per_second                      Counter         byte/s          # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            peak sustained rate achieved during unit active cycles per second     
+                                                                                                            across all unit instances)                                            
+dram__bytes_write.sum.peak_sustained_elapsed                                Counter         byte            # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            peak sustained rate achieved during elapsed cycles across all unit    
+                                                                                                            instances)                                                            
+dram__bytes_write.sum.peak_sustained_elapsed.per_second                     Counter         byte/s          # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            peak sustained rate achieved during elapsed cycles per second across  
+                                                                                                            all unit instances)                                                   
+dram__bytes_write.sum.per_cycle_active                                      Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the sum of 
+                                                                                                            the number of operations per unit active cycle across all unit        
+                                                                                                            instances)                                                            
+dram__bytes_write.sum.per_cycle_elapsed                                     Counter         byte/cycle      # of bytes written to DRAM (This counter metric represents the sum of 
+                                                                                                            the number of operations per elapsed cycle across all unit instances) 
+dram__bytes_write.sum.per_second                                            Counter         byte/s          # of bytes written to DRAM (This counter metric represents the sum of 
+                                                                                                            the number of operations per second across all unit instances)        
+dram__bytes_write.sum.pct_of_peak_sustained_active                          Counter         %               # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            percent of the peak sustained rate achieved during unit active        
+                                                                                                            cycles across all unit instances)                                     
+dram__bytes_write.sum.pct_of_peak_sustained_elapsed                         Counter         %               # of bytes written to DRAM (This counter metric represents the sum    
+                                                                                                            percent of the peak sustained rate achieved during elapsed cycles     
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.avg                                                      Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg across all unit instances)                         
+gpu__time_duration.avg.peak_sustained                                       Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg peak sustained rate across all unit instances)     
+gpu__time_duration.avg.peak_sustained_active                                Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg peak sustained rate achieved during unit active    
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.avg.peak_sustained_active.per_second                     Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.avg.peak_sustained_elapsed                               Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.avg.peak_sustained_elapsed.per_second                    Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.avg.per_cycle_active                                     Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg of the number of operations per unit active cycle  
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.avg.per_cycle_elapsed                                    Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg of the number of operations per elapsed cycle      
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.avg.per_second                                           Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg of the number of operations per second across all  
+                                                                                                            unit instances)                                                       
+gpu__time_duration.avg.pct_of_peak_sustained_active                         Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all unit instances)                  
+gpu__time_duration.avg.pct_of_peak_sustained_elapsed                        Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the avg percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all unit instances)                      
+gpu__time_duration.max                                                      Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max across all unit instances)                         
+gpu__time_duration.max.peak_sustained                                       Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max peak sustained rate across all unit instances)     
+gpu__time_duration.max.peak_sustained_active                                Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max peak sustained rate achieved during unit active    
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.max.peak_sustained_active.per_second                     Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.max.peak_sustained_elapsed                               Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.max.peak_sustained_elapsed.per_second                    Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.max.per_cycle_active                                     Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max of the number of operations per unit active cycle  
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.max.per_cycle_elapsed                                    Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max of the number of operations per elapsed cycle      
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.max.per_second                                           Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max of the number of operations per second across all  
+                                                                                                            unit instances)                                                       
+gpu__time_duration.max.pct_of_peak_sustained_active                         Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all unit instances)                  
+gpu__time_duration.max.pct_of_peak_sustained_elapsed                        Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the max percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all unit instances)                      
+gpu__time_duration.min                                                      Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min across all unit instances)                         
+gpu__time_duration.min.peak_sustained                                       Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min peak sustained rate across all unit instances)     
+gpu__time_duration.min.peak_sustained_active                                Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min peak sustained rate achieved during unit active    
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.min.peak_sustained_active.per_second                     Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.min.peak_sustained_elapsed                               Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.min.peak_sustained_elapsed.per_second                    Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.min.per_cycle_active                                     Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min of the number of operations per unit active cycle  
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.min.per_cycle_elapsed                                    Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min of the number of operations per elapsed cycle      
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.min.per_second                                           Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min of the number of operations per second across all  
+                                                                                                            unit instances)                                                       
+gpu__time_duration.min.pct_of_peak_sustained_active                         Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all unit instances)                  
+gpu__time_duration.min.pct_of_peak_sustained_elapsed                        Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the min percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all unit instances)                      
+gpu__time_duration.sum                                                      Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum across all unit instances)                         
+gpu__time_duration.sum.peak_sustained                                       Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum peak sustained rate across all unit instances)     
+gpu__time_duration.sum.peak_sustained_active                                Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum peak sustained rate achieved during unit active    
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.sum.peak_sustained_active.per_second                     Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum peak sustained rate achieved during unit active    
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.sum.peak_sustained_elapsed                               Counter         ns              equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum peak sustained rate achieved during elapsed        
+                                                                                                            cycles across all unit instances)                                     
+gpu__time_duration.sum.peak_sustained_elapsed.per_second                    Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum peak sustained rate achieved during elapsed        
+                                                                                                            cycles per second across all unit instances)                          
+gpu__time_duration.sum.per_cycle_active                                     Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum of the number of operations per unit active cycle  
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.sum.per_cycle_elapsed                                    Counter         ns/cycle        equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum of the number of operations per elapsed cycle      
+                                                                                                            across all unit instances)                                            
+gpu__time_duration.sum.per_second                                           Counter         ns/s            equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum of the number of operations per second across all  
+                                                                                                            unit instances)                                                       
+gpu__time_duration.sum.pct_of_peak_sustained_active                         Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum percent of the peak sustained rate achieved        
+                                                                                                            during unit active cycles across all unit instances)                  
+gpu__time_duration.sum.pct_of_peak_sustained_elapsed                        Counter         %               equals to gpu__time_duration_measured_user if collectable, otherwise  
+                                                                                                            equals to gpu__time_duration_measured_wallclock (This counter metric  
+                                                                                                            represents the sum percent of the peak sustained rate achieved        
+                                                                                                            during elapsed cycles across all unit instances)                      
+

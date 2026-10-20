@@ -1,0 +1,136 @@
+{
+  "source_revision": "663fcc3086c1d752cb2f18218cf73ca188832847",
+  "method": "Full-history local clone --no-hardlinks; tracked files only; new out-of-source build; same-machine relocation",
+  "clone_command": [
+    "git",
+    "-c",
+    "core.autocrlf=true",
+    "clone",
+    "--no-hardlinks",
+    ".",
+    "results/portability-663fcc3-20261020/clean checkout"
+  ],
+  "clone_tracked_tree_clean": true,
+  "no_tracked_private_inputs": true,
+  "original_build_directories_in_clone": false,
+  "untracked_instructions_or_output_copied": false,
+  "core_autocrlf": "true",
+  "fixture_sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+  "public_integrity": "passed; 22 primary, 32 stage, 24 figure; historical Git comparisons; invoked from parent checkout outside clone",
+  "python_tests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "cpu_build": {
+    "configuration": "VS2022 x64 Release; OpenMP ON; CUDA OFF; CPU tools OFF",
+    "configure": "passed",
+    "build": "passed",
+    "discovered_tests": 13,
+    "initial_passed": 10,
+    "initial_failed": 3,
+    "initial_failure": "Git dubious ownership: sandbox clone owner differs from SDK execution account",
+    "focused_recheck_passed": 3,
+    "focused_recheck_failed": 0,
+    "remedy": "Process-local exact known clone safe.directory via GIT_CONFIG_COUNT; no persistent changes"
+  },
+  "expected_missing_local_convergence": "exit 1 with actionable Restore the exact hash-bound original results/build archive message",
+  "source_defects_found": [],
+  "fresh_machine": false,
+  "historical_campaign_reproduced": false,
+  "commands": [
+    [
+      "cmake",
+      "-S",
+      "results\\portability-663fcc3-20261020\\clean checkout",
+      "-B",
+      "results\\portability-663fcc3-20261020\\relocated build",
+      "-G",
+      "Visual Studio 17 2022",
+      "-A",
+      "x64",
+      "-DMC_ENABLE_OPENMP=ON",
+      "-DMC_ENABLE_CUDA=OFF",
+      "-DMC_BUILD_CPU_TOOLS=OFF",
+      "-DBUILD_TESTING=ON"
+    ],
+    [
+      "cmake",
+      "--build",
+      "results\\portability-663fcc3-20261020\\relocated build",
+      "--config",
+      "Release",
+      "--parallel"
+    ],
+    [
+      "ctest",
+      "--test-dir",
+      "results\\portability-663fcc3-20261020\\relocated build",
+      "-C",
+      "Release",
+      "--show-only=json-v1"
+    ],
+    [
+      "ctest",
+      "--test-dir",
+      "results\\portability-663fcc3-20261020\\relocated build",
+      "-C",
+      "Release",
+      "--output-on-failure"
+    ],
+    [
+      "ctest",
+      "--test-dir",
+      "results\\portability-663fcc3-20261020\\relocated build",
+      "-C",
+      "Release",
+      "--rerun-failed",
+      "--output-on-failure"
+    ]
+  ],
+  "local_files": [
+    {
+      "path": "results/portability-663fcc3-20261020/configure.log",
+      "sha256": "486995fa2b68c0cfbc48195d329b57f40e8070967e7571e5040d5c621d8ac0b6"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/build.log",
+      "sha256": "e438c578214a45f30c805b826c15589f65478a6d5d0dd1b67cca3569e7deffd5"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/ctest.log",
+      "sha256": "a84a0dfca8b7a092d745bb9fade5ad812da26beb97571572720a2219ffe160c6"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/ctest-discovery.json",
+      "sha256": "fbc0b7ff03046a22d32638ac075d4f424cb19833a1fcf2033a89aa7d7076e150"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/ctest-failed-only-recheck.log",
+      "sha256": "cb6032d85683ac13db7d0501739f4a44cd9a3d538fa0124a7762f10002134bdb"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/ownership-recheck.json",
+      "sha256": "3b6d606b386a7238c8ca7fcf98368dc8c6631ba5c204c98368cda7b9ad6ce737"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/python-tests.log",
+      "sha256": "0f56b92b719e4eea92b520e3b2a50f9623785673c8e0778017b5f6acc8e62e89"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/public-integrity.stdout.txt",
+      "sha256": "4de7f7b9e0e6b78cf6dbf741ba46818a2a741c6f15c213ac4b8b058dd0ed3673"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/expected-missing-local.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/expected-missing-local.stderr.txt",
+      "sha256": "d6da899934f2426d329126c9fa1b934bb9cda056b5beb9ebc6a1e86ea12c7735"
+    },
+    {
+      "path": "results/portability-663fcc3-20261020/relocated build/CMakeCache.txt",
+      "sha256": "a39ed800980818e8294cb6415e09585b4ebbdc0832ceefd102787ecab964c3e5"
+    }
+  ]
+}

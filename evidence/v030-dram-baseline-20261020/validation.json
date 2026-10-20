@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "negative_cases_rejected": 13,
+  "ascii_auditor": true,
+  "unit_scope": "byte / ns = decimal GB/s; exact per-kernel integer sums",
+  "figures_rendered": false,
+  "new_benchmark_or_convergence_campaign": false,
+  "engine_source_changed": false,
+  "historical_reproducibility_check": "passed: 78 selected artifacts; 22 delivery bindings; 160 values; 32 groups; 8 acceptance rows",
+  "historical_bandwidth_bindings": 39,
+  "current_document_hashes_compared_to_old_checkpoint": false,
+  "relative_links_checked": 49
+}

@@ -197,13 +197,46 @@ or treating synthetic data as historical prices. See historical-data.md and
 data-rights-and-calendar.md; rights do not permit raw redistribution.
 
 Current limitations: 10x serial target unmet (9.739930524x); full-device versus
-best OpenMP 8.307208722x; hybrid at 10M did not beat best OpenMP. Counter access
-still returns ERR_NVGPUCTRPERM; exact-laptop peak, measured DRAM GB/s and its
-percentage remain open. No new-machine trial, market predictive validity,
-general race freedom, academic delivery or live-demo completion is claimed.
+best OpenMP 8.307208722x; hybrid at 10M did not beat best OpenMP. The new
+[DRAM baseline](../evidence/v030-dram-baseline-20261020/README.md) verifies counter
+access and kernel-scope rates for two N=10M profiles. Official effective memory
+rate/applicable peak and percentage remain unresolved. Profiled timings do not
+replace formal results. Historical denied-access records remain unchanged.
+No new-machine trial, market predictive validity, general race freedom,
+academic delivery or live-demo completion is claimed.
 
-[The bandwidth follow-up](../evidence/v030-bandwidth-followup-20261020/README.md)
-rechecks access and official source applicability separately. Administrator
-counter access is needed for measured DRAM GB/s; an applicable documented peak
-is needed for percentage of peak, not for measured GB/s itself. These diagnostic
-records do not replace the historical primary benchmark or require its rerun.
+## Isolated public portability check, 2026-10-20
+
+At inspection SHA 663fcc3086c1d752cb2f18218cf73ca188832847, a full-history
+local clone with --no-hardlinks was made under ignored results/, with spaces
+in both checkout and new build paths. Only tracked files and Git history were
+copied; no original build/results tree, private input, AGENTS.md or output/.
+Public integrity succeeded from outside the clone, and 15 Python tests passed.
+The exact synthetic fixture hash survived core.autocrlf=true. A single new
+VS2022 x64 Release CPU/OpenMP ON build with CUDA/tools OFF succeeded without
+Toolkit discovery. Ten CTests passed first; three failed due to Git ownership
+trust between sandbox clone creation and SDK-access execution accounts. Only
+those three were repeated with process-local trust for the exact known clone;
+all passed. No persistent configuration or source changes were needed.
+Use the same owning account for normal clone/build/test work. This environment
+condition is not evidence of an engine or path-handling defect.
+
+Equivalent supported isolation procedure (choose a new ignored directory):
+
+```powershell
+git -c core.autocrlf=true clone --no-hardlinks . 'results/portable-check/clean checkout'
+# Run section 1 with -S pointing at that checkout and a new sibling -B directory.
+# From any cwd, invoke the cloned scripts/check-reproducibility.py by its full path.
+```
+
+The clone must have the full history used in sections 2 and 3. A source-only
+archive export cannot run the historical Git checks. The optional local
+convergence command correctly rejected absent original archives, with no
+fallback to this primary checkout's files. Tests can create ignored synthetic
+fixtures under data/local; this does not make provider data a prerequisite.
+The new baseline's stdlib verify.py also supports public selected-counter
+verification without GPU or original reports; its optional --local-records
+reprojects hash-bound raw exports. Commands and local log hashes are in the
+baseline record. This is same-machine relocation evidence, not a fresh-machine
+trial, historical campaign reproduction or removal of original full-audit
+binary/cache/archive/path dependencies described above.

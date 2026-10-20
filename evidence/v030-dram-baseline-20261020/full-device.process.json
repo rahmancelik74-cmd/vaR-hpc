@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "C:/Program Files/NVIDIA Corporation/Nsight Compute 2026.3.1/target/windows-desktop-win7-x64/ncu.exe",
+    "--section-folder",
+    "C:/Program Files/NVIDIA Corporation/Nsight Compute 2026.3.1/sections",
+    "--metrics",
+    "dram__bytes_read.sum,dram__bytes_write.sum,gpu__time_duration.sum",
+    "--replay-mode",
+    "kernel",
+    "--cache-control",
+    "all",
+    "--clock-control",
+    "none",
+    "--export",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\bandwidth-baseline-663fcc3-20261020\\full-device",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\build-benchmark-formal-89536e3-20261019-run2\\Release\\mc_var.exe",
+    "--csv",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\data\\synthetic_prices.csv",
+    "10000000",
+    "42",
+    "10",
+    "252",
+    "--backend",
+    "cuda",
+    "--cuda-mode",
+    "full-device",
+    "--json"
+  ],
+  "cwd": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter",
+  "start_utc": "2026-10-20T13:35:46.612967+00:00",
+  "end_utc": "2026-10-20T13:35:48.350662+00:00",
+  "exit_code": 0
+}

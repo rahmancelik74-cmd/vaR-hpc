@@ -1,0 +1,76 @@
+{
+  "full-device": {
+    "rng-initialization": {
+      "kernels": 1,
+      "read_bytes": 5504,
+      "write_bytes": 0,
+      "duration_ns": 18944,
+      "GBps": 0.2905405405405405
+    },
+    "rng-generation": {
+      "kernels": 1,
+      "read_bytes": 16845952,
+      "write_bytes": 79739776,
+      "duration_ns": 5057920,
+      "GBps": 19.095938251296975
+    },
+    "simulation": {
+      "kernels": 1,
+      "read_bytes": 83507712,
+      "write_bytes": 64668032,
+      "duration_ns": 4437792,
+      "GBps": 33.389519833286464
+    },
+    "radix-sort": {
+      "kernels": 10,
+      "read_bytes": 734338816,
+      "write_bytes": 556174720,
+      "duration_ns": 6891168,
+      "GBps": 187.27065368309115
+    },
+    "quantile-gather": {
+      "kernels": 1,
+      "read_bytes": 2688,
+      "write_bytes": 0,
+      "duration_ns": 2080,
+      "GBps": 1.2923076923076924
+    },
+    "all-collected-kernels": {
+      "kernels": 14,
+      "read_bytes": 834700672,
+      "write_bytes": 700582528,
+      "duration_ns": 16407904,
+      "GBps": 93.56973322125727
+    }
+  },
+  "hybrid": {
+    "rng-initialization": {
+      "kernels": 1,
+      "read_bytes": 11264,
+      "write_bytes": 0,
+      "duration_ns": 19232,
+      "GBps": 0.5856905158069884
+    },
+    "rng-generation": {
+      "kernels": 153,
+      "read_bytes": 173362176,
+      "write_bytes": 0,
+      "duration_ns": 5660608,
+      "GBps": 30.62606984974052
+    },
+    "simulation": {
+      "kernels": 153,
+      "read_bytes": 84903296,
+      "write_bytes": 0,
+      "duration_ns": 4818688,
+      "GBps": 17.619587738405144
+    },
+    "all-collected-kernels": {
+      "kernels": 307,
+      "read_bytes": 258276736,
+      "write_bytes": 0,
+      "duration_ns": 10498528,
+      "GBps": 24.601233239555107
+    }
+  }
+}

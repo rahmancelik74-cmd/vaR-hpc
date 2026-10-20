@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "C:/Program Files/NVIDIA Corporation/Nsight Compute 2026.3.1/target/windows-desktop-win7-x64/ncu.exe",
+    "--section-folder",
+    "C:/Program Files/NVIDIA Corporation/Nsight Compute 2026.3.1/sections",
+    "--query-metrics",
+    "--query-metrics-mode",
+    "suffix",
+    "--metrics",
+    "dram__bytes_read,dram__bytes_write,gpu__time_duration"
+  ],
+  "start_utc": "2026-10-20T13:34:45.452082+00:00",
+  "end_utc": "2026-10-20T13:34:46.970911+00:00",
+  "exit_code": 0
+}

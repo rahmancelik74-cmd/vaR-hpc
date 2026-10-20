@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "method": "Separate raw CSV Decimal/explicit-integer-sum calculation and stdout/process checks; no verifier helper imported",
+  "checks": [
+    {
+      "mode": "full-device",
+      "kernels": 14,
+      "summary_groups": 6,
+      "all_counter_tokens_exact": true,
+      "process_success": true,
+      "stdout_single_pass_counts_verified": true
+    },
+    {
+      "mode": "hybrid",
+      "kernels": 307,
+      "summary_groups": 4,
+      "all_counter_tokens_exact": true,
+      "process_success": true,
+      "stdout_single_pass_counts_verified": true
+    }
+  ],
+  "new_gpu_processes": 0
+}

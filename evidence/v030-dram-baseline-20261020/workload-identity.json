@@ -1,0 +1,100 @@
+{
+  "source_revision": "89536e38b01230fce3b4667096c29dde56795c23",
+  "source_tree": "8edb98064ec2a8d6ed5ab8ac40fef62c9d905e51",
+  "inspection_revision": "663fcc3086c1d752cb2f18218cf73ca188832847",
+  "archived_manifest_sha256": "6f7e9c26291df236b755f16ff210aef0fa3070ae7cad1231b4c5175f7f1a2771",
+  "artifacts": [
+    {
+      "path": "build-benchmark-formal-89536e3-20261019-run2/CMakeCache.txt",
+      "sha256": "47f2b2897b96f22b36c21ba9252d89faa4422d3364f099f0e0fc94ab7bd4951b"
+    },
+    {
+      "path": "build-benchmark-formal-89536e3-20261019-run2/mc_cuda.vcxproj",
+      "sha256": "d91be80be14677b3be0aecf9a89f33d10e8da63d5887e4e8eb1307f5476fc64e"
+    },
+    {
+      "path": "build-benchmark-formal-89536e3-20261019-run2/Release/cudart64_13.dll",
+      "sha256": "d26fd1c2629594759af569a5252f94e4568d4ebeca67dc323834deb141aa278a"
+    },
+    {
+      "path": "build-benchmark-formal-89536e3-20261019-run2/Release/curand64_10.dll",
+      "sha256": "2ae1d341cd7da1dab91e2215c62f627e0e0288ff54cdc9003e908746584b5b2b"
+    },
+    {
+      "path": "build-benchmark-formal-89536e3-20261019-run2/Release/mc_var.exe",
+      "sha256": "3c5c7e47ed870fb99ad733326ebbd9c8edf88558909b9905c1b2d5faa647d255"
+    }
+  ],
+  "unchanged_current_numerical_sources": [
+    {
+      "path": "data/synthetic_prices.csv",
+      "sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+      "index_blob_sha1": "cd1d5ccfa54a839b61fca4f0f008d37072073107"
+    },
+    {
+      "path": "include/mc/core.hpp",
+      "sha256": "414aefb0acc048f014e9e854cbb1d27b23534c777b29efc0b074370e2df1d428",
+      "index_blob_sha1": "4b45708a2710827194e7e1ca2d699d6c068ccbdd"
+    },
+    {
+      "path": "include/mc/cuda.hpp",
+      "sha256": "938aada853ae37f5493c4cd4e1f6adedc262beee860595d124136f013321cb8f",
+      "index_blob_sha1": "be70c9c9efb610b4784d4600a3469bb0bbfff068"
+    },
+    {
+      "path": "include/mc/data.hpp",
+      "sha256": "a2698c905f16124a005dd1837e4d8e8c02e7ad62a1c28afc4a016fba2847c51f",
+      "index_blob_sha1": "3dc92d3f6df653a4e0e7daf0123b4217ce708e46"
+    },
+    {
+      "path": "include/mc/detail/cuda_plan.hpp",
+      "sha256": "7281354e8af0ca52b2bb08f11dbfce56d6dfbaeb86ec40a773a4fb4a64a4178b",
+      "index_blob_sha1": "8269b27a58d830034eb83a35f1895403a633c5a2"
+    },
+    {
+      "path": "include/mc/openmp.hpp",
+      "sha256": "0729108a6278ee8bdab35f36d2c98cb16c75df04b2838082fd1afbd2d9045b72",
+      "index_blob_sha1": "2eb3a5928106c0b4118e5a8c09369e65dfd41afe"
+    },
+    {
+      "path": "include/mc/output.hpp",
+      "sha256": "13d3a44e1f2b1d2a739984d1f9fcd46d6268fbb3a1a4bf8547d3331fd59ac5c4",
+      "index_blob_sha1": "6cfd3b3d7ca79b72911e7cd15125f483c95c0e66"
+    },
+    {
+      "path": "include/mc/version.hpp.in",
+      "sha256": "87f23e3be0aca6daf8e27daf772977e351c0dae1d50994e2ec3d6c6dd3ef9365",
+      "index_blob_sha1": "731f250d6b4229d30c4abc21f74b6dcdf74239c1"
+    },
+    {
+      "path": "src/core.cpp",
+      "sha256": "74221c6160f3eadfdaf71818fda5c094782f7e3d19d0bd65fe870bf773476440",
+      "index_blob_sha1": "e78dbb16f25187aa58e96fdbf246068ac6549be0"
+    },
+    {
+      "path": "src/cuda.cu",
+      "sha256": "b112f1c610a2b2004cc8071f8fd8ff9cc8ec0658979aa3cc02efbbc1205e1950",
+      "index_blob_sha1": "0b2e9e2d53fee155db33686cdc6680b28309c048"
+    },
+    {
+      "path": "src/data.cpp",
+      "sha256": "aaf14441379d3a89aa853f9b445107900cb3a98bef95fb1df297ae59ac3e2373",
+      "index_blob_sha1": "ef02a4335d809f740523cf94f3560de88729f35d"
+    },
+    {
+      "path": "src/main.cpp",
+      "sha256": "db7a3a8df55ccfaa10a300edb7c96a60a1649268e95535e7bf411189dd430e2f",
+      "index_blob_sha1": "d5f534fd1350b88374080a6f30bc80c531e4d5aa"
+    },
+    {
+      "path": "src/openmp.cpp",
+      "sha256": "db494b4ddf6a2c019a29b3d336c9f15239b7ce78bb5c66ff16368ac99196f120",
+      "index_blob_sha1": "fd00dc3adaa05e47fdeaf65781b1be172bd20dbd"
+    },
+    {
+      "path": "src/output.cpp",
+      "sha256": "63be85dee52dd1e87d560272723ef5a18661f0d3c4462e6298d8e410fde16625",
+      "index_blob_sha1": "db80a1538bfd51685b77768f95862aff78ae0dec"
+    }
+  ]
+}

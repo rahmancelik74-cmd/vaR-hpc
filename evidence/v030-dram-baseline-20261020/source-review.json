@@ -1,0 +1,25 @@
+{
+  "checked_date": "2026-10-20",
+  "sources": [
+    {
+      "url": "https://www.nvidia.com/en-me/geforce/laptops/compare/",
+      "supported": "RTX 4060 Laptop: 8 GB GDDR6, 128-bit",
+      "missing": "Applicable effective data rate"
+    },
+    {
+      "url": "https://www.casper.com.tr/excalibur-g870-p-137",
+      "supported": "Current G870 family page; multiple/newer configurations",
+      "missing": "Exact G870/NLXB effective memory data rate"
+    }
+  ],
+  "bounded_queries": [
+    "site.casper.com.tr \"G870\" \"4060\" \"Gbps\"",
+    "site.nvidia.com \"4060 Laptop\" \"memory data rate\""
+  ],
+  "rejected": "User-posted NVIDIA system information for other OEM laptops and retailer estimates do not establish this configuration.",
+  "effective_rate_Gbps": null,
+  "documented_peak_GBps": null,
+  "percentage_of_peak": null,
+  "formula": "peak_GBps = effective_Gbit_per_second_per_pin * 128 / 8; percent = 100 * measured_GBps / peak_GBps",
+  "runtime_clocks_are_peak_evidence": false
+}

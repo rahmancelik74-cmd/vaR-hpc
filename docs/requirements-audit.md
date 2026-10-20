@@ -52,17 +52,20 @@ GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 | NFR-4 | 0 personal/patient records; document every price dataset's source/range/reuse/adjustment | synthetic fixture; equity importer; historical-data.md, data-rights-and-calendar.md | Computational inputs are synthetic or market prices; provider provenance/rights documented with local hashes | Private permission correspondence is user-supplied, not independently authenticated; no redistribution of raw prices; no assertion repository metadata contains no personal names |
 | NFR-5 | At N=10000000, seeds 42,123,456,789,2026 per engine: abs(mean(VaR)-analytical) <= .01*max(abs(analytical),.01*V0), separately .95/.99 | convergence-audit.ps1; F independent Python statistics | Demonstrated one nondegenerate fixed synthetic case; eight rows pass; R re-audit passes | Not per-seed acceptance, MAE, monotonic-error requirement or universal MC guarantee; serial source-to-binary=false and mixed builds remain |
 | NFR-6 | Double, common nearest-rank ceil(alpha*N)-1; common-input VaR absolute difference <= .00001*V0; separate memory/race checks | CPU/GPU common-input tests and gpu-acceptance.md | Demonstrated recorded common-input cases; representative Compute Sanitizer findings archived | Sanitizer does not prove general global-memory race freedom or CPU host-buffer safety; numerical agreement is not a memory-safety proof |
-| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Demonstrated P: 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | Separate baseline DRAM bandwidth reporting is BLOCKED, not waived by timing completion (see B) |
+| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Demonstrated P: 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | Baseline kernel-scope DRAM GB/s measured in the new baseline record; applicable documented peak/percentage remain unresolved (see B) |
 | NFR-8 | Exact-byte SHA-256 and Git dirty state per experiment; two same-build/input/seed/backend runs reproduce VaR excluding timing | recorder manifests; serial exact repeat test, OpenMP native invariance; archived P repeated estimates | Demonstrated recorded same-build cases; R checks all 24 P configurations' 13 pairs of VaRs are identical | Not cross-library/build/engine bitwise reproducibility. Historical serial source-to-binary=false; O has no published independent standalone cache; archives/builds ignored and not public-clone-complete |
-| NFR-9 | Release build: 0 build errors, all registered tests pass, >=1 successful basic CI | CMake/CTest and .github/workflows/build.yml | R isolated current Windows CPU ON 13/13, OFF 12/12; previous exact-SHA CPU CI passed at b9745be; publication CI is checked separately | Same-machine new directories, not fresh-machine trial; no current CUDA rebuild/execution here; initial sandbox SDK-access failures preserved |
+| NFR-9 | Release build: 0 build errors, all registered tests pass, >=1 successful basic CI | CMake/CTest and .github/workflows/build.yml | R isolated current Windows CPU ON 13/13, OFF 12/12; previous exact-SHA CPU CI passed at b9745be; publication CI is checked separately | Same-machine new directories, not fresh-machine trial; R trial was CPU-only; new DRAM profiles reuse the archived CUDA binary, with no new CUDA build; initial sandbox SDK-access failures preserved |
 
-Baseline achieved DRAM GB/s and percentage of applicable documented laptop peak
-remain additional unresolved acceptance-source reporting obligations. Nsight
-Compute returns ERR_NVGPUCTRPERM; no administrator permission change was made.
-NVIDIA/OEM sources establish 128-bit GDDR6 but not this unit's effective data
-rate. No bandwidth threshold is invented. Counter access can unblock
-measured GB/s independently; an applicable documented peak is needed for the
-percentage. The follow-up reconfirmed the denial without changing settings.
+Baseline achieved DRAM GB/s is now demonstrated for two single N=10000000
+cold-cache profiles: full-device 93.56973322125727 and hybrid 24.601233239555107,
+using compatible kernel bytes/durations. See the
+[baseline and portability record](../evidence/v030-dram-baseline-20261020/README.md).
+Counter access succeeded; no new administrator action is required for that session.
+Applicable official memory data rate/peak and percentage remain unresolved;
+no bandwidth threshold or inferred peak is introduced. Public relocation checks
+passed on the same machine; historical full-session archive/layout dependencies
+and unverified fresh-machine portability remain explicit. No FR/NFR ID or
+numerical/performance acceptance criterion changed.
 RNG's largest covered device-stage mean does not establish the dominant
 end-to-end cost. Optimization is optional
 and was not started. Academic requirements/report submission, final report and
@@ -91,5 +94,5 @@ correspondence, not a renumbering or assertion it appeared in the old draft.
 | R12 | FR-5/8, NFR-5/6 complete scoped engine validation |
 | R13 | FR-8, NFR-1/5/7 benchmark/convergence |
 | R14 | FR-7/8, NFR-8/9 technical reproducibility; academic reporting separate |
-| B01 | Optional optimization, not started; baseline bandwidth still required |
+| B01 | Optional optimization, not started; baseline peak-percentage evidence still required |
 | B02 | Optional multi-asset work, outside scope |

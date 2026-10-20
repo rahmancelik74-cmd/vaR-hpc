@@ -1,5 +1,36 @@
 # Project state
 
+## DRAM baseline collected and public relocation checked: 2026-10-20
+
+At inspection base 663fcc3086c1d752cb2f18218cf73ca188832847, counter access
+succeeded after the user's reported external change. Exactly two profiles of
+the hash-verified primary-benchmark CUDA binary completed, N=10000000/seed42:
+full-device 14 kernels and hybrid 307 kernels, one collection pass per kernel,
+no additional replays or profiler warmups. Kernel-scope ratio-of-sums DRAM rates
+are 93.56973322125727 and 24.601233239555107 GB/s respectively. Per-stage and
+per-kernel bytes/durations, cache/clock policies, identities, commands and limits
+are in [the baseline record](../evidence/v030-dram-baseline-20261020/README.md).
+These cold-cache profiles exclude transfers, gaps and hybrid host quantile;
+they do not revise formal benchmark or Event-stage results. No system setting
+was changed here. Applicable official laptop memory rate/peak and percentage
+remain unresolved; administrator counter access is no longer a blocker for
+this verified session. Earlier denial records below remain dated history.
+
+An isolated full-history clone with spaces in source/build paths passed public
+integrity (78 files), 15 Python tests and a relocated CPU/OpenMP Release build.
+All 13 discovered CTests passed across initial 10 and focused 3-test recheck;
+the first three failures were Git ownership trust across sandbox/SDK accounts.
+Only process-local trust for the exact known clone was supplied. No source fix
+or persistent setting change was needed. The fixture hash survives autocrlf=true;
+missing local archives fail explicitly. Same machine, not fresh-machine evidence.
+Historical full audits still require original binaries/caches/archives/path layouts.
+
+Remaining technical input: applicable OEM/NVIDIA effective rate or peak, then
+percentage calculation over the explicitly reported counter scopes. The 10x
+serial target remains unmet; existing sanitizer/provenance limits remain.
+Academic submission and live demonstration remain unverified. No optimization,
+new benchmark/convergence campaign, engine change or overall completion claim.
+
 ## Baseline bandwidth follow-up: 2026-10-20
 
 At main 13f913ad3a2b125d3e8de2439e9f81d65ee6d622, remote main and the

@@ -1,0 +1,3858 @@
+{
+  "full-device": [
+    {
+      "id": 0,
+      "kernel": "generate_seed_pseudo(unsigned long long, unsigned long long, curandStatePhilox4_32_10 *)",
+      "stage": "rng-initialization",
+      "metrics": {
+        "dram__bytes_read.sum": 5504,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 18944,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 1,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 16845952,
+        "dram__bytes_write.sum": 79739776,
+        "gpu__time_duration.sum": 5057920,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 2,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 83507712,
+        "dram__bytes_write.sum": 64668032,
+        "gpu__time_duration.sum": 4437792,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 3,
+      "kernel": "void cub::DeviceRadixSortHistogramKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, unsigned int, cub::identity_decomposer_t>(T4 *, const T3 *, T4, int, int, T5)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80018816,
+        "dram__bytes_write.sum": 3840,
+        "gpu__time_duration.sum": 371648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 4,
+      "kernel": "void cub::DeviceRadixSortExclusiveSumKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, unsigned int>(T2 *)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 14464,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 2016,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 5,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80410752,
+        "dram__bytes_write.sum": 77093376,
+        "gpu__time_duration.sum": 1027744,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 6,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80324096,
+        "dram__bytes_write.sum": 76211840,
+        "gpu__time_duration.sum": 1115200,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 7,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80186368,
+        "dram__bytes_write.sum": 65988608,
+        "gpu__time_duration.sum": 701312,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 8,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 92565376,
+        "dram__bytes_write.sum": 66651648,
+        "gpu__time_duration.sum": 820128,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 9,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80247680,
+        "dram__bytes_write.sum": 66330112,
+        "gpu__time_duration.sum": 704320,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 10,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80181888,
+        "dram__bytes_write.sum": 66291840,
+        "gpu__time_duration.sum": 705600,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 11,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80185856,
+        "dram__bytes_write.sum": 66101760,
+        "gpu__time_duration.sum": 712384,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 12,
+      "kernel": "void cub::DeviceRadixSortOnesweepKernel<cub::policy_selector_from_types<double, cub::NullType, unsigned int>, 0, double, cub::NullType, unsigned int, int, int, cub::identity_decomposer_t>(T7 *, T7 *, T5 *, const T5 *, T3 *, const T3 *, T4 *, const T4 *, T6, int, int, T8)",
+      "stage": "radix-sort",
+      "metrics": {
+        "dram__bytes_read.sum": 80203520,
+        "dram__bytes_write.sum": 71501696,
+        "gpu__time_duration.sum": 730816,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 13,
+      "kernel": "mc::<unnamed>::quantile_kernel(const double *, const unsigned long long *, double *, int)",
+      "stage": "quantile-gather",
+      "metrics": {
+        "dram__bytes_read.sum": 2688,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 2080,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    }
+  ],
+  "hybrid": [
+    {
+      "id": 0,
+      "kernel": "generate_seed_pseudo(unsigned long long, unsigned long long, curandStatePhilox4_32_10 *)",
+      "stage": "rng-initialization",
+      "metrics": {
+        "dram__bytes_read.sum": 11264,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 19232,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 1,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 2,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 3,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36832,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 4,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 5,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 6,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 7,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37536,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 8,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 9,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36640,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 10,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 11,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36704,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 12,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 537856,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 13,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37024,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 14,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 15,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37536,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 16,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 532096,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 17,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36608,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 18,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 19,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1078400,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36800,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 20,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 21,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37120,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 22,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31680,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 23,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1070208,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37376,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 24,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 535936,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 25,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36448,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 26,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 27,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36896,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 28,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 29,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2141056,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37504,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 30,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 31,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1070208,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37408,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 32,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531712,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 33,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36576,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 34,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 35,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1064064,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36704,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 36,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 534912,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 37,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36864,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 38,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 39,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37280,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 40,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533888,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 41,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1064064,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36576,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 42,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31712,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 43,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36960,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 44,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 537984,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 45,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37344,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 46,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 47,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37248,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 48,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 537984,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 49,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36576,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 50,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 51,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36704,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 52,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 53,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37024,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 54,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 55,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 56,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 1437952,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 57,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36544,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 58,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 59,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1066112,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 60,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 61,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37024,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 62,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 537984,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 63,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1064064,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37536,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 64,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 65,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36608,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 66,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 67,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36928,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 68,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 69,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1063808,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36896,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 70,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 71,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 72,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 73,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 74,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 75,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36608,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 76,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 77,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37216,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 78,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 541952,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 79,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1071232,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37184,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 80,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533888,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 81,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 82,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 83,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36928,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 84,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 85,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1066112,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37056,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 86,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 87,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37472,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 88,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 89,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36832,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 90,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 91,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 92,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 1419264,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 93,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36928,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 94,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 95,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37184,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 96,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 536704,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 97,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2136192,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37344,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 98,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 99,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1070208,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 100,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 530560,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 101,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1076864,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37344,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 102,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 103,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37216,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 104,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 105,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36640,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 106,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 107,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36704,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 108,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 109,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 110,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 111,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37376,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 112,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 1440384,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31616,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 113,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36640,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 114,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 115,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 116,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 537984,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 117,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37216,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 118,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 119,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37472,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 120,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 121,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36800,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 122,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 123,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1067648,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36928,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 124,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 125,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 126,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 127,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2145408,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37696,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 128,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 129,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36704,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 130,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 1415552,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 131,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36800,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 132,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 133,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37024,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 134,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31680,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 135,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1066112,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37344,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 136,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 137,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 138,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 139,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 140,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 141,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 142,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 143,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1072256,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37664,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 144,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533888,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 145,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37312,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 146,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 536320,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 147,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37024,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 148,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 535808,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 149,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37024,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 150,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 151,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37120,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 152,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533888,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 153,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1069056,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 154,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 155,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1070208,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36576,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 156,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 157,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36960,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 158,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 159,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37440,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 160,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 161,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36704,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 162,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 163,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 164,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 165,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37184,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 166,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 167,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37664,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 168,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 535808,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 169,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36736,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 170,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 171,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36544,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 172,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533760,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 173,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37344,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 174,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 175,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37248,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 176,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 177,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36736,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 178,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 179,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36736,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 180,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 181,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37536,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 182,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 532992,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 183,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37568,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 184,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 185,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1070720,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36736,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 186,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 187,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36576,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 188,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 189,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37024,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 190,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 191,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37440,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 192,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 539008,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 193,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1066112,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36800,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 194,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 195,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 196,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 197,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36960,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 198,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 199,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37312,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 200,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 201,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 202,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 203,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36928,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 204,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 205,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2148992,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37792,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 206,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 207,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37504,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 208,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 209,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2137856,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37408,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 210,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 211,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36896,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 212,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 213,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2150400,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37856,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 214,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 215,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37344,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 216,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 217,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 218,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 219,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36608,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 220,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 221,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37376,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 222,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 535936,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 223,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2132352,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37824,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 224,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 225,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36544,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 226,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 544000,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 227,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36544,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 228,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 229,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37312,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 230,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 807552,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31616,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 231,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1066112,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37184,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 232,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 233,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36608,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 234,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 235,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36544,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 236,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 237,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37056,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 238,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 239,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36992,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 240,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 241,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36608,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 242,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 243,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36864,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 244,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 245,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1071744,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37056,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 246,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 247,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37568,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 248,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 249,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1775232,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36640,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 250,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533760,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 251,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36832,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 252,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 253,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1069696,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37056,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 254,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 255,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37152,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 256,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 537984,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 257,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36736,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 258,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 259,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36736,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 260,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533888,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 261,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1964160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37632,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 262,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 263,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36960,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 264,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531712,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 265,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1881472,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 266,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 267,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36768,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 268,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 269,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 2154624,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37984,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 270,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31680,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 271,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37600,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 272,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 533888,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 273,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36736,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 274,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31680,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 275,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36608,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 276,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 277,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37280,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 278,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 534784,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 279,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37344,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 280,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 281,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 282,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 283,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36672,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 284,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 285,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36896,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 286,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 287,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1064064,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 288,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 289,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36576,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 290,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 291,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36960,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 292,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 531840,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 293,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37088,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 294,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31520,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 295,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37280,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 296,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 297,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36704,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 298,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 299,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 36832,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 300,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529664,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31552,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 301,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1068160,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37056,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 302,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31584,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 303,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 1062016,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 37248,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 304,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 529792,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 31648,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 305,
+      "kernel": "void gen_sequenced_Philox<curandStatePhilox4_32_10, double4, normal_args_double_st, &curand_normal_scaled4_double<curandStatePhilox4_32_10>, 0, 128>(T1 *, T2 *, unsigned long long, unsigned long long, T3)",
+      "stage": "rng-generation",
+      "metrics": {
+        "dram__bytes_read.sum": 629888,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 35232,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    },
+    {
+      "id": 306,
+      "kernel": "mc::<unnamed>::losses_kernel(mc::Model, const double *, double *, int, int *)",
+      "stage": "simulation",
+      "metrics": {
+        "dram__bytes_read.sum": 313600,
+        "dram__bytes_write.sum": 0,
+        "gpu__time_duration.sum": 20640,
+        "profiler__replayer_passes": 1,
+        "profiler__replayer_passes_type_warmup": 0
+      }
+    }
+  ]
+}

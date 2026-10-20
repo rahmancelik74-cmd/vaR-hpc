@@ -89,9 +89,10 @@ Current 2026-10-20 supplement: fixed-fixture convergence and version-2 figures
 are complete; technical reproducibility paths and FR/NFR consistency are audited
 in [reproducibility.md](reproducibility.md) and
 [requirements-audit.md](requirements-audit.md). The dated scope descriptions
-below remain historical. Bandwidth/counter access/applicable laptop peak,
-the unmet 10x serial target and academic/live delivery are not closed by this
-technical package. No numerical criterion has changed.
+below remain historical. Kernel-scope DRAM GB/s is now measured in the
+[baseline record](../evidence/v030-dram-baseline-20261020/README.md); applicable
+laptop peak and percentage remain unresolved. The unmet 10x serial target and
+academic/live delivery are not closed by this technical package. No numerical criterion has changed.
 
 Serial evidence at 33102c4 covers four N values and five seeds for one synthetic
 calibration case (evidence/v022-validation-20261016). Separate OpenMP correctness

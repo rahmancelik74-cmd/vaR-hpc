@@ -4,6 +4,10 @@ This infrastructure implements Plan A recording, auditing and opt-in timing.
 The formal primary benchmark is complete; see the dated result below.
 Measured DRAM bandwidth, documented-peak utilization, convergence and
 profiling-driven optimization are not established by that primary campaign.
+A later [baseline counter record](../evidence/v030-dram-baseline-20261020/README.md)
+now reports measured kernel-scope DRAM GB/s independently; applicable documented
+peak/percentage remain unresolved. Earlier denied-access descriptions below are
+dated history. Convergence/figures are separately complete.
 The engine numerical contract, native RNG partition and primary timer are unchanged.
 The separate [18-process stage-diagnostic checkpoint](cuda-stage-diagnostics.md)
 is also closed; its instrumented samples do not enter primary statistics.
