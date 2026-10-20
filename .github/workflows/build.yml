@@ -8,11 +8,28 @@ jobs:
         openmp: ['ON', 'OFF']
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Public reproduction environment and source
+        run: |
+          git rev-parse HEAD
+          git rev-parse --is-shallow-repository
+          git status --short
+          uname -srm
+          cat /etc/os-release
+          printf 'RUNNER_OS=%s\nRUNNER_ARCH=%s\n' "$RUNNER_OS" "$RUNNER_ARCH"
+          git --version
+          python3 --version
+          cmake --version
+          ctest --version
+          c++ --version
       - name: Offline convergence provenance tests (no simulations)
         run: python3 -B -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Public historical evidence integrity (full Git history, no local archives)
+        run: python3 -B scripts/check-reproducibility.py
       - name: Selected DRAM counter evidence (no GPU execution)
         run: python3 -B evidence/v030-dram-baseline-20261020/verify.py
-      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }} -DMC_ENABLE_CUDA=OFF
+      - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }} -DMC_ENABLE_CUDA=OFF -DMC_BUILD_CPU_TOOLS=OFF -DBUILD_TESTING=ON
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure
   windows-instrumentation:
