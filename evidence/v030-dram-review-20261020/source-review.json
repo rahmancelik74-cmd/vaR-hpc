@@ -1,0 +1,82 @@
+{
+  "reviewed_date": "2026-10-20",
+  "inspection_revision": "7e792047fd4db2aafc8351fe87d8d4098db9a50f",
+  "prior_records_read": [
+    "evidence/v030-bandwidth-access-20261020/README.md",
+    "evidence/v030-bandwidth-followup-20261020/source-review.json",
+    "evidence/v030-dram-baseline-20261020/source-review.json"
+  ],
+  "sources": [
+    {
+      "url": "https://www.casper.com.tr/kullanim-kilavuzlari",
+      "role": "Public OEM manual catalog",
+      "finding": "Excalibur laptop category 5, Excalibur G870 series 137"
+    },
+    {
+      "url": "https://www.casper.com.tr/getSeries?category_id=5",
+      "role": "Catalog GET endpoint",
+      "finding": "Series id 137 is Excalibur G870"
+    },
+    {
+      "url": "https://www.casper.com.tr/getUserGuide?category_id=5&series_id=137",
+      "role": "Catalog GET endpoint",
+      "finding": "Two OEM G870 download links"
+    },
+    {
+      "url": "https://www.casper.com.tr/download/wxXMFc9nAv3X+yI0EtctOw==/rytrhy2MyxCbzNydKuaYA5jTbFgPMIgr85E0wZs5_-_jiZF7mGp8VVtgL+x1ttrdNM4GW7ZONzl0rK_-_RkQMl3mEkNDx8PHTZSmnH3Ql8oS3qiOlFmPFge0myqOt65oqaOx",
+      "official_catalog_filename": "1761315565091Excalibur_G870_RTX5000_Kullan\u0131m Klavuzu.pdf",
+      "local_pdf": "g870-guide-1.pdf",
+      "sha256": "6d1dfdd7c60383c995c2286bb3bfcacdd62b9b8ce59fb5c0ef133a15da0bc4dd",
+      "physical_page_count": 25,
+      "technical_table_pdf_page_1_based": 18,
+      "technical_table_printed_page": 18,
+      "visual_review": true,
+      "finding": "Generic GeForce graphics; model differences caveat. RTX5000-named catalog file does not bind the installed RTX4060 memory configuration; no effective VRAM rate in technical table.",
+      "applicable_effective_rate_Gbps": null
+    },
+    {
+      "url": "https://www.casper.com.tr/download/wxXMFc9nAv3X+yI0EtctOw==/rytrhy2MyxCbzNydKuaYA5jTbFgPMIgr85E0wZs5_-_jiMs7vJPWy6_-_h8uyuW4fGUHljlS9RBgbLkrlRC2AdbUE8UJK7uMRelMzi42jHs49o1+oxWqupSZcF6EIZF5DfC+",
+      "official_catalog_filename": "1669210721763excalibur_G870_kullanim_kilavuzu.pdf",
+      "local_pdf": "g870-guide-2.pdf",
+      "sha256": "039d4e4fe078f92ac3e67b73636e8624cb5135ad7511e60056c727d1c1989ea1",
+      "physical_page_count": 28,
+      "technical_table_pdf_page_1_based": 19,
+      "technical_table_printed_page": 18,
+      "visual_review": true,
+      "finding": "Generic NVIDIA RTX/GTX graphics and model differences caveat; no effective VRAM rate in technical table.",
+      "applicable_effective_rate_Gbps": null
+    },
+    {
+      "url": "https://www.nvidia.com/en-me/geforce/laptops/compare/",
+      "finding": "RTX4060 Laptop standard 8 GB GDDR6 / 128-bit; no applicable effective memory rate"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/geforce/laptops/40-series/",
+      "finding": "Separate 40-series specification table lists memory size/type; no applicable effective memory rate"
+    },
+    {
+      "url": "https://www.casper.com.tr/driver-indirme",
+      "finding": "Public model/category selector; no applicable memory-rate specification identified; no serial-number lookup or driver download/install"
+    },
+    {
+      "url": "https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html",
+      "finding": "Official cache-control, replay, profiler metrics and range/precision definitions support recorded interpretation"
+    }
+  ],
+  "representative_queries": [
+    "site:file.casper.com.tr/userguide \"G870\"",
+    "site:casper.com.tr G870 NLXB technical specifications pdf",
+    "site:nvidia.com \"GeForce RTX 4060 Laptop GPU\" \"Memory\" filetype:pdf",
+    "site:casper.com.tr \"G870\" \"bellek hizi\""
+  ],
+  "search_record_kind": "Review notes and representative query families, not raw search-result snapshots",
+  "rejected": "Retailer PCMark/runtime clocks; unrelated OEM units; desktop rates; generic chip capability; profiler peak models",
+  "conclusion": "No applicable authoritative effective rate established; bounded unsuccessful search, not proof of absence",
+  "required_evidence": "OEM/NVIDIA effective rate or theoretical peak with demonstrated applicability to installed G870/NLXB memory configuration",
+  "effective_rate_Gbps": null,
+  "documented_peak_GBps": null,
+  "percentage_of_peak": null,
+  "formula": "peak_GBps = R_Gbit_per_s_per_pin * 128 / 8; percent = 100 * measured_GBps / peak_GBps",
+  "third_parties_contacted": false,
+  "downloads_redistributed": false
+}

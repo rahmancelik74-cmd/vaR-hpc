@@ -1,0 +1,126 @@
+{
+  "inspection_revision": "7e792047fd4db2aafc8351fe87d8d4098db9a50f",
+  "selected_files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d"
+    },
+    {
+      "file": "audit.json",
+      "sha256": "ed96780ac609c69f417775d26b7baafce859bd56b8cf79caf53624242c902306"
+    },
+    {
+      "file": "checks.json",
+      "sha256": "852a3e135fedf045771fcb6d8c4daab4d9c9b7fb4b6860a675ef6ac6eee6db1a"
+    },
+    {
+      "file": "README.md",
+      "sha256": "692323037af562905a818d4d5627c777031258cfc76b960c954d5e364aeb95d8"
+    },
+    {
+      "file": "source-review.json",
+      "sha256": "7ae757753a5509f1ee52545c5f512e817be4d506d784982b2830209d724f294f"
+    }
+  ],
+  "immutable_parents": [
+    {
+      "path": "evidence/v030-dram-baseline-20261020/manifest.json",
+      "sha256": "1804b7d958fcafdb1abbc37d321c9bef1f4e20be744c96110434001fea11abd6"
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/artifact-sha256.json",
+      "sha256": "3b6a5830520cff86ed8f9b326cc135db0f35aa15e40185736e932a5b371478ff"
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/provenance.json",
+      "sha256": "0b30c20eca7a2baeb915f4786821bec22f0d2d1feb80948b4ad2939a679d781d"
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/selection-manifest.v2.json",
+      "sha256": "595e0b045cb053e3fcd4708e3b1d5d0853a7426c776217a6c9c5d14508665b67"
+    }
+  ],
+  "local_records_directory": "results/closure-audit-7e79204-20261020",
+  "local_files": [
+    {
+      "file": "audit.py",
+      "sha256": "b8898f0cef240feec94f09c14044a3350ac38dddf8343968c2f5f5227ce70a79"
+    },
+    {
+      "file": "audit.json",
+      "sha256": "ed96780ac609c69f417775d26b7baafce859bd56b8cf79caf53624242c902306"
+    },
+    {
+      "file": "manual-index.html",
+      "sha256": "16067f98902f45eac9f2a171fc19bd0acfc156c04b44c55300c55fb85d3fdfaf"
+    },
+    {
+      "file": "manual-series.json",
+      "sha256": "34c75c62045f7f94123a230b42781b42c33acf388ee04a73cf13a363f245a91c"
+    },
+    {
+      "file": "g870-guide-list.html",
+      "sha256": "284c5b4f533ae883ca3400c983dde0570829e381a1592fdf22f294a43e0d0b1a"
+    },
+    {
+      "file": "g870-guide-1.pdf",
+      "sha256": "6d1dfdd7c60383c995c2286bb3bfcacdd62b9b8ce59fb5c0ef133a15da0bc4dd"
+    },
+    {
+      "file": "g870-guide-2.pdf",
+      "sha256": "039d4e4fe078f92ac3e67b73636e8624cb5135ad7511e60056c727d1c1989ea1"
+    },
+    {
+      "file": "guide-2-toc.png",
+      "sha256": "65a0955cd27fc48544d1858db3dc78e20da420f181615fccfe1bb4b887196dc1"
+    },
+    {
+      "file": "guide-2-spec-19.png",
+      "sha256": "aff8469f22a8e59e44a578b08118ae4dfd572fad46ca68f1e92ccccc26ab31d7"
+    },
+    {
+      "file": "guide-1-spec-18.png",
+      "sha256": "296997fb9c5e85b4492d059f7c258ea50d0259df0bccc7eeea1c01d543588b03"
+    },
+    {
+      "file": "parent-ci.json",
+      "sha256": "0aa34c91f28a43488d5939d7e1579f5592510eda95f91997392b4ab4737e05d7"
+    },
+    {
+      "file": "baseline-verification.stdout.txt",
+      "sha256": "a6f5cbe4e8e8b7459191369cdbdaa184513a23e98ff8d2b085f63b347def77f5"
+    },
+    {
+      "file": "baseline-verification.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "baseline-verification.process.json",
+      "sha256": "cf68d2466ba61507ad29521b7e81f2deb3493e6d8311240a1bef0d895028c579"
+    },
+    {
+      "file": "historical-verification.stdout.txt",
+      "sha256": "41a90363d17ff55386352b95b8645b2f0e3713cea0d61062949fc3b68112545a"
+    },
+    {
+      "file": "historical-verification.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "historical-verification.process.json",
+      "sha256": "9dc37addaf54e69f2191855fc17b0df4ac9075da80873cb1838a27b215c66cea"
+    },
+    {
+      "file": "validate_delivery.py",
+      "sha256": "b8c6471f48b1792ff3109c9bdfea310269879612d62baba944bef730cadc0806"
+    },
+    {
+      "file": "delivery-validation.json",
+      "sha256": "fc603260a765c55259811236932be422e63005a996f0e0e563c4d0ef2eb5e123"
+    }
+  ],
+  "current_document_hash_dependencies": false,
+  "original_evidence_modified": false,
+  "documented_peak_GBps": null,
+  "percentage_of_peak": null
+}

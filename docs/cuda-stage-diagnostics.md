@@ -151,9 +151,16 @@ OpenMP at N=10000000 for full-device; the 10x serial target was not met and
 hybrid did not beat best OpenMP. Instrumented diagnostic times are not replacement
 primary samples or new uninstrumented speedup claims.
 
-Bandwidth/counter permissions, exact-laptop documented peak, achieved DRAM GB/s
-and percentage-of-peak reporting, convergence and final reproducibility/delivery
-remain open. ERR_NVGPUCTRPERM persists; profiler orchestration remains unverified.
-Optimization is optional and was not started. Academic submission and live
-demonstration are unverified. Hosted CPU CI for the closure commit is separate
-from local RTX diagnostic execution.
+At this diagnostic checkpoint, DRAM profiling, convergence and technical
+reproducibility were still open. Later
+[baseline counters](../evidence/v030-dram-baseline-20261020/README.md) establish
+successful counter access and two cold-cache kernel-scope DRAM observations;
+the [independent review](../evidence/v030-dram-review-20261020/README.md) confirms
+their raw sums and launch identities. Counter permission is no longer a blocker
+for that session. [Convergence/figures](convergence.md) and
+[technical reproducibility](reproducibility.md) are separately evidenced within
+their recorded scopes. Applicable documented laptop peak and its percentage
+remain an evidence gap. Optimization is optional and was not started.
+Academic submission and live demonstration remain unverified. Hosted CPU CI is
+separate from local RTX diagnostic execution; none of these later checks changes
+the diagnostic timings or establishes the dominant end-to-end cost.

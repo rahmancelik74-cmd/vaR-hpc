@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "inspection_revision": "7e792047fd4db2aafc8351fe87d8d4098db9a50f",
+  "source_revision": "89536e38b01230fce3b4667096c29dde56795c23",
+  "source_tree": "8edb98064ec2a8d6ed5ab8ac40fef62c9d905e51",
+  "executable_sha256": "3c5c7e47ed870fb99ad733326ebbd9c8edf88558909b9905c1b2d5faa647d255",
+  "build_and_runtime_bindings_checked": 5,
+  "numerical_source_input_bindings_checked": 14,
+  "original_primary_bindings_checked": 10,
+  "raw_metric_units": [
+    "byte",
+    "byte",
+    "ns",
+    "pass",
+    "pass"
+  ],
+  "aggregation": "sum(read_bytes + write_bytes) / sum(duration_ns); decimal GB/s",
+  "method": "Separate raw CSV Decimal/integer sums, identity/launch metadata, argv, Git and primary result comparisons; no baseline verifier imported",
+  "checks": [
+    {
+      "mode": "full-device",
+      "process_id": 37916,
+      "context": "1",
+      "stream": "13",
+      "device_index": 0,
+      "compute_capability": "8.9",
+      "device_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "kernel_records": 14,
+      "unique_kernel_names": 7,
+      "stage_counts": {
+        "rng-initialization": 1,
+        "rng-generation": 1,
+        "simulation": 1,
+        "radix-sort": 10,
+        "quantile-gather": 1
+      },
+      "read_bytes": 834700672,
+      "write_bytes": 700582528,
+      "duration_ns": 16407904,
+      "GBps_decimal": "93.56973322125726722925731404",
+      "historical_primary_results_compared": 13,
+      "collection_passes_per_kernel": 1,
+      "additional_replay_passes": 0,
+      "warmup_passes": 0,
+      "raw_process_device_identity_consistent": true
+    },
+    {
+      "mode": "hybrid",
+      "process_id": 25152,
+      "context": "1",
+      "stream": "13",
+      "device_index": 0,
+      "compute_capability": "8.9",
+      "device_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "kernel_records": 307,
+      "unique_kernel_names": 3,
+      "stage_counts": {
+        "rng-initialization": 1,
+        "rng-generation": 153,
+        "simulation": 153
+      },
+      "read_bytes": 258276736,
+      "write_bytes": 0,
+      "duration_ns": 10498528,
+      "GBps_decimal": "24.60123323955510715406959909",
+      "historical_primary_results_compared": 13,
+      "collection_passes_per_kernel": 1,
+      "additional_replay_passes": 0,
+      "warmup_passes": 0,
+      "raw_process_device_identity_consistent": true
+    }
+  ],
+  "new_engine_processes": 0,
+  "new_profiling_processes": 0,
+  "documented_peak_GBps": null,
+  "percentage_of_peak": null
+}

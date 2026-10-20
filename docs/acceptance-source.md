@@ -105,9 +105,12 @@ source 8df5f28 separately passes both full-device and fixed-partition hybrid
 five-seed analytical acceptance, reuses compatible f039034 large common-input
 evidence, and passes representative sanitizer checks. Exact records and coverage
 limits are in project-state.md and gpu-acceptance.md; numerical acceptance does
-not establish general global-memory race freedom or performance. Full project
-acceptance still needs bandwidth reporting, convergence and later delivery
-evidence. Separate stage diagnostics at 80148ce are closed in
+not establish general global-memory race freedom or performance. At that
+GPU-acceptance checkpoint, bandwidth reporting, convergence and
+later delivery remained open. Convergence/figures and measured kernel-scope DRAM
+reporting are now evidenced separately above; applicable documented peak and its
+percentage remain an evidence gap. Later academic/live delivery is unverified.
+Separate stage diagnostics at 80148ce are closed in
 cuda-stage-diagnostics.md with their limited transfer-excluded scope. The formal
 primary CPU/GPU benchmark at 89536e3 is complete;
 its full-device serial speedup at N=10000000 is 9.7399305240447234x, below the

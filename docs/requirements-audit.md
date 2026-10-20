@@ -22,8 +22,10 @@ Evidence keys (all relative to evidence/): C = v030-convergence-windows-20261020
 F = v030-convergence-figures-20261020-v2; P = v030-primary-benchmark-windows-20261019;
 D = v030-cuda-stage-diagnostics-windows-20261019; O = v030-openmp-windows-correctness-20261016;
 S = v022-validation-20261016; R = v030-reproducibility-20261020;
-B = v030-bandwidth-access-20261020 and
-[v030-bandwidth-followup-20261020](../evidence/v030-bandwidth-followup-20261020/README.md).
+B = [v030-dram-baseline-20261020](../evidence/v030-dram-baseline-20261020/README.md),
+independently reviewed in
+[v030-dram-review-20261020](../evidence/v030-dram-review-20261020/README.md).
+Earlier denied-access packages are historical parents, not current blockers.
 See each README/manifest for source and limits.
 GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 [gpu-acceptance.md](gpu-acceptance.md) defines its coverage and tool limits.
@@ -52,17 +54,25 @@ GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 | NFR-4 | 0 personal/patient records; document every price dataset's source/range/reuse/adjustment | synthetic fixture; equity importer; historical-data.md, data-rights-and-calendar.md | Computational inputs are synthetic or market prices; provider provenance/rights documented with local hashes | Private permission correspondence is user-supplied, not independently authenticated; no redistribution of raw prices; no assertion repository metadata contains no personal names |
 | NFR-5 | At N=10000000, seeds 42,123,456,789,2026 per engine: abs(mean(VaR)-analytical) <= .01*max(abs(analytical),.01*V0), separately .95/.99 | convergence-audit.ps1; F independent Python statistics | Demonstrated one nondegenerate fixed synthetic case; eight rows pass; R re-audit passes | Not per-seed acceptance, MAE, monotonic-error requirement or universal MC guarantee; serial source-to-binary=false and mixed builds remain |
 | NFR-6 | Double, common nearest-rank ceil(alpha*N)-1; common-input VaR absolute difference <= .00001*V0; separate memory/race checks | CPU/GPU common-input tests and gpu-acceptance.md | Demonstrated recorded common-input cases; representative Compute Sanitizer findings archived | Sanitizer does not prove general global-memory race freedom or CPU host-buffer safety; numerical agreement is not a memory-safety proof |
-| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Demonstrated P: 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | Baseline kernel-scope DRAM GB/s measured in the new baseline record; applicable documented peak/percentage remain unresolved (see B) |
+| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Satisfied within recorded timing scope: P has 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | B separately satisfies measured kernel-scope DRAM reporting for two cold-cache profiles; applicable documented peak/percentage is an evidence gap |
 | NFR-8 | Exact-byte SHA-256 and Git dirty state per experiment; two same-build/input/seed/backend runs reproduce VaR excluding timing | recorder manifests; serial exact repeat test, OpenMP native invariance; archived P repeated estimates | Demonstrated recorded same-build cases; R checks all 24 P configurations' 13 pairs of VaRs are identical | Not cross-library/build/engine bitwise reproducibility. Historical serial source-to-binary=false; O has no published independent standalone cache; archives/builds ignored and not public-clone-complete |
-| NFR-9 | Release build: 0 build errors, all registered tests pass, >=1 successful basic CI | CMake/CTest and .github/workflows/build.yml | R isolated current Windows CPU ON 13/13, OFF 12/12; previous exact-SHA CPU CI passed at b9745be; publication CI is checked separately | Same-machine new directories, not fresh-machine trial; R trial was CPU-only; new DRAM profiles reuse the archived CUDA binary, with no new CUDA build; initial sandbox SDK-access failures preserved |
+| NFR-9 | Release build: 0 build errors, all registered tests pass, >=1 successful basic CI | CMake/CTest and .github/workflows/build.yml | Satisfied within recorded CPU build/CI scope: R Windows ON 13/13, OFF 12/12; later same-machine relocation passed all 13 across initial/recheck attempts; exact-SHA CPU CI at 7e792047fd4db2aafc8351fe87d8d4098db9a50f passed 3/3 (run 39433346433) | Same-machine new directories, not fresh-machine trial; R trial was CPU-only; new DRAM profiles reuse the archived CUDA binary, with no new CUDA build; initial sandbox SDK-access failures preserved |
 
 Baseline achieved DRAM GB/s is now demonstrated for two single N=10000000
 cold-cache profiles: full-device 93.56973322125727 and hybrid 24.601233239555107,
 using compatible kernel bytes/durations. See the
 [baseline and portability record](../evidence/v030-dram-baseline-20261020/README.md).
 Counter access succeeded; no new administrator action is required for that session.
-Applicable official memory data rate/peak and percentage remain unresolved;
-no bandwidth threshold or inferred peak is introduced. Public relocation checks
+The independent raw review checks all 321 launch IDs, per-process/device/context/
+stream identity, ten stage/aggregate sums and 13 primary result pairs per mode.
+The OEM manual catalog adds two inspected G870 manuals; neither technical table
+documents an applicable effective memory rate. Applicable peak/percentage remain
+an evidence gap, not an access-permission limitation. NFR-1 is a measured target
+not met; demonstrated checks elsewhere are satisfied only within their recorded
+scope. Missing historical provenance remains an evidence gap. Fresh-machine
+validation is optional future validation, not a completed trial. Academic
+approval/submission and live delivery remain external/unverified.
+No bandwidth threshold or inferred peak is introduced. Public relocation checks
 passed on the same machine; historical full-session archive/layout dependencies
 and unverified fresh-machine portability remain explicit. No FR/NFR ID or
 numerical/performance acceptance criterion changed.

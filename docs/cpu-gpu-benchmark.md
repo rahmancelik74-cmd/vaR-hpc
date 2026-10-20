@@ -410,11 +410,15 @@ these results. All slow samples remain retained.
 
 Separate stage/transfer-excluded diagnostics are complete; see
 [the six-configuration result](cuda-stage-diagnostics.md) for definitions, spread
-and limitations. Measured DRAM GB/s and percentage of documented peak, verified
-profiler orchestration, convergence and final reproducibility remain separate
-work. ERR_NVGPUCTRPERM persists from prior
-discovery; this primary campaign requested no new discovery or profiling.
-Exact-laptop documented peak is unavailable. Plan B optimization is optional.
+and limitations. This primary campaign requested no counter discovery or
+profiling. Its earlier permission denial is historical: the later
+[DRAM baseline](../evidence/v030-dram-baseline-20261020/README.md) and
+[independent review](../evidence/v030-dram-review-20261020/README.md) establish
+successful access and measured kernel-scope GB/s outside timed samples.
+Applicable documented peak and its percentage remain an evidence gap.
+[Convergence/figures](convergence.md) and [technical reproducibility](reproducibility.md)
+are separately evidenced, with mixed revisions and same-machine trial limits.
+Plan B optimization is optional.
 Academic delivery and live demonstration are not established. Hosted CPU CI for
 the closure commit is distinct from this local RTX-tested source and cannot
 serve as benchmark evidence.

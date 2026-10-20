@@ -1,5 +1,42 @@
 # Project state
 
+## Independent DRAM review and bounded peak-source search: 2026-10-20
+
+Inspection started at main 7e792047fd4db2aafc8351fe87d8d4098db9a50f,
+matching remote main. Its push CI run 39433346433 was independently confirmed
+successful at that exact SHA, with all three CPU jobs passing. Only AGENTS.md
+and output/ were untracked; both remain preserved.
+
+The [independent review](../evidence/v030-dram-review-20261020/README.md)
+recomputes all 321 raw counter records, ten stage/aggregate sums and verifies
+process/device/context/stream identity, launch IDs and one-pass metadata.
+Full-device is 1535283200 bytes / 16407904 ns = 93.56973322125727 GB/s;
+hybrid is 258276736 bytes / 10498528 ns = 24.601233239555107 GB/s.
+Five binary/build/runtime and 14 numerical source/input bindings match the
+validated primary workload; both profiles match 13 historical result pairs
+per mode. No calculation defect or need for new profiling was found. These
+are cold-cache collected-kernel ratios, excluding transfers/host costs, not
+end-to-end rates. Formal benchmark and original evidence bytes are preserved.
+
+A bounded new avenue inspected the OEM manual catalog and both G870 manuals,
+including rendered technical tables. Neither documents effective VRAM rate;
+NVIDIA's laptop specifications likewise do not establish this configuration's
+rate. The exact missing input remains an applicable OEM/NVIDIA effective
+Gbit/s-per-pin or peak specification with configuration applicability.
+Theoretical peak and percentage stay unresolved; no counter-access remedy
+is needed for the verified collection. No third party was contacted.
+
+The 18-item requirements mapping now links the actual DRAM evidence and latest
+verified parent CI. Current benchmark/stage/acceptance text distinguishes later
+technical closure from dated open findings. NFR-1 remains a measured target not
+met (9.739930524x serial; 8.307208722x best OpenMP); hybrid did not beat best
+OpenMP. Sanitizer, historical serial/OpenMP provenance and mixed-revision limits
+remain. Same-machine clean checkout is not fresh-machine reproduction; original
+archives/path layouts remain necessary for full historical audits. Academic
+submission/live demonstration remain unverified. No build, simulation, convergence
+figure rendering, profiling campaign, optimization or overall completion is claimed.
+
+
 ## DRAM baseline collected and public relocation checked: 2026-10-20
 
 At inspection base 663fcc3086c1d752cb2f18218cf73ca188832847, counter access

@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "baseline-verification",
+      "exit_code": 0,
+      "stdout_sha256": "a6f5cbe4e8e8b7459191369cdbdaa184513a23e98ff8d2b085f63b347def77f5"
+    },
+    {
+      "name": "historical-verification",
+      "exit_code": 0,
+      "stdout_sha256": "41a90363d17ff55386352b95b8645b2f0e3713cea0d61062949fc3b68112545a"
+    }
+  ],
+  "parent_ci": {
+    "head_sha": "7e792047fd4db2aafc8351fe87d8d4098db9a50f",
+    "run_id": 39433346433,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39433346433"
+  },
+  "new_engine_processes": 0,
+  "new_profiling_processes": 0,
+  "cpu_build_repeated": false,
+  "convergence_figures_rendered": false,
+  "oem_manual_technical_pages_rendered": true,
+  "delivery_validation": {
+    "status": "passed",
+    "current_relative_links_checked": 57,
+    "FR_NFR_ids_and_exact_criterion_cells_unchanged": 18,
+    "baseline_selected_files_unchanged": 24,
+    "baseline_manifest_exact_git_bytes_unchanged": true,
+    "historical_project_state_suffix_git_content_unchanged": true,
+    "exact_byte_evidence_checks_separate_from_normalized_git_content": true,
+    "new_review_ascii": true,
+    "implementation_and_tests_unchanged": true
+  }
+}

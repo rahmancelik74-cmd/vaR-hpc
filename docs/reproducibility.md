@@ -237,6 +237,9 @@ fixtures under data/local; this does not make provider data a prerequisite.
 The new baseline's stdlib verify.py also supports public selected-counter
 verification without GPU or original reports; its optional --local-records
 reprojects hash-bound raw exports. Commands and local log hashes are in the
-baseline record. This is same-machine relocation evidence, not a fresh-machine
+baseline record. The later [independent DRAM review](../evidence/v030-dram-review-20261020/README.md)
+adds raw process/device/launch and primary-workload comparisons, with no new GPU
+execution, plus a bounded OEM manual search that leaves peak/percentage unresolved.
+This is same-machine relocation evidence, not a fresh-machine
 trial, historical campaign reproduction or removal of original full-audit
 binary/cache/archive/path dependencies described above.
