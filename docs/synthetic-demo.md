@@ -1,5 +1,9 @@
 # Reproducible serial/OpenMP synthetic demo
 
+For the separate required first-term and final demonstration flows, including
+focused common-input checks and live CUDA/hybrid, see [live-demos.md](live-demos.md).
+The small recorder-based example below remains available independently.
+
 This small offline demonstration uses the existing engines, analytical
 reference, JSON output and recorder. It needs no provider data, network access
 or new dependency. Timing is smoke output, not a formal benchmark, speedup

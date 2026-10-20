@@ -1,5 +1,34 @@
 # Project state
 
+## Required live demonstrations prepared and locally rehearsed: 2026-10-21
+
+Starting main HEAD was 04a9b5281def039df3bc4b2f3fea43d2f4f70e19; its exact-SHA
+CI run 39508870179 was independently confirmed successful. Only AGENTS.md and
+output/ were untracked and were preserved. The [live demo runbook](live-demos.md)
+and scripts/run-live-demo.ps1 now provide separate first-term CPU validation/
+timing and final synthetic calibration-to-serial/OpenMP/full-device/hybrid flows.
+Both use N=100000, seed 42, T=10/252, the existing public synthetic fixture and
+the focused common-input CPU test; no formal campaign was repeated.
+
+Both local rehearsals passed using build-convergence-b5f1a0f-5c4032 Release:
+first-term 0.653092 s and final 0.7234424 s, excluding narration. Final CUDA ran
+on RTX 4060 Laptop; hybrid requested 65535, effective 65536, two batches, one
+global host quantile. Command argv/output/exit status/durations, individual JSON,
+hashes and summaries remain ignored under results/live-demo-first-term-20261021-
+020641-1c94ca3d and results/live-demo-final-20261021-020649-1a88a82f (directory
+names contain no line break). Missing-build recovery was checked: exit 1 and
+failed summary, no engine execution. These times are illustrative rehearsal
+durations, not formal performance results. The archived build is explicitly
+not certified as built from current HEAD; src/include/OpenMP test/CMake have no
+Git diff from its b5f1a0f source. Historical evidence was not rewritten.
+
+Prepared and rehearsed are established; academic presentation/submission remain
+unverified and were not performed. The 9.739930524x serial / 8.307208722x best
+OpenMP full-device conclusions, unmet 10x target, hybrid limitation, nonmonotonic
+convergence and provenance/sanitizer limits remain unchanged. Bandwidth reporting
+stays closed within its documented kernel/configuration-reference scope.
+No overall project completion or deferred documentation cleanup is claimed.
+
 ## Bandwidth reporting criterion reconciled: 2026-10-21
 
 Inspection started at main 4a4730d0b505cc2ab31574ca96b4fc5841a3fc21,

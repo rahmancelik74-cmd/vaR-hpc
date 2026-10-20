@@ -28,6 +28,8 @@ Current data rights and local session-date audit:
 [docs/data-rights-and-calendar.md](docs/data-rights-and-calendar.md).
 Small offline serial/OpenMP demonstration:
 [docs/synthetic-demo.md](docs/synthetic-demo.md).
+Required first-term and final live demo launchers, talking points and recovery:
+[docs/live-demos.md](docs/live-demos.md).
 
 The contribution of this project is computational. GBM and VaR provide a
 well-defined, independently verifiable workload for comparing the correctness
