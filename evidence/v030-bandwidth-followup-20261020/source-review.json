@@ -1,0 +1,37 @@
+{
+    "checked_date":  "2026-10-20",
+    "record_type":  "Reviewer notes from official web retrieval and bounded searches; not raw page bytes",
+    "sources":  [
+                    {
+                        "url":  "https://www.nvidia.com/en-me/geforce/laptops/compare/",
+                        "finding":  "RTX 4060 Laptop: 8 GB GDDR6, 128-bit; applicable effective rate not supplied",
+                        "effective_rate_Gbps":  null
+                    },
+                    {
+                        "url":  "https://www.casper.com.tr/excalibur-g870-p-137",
+                        "finding":  "Current retrieved technical table covers newer variants; no exact installed-unit effective rate. Different retrieved variants cannot bind the purchased configuration.",
+                        "effective_rate_Gbps":  null
+                    },
+                    {
+                        "url":  "https://www.casper.com.tr/excalibur-g870-1265-deb0a-b-i7-12650h-32gb-ram-500gb-m2-8gb-rtx-4060-win11-home-15-6-fhd-ips-144hz-oyun-bilgisayari-p-137-8566506",
+                        "finding":  "Redirected to family page, not an exact installed-unit specification",
+                        "effective_rate_Gbps":  null
+                    },
+                    {
+                        "url":  "https://developer.nvidia.com/ERR_NVGPUCTRPERM",
+                        "canonical_url":  "https://developer.nvidia.com/nvidia-development-tools-solutions-err_nvgpuctrperm-permission-issue-performance-counters",
+                        "finding":  "Canonical official page inspected after short URL retrieval error; Windows administrator launch or administrator-managed NVIDIA App 11.0.6+ counter access. R610 Control Panel route deprecated."
+                    }
+                ],
+    "search_queries":  [
+                           "site.casper.com.tr G870 RTX 4060 \"Gbps\"",
+                           "site.nvidia.com \"4060 Laptop\" \"Memory\" \"Gbps\"",
+                           "site.casper.com.tr \"G870\" \"14000\"",
+                           "site.casper.com.tr \"G870\" \"16 Gbps\"",
+                           "site.casper.com.tr \"NLXB\" \"4060\"",
+                           "site.casper.com.tr \"RTX4060\" \"Gbps\""
+                       ],
+    "conclusion":  "No directly applicable authoritative effective rate established; bounded unsuccessful search, not proof of absence",
+    "not_used":  "Desktop specs, generic laptop rate, other OEM, forum/retailer/database numbers and runtime clocks",
+    "required_source":  "OEM/NVIDIA documented effective rate or peak demonstrably applicable to this G870/NLXB memory configuration"
+}

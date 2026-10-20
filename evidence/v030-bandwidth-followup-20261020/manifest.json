@@ -1,0 +1,193 @@
+{
+    "schema_version":  1,
+    "purpose":  "One denied access diagnostic and bounded official peak-source investigation; excludes itself",
+    "inspection_revision":  "13f913ad3a2b125d3e8de2439e9f81d65ee6d622",
+    "checked_utc":  "2026-10-20T01:44:40.1687491Z",
+    "counter_access":  "ERR_NVGPUCTRPERM",
+    "diagnostic_exit_code":  0,
+    "new_engine_processes":  0,
+    "new_profiled_kernels":  0,
+    "permission_changes":  0,
+    "measured_dram_GBps":  null,
+    "documented_effective_rate_Gbps":  null,
+    "documented_peak_GBps":  null,
+    "percent_of_documented_peak":  null,
+    "parents":  [
+                    {
+                        "path":  "evidence/v030-bandwidth-access-20261020/manifest.json",
+                        "sha256":  "f8148545f48594244228565b6ed3c1611591d6547c9a00e7e0693bca40fccece"
+                    },
+                    {
+                        "path":  "evidence/v030-reproducibility-20261020/manifest.json",
+                        "sha256":  "72a15f2e62eda7ead494daaff7edff6158ccd63b10a0ac196f2d00d514dc4cb5"
+                    },
+                    {
+                        "path":  "evidence/v030-convergence-figures-20261020-v2/selection-manifest.v2.json",
+                        "sha256":  "595e0b045cb053e3fcd4708e3b1d5d0853a7426c776217a6c9c5d14508665b67"
+                    },
+                    {
+                        "path":  "evidence/v030-primary-benchmark-windows-20261019/artifact-sha256.json",
+                        "sha256":  "3b6a5830520cff86ed8f9b326cc135db0f35aa15e40185736e932a5b371478ff"
+                    },
+                    {
+                        "path":  "evidence/v030-cuda-stage-diagnostics-windows-20261019/artifact-sha256.json",
+                        "sha256":  "bebdd92ae6f2b13c684a817628272c358fb3a3c016d0853dd6218569e540da20"
+                    }
+                ],
+    "selected_files":  [
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/.gitattributes",
+                               "sha256":  "50524bc54be6323af4266e11f2ca0b4d574bad39253c8c5293eca7d3173fa822"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/counter-discovery.process.json",
+                               "sha256":  "f0519154210c863555f77b92ffe7a366371574e4e6922ec59078c3f3e4fdda53"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/counter-discovery.stderr.txt",
+                               "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/counter-discovery.stdout.txt",
+                               "sha256":  "ef0fe1c729c95b62f944a2002e75a425ea1716a6b9da415172d2c83bad324b30"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/gpu-inventory.process.json",
+                               "sha256":  "307f750887c5b23f299cc1d46e693c99ef5dbce958cc3072598ad07bdad85842"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/gpu-inventory.stderr.txt",
+                               "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/gpu-inventory.stdout.txt",
+                               "sha256":  "aeebe113df1473e470dd6fae2761c90355774884f2b6c4ec8242e3f70bf0ab98"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/inspection-ci.json",
+                               "sha256":  "0985936c6519642d95af63e08236912dc00bd7fd47052edf1583d65cf8018e73"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/integrity-check.stdout.txt",
+                               "sha256":  "41a90363d17ff55386352b95b8645b2f0e3713cea0d61062949fc3b68112545a"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/ncu-version.process.json",
+                               "sha256":  "818a86c8ea90d196057e429a4e58e582d7037e692f96d47dd9faa65c2af09b1b"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/ncu-version.stderr.txt",
+                               "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/ncu-version.stdout.txt",
+                               "sha256":  "8066827ce7533ba106250999f6f9c9ff0afd0636ed1d248549e7fd558001d37f"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/oem-inventory.json",
+                               "sha256":  "accd26a20bab4e27035a92640894cc6cbab028637dffb88c923132e74aea15c7"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/README.md",
+                               "sha256":  "de79d4f8e41b992c0aebd48400ac0dbacb10501f957f90a864fd8c7072d12d2c"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/source-review.json",
+                               "sha256":  "08cdebec9da95a2ed5065e79bf8c965b878dfbd655d1e48d24c6693733f03c29"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/tool-identity.json",
+                               "sha256":  "00177a3248f10e276cdfa40fe380649168352504f6d3a1561f516764c9dbbab6"
+                           },
+                           {
+                               "path":  "evidence/v030-bandwidth-followup-20261020/validate.ps1",
+                               "sha256":  "1c304c981bf6761960fe70c9bc990620a6000496c28064a65977cf357079bf07"
+                           }
+                       ],
+    "local_files":  [
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/counter-discovery.process.json",
+                            "sha256":  "f0519154210c863555f77b92ffe7a366371574e4e6922ec59078c3f3e4fdda53"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/counter-discovery.stderr.txt",
+                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/counter-discovery.stdout.txt",
+                            "sha256":  "ef0fe1c729c95b62f944a2002e75a425ea1716a6b9da415172d2c83bad324b30"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/gpu-inventory.process.json",
+                            "sha256":  "307f750887c5b23f299cc1d46e693c99ef5dbce958cc3072598ad07bdad85842"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/gpu-inventory.stderr.txt",
+                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/gpu-inventory.stdout.txt",
+                            "sha256":  "aeebe113df1473e470dd6fae2761c90355774884f2b6c4ec8242e3f70bf0ab98"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/integrity-check.process.json",
+                            "sha256":  "23bfbea2feb27c7bd6cd4b634c62fb27f86913d4524a025e0ff9ccbac84c55d3"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/integrity-check.stderr.txt",
+                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/integrity-check.stdout.txt",
+                            "sha256":  "41a90363d17ff55386352b95b8645b2f0e3713cea0d61062949fc3b68112545a"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/ncu-version.process.json",
+                            "sha256":  "818a86c8ea90d196057e429a4e58e582d7037e692f96d47dd9faa65c2af09b1b"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/ncu-version.stderr.txt",
+                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/ncu-version.stdout.txt",
+                            "sha256":  "8066827ce7533ba106250999f6f9c9ff0afd0636ed1d248549e7fd558001d37f"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/oem-inventory.json",
+                            "sha256":  "accd26a20bab4e27035a92640894cc6cbab028637dffb88c923132e74aea15c7"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/post-document-integrity.process.json",
+                            "sha256":  "84619f026ee8adca34f12d7dfde62458af8a8960cdd056928df49f2dbec54c1f"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/post-document-integrity.stderr.txt",
+                            "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/post-document-integrity.stdout.txt",
+                            "sha256":  "41a90363d17ff55386352b95b8645b2f0e3713cea0d61062949fc3b68112545a"
+                        },
+                        {
+                            "path":  "results/bandwidth-followup-13f913a-20261020/tool-identity.json",
+                            "sha256":  "00177a3248f10e276cdfa40fe380649168352504f6d3a1561f516764c9dbbab6"
+                        }
+                    ],
+    "current_documents":  [
+                              {
+                                  "path":  "docs/project-state.md",
+                                  "sha256":  "b561b6be3c5a6f500ccc31978dd9b16b513897b80d8aa2adf338e98c77ac1f89"
+                              },
+                              {
+                                  "path":  "docs/requirements-audit.md",
+                                  "sha256":  "71118697e519826a94fde387fa2682aec79c3bb45e6e908b3d57c59dc9c26b69"
+                              },
+                              {
+                                  "path":  "docs/reproducibility.md",
+                                  "sha256":  "677d98147c62773711cc9f81710c2d6dc1e0230b47ace8bda417d7ad2d651bd6"
+                              }
+                          ],
+    "current_document_policy":  "Checkpoint exact-byte attestation only, optional verification; later legitimate document changes are separate from immutable historical evidence and never update this manifest",
+    "preserved_untracked_agents_sha256":  "f7a515d0214f02c57fbbf81661d114746cb50c26586ce686ae16abc0f249877c"
+}

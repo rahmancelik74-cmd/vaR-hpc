@@ -1,0 +1,14 @@
+{
+    "run_id":  39353122091,
+    "head_sha":  "13f913ad3a2b125d3e8de2439e9f81d65ee6d622",
+    "status":  "completed",
+    "conclusion":  "success",
+    "html_url":  "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39353122091",
+    "jobs":  [
+                 "cpu (OFF)",
+                 "cpu (ON)",
+                 "windows-instrumentation"
+             ],
+    "verification":  "Independent GitHub API run/jobs retrieval; all three conclusions success",
+    "record_type":  "Selected API observation, not raw response"
+}

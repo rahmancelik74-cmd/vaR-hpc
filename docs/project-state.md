@@ -1,5 +1,23 @@
 # Project state
 
+## Baseline bandwidth follow-up: 2026-10-20
+
+At main 13f913ad3a2b125d3e8de2439e9f81d65ee6d622, remote main and the
+reported exact-SHA 3/3 CPU CI were independently confirmed. One small metric
+discovery again returned ERR_NVGPUCTRPERM (exit 0 is not collection success).
+Driver 610.88, Nsight Compute 2026.3.1.0 and Casper G870/NLXB identity were
+rechecked. No settings changed and no engine or profiling workload ran.
+The [follow-up record](../evidence/v030-bandwidth-followup-20261020/README.md)
+preserves exact process captures and the official Windows administrator remedy.
+Official source investigation still does not establish this unit's effective
+memory data rate; theoretical peak and percentage remain unresolved. Counter
+access can independently unblock measured DRAM GB/s without a peak specification.
+Existing selected evidence and 160 values/32 groups/eight acceptance rows pass
+read-only verification. No simulation, build or figure was repeated. Historical
+records and the 9.739930524x/8.307208722x performance conclusions are unchanged.
+Next: administrator-provided counter access, then identity-verified focused
+profiling; obtain an applicable OEM/NVIDIA rate independently for peak reporting.
+
 ## Technical reproducibility and FR/NFR audit: 2026-10-20
 
 [reproducibility.md](reproducibility.md) now separates public build/integrity

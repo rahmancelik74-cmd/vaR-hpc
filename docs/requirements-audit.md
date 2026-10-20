@@ -22,7 +22,9 @@ Evidence keys (all relative to evidence/): C = v030-convergence-windows-20261020
 F = v030-convergence-figures-20261020-v2; P = v030-primary-benchmark-windows-20261019;
 D = v030-cuda-stage-diagnostics-windows-20261019; O = v030-openmp-windows-correctness-20261016;
 S = v022-validation-20261016; R = v030-reproducibility-20261020;
-B = v030-bandwidth-access-20261020. See each README/manifest for source and limits.
+B = v030-bandwidth-access-20261020 and
+[v030-bandwidth-followup-20261020](../evidence/v030-bandwidth-followup-20261020/README.md).
+See each README/manifest for source and limits.
 GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 [gpu-acceptance.md](gpu-acceptance.md) defines its coverage and tool limits.
 
@@ -58,8 +60,11 @@ Baseline achieved DRAM GB/s and percentage of applicable documented laptop peak
 remain additional unresolved acceptance-source reporting obligations. Nsight
 Compute returns ERR_NVGPUCTRPERM; no administrator permission change was made.
 NVIDIA/OEM sources establish 128-bit GDDR6 but not this unit's effective data
-rate. No bandwidth threshold is invented. RNG's largest covered device-stage
-mean does not establish the dominant end-to-end cost. Optimization is optional
+rate. No bandwidth threshold is invented. Counter access can unblock
+measured GB/s independently; an applicable documented peak is needed for the
+percentage. The follow-up reconfirmed the denial without changing settings.
+RNG's largest covered device-stage mean does not establish the dominant
+end-to-end cost. Optimization is optional
 and was not started. Academic requirements/report submission, final report and
 live demonstration remain unverified/outside this technical package.
 

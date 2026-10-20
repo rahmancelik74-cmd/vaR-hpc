@@ -201,3 +201,9 @@ best OpenMP 8.307208722x; hybrid at 10M did not beat best OpenMP. Counter access
 still returns ERR_NVGPUCTRPERM; exact-laptop peak, measured DRAM GB/s and its
 percentage remain open. No new-machine trial, market predictive validity,
 general race freedom, academic delivery or live-demo completion is claimed.
+
+[The bandwidth follow-up](../evidence/v030-bandwidth-followup-20261020/README.md)
+rechecks access and official source applicability separately. Administrator
+counter access is needed for measured DRAM GB/s; an applicable documented peak
+is needed for percentage of peak, not for measured GB/s itself. These diagnostic
+records do not replace the historical primary benchmark or require its rerun.

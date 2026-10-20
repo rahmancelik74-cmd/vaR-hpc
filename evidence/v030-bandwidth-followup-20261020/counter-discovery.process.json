@@ -1,0 +1,19 @@
+{
+    "executable":  "C:/Program Files/NVIDIA Corporation/Nsight Compute 2026.3.1/target/windows-desktop-win7-x64/ncu.exe",
+    "arguments":  [
+                      "--section-folder",
+                      "C:/Program Files/NVIDIA Corporation/Nsight Compute 2026.3.1/sections",
+                      "--query-metrics",
+                      "--query-metrics-mode",
+                      "suffix",
+                      "--metrics",
+                      "dram__bytes_read,dram__bytes_write,gpu__time_duration"
+                  ],
+    "started_utc":  "2026-10-20T01:41:53.8106582Z",
+    "stdout":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\bandwidth-followup-13f913a-20261020\\counter-discovery.stdout.txt",
+    "stderr":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\bandwidth-followup-13f913a-20261020\\counter-discovery.stderr.txt",
+    "exit_code":  0,
+    "timed_out":  false,
+    "start_error":  null,
+    "finished_utc":  "2026-10-20T01:41:54.3010817Z"
+}

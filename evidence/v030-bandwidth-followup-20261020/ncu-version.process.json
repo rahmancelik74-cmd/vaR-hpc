@@ -1,0 +1,13 @@
+{
+    "executable":  "C:/Program Files/NVIDIA Corporation/Nsight Compute 2026.3.1/target/windows-desktop-win7-x64/ncu.exe",
+    "arguments":  [
+                      "--version"
+                  ],
+    "started_utc":  "2026-10-20T01:41:53.6419331Z",
+    "stdout":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\bandwidth-followup-13f913a-20261020\\ncu-version.stdout.txt",
+    "stderr":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\bandwidth-followup-13f913a-20261020\\ncu-version.stderr.txt",
+    "exit_code":  0,
+    "timed_out":  false,
+    "start_error":  null,
+    "finished_utc":  "2026-10-20T01:41:53.7317072Z"
+}

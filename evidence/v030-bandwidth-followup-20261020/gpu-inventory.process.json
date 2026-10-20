@@ -1,0 +1,14 @@
+{
+    "executable":  "C:/Windows/System32/nvidia-smi.exe",
+    "arguments":  [
+                      "--query-gpu=name,driver_version,memory.total,clocks.current.memory,clocks.max.memory",
+                      "--format=csv"
+                  ],
+    "started_utc":  "2026-10-20T01:41:54.3010817Z",
+    "stdout":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\bandwidth-followup-13f913a-20261020\\gpu-inventory.stdout.txt",
+    "stderr":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\bandwidth-followup-13f913a-20261020\\gpu-inventory.stderr.txt",
+    "exit_code":  0,
+    "timed_out":  false,
+    "start_error":  null,
+    "finished_utc":  "2026-10-20T01:41:54.3653387Z"
+}
