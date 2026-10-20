@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "FR_NFR_ids_and_exact_criterion_cells_preserved": 18,
+  "current_relative_links_checked": 36,
+  "tested_workflow_git_bytes_verified": true,
+  "original_parent_manifests_exact_git_bytes_verified": 5,
+  "original_selected_dram_and_review_files_verified": 29,
+  "historical_status_suffix_git_content_preserved": true,
+  "raw_hashes_and_normalized_git_content_checks_separate": true,
+  "engine_numerical_input_and_test_sources_unchanged": true,
+  "actual_remote_linux_tests_integrity_and_windows_smoke_logs_inspected": true,
+  "new_public_packet_ascii": true,
+  "new_local_cpu_builds": 0,
+  "new_formal_benchmark_or_convergence_campaigns": 0,
+  "package_verification_source_sha256": "66398f201d1d2f1a408c0ccbc08e3621a9f69a393e2602cd76c6fe302aefe3ed"
+}

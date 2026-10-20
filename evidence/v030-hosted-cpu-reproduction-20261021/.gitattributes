@@ -1,0 +1,2 @@
+* -text whitespace=cr-at-eol
+*.excerpt.log whitespace=cr-at-eol,-blank-at-eol

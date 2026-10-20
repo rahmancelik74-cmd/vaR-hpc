@@ -1,5 +1,43 @@
 # Project state
 
+## Hosted public CPU reproduction verified: 2026-10-21
+
+Inspection started at main b3b67a42b67be7b28122ac6b31f9908536d1c03a,
+matching remote main. Its exact-SHA run 39441828042 was verified successful
+3/3 and actual logs inspected. Ubuntu jobs had already rebuilt/tested remotely,
+but used a shallow checkout and did not invoke the public integrity entry point.
+AGENTS.md and output/ were the only untracked entries and remain preserved.
+
+The existing authorized hosted Linux jobs were minimally extended with full
+Git history, source/environment/tool reporting and the unchanged public
+check-reproducibility.py command. CPU tools/testing flags are explicit; CUDA
+stays OFF. No extra workflow, dependency install or artifact upload was added.
+Tested source fda3c64c891a2d9bfd7d325615fef0423a64e0f3 passed exact-SHA
+run 39500451137, all three jobs. The [remote trial record](../evidence/v030-hosted-cpu-reproduction-20261021/README.md)
+retains selected actual logs: Ubuntu 26.04.1 LTS X64, GNU C++ 15.2.0,
+Python 3.14.4, CMake/CTest 4.4.4. OpenMP ON/OFF pass 7/7 and 6/6 CTests,
+15 Python tests per job, 78-file public integrity and selected 14/307 DRAM
+counter records. The existing Windows recorder smoke also succeeds.
+
+This is genuine remote hosted CPU execution, not another local folder/VM.
+Physical host identity/reuse, a second Windows/CUDA laptop and arbitrary-machine
+portability are not established. Historical full-archive numerical/figure
+paths were not run remotely. Original binary/cache/archive/path prerequisites,
+serial source-to-binary=false, missing independent historical OpenMP cache and
+mixed-revision convergence remain. CPU CI is not CUDA or historical performance
+evidence. No new local build, formal benchmark/convergence campaign, profiling,
+optimization or figure rendering occurred. Academic/live delivery is unverified.
+
+Peak track: targeted existing OEM/purchase filename checks and read-only
+allowlisted registry fields provided no new commercial suffix/rate lead.
+Prior web searches were not repeated; no duplicate search package was created.
+Applicable documented effective VRAM rate/peak remains the precise evidence
+gap. Peak/percentages remain unresolved; counter access is not a blocker.
+Archived DRAM values and 9.739930524x serial / 8.307208722x best-OpenMP speedups
+are unchanged; the 10x target is unmet and hybrid did not beat best OpenMP.
+Later documentation/publication CI is separate from the tested trial SHA.
+
+
 ## Independent DRAM review and bounded peak-source search: 2026-10-20
 
 Inspection started at main 7e792047fd4db2aafc8351fe87d8d4098db9a50f,

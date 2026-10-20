@@ -1,0 +1,140 @@
+{
+  "status": "passed",
+  "scope": "remote hosted-runner public CPU build/tests and selected evidence integrity",
+  "tested_source_sha": "fda3c64c891a2d9bfd7d325615fef0423a64e0f3",
+  "source_tree": "f567df11c9316c7223075110065f3250dba64c63",
+  "workflow": ".github/workflows/build.yml",
+  "workflow_sha256": "76b4a4fddf9e8579096a12e2d783aa269ab7c1cb4dcc4fac6a71f4469817990d",
+  "run_id": 39500451137,
+  "run_url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39500451137",
+  "run_attempt": 1,
+  "created_at_utc": "2026-10-20T21:27:04Z",
+  "updated_at_utc": "2026-10-20T21:28:07Z",
+  "all_three_jobs_success": true,
+  "public_inputs_only": true,
+  "cuda_enabled": false,
+  "remote_trials": [
+    {
+      "openmp": "ON",
+      "job_id": 118896302611,
+      "job_url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39500451137/job/118896302611",
+      "os": "Ubuntu 26.04.1 LTS",
+      "architecture": "X64 / x86_64",
+      "kernel": "Linux 7.0.0-1017-azure",
+      "runner_image": "ubuntu-26.04",
+      "runner_image_version": "20261012.163.1",
+      "runner_kind": "Hosted Compute Agent / Azure (from job setup logs)",
+      "compiler": "GNU 15.2.0 / Ubuntu 15.2.0-16ubuntu1",
+      "python": "3.14.4",
+      "cmake": "4.4.4",
+      "ctest": "4.4.4",
+      "git": "2.55.0",
+      "full_history": true,
+      "initial_tracked_and_untracked_status_empty": true,
+      "python_tests_passed": 15,
+      "ctests_passed": 7,
+      "ctests_failed": 0,
+      "selected_public_artifacts_verified": 78,
+      "public_integrity_report": {
+        "status": "passed",
+        "scope": "selected-public-artifact-integrity",
+        "inventory_snapshot": "b9745be08a477b3648afc8499b07fb2ae4aec165",
+        "verified_artifact_counts": {
+          "evidence/v030-primary-benchmark-windows-20261019": 22,
+          "evidence/v030-cuda-stage-diagnostics-windows-20261019": 32,
+          "evidence/v030-convergence-figures-20261020-v2": 24
+        },
+        "local_convergence": "not requested; raw execution provenance not reverified",
+        "new_engine_processes": 0
+      },
+      "selected_dram_evidence": "passed; 14 full-device, 307 hybrid; local_raw_checked=false; no GPU execution",
+      "configure_command": "cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=ON -DMC_ENABLE_CUDA=OFF -DMC_BUILD_CPU_TOOLS=OFF -DBUILD_TESTING=ON",
+      "job_local_dependency_installation": false,
+      "excerpt_file": "ubuntu-on.excerpt.log",
+      "decoded_api_log_container_sha256": "83befb082c492cebd7d4f6be8734dd7abf1f2e6da9edb18805d32652cae5bc7d"
+    },
+    {
+      "openmp": "OFF",
+      "job_id": 118896302823,
+      "job_url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39500451137/job/118896302823",
+      "os": "Ubuntu 26.04.1 LTS",
+      "architecture": "X64 / x86_64",
+      "kernel": "Linux 7.0.0-1017-azure",
+      "runner_image": "ubuntu-26.04",
+      "runner_image_version": "20261012.163.1",
+      "runner_kind": "Hosted Compute Agent / Azure (from job setup logs)",
+      "compiler": "GNU 15.2.0 / Ubuntu 15.2.0-16ubuntu1",
+      "python": "3.14.4",
+      "cmake": "4.4.4",
+      "ctest": "4.4.4",
+      "git": "2.55.0",
+      "full_history": true,
+      "initial_tracked_and_untracked_status_empty": true,
+      "python_tests_passed": 15,
+      "ctests_passed": 6,
+      "ctests_failed": 0,
+      "selected_public_artifacts_verified": 78,
+      "public_integrity_report": {
+        "status": "passed",
+        "scope": "selected-public-artifact-integrity",
+        "inventory_snapshot": "b9745be08a477b3648afc8499b07fb2ae4aec165",
+        "verified_artifact_counts": {
+          "evidence/v030-primary-benchmark-windows-20261019": 22,
+          "evidence/v030-cuda-stage-diagnostics-windows-20261019": 32,
+          "evidence/v030-convergence-figures-20261020-v2": 24
+        },
+        "local_convergence": "not requested; raw execution provenance not reverified",
+        "new_engine_processes": 0
+      },
+      "selected_dram_evidence": "passed; 14 full-device, 307 hybrid; local_raw_checked=false; no GPU execution",
+      "configure_command": "cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=OFF -DMC_ENABLE_CUDA=OFF -DMC_BUILD_CPU_TOOLS=OFF -DBUILD_TESTING=ON",
+      "job_local_dependency_installation": false,
+      "excerpt_file": "ubuntu-off.excerpt.log",
+      "decoded_api_log_container_sha256": "f2bb6e2071bffa262679ac246c4d29166f5932ae1501a6d0b8ebd4ec014eb417"
+    }
+  ],
+  "earlier_ci": {
+    "source_sha": "b3b67a42b67be7b28122ac6b31f9908536d1c03a",
+    "run_id": 39441828042,
+    "run_url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39441828042",
+    "jobs": [
+      {
+        "openmp": "ON",
+        "python_tests_passed": 15,
+        "ctests_passed": 7,
+        "checkout_depth": 1,
+        "public_integrity_entry_point_run": false
+      },
+      {
+        "openmp": "OFF",
+        "python_tests_passed": 15,
+        "ctests_passed": 6,
+        "checkout_depth": 1,
+        "public_integrity_entry_point_run": false
+      }
+    ],
+    "windows_scope": "Hosted Windows Server 2022 10.0.20348, recorder smoke completion visible; no inference of hidden per-test results"
+  },
+  "peak_status": {
+    "effective_rate_Gbps": null,
+    "documented_peak_GBps": null,
+    "percentage_of_peak": null,
+    "new_authoritative_rate_found": false,
+    "current_inventory": "CASPER BILGISAYAR SISTEMLERI / EXCALIBUR G870 / SKU EXCALIBUR G870 NLXB / board NLXB 001 / BIOS CQ111",
+    "new_lead_check": "Targeted top-level filename-only check for OEM/specification/purchase candidates in existing Downloads and project-parent directories found none; registry did not narrow the commercial suffix",
+    "repeated_web_searches": false,
+    "missing": "OEM/NVIDIA effective Gbit/s per pin or theoretical peak with demonstrated applicability to installed G870/NLXB memory configuration"
+  },
+  "not_established": [
+    "Second physical Windows/CUDA laptop trial",
+    "Physical host identity or arbitrary-machine portability",
+    "CUDA execution or new GPU correctness/sanitizer coverage",
+    "Historical source-to-binary equivalence or performance reproduction",
+    "Raw historical convergence re-audit or derived figure regeneration",
+    "Private provider input reproduction",
+    "Academic submission or live demonstration"
+  ],
+  "log_capture": "Decoded API log response stored in local JSON; selected original timestamped sections published with LF line endings. Not a raw log-archive byte equivalence claim.",
+  "new_local_cpu_builds": 0,
+  "new_formal_benchmark_or_convergence_campaigns": 0
+}

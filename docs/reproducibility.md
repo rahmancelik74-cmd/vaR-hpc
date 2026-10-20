@@ -202,8 +202,9 @@ best OpenMP 8.307208722x; hybrid at 10M did not beat best OpenMP. The new
 access and kernel-scope rates for two N=10M profiles. Official effective memory
 rate/applicable peak and percentage remain unresolved. Profiled timings do not
 replace formal results. Historical denied-access records remain unchanged.
-No new-machine trial, market predictive validity, general race freedom,
-academic delivery or live-demo completion is claimed.
+A remote hosted CPU trial is recorded below. It does not establish a second
+Windows/CUDA laptop trial, market predictive validity, general race freedom,
+academic delivery or live-demo completion.
 
 ## Isolated public portability check, 2026-10-20
 
@@ -243,3 +244,44 @@ execution, plus a bounded OEM manual search that leaves peak/percentage unresolv
 This is same-machine relocation evidence, not a fresh-machine
 trial, historical campaign reproduction or removal of original full-audit
 binary/cache/archive/path dependencies described above.
+
+## Hosted remote CPU reproduction, 2026-10-21
+
+The authorized GitHub Actions hosted environment now exercises sections 1 and 2
+and selected public DRAM verification from a full-history clean checkout.
+Tested source: fda3c64c891a2d9bfd7d325615fef0423a64e0f3; successful first-attempt
+[run 39500451137](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39500451137).
+[Actual logs and source/environment/result record](../evidence/v030-hosted-cpu-reproduction-20261021/README.md)
+show Ubuntu 26.04.1 LTS X64/x86_64, hosted image ubuntu-26.04 version
+20261012.163.1, GNU C++ 15.2.0, Python 3.14.4, CMake/CTest 4.4.4, Git 2.55.0.
+OpenMP ON passes 7/7 CTests; OFF passes 6/6. Each job passes 15 Python tests,
+78-file selected historical integrity and the 14/307 selected DRAM records.
+CUDA and CPU instrumentation tools are explicitly OFF for those two jobs.
+The retained Windows instrumentation smoke job also succeeds; it is separate.
+
+The previous b3b67a4 CI was already a remote hosted CPU build/test result, but
+its shallow checkout and omitted public integrity invocation left that portion
+unexercised. The existing jobs now use fetch-depth=0 and log source/history,
+empty initial git status, OS/architecture and tool versions before the unchanged
+public checks. Dependencies come from the hosted image; no installation or
+artifact upload was added. No separate local CPU rebuild was repeated.
+
+This is a remote hosted-runner CPU reproduction result, not evidence of a
+specific second physical host, a second Windows/CUDA laptop or arbitrary-machine
+portability. Sections 3 and 4 were not executed remotely: their ignored original
+binary/cache/raw/archive dependencies were not supplied. Selected figure hashes
+are checked, but no figures or historical numerical/performance campaign were
+regenerated. CPU success does not repair serial source-to-binary=false, the
+unavailable independent historical OpenMP cache or mixed-revision convergence.
+Private provider inputs remain excluded. The earlier same-machine clone remains
+dated relocation evidence; it is not relabelled as this remote trial.
+
+The evidence pins the tested source and workflow content. Later documentation
+commits have their own exact-SHA publication CI, avoiding a manifest that tries
+to contain its own commit/run identity. No external transfer package or separate
+execution host was needed for this completed public CPU path.
+
+For peak bandwidth, local allowlisted identity/targeted OEM-document checks did
+not produce a new commercial configuration lead. Prior official searches were
+not repeated. An applicable documented effective VRAM rate/peak remains needed;
+theoretical peak and percentages remain unresolved independently of this trial.

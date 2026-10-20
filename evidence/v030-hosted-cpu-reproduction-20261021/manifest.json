@@ -1,0 +1,113 @@
+{
+  "tested_source_sha": "fda3c64c891a2d9bfd7d325615fef0423a64e0f3",
+  "tested_source_tree": "f567df11c9316c7223075110065f3250dba64c63",
+  "tested_workflow_git_blob_content_sha256": "76b4a4fddf9e8579096a12e2d783aa269ab7c1cb4dcc4fac6a71f4469817990d",
+  "selected_files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "44901630dee524418a6016e3e857f14799a9fd73b17a499b6bb3cb8151262cd0"
+    },
+    {
+      "file": "checks.json",
+      "sha256": "305bcb82411ec4dc566b3dd921ea189212e791f8614fefaa4c1b5398e254b0b5"
+    },
+    {
+      "file": "README.md",
+      "sha256": "17fa7c6339e347754f531797af0b431609f6506839cbaa34451d753ebfa2494d"
+    },
+    {
+      "file": "trial.json",
+      "sha256": "69aa2576de9bdf0f5e2f9e240aa198fb2df2986bdb439e9805079310027f9f83"
+    },
+    {
+      "file": "ubuntu-off.excerpt.log",
+      "sha256": "b06799b92222f5f500f28a8b7a19acb6b71d671c8771aaeda7a5896572d89d4e"
+    },
+    {
+      "file": "ubuntu-on.excerpt.log",
+      "sha256": "81c9e70472f1d227f9d95405eb2790802726230eab417c891cc546f690726e19"
+    }
+  ],
+  "immutable_parents": [
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/artifact-sha256.json",
+      "sha256": "3b6a5830520cff86ed8f9b326cc135db0f35aa15e40185736e932a5b371478ff"
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/artifact-sha256.json",
+      "sha256": "bebdd92ae6f2b13c684a817628272c358fb3a3c016d0853dd6218569e540da20"
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/selection-manifest.v2.json",
+      "sha256": "595e0b045cb053e3fcd4708e3b1d5d0853a7426c776217a6c9c5d14508665b67"
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/manifest.json",
+      "sha256": "1804b7d958fcafdb1abbc37d321c9bef1f4e20be744c96110434001fea11abd6"
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/manifest.json",
+      "sha256": "20ae5472f7d102d92d8d92fee2b2da1a61c047152e32551791e6c13d98077681"
+    }
+  ],
+  "local_records_directory": "results/hosted-reproduction-b3b67a4-20261021",
+  "local_files": [
+    {
+      "file": "parent-run.json",
+      "sha256": "6591b3334554bf4ad431ce47b4f81bb7b62ee8740a8fe57c23e0113fc68d763e"
+    },
+    {
+      "file": "parent-jobs.json",
+      "sha256": "9dbd1a252bf961df164cc4ceb41d45ca07362b1bbed9ab1a9ddb4dfefa478956"
+    },
+    {
+      "file": "parent-log-0.json",
+      "sha256": "048522f97ae45b533ae0a9c4f3d8c0f0ea18808907e842a9d7bd59bf89f4d90d"
+    },
+    {
+      "file": "parent-log-1.json",
+      "sha256": "2119d3543d9f0f06444140df90cbf5d4c1f2e8209dd3566d55acf73840445a9f"
+    },
+    {
+      "file": "parent-log-2.json",
+      "sha256": "d0a26d4cafedfd9d915e75da4cb9079d5b261b812992572b436509b62f5795ae"
+    },
+    {
+      "file": "trial-run.json",
+      "sha256": "39c6d0d1ee0821ce9fa612f3cfabbdda12af79280467d0f123578159fa66c3cf"
+    },
+    {
+      "file": "trial-jobs.json",
+      "sha256": "0da5d344195a32cbd93ee69c4d4514d93f1c78a80fe9e70621053e8e9a9d4797"
+    },
+    {
+      "file": "trial-log-0.json",
+      "sha256": "83befb082c492cebd7d4f6be8734dd7abf1f2e6da9edb18805d32652cae5bc7d"
+    },
+    {
+      "file": "trial-log-1.json",
+      "sha256": "f2bb6e2071bffa262679ac246c4d29166f5932ae1501a6d0b8ebd4ec014eb417"
+    },
+    {
+      "file": "trial-windows-log.json",
+      "sha256": "45ddac340f9c556d230a25a96e01d8eb4d4152494934a5af0f67524a71656d10"
+    },
+    {
+      "file": "select_evidence.py",
+      "sha256": "563740ea4238c6ff0e61cd105b1469f336c7f458b35c768f2a7e6a4a18197596"
+    },
+    {
+      "file": "update_docs.py",
+      "sha256": "64aea995091a5bc305ec8259bdac4ffdc0d3a94b670e8691598d82ee1c8a2b7e"
+    },
+    {
+      "file": "validate_package.py",
+      "sha256": "66398f201d1d2f1a408c0ccbc08e3621a9f69a393e2602cd76c6fe302aefe3ed"
+    }
+  ],
+  "local_log_format": "API-decoded text in JSON, not raw downloadable archive bytes",
+  "current_document_hash_dependencies": false,
+  "original_evidence_modified": false,
+  "documented_peak_GBps": null,
+  "percentage_of_peak": null
+}
