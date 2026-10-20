@@ -1,5 +1,42 @@
 # Project state
 
+## Authentic NVIDIA configuration report and supplementary ratios: 2026-10-21
+
+At inspection main 945394aa9715d246a9f27f3aad542931eeafdc87, only AGENTS.md
+and output/ were untracked and preserved. After explicit user reauthorization,
+Computer Use recovered and inspected the actual NVIDIA App > System > My Rig
+details dialog. The supported Copy Text output was saved privately as UTF-8
+without BOM, with original line breaks. The full capture and UI observation
+remain ignored; the [sanitised reference package](../evidence/v030-nvidia-configuration-reference-20261021/README.md)
+retains only necessary fields and distinct exact-byte/provenance bindings.
+No settings, clocks or counter policy were changed.
+
+Report header timestamp is 10/21/2026 00:56:05, NVIDIA App 11.0.9.565,
+driver 610.88, RTX 4060 Laptop. It reports 16.00 Gbps effective data rate,
+128-bit interface and 256.032 GB/s configuration bandwidth. The rounded rate
+yields 256.00 GB/s without any extra DDR factor. The 0.032 GB/s difference is
+compatible with rate-display rounding; 16.002 Gbps is an algebraic implied rate,
+not a separately established exact internal rate. The directly reported
+256.032 GB/s is used only as a labelled class-B NVIDIA App configuration reference.
+
+From original integer counters/durations, full-device is 36.54610877595663%
+and hybrid 9.60865565224468% of that reference. These are archived N=10M/seed42
+cold-cache collected-kernel ratios; transfers and host costs are excluded.
+Neither sustainable peak nor whole-application utilisation is claimed. The
+report is later than profiling and does not establish workload clocks.
+The existing baseline raw/hash audit passed without any new GPU execution.
+
+The authoritative source says "documented GPU peak"; it does not expressly
+decide whether a software-reported configuration reference satisfies that term.
+No acceptance criterion is changed or declared complete here. A published
+applicable OEM/NVIDIA rate specification remains unfound; its historical gap
+and the interpretation of peak acceptance stay open. Fresh calculations have
+focused unit/rounding/rational-arithmetic checks; historical numerical evidence
+and status suffixes remain preserved. No local CPU rebuild, new profiling/simulation
+campaign, optimization or academic work was performed. Formal speedups,
+sanitizer/historical provenance limits and unverified delivery remain unchanged.
+
+
 ## Hosted public CPU reproduction verified: 2026-10-21
 
 Inspection started at main b3b67a42b67be7b28122ac6b31f9908536d1c03a,

@@ -1,0 +1,87 @@
+{
+  "inspection_revision": "945394aa9715d246a9f27f3aad542931eeafdc87",
+  "evidence_class": "B",
+  "published_specification_established": false,
+  "selected_files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d"
+    },
+    {
+      "file": "calculate.py",
+      "sha256": "a52fb7719a300444f1c521fc73928ab8d30ca5156799349a48d7acfcea4d2561"
+    },
+    {
+      "file": "calculation.json",
+      "sha256": "29c3a69f9cc3a2746ebafcc164228ca96501496c43e769f0943963593ef5bbe1"
+    },
+    {
+      "file": "checks.json",
+      "sha256": "0df1ce94fac22bc880f8a88b4e45c61c06576777c573acf340bb97ae61cd0c19"
+    },
+    {
+      "file": "README.md",
+      "sha256": "73129ab6fd94c850d32c80af2778c4f2d89d1dacee14bbce8f546592397fdc39"
+    },
+    {
+      "file": "report-extract.json",
+      "sha256": "4f13887c94e2aad18149437e37406a6562bd4b6ae791d34577d8bc50fc75abaf"
+    }
+  ],
+  "immutable_parents": [
+    {
+      "path": "evidence/v030-dram-baseline-20261020/manifest.json",
+      "sha256": "1804b7d958fcafdb1abbc37d321c9bef1f4e20be744c96110434001fea11abd6"
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/kernel-metrics.json",
+      "sha256": "1f919083ec003837680db85aef452d96cc448e536ae35c6492fd34e81775fd43"
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/verify.py",
+      "sha256": "fc38a30bffd37fcd8b58277f8b742dd43b5985edd274d296f12cdb5dd8eb88d7"
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/manifest.json",
+      "sha256": "20ae5472f7d102d92d8d92fee2b2da1a61c047152e32551791e6c13d98077681"
+    }
+  ],
+  "verification_sources": [
+    {
+      "path": "tests/test_nvidia_configuration_reference.py",
+      "sha256": "e62eac5af8c875ab2b765e7bafe591cc1a48752a6724ff5bf86f3e0c3984652c"
+    }
+  ],
+  "local_records_directory": "results/nvidia-system-information-945394a-20261021",
+  "local_files": [
+    {
+      "file": "nvidia-system-information.full.txt",
+      "sha256": "7d6d55a090d3a0616ad29252a47ddd12c05025b379632ff95eb9029f4c21b220"
+    },
+    {
+      "file": "ui-observation.full.json",
+      "sha256": "fea972637f821225b5a2b2cde6e476740055c2923a4b960ecddad35571cf2a07"
+    },
+    {
+      "file": "capture-provenance.json",
+      "sha256": "10af149fe3628612d21720b533935e55f17d95b8231f0a5ac2321a71c31fed4c"
+    },
+    {
+      "file": "prepare_reference.py",
+      "sha256": "fde8b9738595a723cd420d088789e59f2918aab8e2bdf9a97d03b12071aea3f8"
+    },
+    {
+      "file": "update_docs.py",
+      "sha256": "f685b0fa6ee3fae0aa6d9d6d1db223b82a41bbeffc2ef65cf886a0b57afec0b3"
+    },
+    {
+      "file": "validate_reference.py",
+      "sha256": "e46dcf6abaad3b35f8a5fb4628bbb11f9da59ec2f619cac8651e054c98091f44"
+    }
+  ],
+  "configuration_reference_GBps": "256.032",
+  "published_specification_peak_GBps": null,
+  "current_document_hash_dependencies": false,
+  "original_report_is_published": false,
+  "local_report_format": "Supported Copy Text capture as UTF-8 without BOM; not native Save export bytes"
+}

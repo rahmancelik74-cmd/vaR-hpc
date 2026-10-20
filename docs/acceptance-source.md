@@ -116,3 +116,20 @@ primary CPU/GPU benchmark at 89536e3 is complete;
 its full-device serial speedup at N=10000000 is 9.7399305240447234x, below the
 unchanged 10x target. See cpu-gpu-benchmark.md for all rows and limits. Proposal
 identity is no longer pending. None establishes market predictive validity.
+
+## Supplementary installed-device reference, 2026-10-21
+
+The operative source wording above remains achieved DRAM GB/s and percentage
+of documented GPU peak. It does not expressly settle whether first-party
+software reporting an installed configuration satisfies that phrase. The new
+[NVIDIA App report/reference](../evidence/v030-nvidia-configuration-reference-20261021/README.md)
+therefore provides a separately labelled class-B comparison, without changing
+the source criterion or asserting its peak-reporting acceptance is complete.
+The actual device report gives 16.00 Gbps, 128-bit and 256.032 GB/s. Against
+the last value, archived kernel-scope rates are 36.54610877595663% full-device
+and 9.60865565224468% hybrid. The displayed effective rate yields 256.00 GB/s;
+the 0.032 difference is compatible with rate-display rounding, not proof of an
+exact hidden rate. No extra DDR factor is applied. These are configuration-
+reference ratios, not sustainable peak or end-to-end utilisation. The historical
+failure to locate an applicable published OEM/NVIDIA rate specification remains
+unchanged; that gap and the acceptance interpretation remain open.

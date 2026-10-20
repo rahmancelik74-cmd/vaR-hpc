@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "focused_calculation_tests_passed": 7,
+  "focused_test_command": "python -B -m unittest discover -s tests -p test_nvidia_configuration_reference.py -v",
+  "original_copied_report_exact_bytes_unchanged": true,
+  "original_capture_sha256": "7d6d55a090d3a0616ad29252a47ddd12c05025b379632ff95eb9029f4c21b220",
+  "six_field_extract_lines_match_private_original": true,
+  "private_full_report_ignored": true,
+  "no_native_save_export_claim": true,
+  "public_extract_is_explicitly_sanitised": true,
+  "current_relative_links_verified": 40,
+  "FR_NFR_criterion_cells_unchanged": 18,
+  "acceptance_register_original_content_preserved": true,
+  "historical_status_suffix_git_content_preserved": true,
+  "historical_raw_hashes_and_current_document_checks_separate": true,
+  "immutable_parent_bytes_verified_against_inspection_git": 4,
+  "numerical_engine_and_workflow_sources_unchanged": true,
+  "new_profiling_or_simulation_processes": 0,
+  "original_dram_verifier_with_local_raw_records": "passed: 14 full-device and 307 hybrid; exact raw projection/hash bindings",
+  "public_packet_ascii": true,
+  "published_specification_gap_closed": false
+}

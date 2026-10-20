@@ -285,3 +285,28 @@ For peak bandwidth, local allowlisted identity/targeted OEM-document checks did
 not produce a new commercial configuration lead. Prior official searches were
 not repeated. An applicable documented effective VRAM rate/peak remains needed;
 theoretical peak and percentages remain unresolved independently of this trial.
+
+## Supplementary NVIDIA configuration reference, 2026-10-21
+
+A later authentic local NVIDIA App System Information report now supplies a
+class-B installed-configuration reference, separately from the unresolved
+published-specification route described above. The complete supported Copy Text
+capture stays ignored/private; a sanitised exact-label extract, provenance and
+read-only calculation are in the
+[reference record](../evidence/v030-nvidia-configuration-reference-20261021/README.md).
+Its 256.032 GB/s field is the denominator for archived cold-cache collected-
+kernel ratios, 36.54610877595663% and 9.60865565224468%. No original profiling,
+simulation, local CPU build or figure rendering was repeated. This does not alter
+the earlier remote-trial scope or close published-peak/acceptance interpretation.
+
+```text
+python -B evidence/v030-nvidia-configuration-reference-20261021/calculate.py --check
+python -B -m unittest discover -s tests -p test_nvidia_configuration_reference.py -v
+```
+
+The stdlib calculation checks selected/parent hashes and reuses the unchanged
+baseline integer-counter validation; public checking needs no clipboard/GPU or
+private full report. A provenance holder can separately verify the full local
+capture's exact bytes against the new manifest. The sanitised public extract is
+not represented as the original full report. Existing numerical/raw manifests
+and historical snapshot/Git checks remain strict and unchanged.

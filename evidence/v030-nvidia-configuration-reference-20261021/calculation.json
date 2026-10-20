@@ -1,0 +1,33 @@
+{
+  "reference_label": "NVIDIA App System Information-reported configuration bandwidth",
+  "reference_GBps": "256.032",
+  "effective_rate_display_Gbps": "16.00",
+  "interface_bits": 128,
+  "bandwidth_from_displayed_rate_GBps": "256.00",
+  "reported_minus_display_derived_GBps": "0.032",
+  "rate_implied_by_bandwidth_Gbps": "16.002",
+  "implied_rate_is_not_an_independently_reported_exact_rate": true,
+  "difference_compatible_with_displayed_rate_rounding": true,
+  "extra_DDR_factor_used": false,
+  "published_specification_gap_closed": false,
+  "scope": "Cold-cache collected-kernel byte/duration ratio; transfers and host costs excluded",
+  "sustainable_peak_or_whole_application_utilisation_claimed": false,
+  "results": {
+    "full-device": {
+      "kernels": 14,
+      "read_bytes": 834700672,
+      "write_bytes": 700582528,
+      "duration_ns": 16407904,
+      "measured_GBps": "93.569733221257267229257314035967055877460033895859",
+      "percentage_of_nvidia_app_reported_configuration_bandwidth": "36.546108775956625433249482110035876717543132848964"
+    },
+    "hybrid": {
+      "kernels": 307,
+      "read_bytes": 258276736,
+      "write_bytes": 0,
+      "duration_ns": 10498528,
+      "measured_GBps": "24.601233239555107154069599090462967760813706454848",
+      "percentage_of_nvidia_app_reported_configuration_bandwidth": "9.6086556522446831466651040067112578743335623886263"
+    }
+  }
+}

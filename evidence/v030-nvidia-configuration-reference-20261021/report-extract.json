@@ -1,0 +1,58 @@
+{
+  "evidence_class": "B",
+  "published_specification_established": false,
+  "classification": "First-party NVIDIA software report of this installed device configuration; not a published OEM specification or runtime-clock observation",
+  "inspection_revision": "945394aa9715d246a9f27f3aad542931eeafdc87",
+  "source_ui": "NVIDIA App > System / My Rig > View More System Details > Copy Text",
+  "report_header_as_copied": "NVIDIA Sistem Bilgileri raporu. Olu\u015fturulma tarihi:10/21/2026 00:56:05",
+  "report_timestamp_as_written": "10/21/2026 00:56:05",
+  "timestamp_timezone_in_report": false,
+  "system_timezone_observed": "Turkey Standard Time / UTC+03:00",
+  "fields": {
+    "app_version": {
+      "label": "NVIDIA App s\u00fcr\u00fcm\u00fc",
+      "value": "11.0.9.565",
+      "source_line": "NVIDIA App s\u00fcr\u00fcm\u00fc: 11.0.9.565"
+    },
+    "driver": {
+      "label": "S\u00fcr\u00fcc\u00fc",
+      "value": "Game Ready S\u00fcr\u00fcc\u00fc - 610.88 - Tue Jul 28, 2026",
+      "source_line": "S\u00fcr\u00fcc\u00fc: Game Ready S\u00fcr\u00fcc\u00fc - 610.88 - Tue Jul 28, 2026"
+    },
+    "gpu": {
+      "label": "GPU",
+      "value": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "source_line": "GPU: NVIDIA GeForce RTX 4060 Laptop GPU"
+    },
+    "memory_data_rate": {
+      "label": "Bellek veri h\u0131z\u0131",
+      "value": "16.00 Gbps",
+      "source_line": "Bellek veri h\u0131z\u0131: 16.00 Gbps"
+    },
+    "memory_interface": {
+      "label": "Bellek aray\u00fcz\u00fc",
+      "value": "128-bit",
+      "source_line": "Bellek aray\u00fcz\u00fc: 128-bit"
+    },
+    "memory_bandwidth": {
+      "label": "Bellek bant geni\u015fli\u011fi",
+      "value": "256.032 GB/saniye",
+      "source_line": "Bellek bant geni\u015fli\u011fi: 256.032 GB/saniye"
+    }
+  },
+  "sanitised": true,
+  "exact_byte_original": false,
+  "original_capture": "Supported Copy Text output, read from clipboard and saved as UTF-8 without BOM; line breaks preserved. Not a native Save export byte-equivalence claim.",
+  "original_private_path": "results/nvidia-system-information-945394a-20261021/nvidia-system-information.full.txt",
+  "original_capture_sha256": "7d6d55a090d3a0616ad29252a47ddd12c05025b379632ff95eb9029f4c21b220",
+  "private_ui_observation_sha256": "fea972637f821225b5a2b2cde6e476740055c2923a4b960ecddad35571cf2a07",
+  "omitted": "Other report sections, hardware identifiers, video BIOS, part/bus details, display/storage/system inventory not required for this calculation",
+  "first_party_application": {
+    "company_name": "NVIDIA Corporation",
+    "product_version": "11.0.9.565",
+    "file_version": "128.4.13.34",
+    "executable_sha256": "d5cb6998ed820d389748c39cb63f7d3a83ffa08cec2c3cc2d4e5f621e76ae2b9"
+  },
+  "report_guide_url": "https://images.nvidia.com/content/Solutions/data-center/deployment-guide-vgpu-software-citrix-apps-desktops-citrix-hypervisor.pdf",
+  "guide_applicability": "Section 8.6 demonstrates NVIDIA System Information. Its example hardware values are not used for this laptop."
+}

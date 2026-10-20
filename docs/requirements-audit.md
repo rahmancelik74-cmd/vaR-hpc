@@ -28,6 +28,8 @@ independently reviewed in
 Earlier denied-access packages are historical parents, not current blockers.
 H = [v030-hosted-cpu-reproduction-20261021](../evidence/v030-hosted-cpu-reproduction-20261021/README.md),
 the remote hosted CPU build/public-integrity trial with actual log excerpts.
+N = [v030-nvidia-configuration-reference-20261021](../evidence/v030-nvidia-configuration-reference-20261021/README.md),
+a supplementary class-B NVIDIA App configuration report/reference calculation.
 See each README/manifest for source and limits.
 GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 [gpu-acceptance.md](gpu-acceptance.md) defines its coverage and tool limits.
@@ -56,7 +58,7 @@ GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 | NFR-4 | 0 personal/patient records; document every price dataset's source/range/reuse/adjustment | synthetic fixture; equity importer; historical-data.md, data-rights-and-calendar.md | Computational inputs are synthetic or market prices; provider provenance/rights documented with local hashes | Private permission correspondence is user-supplied, not independently authenticated; no redistribution of raw prices; no assertion repository metadata contains no personal names |
 | NFR-5 | At N=10000000, seeds 42,123,456,789,2026 per engine: abs(mean(VaR)-analytical) <= .01*max(abs(analytical),.01*V0), separately .95/.99 | convergence-audit.ps1; F independent Python statistics | Demonstrated one nondegenerate fixed synthetic case; eight rows pass; R re-audit passes | Not per-seed acceptance, MAE, monotonic-error requirement or universal MC guarantee; serial source-to-binary=false and mixed builds remain |
 | NFR-6 | Double, common nearest-rank ceil(alpha*N)-1; common-input VaR absolute difference <= .00001*V0; separate memory/race checks | CPU/GPU common-input tests and gpu-acceptance.md | Demonstrated recorded common-input cases; representative Compute Sanitizer findings archived | Sanitizer does not prove general global-memory race freedom or CPU host-buffer safety; numerical agreement is not a memory-safety proof |
-| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Satisfied within recorded timing scope: P has 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | B separately satisfies measured kernel-scope DRAM reporting for two cold-cache profiles; applicable documented peak/percentage is an evidence gap |
+| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Satisfied within recorded timing scope: P has 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | B separately satisfies measured kernel-scope DRAM reporting for two cold-cache profiles. N adds percentages against NVIDIA App-reported configuration bandwidth only; applicable published peak and original peak-acceptance interpretation remain open |
 | NFR-8 | Exact-byte SHA-256 and Git dirty state per experiment; two same-build/input/seed/backend runs reproduce VaR excluding timing | recorder manifests; serial exact repeat test, OpenMP native invariance; archived P repeated estimates | Demonstrated recorded same-build cases; R checks all 24 P configurations' 13 pairs of VaRs are identical | Not cross-library/build/engine bitwise reproducibility. Historical serial source-to-binary=false; O has no published independent standalone cache; archives/builds ignored and not public-clone-complete |
 | NFR-9 | Release build: 0 build errors, all registered tests pass, >=1 successful basic CI | CMake/CTest and .github/workflows/build.yml | Satisfied within recorded CPU build/CI scope: R Windows ON 13/13, OFF 12/12; same-machine relocation passed all 13 across initial/recheck attempts. H hosted Ubuntu ON 7/7, OFF 6/6, 15 Python tests/job and 78 public artifacts passed; exact source fda3c64c891a2d9bfd7d325615fef0423a64e0f3, run 39500451137 passed 3/3 | H is remote hosted CPU evidence, not a second Windows/CUDA laptop, arbitrary-machine or historical performance reproduction. R remains same-machine CPU-only evidence; archived CUDA binary reused without rebuilding; initial SDK failures preserved |
 
@@ -68,8 +70,17 @@ Counter access succeeded; no new administrator action is required for that sessi
 The independent raw review checks all 321 launch IDs, per-process/device/context/
 stream identity, ten stage/aggregate sums and 13 primary result pairs per mode.
 The OEM manual catalog adds two inspected G870 manuals; neither technical table
-documents an applicable effective memory rate. Applicable peak/percentage remain
-an evidence gap, not an access-permission limitation. NFR-1 is a measured target
+documents an applicable effective memory rate. A later authentic local NVIDIA
+App Copy Text report (N, 11.0.9.565, 10/21/2026 00:56:05, driver 610.88)
+reports 16.00 Gbps / 128-bit / 256.032 GB/s. This is class B, not a published
+OEM specification or runtime MHz. Archived integer counters give 36.54610877595663%
+full-device and 9.60865565224468% hybrid relative to that directly reported
+configuration bandwidth, with the original cold-cache kernel-only scope.
+The source criterion says "documented GPU peak" without expressly deciding
+whether such a device report suffices. This supplement does not decide that
+interpretation or close peak acceptance; the applicable published-specification
+gap remains an evidence gap, not an access-permission limitation.
+NFR-1 is a measured target
 not met; demonstrated checks elsewhere are satisfied only within their recorded
 scope. Missing historical provenance remains an evidence gap. H now establishes
 remote hosted CPU source build/tests and selected public integrity. Independent
