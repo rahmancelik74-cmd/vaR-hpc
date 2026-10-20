@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "per_seed_rows": 160,
+  "summary_groups": 32,
+  "separate_acceptance_rows": 8,
+  "delivery_hashes_verified": 22,
+  "method": "Independent fixture log returns/two-pass variance; fsum means, sample SD, MAE, RMSE and unchanged 10M acceptance",
+  "current_artifact_bindings": 20,
+  "historical_document_snapshots": 2
+}

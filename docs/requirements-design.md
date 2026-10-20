@@ -1,5 +1,9 @@
 # Requirements and Design Document
 
+Current technical evidence mapping: [FR/NFR audit](requirements-audit.md).
+The R01-R14/B01-B02 draft and its dated statuses below are preserved; the audit
+adds a clearly identified crosswalk without renumbering these older labels.
+
 Status: initial draft v0.1. This is a basis for the content of the at-most-eight-
 page v1.0 document to be submitted to the supervisor, not the final approved
 submission. The requirement IDs and snapshot statuses below are retained from

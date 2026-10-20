@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Offline convergence provenance tests (no simulations)
-        run: python3 -B -m unittest discover -s tests -p test_convergence_figures.py -v
+        run: python3 -B -m unittest discover -s tests -p 'test_*.py' -v
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }} -DMC_ENABLE_CUDA=OFF
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure

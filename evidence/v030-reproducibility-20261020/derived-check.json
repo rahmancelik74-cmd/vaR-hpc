@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "plotted_data": "exact equality to verified selected data",
+  "curve_points": 96,
+  "seed_points": 160,
+  "acceptance_points": 8,
+  "png_pixels_equal": [
+    "01_error_vs_scenarios.png",
+    "02_seed_signed_errors.png",
+    "03_seed_standard_deviation.png",
+    "04_separate_10m_acceptance.png"
+  ],
+  "new_pdf_renders": 0,
+  "plotting_code_changed": false,
+  "repeatability_configurations": 24,
+  "archived_repetitions_per_configuration": 13,
+  "all_estimate_pairs_identical": true,
+  "new_campaign_runs": 0
+}

@@ -2,6 +2,11 @@
 
 Abdurrahman Celik - application v0.3.0, 16 October 2026.
 
+Technical [reproducibility entry point](docs/reproducibility.md) and
+[FR/NFR evidence audit](docs/requirements-audit.md): distinguish clean software
+builds, selected public integrity checks, local raw archives and offline figures.
+Bandwidth reporting and academic delivery remain open.
+
 Current OpenMP implementation and verification procedure:
 [docs/openmp.md](docs/openmp.md). Serial remains the default backend.
 Fresh CPU scaling procedure and recorded limits:

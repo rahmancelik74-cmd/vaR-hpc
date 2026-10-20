@@ -1,0 +1,7 @@
+{
+    "status":  "passed",
+    "runs":  80,
+    "values":  160,
+    "complete":  true,
+    "method":  "Existing independent PowerShell audit functions, read-only; no original audit rewritten"
+}

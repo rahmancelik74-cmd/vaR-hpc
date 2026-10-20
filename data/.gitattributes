@@ -1,0 +1,2 @@
+# Preserve the published synthetic fixture's exact-byte evidence hash.
+synthetic_prices.csv -text

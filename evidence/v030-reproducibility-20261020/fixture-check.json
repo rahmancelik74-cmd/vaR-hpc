@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "git_filtered_fixture_sha256_by_autocrlf": {
+    "true": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+    "false": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210"
+  },
+  "historical_fixture_bytes_changed": false
+}

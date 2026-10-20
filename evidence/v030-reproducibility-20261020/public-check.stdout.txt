@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "scope": "selected-public-artifact-integrity",
+  "inventory_snapshot": "b9745be08a477b3648afc8499b07fb2ae4aec165",
+  "verified_artifact_counts": {
+    "evidence/v030-primary-benchmark-windows-20261019": 22,
+    "evidence/v030-cuda-stage-diagnostics-windows-20261019": 32,
+    "evidence/v030-convergence-figures-20261020-v2": 24
+  },
+  "local_convergence": "not requested; raw execution provenance not reverified",
+  "new_engine_processes": 0
+}

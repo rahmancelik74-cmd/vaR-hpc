@@ -1,5 +1,21 @@
 # Project state
 
+## Technical reproducibility and FR/NFR audit: 2026-10-20
+
+[reproducibility.md](reproducibility.md) now separates public build/integrity
+checks, local hash-bound numerical/raw evidence and offline figure regeneration.
+[requirements-audit.md](requirements-audit.md) maps all nine FR and nine NFR IDs
+without replacing the older draft labels. The private populated review draft
+was read and hash-identified; approval/submission of that document is unverified.
+At base b9745be, new isolated same-machine Windows CPU Release builds passed
+13/13 OpenMP ON and 12/12 OFF CTests, with CUDA/tools OFF. Fifteen Python checks
+pass, including real CSV corruption rejection. Selected public inventories,
+independent 80/160 convergence recalculation and existing-data figure reproduction
+are verified in the [new technical record](../evidence/v030-reproducibility-20261020/README.md).
+This is not a fresh-machine or new common-build historical campaign. Historical
+manifests/build limitations remain. The 10x target, counter/peak/DRAM reporting
+and academic/live delivery remain unresolved; overall completion is not claimed.
+
 ## Baseline bandwidth access investigated: 2026-10-20
 
 The [new bounded investigation](../evidence/v030-bandwidth-access-20261020/README.md)

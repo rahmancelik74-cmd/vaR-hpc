@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "source_base": "b9745be08a477b3648afc8499b07fb2ae4aec165",
+  "new_machine_trial": false,
+  "build_type": "new isolated directories on original Windows machine",
+  "configurations": [
+    {
+      "openmp": "ON",
+      "cuda": "OFF",
+      "cpu_tools": "OFF",
+      "discovered": 13,
+      "passed": 13,
+      "tests": [
+        "cuda_plan_tests",
+        "core_tests",
+        "json_output_tests",
+        "csv_calibration_tests",
+        "csv_cli_smoke",
+        "cli_contract_tests",
+        "openmp_tests",
+        "convergence_statistics_contract",
+        "unified_benchmark_contract",
+        "gpu_recorder_contract",
+        "demo_recorder_tests",
+        "equity_calendar_tests",
+        "equity_import_tests"
+      ]
+    },
+    {
+      "openmp": "OFF",
+      "cuda": "OFF",
+      "cpu_tools": "OFF",
+      "discovered": 12,
+      "passed": 12,
+      "tests": [
+        "cuda_plan_tests",
+        "core_tests",
+        "json_output_tests",
+        "csv_calibration_tests",
+        "csv_cli_smoke",
+        "cli_contract_tests",
+        "convergence_statistics_contract",
+        "unified_benchmark_contract",
+        "gpu_recorder_contract",
+        "demo_recorder_tests",
+        "equity_calendar_tests",
+        "equity_import_tests"
+      ]
+    }
+  ],
+  "ascii_source_test_files": 63,
+  "new_document_relative_links": "passed"
+}
