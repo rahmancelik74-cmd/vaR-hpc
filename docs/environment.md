@@ -1,5 +1,13 @@
 # Target machine inventory
 
+Read-only registry inventory on 2026-10-20 additionally identifies Casper
+Excalibur G870, SKU EXCALIBUR G870 NLXB, board NLXB 001 and BIOS CQ111.
+[Bandwidth investigation evidence](../evidence/v030-bandwidth-access-20261020/README.md)
+records the identity source, current driver/tool observations and unresolved
+OEM memory data rate. This does not identify a full commercial configuration
+suffix or establish documented peak bandwidth. Earlier inventory below remains
+dated evidence.
+
 These values describe the student's project computer. Hardware on the
 assistant's execution server is not used as the benchmark hardware.
 

@@ -1,0 +1,2 @@
+Independent integrity passed: 160 values, 32 groups, 8 acceptance rows
+{'selected_files': 24, 'parent_manifests': 2, 'tracked_release_content': 5, 'local_visual_proofs': 11}

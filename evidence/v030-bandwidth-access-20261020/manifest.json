@@ -1,0 +1,181 @@
+{
+    "schema_version":  1,
+    "purpose":  "Bounded counter-access investigation; no bandwidth closure; excludes this manifest",
+    "inspection_revision":  "35338cdc462aea88b37ed07a7d2b759138480f96",
+    "status":  "blocked-counter-permission-and-documentation-gap",
+    "counter_access":  "ERR_NVGPUCTRPERM",
+    "discovery_exit_code":  0,
+    "diagnostic_process_count":  3,
+    "native_simulation_process_count":  0,
+    "profiled_kernel_count":  0,
+    "measured_dram_gbs":  null,
+    "documented_peak_gbs":  null,
+    "percentage_of_documented_peak":  null,
+    "permission_settings_changed":  false,
+    "profiler_sha256":  "1f6fffa8f45372d5bf7073c2e4bc751449715f5d8f98ab714112b6a972f1e72b",
+    "focused_tests_passed":  11,
+    "convergence_values_verified":  160,
+    "summary_groups_verified":  32,
+    "separate_acceptance_rows_verified":  8,
+    "figure_inventory":  {
+                             "selected_files":  24,
+                             "parent_manifests":  2,
+                             "release_content_at_35338cd":  5,
+                             "local_visual_proofs":  11
+                         },
+    "selected_files":  [
+                           {
+                               "file":  ".gitattributes",
+                               "sha256":  "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+                           },
+                           {
+                               "file":  "counter-discovery.stderr.txt",
+                               "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                           },
+                           {
+                               "file":  "counter-discovery.stdout.txt",
+                               "sha256":  "ef0fe1c729c95b62f944a2002e75a425ea1716a6b9da415172d2c83bad324b30"
+                           },
+                           {
+                               "file":  "focused-check.stderr.txt",
+                               "sha256":  "690fd2269dd42ccf27feebb0e363b4728baced54e51ff6b4d7164bf95e4170b5"
+                           },
+                           {
+                               "file":  "gpu-inventory.stdout.txt",
+                               "sha256":  "164025f3c3dfa3e6f35b1c69eceefbd5052c089af2f634c57c6bbc4bf9c10639"
+                           },
+                           {
+                               "file":  "integrity-check.stdout.txt",
+                               "sha256":  "8c6931d3be8a59a2b6ce8decc85bc1a6692b431dacb5035bb648e581c1935a56"
+                           },
+                           {
+                               "file":  "ncu-version.stdout.txt",
+                               "sha256":  "8066827ce7533ba106250999f6f9c9ff0afd0636ed1d248549e7fd558001d37f"
+                           },
+                           {
+                               "file":  "oem-inventory.json",
+                               "sha256":  "d9adebbf9d0a3fbf992cf2b10d92f3e5e828ddff9f1cc50cd9e0f9a254f5a972"
+                           },
+                           {
+                               "file":  "README.md",
+                               "sha256":  "f1708e1cd4031bbbe65a42e901eba8a279a5b1b34375f1197a958b1b5b4a6957"
+                           }
+                       ],
+    "current_documents":  [
+                              {
+                                  "path":  "docs/project-state.md",
+                                  "git_blob_oid":  "dce934f84db70422188a28b51d0c43f22e68495f",
+                                  "attestation":  "Current document Git content; not a numerical or historical raw-byte dependency"
+                              },
+                              {
+                                  "path":  "docs/cpu-gpu-benchmark.md",
+                                  "git_blob_oid":  "c464e1dfe401cb10f835d61fdde9614f67780690",
+                                  "attestation":  "Current document Git content; not a numerical or historical raw-byte dependency"
+                              },
+                              {
+                                  "path":  "docs/environment.md",
+                                  "git_blob_oid":  "e7f8b88df0688cf77118cd349aa41fa2959cd54d",
+                                  "attestation":  "Current document Git content; not a numerical or historical raw-byte dependency"
+                              }
+                          ],
+    "local_records":  [
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/check-convergence-v2.py",
+                              "sha256":  "32e3fa64ade1a9c8a1d4f99829d0f6fe21d6b242804d7afce723305d0927e08b"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/check-convergence.py",
+                              "sha256":  "eb659f1b60a69fbfdfe5d718e31f4ca8be6960f77aed7856aaf5b48edfca2879"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/convergence-integrity.json",
+                              "sha256":  "9932fd4a3935e66408f52a159640062e5e3746056d35c923866f4060cdeac07e"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/counter-discovery.process.json",
+                              "sha256":  "f8ac9a0259f7d116d91df0142237f1ab2160292ffbf6e2f6670a939bbf77cb61"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/counter-discovery.stderr.txt",
+                              "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/counter-discovery.stdout.txt",
+                              "sha256":  "ef0fe1c729c95b62f944a2002e75a425ea1716a6b9da415172d2c83bad324b30"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/focused-check.process.json",
+                              "sha256":  "bd93b339d95858121974098e1beeb8ea59c7a4a82d25d4d613036afe189fb66d"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/focused-check.stderr.txt",
+                              "sha256":  "690fd2269dd42ccf27feebb0e363b4728baced54e51ff6b4d7164bf95e4170b5"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/focused-check.stdout.txt",
+                              "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/focused-tests.txt",
+                              "sha256":  "10ad2ccb23b1d90351c83a0793c7aaee15e597c89a9b6d7883b9e2661f62e3bf"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/gpu-inventory.process.json",
+                              "sha256":  "35c5adeb7569c7e5a83526203849fbdc5ebcf5c95b40b4f234a622cb2a04886d"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/gpu-inventory.stderr.txt",
+                              "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/gpu-inventory.stdout.txt",
+                              "sha256":  "164025f3c3dfa3e6f35b1c69eceefbd5052c089af2f634c57c6bbc4bf9c10639"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/integrity-check.process.json",
+                              "sha256":  "fbcae7ec578d06a784bc8ffc7ade58f66feb965305878ae89ec7bcecf49af6c0"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/integrity-check.stderr.txt",
+                              "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/integrity-check.stdout.txt",
+                              "sha256":  "8c6931d3be8a59a2b6ce8decc85bc1a6692b431dacb5035bb648e581c1935a56"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/ncu-version.process.json",
+                              "sha256":  "607abd0e0b81208157958bb15f5233326cd1aaf1cbbb964b58b5375fbdb3aa38"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/ncu-version.stderr.txt",
+                              "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/ncu-version.stdout.txt",
+                              "sha256":  "8066827ce7533ba106250999f6f9c9ff0afd0636ed1d248549e7fd558001d37f"
+                          },
+                          {
+                              "path":  "results/bandwidth-investigation-35338cd-20261020-attempt1/oem-inventory.json",
+                              "sha256":  "d9adebbf9d0a3fbf992cf2b10d92f3e5e828ddff9f1cc50cd9e0f9a254f5a972"
+                          }
+                      ],
+    "historical_discovery":  [
+                                 {
+                                     "path":  "results/benchmark-prep-df34111-clean-20261019-smoke/bandwidth-preparation.json",
+                                     "sha256":  "927ce6f196dbd02e123e9510bb306b5e159dc859341687a1f5007a955c8ec135"
+                                 },
+                                 {
+                                     "path":  "results/benchmark-prep-df34111-clean-20261019-smoke/ncu-discovery.stdout.txt",
+                                     "sha256":  "ef0fe1c729c95b62f944a2002e75a425ea1716a6b9da415172d2c83bad324b30"
+                                 },
+                                 {
+                                     "path":  "results/benchmark-prep-df34111-clean-20261019-smoke/ncu-discovery.stderr.txt",
+                                     "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                 },
+                                 {
+                                     "path":  "results/benchmark-prep-df34111-clean-20261019-smoke/ncu-discovery.process.json",
+                                     "sha256":  "3ea3e8d3f3d921c2ecd02eecb5fc21fab236b958fc6e911eeeba51aff1a92859"
+                                 }
+                             ]
+}

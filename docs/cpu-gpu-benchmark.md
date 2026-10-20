@@ -172,6 +172,13 @@ files. Dirty development snapshots still require their matching local files.
 
 ## Bandwidth discovery and unresolved limits
 
+The [2026-10-20 bounded access investigation](../evidence/v030-bandwidth-access-20261020/README.md)
+reconfirms the permission error without launching a workload. It identifies the
+Casper G870/NLXB family and checks official NVIDIA/OEM specifications; effective
+memory data rate and applicable theoretical peak remain unresolved. The record
+includes the current Windows administrator remedy. It does not close baseline
+DRAM reporting or authorize system changes. Historical discovery below is retained.
+
 Optional `-DiscoverBandwidth` performs version/metric discovery only, outside
 samples. It does not launch Nsight profiling. bandwidth-preparation.json records
 tool absence/error, ERR_NVGPUCTRPERM, incomplete metric discovery or discovery-only

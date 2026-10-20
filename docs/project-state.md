@@ -1,5 +1,21 @@
 # Project state
 
+## Baseline bandwidth access investigated: 2026-10-20
+
+The [new bounded investigation](../evidence/v030-bandwidth-access-20261020/README.md)
+reconfirmed ERR_NVGPUCTRPERM with Nsight Compute 2026.3.1.0 and driver 610.88.
+Read-only registry inventory identifies Casper Excalibur G870 / NLXB. NVIDIA
+and Casper document 8 GB GDDR6 / 128-bit for the relevant GPU/family, but no
+applicable effective memory data rate was established. Runtime memory MHz is
+not substituted for documented peak. Achieved DRAM GB/s and percentage of peak
+remain unavailable. An administrator must provide counter access using NVIDIA's
+documented Windows procedure; this task changed no settings and ran no engine.
+Independent convergence integrity remains valid (160 values, 32 groups, eight
+acceptance rows), with 11 provenance tests passing. Historical evidence is
+unchanged. Counter access, applicable documented peak and subsequent focused
+profiling remain open, separately from optional Plan B optimization and final
+reproducibility/delivery work.
+
 ## Offline convergence figures verified and provenance corrected: 2026-10-20
 
 Four figure families now document analytical error versus N, all per-seed signed
