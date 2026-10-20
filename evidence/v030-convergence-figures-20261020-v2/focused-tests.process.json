@@ -1,0 +1,21 @@
+{
+    "executable":  "C:/Users/rahma/anaconda3/python.exe",
+    "arguments":  [
+                      "-B",
+                      "-m",
+                      "unittest",
+                      "discover",
+                      "-s",
+                      "tests",
+                      "-p",
+                      "test_convergence_figures.py",
+                      "-v"
+                  ],
+    "started_utc":  "2026-10-20T00:44:51.9610407Z",
+    "stdout":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-figure-closure-tests-20261020.stdout.txt",
+    "stderr":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-figure-closure-tests-20261020.stderr.txt",
+    "exit_code":  0,
+    "timed_out":  false,
+    "start_error":  null,
+    "finished_utc":  "2026-10-20T00:44:55.7781646Z"
+}

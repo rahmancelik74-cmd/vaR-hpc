@@ -1,0 +1,195 @@
+{
+  "schema_version": 2,
+  "purpose": "Selected derived figures, exact historical parent integrity, and separate current release content",
+  "generation_base_revision": "390ffa670960f83a0de4fb0b9cd595cb03cdbc8e",
+  "engine_tested_source_revision": "b5f1a0f5b72bca8f1f21555236d938501f7faee8",
+  "parent_manifests": [
+    {
+      "path": "evidence/v030-convergence-figures-20261020/selection-manifest.json",
+      "sha256": "4d18c677f56e5302f81839d86af1d51f9b262cf933b6d9e40566ab4cadce0de1"
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/delivery-manifest.json",
+      "sha256": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e"
+    }
+  ],
+  "selected_files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "file": "01_error_vs_scenarios.svg",
+      "sha256": "388520b8f845acd570adb5d3a57b3b78ac27b39127d38c7bc83741fe885d00f1"
+    },
+    {
+      "file": "02_seed_signed_errors.svg",
+      "sha256": "c0be2bb8592f92ca0e441af4b05961c9a07a4f0d0a479a1ba1baf40b99c88eb5"
+    },
+    {
+      "file": "03_seed_standard_deviation.svg",
+      "sha256": "9691dde430e8bcab2b51fd6cf260c43d185a196687fb88805c1428877839b86f"
+    },
+    {
+      "file": "04_separate_10m_acceptance.svg",
+      "sha256": "1912681af40433c5d1bbbe774cc411982794df06248da7e4d1ef49d94415ced1"
+    },
+    {
+      "file": "convergence_figures.pdf",
+      "sha256": "754cceeae32001fa436befe7a1181d5a70dddcd23a083770ba31acee263838a0"
+    },
+    {
+      "file": "convergence_figures.py",
+      "sha256": "eafef1b54e8948c9e93f1abd3dec777b201fd140e0f1c03daa6ce5910c571397"
+    },
+    {
+      "file": "figure-manifest.json",
+      "sha256": "b7827c82f7915398ab6f0ccb9c6ad9ae2df9c9c395a38857ff18dd0c7ea25143"
+    },
+    {
+      "file": "focused-tests.process.json",
+      "sha256": "dca09d67f5b5436c4a578c2b99ac57bd504b849ed51074e0c3a6126da8babdbd"
+    },
+    {
+      "file": "focused-tests.stderr.txt",
+      "sha256": "cad5da457c1ac83abb375c17cf1fa142e3ac7ab14ef9cd36944df79b8f1252b1"
+    },
+    {
+      "file": "focused-tests.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "historical-documents/docs/convergence.md",
+      "sha256": "d900a543c55b97677582fa21f5664788fb22b38293d3c25d7443e3deaf785533"
+    },
+    {
+      "file": "historical-documents/docs/project-state.md",
+      "sha256": "3c42f203acf2c9c7b73c91ff74a8ad47f5edaf11393f557e28ed333cbf238c02"
+    },
+    {
+      "file": "numerical-reaudit.json",
+      "sha256": "1557705b87152e96b323d86716852bde6ddd0b26c7b6d850fdbdc845d721008f"
+    },
+    {
+      "file": "original-failure.process.json",
+      "sha256": "3bb531881d3923910360079a0f82db856ad052b48e2dd0ae693fbabfa2211229"
+    },
+    {
+      "file": "original-failure.stderr.txt",
+      "sha256": "49cae9c6c0f66a934433110474804d58806850abacc35ef479aefee5edc5bfdd"
+    },
+    {
+      "file": "original-failure.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plotted-data-check.json",
+      "sha256": "0221d6b1ae6be40d7bbfa96bf48df867457e8d6660e811bc0877a9128271b3ab"
+    },
+    {
+      "file": "plotted-data.json",
+      "sha256": "f847d8a7576aced42cb6f04f6549cbb81e3ebd03a318ee392a2f76fc01816436"
+    },
+    {
+      "file": "provenance-policy.json",
+      "sha256": "8f701286a709f89dc7d3b85f31a0acc3a35053e1921b09805e837c79d001d0de"
+    },
+    {
+      "file": "README.md",
+      "sha256": "c39997e9153519f7e887e4562fb36e0fd8867272d70575802177f66efb4348ab"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "1be1450b2a7c34214a8e357b5dfaa92ace2d4799d91ad386b055a6ea8b317b1b"
+    },
+    {
+      "file": "verify-plotted-data.py",
+      "sha256": "dd53caff814bc2e1a95eba40114586dfc8ab6f12d63a62ba145d4e624431335a"
+    },
+    {
+      "file": "visual-check.json",
+      "sha256": "d7acf61d5d75a9817fa6407e1ff0833c2903a14c04345a4dcc401c53a4c231ba"
+    }
+  ],
+  "tracked_release_content": [
+    {
+      "path": "docs/project-state.md",
+      "git_blob_oid": "12d418d80a9a25c0fedcaf17f4508e0358f512e6",
+      "git_blob_content_sha256": "686e04e39115663af728a395a13728d4aa45d56b42ef1c0252b1fd1af5ad1156",
+      "role": "Current release content; separate from historical raw-byte and numerical checks"
+    },
+    {
+      "path": "docs/convergence.md",
+      "git_blob_oid": "e67f80eeb81b88e1cb880e86ae52ea94b0ecc86f",
+      "git_blob_content_sha256": "f67d99cdb95a3ce8ec9600f5e58b500b493b6568cc5a192eab85cbb5ad1f9e20",
+      "role": "Current release content; separate from historical raw-byte and numerical checks"
+    },
+    {
+      "path": "docs/milestones.md",
+      "git_blob_oid": "0c919a4c4cf14d4023b0ae94319fa0a278343e45",
+      "git_blob_content_sha256": "a65416e18a77f49f02dd461351ca60b5bf4891e3b6d6f3b51a575ebf139dc064",
+      "role": "Current release content; separate from historical raw-byte and numerical checks"
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "git_blob_oid": "a4f0e4f5d1481e31ad8fe1fa7b2e56935563569f",
+      "git_blob_content_sha256": "6ada49d79c6aeb5a3e6fa2b495c244e42a38d5b5cb7bacab7fe8d2fc34fd6771",
+      "role": "Current release content; separate from historical raw-byte and numerical checks"
+    },
+    {
+      "path": "tests/test_convergence_figures.py",
+      "git_blob_oid": "cf36cf4b7f800d96358bdb9592649c05a237c08a",
+      "git_blob_content_sha256": "bc59ed9efb4c0a6f1d9e2eb0067f2fadaa4c907d5619fcdc1c9acf5161a69458",
+      "role": "Current release content; separate from historical raw-byte and numerical checks"
+    }
+  ],
+  "local_visual_proofs": [
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\page-1.png",
+      "sha256": "464d51ac4f5194aac9b98a5f33c6eafe3834e0369ede14afc9421c4f60752012"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\page-2.png",
+      "sha256": "230229e095f7a145ef1e28f8f557f710408d06fa9cfe7e5d162212867b6da1f8"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\page-3.png",
+      "sha256": "fc1655f277536b859e050d61fa0a49df23c71f099fab7c1217fa8c3ccfa3b619"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\page-4.png",
+      "sha256": "191237d956fc3eec96a60ae84e423635fee715437e2155d13ccffee1f442f00d"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\pdfinfo.process.json",
+      "sha256": "87a79fd1bbc7c5f422bb9f7614130409c01059987bb20333c1ad51aa770ee911"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\pdfinfo.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\pdfinfo.stdout.txt",
+      "sha256": "59f489dd6c500a32d404e576288d3fbbc890ed50204b430cefac1fc54ddc7a06"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\render.process.json",
+      "sha256": "ffbf797907006034bebf415b318d30163f929f56fe3fb549fb982c98d39d8968"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\render.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results\\convergence-figure-closure-pdf-review-20261020\\render.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/verify-plotted-data-20261020.py",
+      "sha256": "dd53caff814bc2e1a95eba40114586dfc8ab6f12d63a62ba145d4e624431335a"
+    }
+  ],
+  "new_simulation_processes": 0,
+  "attestation_boundaries": "Historical documents: exact raw snapshots plus separate Git content comparison. Other original delivery entries: strict current artifact hashes. Numerical inputs/code/config/plotted data: strict hashes. Current docs/tests/workflow: Git blob content; not regeneration inputs. This manifest excludes itself.",
+  "ci_status": "Separate exact-pushed-SHA Actions response retained under ignored results after publication; not inferred here"
+}

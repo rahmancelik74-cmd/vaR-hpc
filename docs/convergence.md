@@ -1,6 +1,11 @@
 # Native convergence recording and independent verification
 
-This is preparation, not a completed convergence campaign. No new simulation
+Current status: the fixed-fixture numerical campaign and offline figures are
+complete. See the completed checkpoint at the end of this document and
+[selected figures and reproduction, version 2](../evidence/v030-convergence-figures-20261020-v2/README.md).
+The preparation sections below retain their original scope and missing matrix.
+
+At preparation time, this was not a completed convergence campaign. No new simulation
 was run in this task. The bound reuse plan imports 55 native observations (110
 VaR values) and explicitly retains 25 missing processes (50 values). The full
 contract is 80 engine/mode-N-seed observations and 160 values. Each observation
@@ -184,3 +189,27 @@ the selected complete data and numerical findings are in
 No figure, additional campaign, optimization, profiler or push was performed.
 Historical provenance limitations remain unchanged. A clean-source execution
 must continue to reject duplicate or already-covered configurations.
+
+## Offline figures completed, 2026-10-20
+
+The [selected figure checkpoint](../evidence/v030-convergence-figures-20261020-v2/README.md)
+retains four SVG figures, a combined four-page PDF, the offline reproduction
+script, verification and hash inventory. It uses the completed 80-run/160-value
+dataset without any new native run. All 32 groups and eight separate acceptance
+rows were independently recalculated, including the analytical reference.
+Figures show error of mean, descriptive MAE, all signed seed errors and sample
+SD; the unchanged 10M criterion is displayed separately. Nonmonotonic error and
+exactly overlapping GPU observations are retained. Log-zero handling and symlog
+linear limits are documented; no epsilon replacement, fitted rate, market
+validity, confidence interval or performance conclusion is introduced.
+Original measurements and numerical evidence remain byte-for-byte unchanged.
+The original version-1 package and its failed reproduction remain preserved.
+Version 2 verifies historical delivery documents against exact raw snapshots
+and commit 390ffa670960f83a0de4fb0b9cd595cb03cdbc8e; all numerical and local
+runtime dependencies still require their recorded hashes. Current documentation
+has a separate release-content attestation. No old hash was updated to pass.
+Read-only numerical checks passed for 80/160, 32 groups and 8/8 acceptance rows;
+11 focused tests and exact plotted-data/pixel comparisons passed. All four
+figures and four rendered PDF pages were visually checked. The exact final
+pushed-SHA CPU CI gate remains separate from these numerical/visual checks.
+No simulation, benchmark, profiler or academic deliverable was produced here.

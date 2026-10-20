@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "comparison": "Exact binary64 equality against verified CSVs",
+  "curve_points": 96,
+  "signed_seed_points": 160,
+  "acceptance_points": 8,
+  "png_comparison": [
+    {
+      "figure": "01_error_vs_scenarios",
+      "size": [
+        2413,
+        1682
+      ],
+      "pixels_equal_to_original": true
+    },
+    {
+      "figure": "02_seed_signed_errors",
+      "size": [
+        3135,
+        1641
+      ],
+      "pixels_equal_to_original": true
+    },
+    {
+      "figure": "03_seed_standard_deviation",
+      "size": [
+        2412,
+        994
+      ],
+      "pixels_equal_to_original": true
+    },
+    {
+      "figure": "04_separate_10m_acceptance",
+      "size": [
+        2378,
+        994
+      ],
+      "pixels_equal_to_original": true
+    }
+  ],
+  "combined_pdf_pages": 4,
+  "new_simulation_processes": 0
+}

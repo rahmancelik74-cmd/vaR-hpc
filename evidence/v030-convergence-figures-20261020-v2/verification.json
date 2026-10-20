@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "delivery_hashes_verified": 22,
+  "provenance": {
+    "historical_documents": [
+      {
+        "recorded_path": "docs/project-state.md",
+        "snapshot_sha256": "3c42f203acf2c9c7b73c91ff74a8ad47f5edaf11393f557e28ed333cbf238c02",
+        "git_blob_sha256": "0d84727f64c2c1ef63052da9e370342e512e90929380b13924d4f0642516da0b",
+        "snapshot_revision": "390ffa670960f83a0de4fb0b9cd595cb03cdbc8e"
+      },
+      {
+        "recorded_path": "docs/convergence.md",
+        "snapshot_sha256": "d900a543c55b97677582fa21f5664788fb22b38293d3c25d7443e3deaf785533",
+        "git_blob_sha256": "d900a543c55b97677582fa21f5664788fb22b38293d3c25d7443e3deaf785533",
+        "snapshot_revision": "390ffa670960f83a0de4fb0b9cd595cb03cdbc8e"
+      }
+    ],
+    "current_artifacts": [
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/.gitattributes",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\.gitattributes",
+        "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/acceptance-10m.csv",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\acceptance-10m.csv",
+        "sha256": "c58342ce7d317fe363a0803a648640868c116127787c5ee8c73c41be6f7caf0d"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/analysis.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\analysis.json",
+        "sha256": "4fdea77ee04d249eca48d921e0e92c19f6b016558f90f1ec2f051729198d43c4"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/clean-source-focused-tests.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\clean-source-focused-tests.json",
+        "sha256": "dcee6ab063903bc72f098abdaeb549e7aee04aabf5829001c3b78b5a19983161"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/closure-audit.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\closure-audit.json",
+        "sha256": "44980eaccaa658ca95990ad4cd8df2dc79941c0b7e8e4caa2e64cc0f6e725295"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/independent-audit.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\independent-audit.json",
+        "sha256": "34d10d9fee3de4aa25b44075a0839e21611c2cb9404a0baddae3ab6138155bc6"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/per-seed.csv",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\per-seed.csv",
+        "sha256": "b97339d9f9cb54b9edbbc468ff8255b1d6fb81de08b501adbdbc3064ac1bb581"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/README.md",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\README.md",
+        "sha256": "22a08cd9717482b721251fc136ecbcd26850720ca063b193b2519fcd2fdc102d"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/review-focused-tests.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\review-focused-tests.json",
+        "sha256": "6b997381262f166819cb746698b5c3a2df2530b46f783682a541a70c1c952435"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/review.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\review.json",
+        "sha256": "4c6d2ae2a49e57c4d7eb913fb6f684cc07532613fe68a1e8626cee18ba15051b"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/evidence/v030-convergence-windows-20261020/summary.csv",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\summary.csv",
+        "sha256": "309a0236150f4e06441d2a38d07a65b197ce4dd676665f7bc50ab6ebe3454174"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-hardware.process.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-hardware.process.json",
+        "sha256": "fcde0003756be97e12b9dbff5ec1ecca17f98a5109886f953f9d90c273d3c885"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-hardware.stderr.txt",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-hardware.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-hardware.stdout.txt",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-hardware.stdout.txt",
+        "sha256": "e1562f3d4fd21387ecedd8afbde5807294aaa4afdf28d455eeb915507f282362"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-nvcc.process.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-nvcc.process.json",
+        "sha256": "a15266f8c1417d99bd58fbf239f17ac36591a95f8979f1c482f19df33d7532ed"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-nvcc.stderr.txt",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-nvcc.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-nvcc.stdout.txt",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-nvcc.stdout.txt",
+        "sha256": "9acd4f65bb9b51daf49ce1c5febf78de95903f1359c9492aacfbe07aa0fd1ef0"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-recorder.process.json",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-recorder.process.json",
+        "sha256": "03ff7eaecd241d7523a5db98e011dae0686f59356312a5334ea1f727e9058696"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-recorder.stderr.txt",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-recorder.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "recorded_path": "C:/Users/rahma/Masa\u00fcst\u00fc/graduation_project/gpu-montecarlo-starter/results/convergence-b5f1a0f-20261020-run1-recorder.stdout.txt",
+        "resolved_path": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-b5f1a0f-20261020-run1-recorder.stdout.txt",
+        "sha256": "610ad9fb2190847377976b6eb2eac562a5702cbffb22169fad30d135134698fb"
+      }
+    ],
+    "policy_sha256": "8f701286a709f89dc7d3b85f31a0acc3a35053e1921b09805e837c79d001d0de",
+    "parent_manifest_sha256": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e"
+  },
+  "per_seed_rows": 160,
+  "summary_groups": 32,
+  "separate_acceptance_rows": 8,
+  "independent_reference": {
+    "0.95": 6.14357693941893,
+    "0.99": 8.715446716200915
+  },
+  "statistics_tolerance": 2e-12,
+  "zero_group_metrics": {
+    "mean_var": 0,
+    "signed_error_of_mean": 0,
+    "absolute_error_of_mean": 0,
+    "sample_stddev": 0,
+    "descriptive_mae": 0,
+    "descriptive_rmse": 0
+  },
+  "method": "Independent fixture log returns/two-pass variance; fsum means, sample SD, MAE, RMSE and unchanged 10M acceptance",
+  "original_evidence_unchanged": true,
+  "new_simulation_processes": 0,
+  "zero_display_policy": "Exact zeros remain raw zeros; separate labeled markers outside positive log axes; signed errors use symlog with linear +/-0.001 region",
+  "figures": [
+    "01_error_vs_scenarios.png",
+    "01_error_vs_scenarios.svg",
+    "01_error_vs_scenarios.pdf",
+    "02_seed_signed_errors.png",
+    "02_seed_signed_errors.svg",
+    "02_seed_signed_errors.pdf",
+    "03_seed_standard_deviation.png",
+    "03_seed_standard_deviation.svg",
+    "03_seed_standard_deviation.pdf",
+    "04_separate_10m_acceptance.png",
+    "04_separate_10m_acceptance.svg",
+    "04_separate_10m_acceptance.pdf",
+    "convergence_figures.pdf"
+  ]
+}

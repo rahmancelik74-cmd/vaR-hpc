@@ -1,0 +1,14 @@
+{
+    "status":  "passed",
+    "png_figures_inspected":  4,
+    "pdf_pages_rendered_and_inspected":  4,
+    "renderer":  "Existing bundled Poppler pdftoppm, 110 dpi",
+    "no_renderer_installed":  true,
+    "english_labels_captions":  "passed",
+    "no_clipping_or_unintended_text_overlap":  true,
+    "gpu_overlap_disclosed_and_not_jittered":  true,
+    "zero_policy":  "No zero metrics in this fixture; tested exact-zero markers without epsilon; signed symlog region +/-0.001 explicitly labeled",
+    "metrics":  "Error of mean, descriptive MAE/RMSE, sample seed SD (n-1), and separate 10M acceptance remain distinct",
+    "render_directory":  "results/convergence-figure-closure-pdf-review-20261020",
+    "new_simulation_processes":  0
+}

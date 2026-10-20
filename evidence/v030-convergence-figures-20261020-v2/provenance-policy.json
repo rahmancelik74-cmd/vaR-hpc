@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "snapshot_revision": "390ffa670960f83a0de4fb0b9cd595cb03cdbc8e",
+  "parent_manifest_sha256": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e",
+  "parent_manifest_repository_path": "evidence/v030-convergence-windows-20261020/delivery-manifest.json",
+  "historical_documents": {
+    "docs/project-state.md": "historical-documents/docs/project-state.md",
+    "docs/convergence.md": "historical-documents/docs/convergence.md"
+  },
+  "attestation": "Exact historical raw-byte document snapshots are checked against original manifest SHA-256; LF Git content is checked separately. All non-document entries must still match actual local artifact bytes. Current documentation belongs to the new selection manifest, not numerical regeneration inputs.",
+  "project_state_recovery": "Recovered unchanged historical suffix from current worktree with original CRLF/LF header; exact old manifest SHA-256 matches. No normalized bytes are used for SHA-256."
+}

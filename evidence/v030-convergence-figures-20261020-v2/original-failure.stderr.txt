@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\rahma\Masaüstü\graduation_project\gpu-montecarlo-starter\evidence\v030-convergence-figures-20261020\convergence_figures.py", line 391, in <module>
+    main()
+  File "C:\Users\rahma\Masaüstü\graduation_project\gpu-montecarlo-starter\evidence\v030-convergence-figures-20261020\convergence_figures.py", line 192, in main
+    analysis, values, groups, acceptance, checks = validate(source, root)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rahma\Masaüstü\graduation_project\gpu-montecarlo-starter\evidence\v030-convergence-figures-20261020\convergence_figures.py", line 80, in validate
+    check_equal(sha(path), artifact["sha256"], f"delivery hash {path.name}")
+  File "C:\Users\rahma\Masaüstü\graduation_project\gpu-montecarlo-starter\evidence\v030-convergence-figures-20261020\convergence_figures.py", line 50, in check_equal
+    raise ValueError(f"Mismatch {label}: {actual!r} vs {expected!r}")
+ValueError: Mismatch delivery hash project-state.md: '248ed83d9f6a023031329caafd8b0a7a77204317a37d10a6c69c2d08420a6d14' vs '3c42f203acf2c9c7b73c91ff74a8ad47f5edaf11393f557e28ed333cbf238c02'

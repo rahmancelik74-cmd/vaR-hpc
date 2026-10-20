@@ -1,5 +1,32 @@
 # Project state
 
+## Offline convergence figures verified and provenance corrected: 2026-10-20
+
+Four figure families now document analytical error versus N, all per-seed signed
+errors, seed sample standard deviation and separate 10M acceptance. Selected
+vector figures, the four-page PDF, reproduction script, verification and exact
+hash inventory are in
+[convergence figure evidence, version 2](../evidence/v030-convergence-figures-20261020-v2/README.md).
+Independent offline calculations passed for 160 estimates, 32 complete groups
+and eight original acceptance rows. Input hashes remain unchanged; no native
+simulation or timed campaign was repeated. Visual layouts were reviewed.
+Nonmonotonic errors, zero-axis policy and provenance limitations remain explicit.
+The historical delivery manifest also binds project-state.md/convergence.md;
+later figure documentation triggered its old raw document hash check. Version 2
+preserves that manifest and verifies exact historical raw snapshots separately
+from current-documentation content. All numerical/runtime hashes remain strict.
+Read-only raw-data re-audit passed for 80/160, 32 groups, 8/8 acceptance rows and
+122 original campaign files. Eleven focused provenance/zero-policy tests passed;
+all plotted values match CSVs exactly, and regenerated PNG pixels match the
+original figures. All four PDF pages were rendered and visually checked.
+Numerical evidence and figure-generation base: 390ffa670960f83a0de4fb0b9cd595cb03cdbc8e;
+the original uncommitted figure source is bound by its selection manifest.
+the published closure's exact-SHA CPU CI is a separate check, not proof of RTX
+execution or visual verification. Bandwidth/counter permissions/documented
+laptop peak and final reproducibility/delivery remain open; academic submission
+and live demonstration are not verified. Earlier entries describe dated states.
+
+
 ## Native convergence checkpoint completed: 2026-10-20
 
 Tested clean source: b5f1a0f5b72bca8f1f21555236d938501f7faee8. Fresh Windows

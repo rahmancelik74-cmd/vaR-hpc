@@ -1,0 +1,18 @@
+{
+    "executable":  "C:/Users/rahma/anaconda3/python.exe",
+    "arguments":  [
+                      "-B",
+                      "evidence/v030-convergence-figures-20261020/convergence_figures.py",
+                      "--repository",
+                      ".",
+                      "--output",
+                      "results/convergence-figures-failure-captured-20261020"
+                  ],
+    "started_utc":  "2026-10-20T00:38:49.3317489Z",
+    "stdout":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-figures-provenance-failure-20261020.stdout.txt",
+    "stderr":  "C:\\Users\\rahma\\Masaüstü\\graduation_project\\gpu-montecarlo-starter\\results\\convergence-figures-provenance-failure-20261020.stderr.txt",
+    "exit_code":  1,
+    "timed_out":  false,
+    "start_error":  null,
+    "finished_utc":  "2026-10-20T00:38:50.6653680Z"
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": 2,
+  "parent_manifest_sha256": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e",
+  "purpose": "Offline figures only, from existing verified synthetic convergence evidence",
+  "source_directory": "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020",
+  "engine_tested_source": "b5f1a0f5b72bca8f1f21555236d938501f7faee8",
+  "python": "3.11.4 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 13:38:37) [MSC v.1916 64 bit (AMD64)]",
+  "matplotlib": "3.7.1",
+  "input_sha256": {
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\analysis.json": "4fdea77ee04d249eca48d921e0e92c19f6b016558f90f1ec2f051729198d43c4",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\per-seed.csv": "b97339d9f9cb54b9edbbc468ff8255b1d6fb81de08b501adbdbc3064ac1bb581",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\summary.csv": "309a0236150f4e06441d2a38d07a65b197ce4dd676665f7bc50ab6ebe3454174",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\acceptance-10m.csv": "c58342ce7d317fe363a0803a648640868c116127787c5ee8c73c41be6f7caf0d",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\independent-audit.json": "34d10d9fee3de4aa25b44075a0839e21611c2cb9404a0baddae3ab6138155bc6",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\closure-audit.json": "44980eaccaa658ca95990ad4cd8df2dc79941c0b7e8e4caa2e64cc0f6e725295",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\delivery-manifest.json": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-figures-20261020-v2\\convergence_figures.py": "eafef1b54e8948c9e93f1abd3dec777b201fd140e0f1c03daa6ce5910c571397",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-figures-20261020-v2\\provenance-policy.json": "8f701286a709f89dc7d3b85f31a0acc3a35053e1921b09805e837c79d001d0de",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-figures-20261020-v2\\historical-documents\\docs\\convergence.md": "d900a543c55b97677582fa21f5664788fb22b38293d3c25d7443e3deaf785533",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-figures-20261020-v2\\historical-documents\\docs\\project-state.md": "3c42f203acf2c9c7b73c91ff74a8ad47f5edaf11393f557e28ed333cbf238c02"
+  },
+  "fixture_sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+  "new_simulation_processes": 0,
+  "outputs": [
+    {
+      "file": "01_error_vs_scenarios.pdf",
+      "sha256": "ad997be0613b72014d57b36ff3f9d9b10a1caad7b79af24ef7843f641869ea49"
+    },
+    {
+      "file": "01_error_vs_scenarios.png",
+      "sha256": "501da0f721f81ec86e78aaf3e44201830cc85c9edbe178d0fdb469e716f882f3"
+    },
+    {
+      "file": "01_error_vs_scenarios.svg",
+      "sha256": "388520b8f845acd570adb5d3a57b3b78ac27b39127d38c7bc83741fe885d00f1"
+    },
+    {
+      "file": "02_seed_signed_errors.pdf",
+      "sha256": "87abcfb69b3ba013f4823203ad4f0d4cf62c6ea8b02ca3d65f6c563385b83008"
+    },
+    {
+      "file": "02_seed_signed_errors.png",
+      "sha256": "fa97f54cc4d424650e72357cb54c0adc4f82787af9530704b31428576f93a583"
+    },
+    {
+      "file": "02_seed_signed_errors.svg",
+      "sha256": "c0be2bb8592f92ca0e441af4b05961c9a07a4f0d0a479a1ba1baf40b99c88eb5"
+    },
+    {
+      "file": "03_seed_standard_deviation.pdf",
+      "sha256": "b6bc3c489f9f5549ade16a255a5cb34622053595be99965a25eb0685fad14edb"
+    },
+    {
+      "file": "03_seed_standard_deviation.png",
+      "sha256": "6e4665e7897f75e1c8718192ef3a146126cb86af44ebaee067992b09a71063e2"
+    },
+    {
+      "file": "03_seed_standard_deviation.svg",
+      "sha256": "9691dde430e8bcab2b51fd6cf260c43d185a196687fb88805c1428877839b86f"
+    },
+    {
+      "file": "04_separate_10m_acceptance.pdf",
+      "sha256": "8d5d302b10bc90bbe15751ad952fcd468bbe65fa7778db2c2a3a519005e34400"
+    },
+    {
+      "file": "04_separate_10m_acceptance.png",
+      "sha256": "6a73d722ffdf4ca22a456ed03bf5d9275c8ce600f634e9db3ed65734e77ee858"
+    },
+    {
+      "file": "04_separate_10m_acceptance.svg",
+      "sha256": "1912681af40433c5d1bbbe774cc411982794df06248da7e4d1ef49d94415ced1"
+    },
+    {
+      "file": "acceptance-10m.csv",
+      "sha256": "c58342ce7d317fe363a0803a648640868c116127787c5ee8c73c41be6f7caf0d"
+    },
+    {
+      "file": "analysis.json",
+      "sha256": "4fdea77ee04d249eca48d921e0e92c19f6b016558f90f1ec2f051729198d43c4"
+    },
+    {
+      "file": "closure-audit.json",
+      "sha256": "44980eaccaa658ca95990ad4cd8df2dc79941c0b7e8e4caa2e64cc0f6e725295"
+    },
+    {
+      "file": "convergence_figures.pdf",
+      "sha256": "754cceeae32001fa436befe7a1181d5a70dddcd23a083770ba31acee263838a0"
+    },
+    {
+      "file": "convergence_figures.py",
+      "sha256": "eafef1b54e8948c9e93f1abd3dec777b201fd140e0f1c03daa6ce5910c571397"
+    },
+    {
+      "file": "delivery-manifest.json",
+      "sha256": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e"
+    },
+    {
+      "file": "fixture.csv",
+      "sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210"
+    },
+    {
+      "file": "historical-documents/docs/convergence.md",
+      "sha256": "d900a543c55b97677582fa21f5664788fb22b38293d3c25d7443e3deaf785533"
+    },
+    {
+      "file": "historical-documents/docs/project-state.md",
+      "sha256": "3c42f203acf2c9c7b73c91ff74a8ad47f5edaf11393f557e28ed333cbf238c02"
+    },
+    {
+      "file": "independent-audit.json",
+      "sha256": "34d10d9fee3de4aa25b44075a0839e21611c2cb9404a0baddae3ab6138155bc6"
+    },
+    {
+      "file": "per-seed.csv",
+      "sha256": "b97339d9f9cb54b9edbbc468ff8255b1d6fb81de08b501adbdbc3064ac1bb581"
+    },
+    {
+      "file": "plotted-data.json",
+      "sha256": "f847d8a7576aced42cb6f04f6549cbb81e3ebd03a318ee392a2f76fc01816436"
+    },
+    {
+      "file": "provenance-policy.json",
+      "sha256": "8f701286a709f89dc7d3b85f31a0acc3a35053e1921b09805e837c79d001d0de"
+    },
+    {
+      "file": "README.md",
+      "sha256": "6264968d41eb26497f78a89cad97b6375b426479ae92c6a6f81e11ebc3f70983"
+    },
+    {
+      "file": "summary.csv",
+      "sha256": "309a0236150f4e06441d2a38d07a65b197ce4dd676665f7bc50ab6ebe3454174"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "1be1450b2a7c34214a8e357b5dfaa92ace2d4799d91ad386b055a6ea8b317b1b"
+    }
+  ]
+}

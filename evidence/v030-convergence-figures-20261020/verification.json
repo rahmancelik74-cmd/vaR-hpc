@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "delivery_hashes_verified": 22,
+  "per_seed_rows": 160,
+  "summary_groups": 32,
+  "separate_acceptance_rows": 8,
+  "independent_reference": {
+    "0.95": 6.14357693941893,
+    "0.99": 8.715446716200915
+  },
+  "statistics_tolerance": 2e-12,
+  "zero_group_metrics": {
+    "mean_var": 0,
+    "signed_error_of_mean": 0,
+    "absolute_error_of_mean": 0,
+    "sample_stddev": 0,
+    "descriptive_mae": 0,
+    "descriptive_rmse": 0
+  },
+  "method": "Independent fixture log returns/two-pass variance; fsum means, sample SD, MAE, RMSE and unchanged 10M acceptance",
+  "original_evidence_unchanged": true,
+  "new_simulation_processes": 0,
+  "zero_display_policy": "Exact zeros remain raw zeros; separate labeled markers outside positive log axes; signed errors use symlog with linear +/-0.001 region",
+  "figures": [
+    "01_error_vs_scenarios.png",
+    "01_error_vs_scenarios.svg",
+    "01_error_vs_scenarios.pdf",
+    "02_seed_signed_errors.png",
+    "02_seed_signed_errors.svg",
+    "02_seed_signed_errors.pdf",
+    "03_seed_standard_deviation.png",
+    "03_seed_standard_deviation.svg",
+    "03_seed_standard_deviation.pdf",
+    "04_separate_10m_acceptance.png",
+    "04_separate_10m_acceptance.svg",
+    "04_separate_10m_acceptance.pdf",
+    "convergence_figures.pdf"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "purpose": "Selected offline convergence figures and reproduction source",
+  "generation_head": "390ffa670960f83a0de4fb0b9cd595cb03cdbc8e",
+  "engine_tested_source": "b5f1a0f5b72bca8f1f21555236d938501f7faee8",
+  "new_simulation_processes": 0,
+  "original_input_sha256": {
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\analysis.json": "4fdea77ee04d249eca48d921e0e92c19f6b016558f90f1ec2f051729198d43c4",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\per-seed.csv": "b97339d9f9cb54b9edbbc468ff8255b1d6fb81de08b501adbdbc3064ac1bb581",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\summary.csv": "309a0236150f4e06441d2a38d07a65b197ce4dd676665f7bc50ab6ebe3454174",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\acceptance-10m.csv": "c58342ce7d317fe363a0803a648640868c116127787c5ee8c73c41be6f7caf0d",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\independent-audit.json": "34d10d9fee3de4aa25b44075a0839e21611c2cb9404a0baddae3ab6138155bc6",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\closure-audit.json": "44980eaccaa658ca95990ad4cd8df2dc79941c0b7e8e4caa2e64cc0f6e725295",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\v030-convergence-windows-20261020\\delivery-manifest.json": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e"
+  },
+  "selected_files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+    },
+    {
+      "file": "01_error_vs_scenarios.svg",
+      "sha256": "347c6ce8b29879f6b33dbdd4521a337fefca347f05d73c62808360b5daf2ef6e"
+    },
+    {
+      "file": "02_seed_signed_errors.svg",
+      "sha256": "62adbec2124cd6c7eff3a217441f37dfd65e0913dbc0181b35a2b28bc0bd7366"
+    },
+    {
+      "file": "03_seed_standard_deviation.svg",
+      "sha256": "35227c21914f28eea227ade05c57d4dcf5bd697c7363786afdb5006b13d79992"
+    },
+    {
+      "file": "04_separate_10m_acceptance.svg",
+      "sha256": "d133320cc6fb8bd0238f7c7b01f64f9b0a97c4364a0a42def7abac4ec95a5593"
+    },
+    {
+      "file": "convergence_figures.pdf",
+      "sha256": "6f0fd1b53d42167cd6568476a6ae13acb6b1575f3dadb85cc4b9fc44bf08059c"
+    },
+    {
+      "file": "convergence_figures.py",
+      "sha256": "5494c7b493cd34a14f4d9eabad5f52fcec0ba38b366965daa047fae89c1d37fe"
+    },
+    {
+      "file": "README.md",
+      "sha256": "1e2068cc09d823caf62ad74425b65e6f10e35c1427a5fbdbec0bc117edc537f3"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "b6007d55995000ed311d0a902aef45a3f1f9678b952ab926f97908bfa4dbf8b0"
+    }
+  ]
+}
