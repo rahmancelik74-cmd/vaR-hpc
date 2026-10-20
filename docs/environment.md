@@ -5,7 +5,12 @@ Excalibur G870, SKU EXCALIBUR G870 NLXB, board NLXB 001 and BIOS CQ111.
 [Bandwidth investigation evidence](../evidence/v030-bandwidth-access-20261020/README.md)
 records the identity source, current driver/tool observations and unresolved
 OEM memory data rate. This does not identify a full commercial configuration
-suffix or establish documented peak bandwidth. Earlier inventory below remains
+suffix or establish documented peak bandwidth by itself. The later authentic
+[NVIDIA App report](../evidence/v030-nvidia-configuration-reference-20261021/README.md)
+provides a 256.032 GB/s installed-configuration reference; the current
+[acceptance interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21)
+documents its use for scoped bandwidth reporting. No separately published
+applicable OEM rate specification was located. Earlier inventory below remains
 dated evidence.
 
 These values describe the student's project computer. Hardware on the

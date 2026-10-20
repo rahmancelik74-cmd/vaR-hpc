@@ -5,9 +5,12 @@ The formal primary benchmark is complete; see the dated result below.
 Measured DRAM bandwidth, documented-peak utilization, convergence and
 profiling-driven optimization are not established by that primary campaign.
 A later [baseline counter record](../evidence/v030-dram-baseline-20261020/README.md)
-now reports measured kernel-scope DRAM GB/s independently; applicable documented
-peak/percentage remain unresolved. Earlier denied-access descriptions below are
-dated history. Convergence/figures are separately complete.
+reports measured kernel-scope DRAM GB/s independently. The current
+[acceptance interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21)
+records bandwidth reporting as satisfied within that scope using the documented
+NVIDIA App configuration reference; a separate published OEM document was not
+located and is optional corroboration. Earlier unresolved/denied-access
+descriptions below are dated history. Convergence/figures are separately complete.
 The engine numerical contract, native RNG partition and primary timer are unchanged.
 The separate [18-process stage-diagnostic checkpoint](cuda-stage-diagnostics.md)
 is also closed; its instrumented samples do not enter primary statistics.

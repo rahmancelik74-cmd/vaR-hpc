@@ -199,8 +199,11 @@ data-rights-and-calendar.md; rights do not permit raw redistribution.
 Current limitations: 10x serial target unmet (9.739930524x); full-device versus
 best OpenMP 8.307208722x; hybrid at 10M did not beat best OpenMP. The new
 [DRAM baseline](../evidence/v030-dram-baseline-20261020/README.md) verifies counter
-access and kernel-scope rates for two N=10M profiles. Official effective memory
-rate/applicable peak and percentage remain unresolved. Profiled timings do not
+access and kernel-scope rates for two N=10M profiles. The current
+[acceptance interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21)
+records bandwidth reporting as satisfied using the documented NVIDIA App
+configuration reference; no separately published applicable OEM specification
+was located, and obtaining one is optional corroboration. Profiled timings do not
 replace formal results. Historical denied-access records remain unchanged.
 A remote hosted CPU trial is recorded below. It does not establish a second
 Windows/CUDA laptop trial, market predictive validity, general race freedom,
@@ -297,7 +300,8 @@ read-only calculation are in the
 Its 256.032 GB/s field is the denominator for archived cold-cache collected-
 kernel ratios, 36.54610877595663% and 9.60865565224468%. No original profiling,
 simulation, local CPU build or figure rendering was repeated. This does not alter
-the earlier remote-trial scope or close published-peak/acceptance interpretation.
+the earlier remote-trial scope. The later acceptance interpretation below
+supersedes only the earlier unresolved reporting status.
 
 ```text
 python -B evidence/v030-nvidia-configuration-reference-20261021/calculate.py --check
@@ -310,3 +314,24 @@ private full report. A provenance holder can separately verify the full local
 capture's exact bytes against the new manifest. The sanitised public extract is
 not represented as the original full report. Existing numerical/raw manifests
 and historical snapshot/Git checks remain strict and unchanged.
+
+## Current bandwidth reporting interpretation, 2026-10-21
+
+The [source/authority audit](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21)
+records the existing reporting clause as satisfied within the archived kernel
+scope. Use the precise label "percentage of NVIDIA App-reported configuration
+bandwidth" with the documented theoretical/configuration reference 256.032 GB/s:
+full-device 36.54610877595663%, hybrid 9.60865565224468%. The existing commands
+above verify original integer totals, exact-byte parents and the calculation;
+no new GPU run or software rebuild is needed for this interpretation.
+
+The immutable reference README, calculation flags indicating that no published
+specification was established, and older search/trial sections retain historical
+truth. They do not override the current acceptance interpretation. No historical
+manifest/hash is refreshed. No separate published OEM document was located;
+this is a retained limitation, not a transfer/run prerequisite or blocking task.
+No private source/report is copied into Git. The report is class B, not class A
+or runtime clocks. Cold-cache aggregation, excluded transfer/host costs, the
+later configuration-report date, shared-resource caveats and unknown sustainable
+peak remain. This does not reproduce historical binaries/performance or expand
+hosted CPU validation to independent Windows/CUDA execution or academic delivery.

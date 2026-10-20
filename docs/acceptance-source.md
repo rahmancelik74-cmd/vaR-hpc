@@ -85,6 +85,10 @@ state context policy. Warm-ups are excluded and do not establish thermal equilib
 
 ## Current evidence limitation
 
+The checkpoint statements in this section and the supplementary section below
+are retained history. The current reporting status is established by the
+[interpretation audit](#documented-peak-interpretation-audit-2026-10-21).
+
 Current 2026-10-20 supplement: fixed-fixture convergence and version-2 figures
 are complete; technical reproducibility paths and FR/NFR consistency are audited
 in [reproducibility.md](reproducibility.md) and
@@ -133,3 +137,70 @@ exact hidden rate. No extra DDR factor is applied. These are configuration-
 reference ratios, not sustainable peak or end-to-end utilisation. The historical
 failure to locate an applicable published OEM/NVIDIA rate specification remains
 unchanged; that gap and the acceptance interpretation remain open.
+
+## Documented-peak interpretation audit, 2026-10-21
+
+This current interpretation supersedes the unresolved acceptance status in the
+dated sections above and in the immutable NVIDIA reference README published at
+4a4730d0b505cc2ab31574ca96b4fc5841a3fc21. Their historical findings, original
+report, calculations and hash-bound manifests remain unchanged.
+
+The continuation reference APPROVED_PROPOSAL_SOURCE_TEXT_EN.txt was independently
+read in full from the user-specified private advisor-sources directory, outside
+Git. Exact-byte SHA-256:
+4ae7ecae948892d08aabeb5fa21f5a473632cf90281d87b63ddfd5cc1ca46a57.
+Its section 8, page 4, lines 157-158 agrees with this register's performance
+criterion. The exact operative clause is:
+
+> report achieved DRAM bandwidth in GB/s and as a percentage of the documented GPU peak, with profiler metric definitions. No fixed bandwidth utilization threshold or GFLOPS target is imposed.
+
+The inspected extraction contains no separate published OEM datasheet condition.
+It is an extracted continuation reference, not a newly authenticated signed
+proposal; the earlier private DOCX identification/hashes above remain distinct.
+The tracked requirements definitions, all 18 audit criterion cells and relevant
+Git history likewise provide no stricter supervisor decision. No supervisor
+approval of this interpretation is claimed, and uninspected correspondence is
+not asserted to contain none.
+
+The authority trail separates evidence acquisition from acceptance:
+
+| Record | Role and finding |
+| --- | --- |
+| Approved proposal section 8 and this register | Documented GPU peak and profiler definitions; no publication-channel restriction |
+| b9745be / 663fcc3 | Derived status/search records sought applicable OEM/NVIDIA rate evidence and correctly rejected runtime clocks; they do not add supervisor authority |
+| 7e79204 / b3b67a4 | Baseline/review retained the unsuccessful published-specification search as the then-missing denominator |
+| Earlier user continuation tasks | Explicitly constrained those investigations to published applicable specifications and required the class-B report to remain supplementary; task restrictions were real, but were not evidence of a supervisor amendment |
+| 4a4730d | Conservatively retained an unresolved interpretation even after the authentic report was captured; that status is corrected here |
+
+The installed-device NVIDIA report supports a documented theoretical/configuration
+reference: its explicit effective rate and interface give 16.00 * 128 / 8 =
+256.00 decimal GB/s without an additional DDR factor, and its directly reported
+bandwidth is 256.032 GB/s. Their small difference is compatible with display
+rounding. The exact hidden rate and the app's internal data source are not known.
+This is a reasoned technical interpretation of the existing reporting clause,
+not a change to its wording or a claim of independently certified OEM capability.
+[NVIDIA's CUDA Best Practices Guide, section 9.2.1](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#theoretical-bandwidth-calculation)
+explains rate/interface theoretical bandwidth and consistent decimal units; its
+example device values are not used for this laptop. Its product-literature
+example does not impose a new acceptance-source restriction on this project.
+
+Status: **satisfied within the recorded kernel scope**, using 256.032 GB/s as
+the documented NVIDIA App-reported theoretical/configuration reference. The
+precise comparison label is **percentage of NVIDIA App-reported configuration
+bandwidth**. From archived unrounded byte/duration totals, full-device is
+93.56973322125727 GB/s and 36.54610877595663%; hybrid is 24.60123323955511 GB/s
+and 9.60865565224468%. Metric definitions, 14/307 launches, matching numerator/
+denominator scope and original validation remain in the
+[DRAM review](../evidence/v030-dram-review-20261020/README.md) and
+[NVIDIA reference](../evidence/v030-nvidia-configuration-reference-20261021/README.md).
+
+These are cold-cache N=10000000/seed42 aggregate collected-kernel measurements,
+excluding transfers and host costs. The reference report postdates the profiles;
+it is not contemporaneous workload clock telemetry. Shared-resource traffic and
+zero hybrid write-counter caveats remain. No sustainable peak, end-to-end
+utilisation, universal capability or bandwidth threshold is claimed. No separate
+applicable published OEM specification was located; that historical search
+limitation remains, but obtaining one is optional corroboration rather than a
+mandatory blocker under the inspected criterion. All numerical criteria, unmet
+performance targets, provenance/sanitizer limits and unverified academic/live
+delivery remain unchanged.

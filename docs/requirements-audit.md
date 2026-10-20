@@ -29,7 +29,10 @@ Earlier denied-access packages are historical parents, not current blockers.
 H = [v030-hosted-cpu-reproduction-20261021](../evidence/v030-hosted-cpu-reproduction-20261021/README.md),
 the remote hosted CPU build/public-integrity trial with actual log excerpts.
 N = [v030-nvidia-configuration-reference-20261021](../evidence/v030-nvidia-configuration-reference-20261021/README.md),
-a supplementary class-B NVIDIA App configuration report/reference calculation.
+a class-B NVIDIA App configuration report/reference calculation. Its hash-bound
+README retains the earlier unresolved status; the current
+[acceptance interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21)
+supersedes that status without changing the original evidence.
 See each README/manifest for source and limits.
 GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 [gpu-acceptance.md](gpu-acceptance.md) defines its coverage and tool limits.
@@ -58,7 +61,7 @@ GPU acceptance raw archive is results/gpu-acceptance-8df5f28-20261019;
 | NFR-4 | 0 personal/patient records; document every price dataset's source/range/reuse/adjustment | synthetic fixture; equity importer; historical-data.md, data-rights-and-calendar.md | Computational inputs are synthetic or market prices; provider provenance/rights documented with local hashes | Private permission correspondence is user-supplied, not independently authenticated; no redistribution of raw prices; no assertion repository metadata contains no personal names |
 | NFR-5 | At N=10000000, seeds 42,123,456,789,2026 per engine: abs(mean(VaR)-analytical) <= .01*max(abs(analytical),.01*V0), separately .95/.99 | convergence-audit.ps1; F independent Python statistics | Demonstrated one nondegenerate fixed synthetic case; eight rows pass; R re-audit passes | Not per-seed acceptance, MAE, monotonic-error requirement or universal MC guarantee; serial source-to-binary=false and mixed builds remain |
 | NFR-6 | Double, common nearest-rank ceil(alpha*N)-1; common-input VaR absolute difference <= .00001*V0; separate memory/race checks | CPU/GPU common-input tests and gpu-acceptance.md | Demonstrated recorded common-input cases; representative Compute Sanitizer findings archived | Sanitizer does not prove general global-memory race freedom or CPU host-buffer safety; numerical agreement is not a memory-safety proof |
-| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Satisfied within recorded timing scope: P has 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | B separately satisfies measured kernel-scope DRAM reporting for two cold-cache profiles. N adds percentages against NVIDIA App-reported configuration bandwidth only; applicable published peak and original peak-acceptance interpretation remain open |
+| NFR-7 | N=100000,1000000,10000000; 3 excluded warm-ups + 10 measured/config; mean, sample SD (denominator 9), scenarios/s and ratios | benchmark-common.ps1, verify-benchmark.ps1; P/session auditors | Satisfied within recorded timing scope: P has 312 processes, 72 warm-ups, 240 measurements, 24 configs; all samples retained | B and N satisfy the separate bandwidth reporting clause within the recorded cold-cache kernel scope, using the documented NVIDIA App configuration reference; no sustainable-peak or end-to-end claim. A separate published OEM specification was not located and is optional corroboration |
 | NFR-8 | Exact-byte SHA-256 and Git dirty state per experiment; two same-build/input/seed/backend runs reproduce VaR excluding timing | recorder manifests; serial exact repeat test, OpenMP native invariance; archived P repeated estimates | Demonstrated recorded same-build cases; R checks all 24 P configurations' 13 pairs of VaRs are identical | Not cross-library/build/engine bitwise reproducibility. Historical serial source-to-binary=false; O has no published independent standalone cache; archives/builds ignored and not public-clone-complete |
 | NFR-9 | Release build: 0 build errors, all registered tests pass, >=1 successful basic CI | CMake/CTest and .github/workflows/build.yml | Satisfied within recorded CPU build/CI scope: R Windows ON 13/13, OFF 12/12; same-machine relocation passed all 13 across initial/recheck attempts. H hosted Ubuntu ON 7/7, OFF 6/6, 15 Python tests/job and 78 public artifacts passed; exact source fda3c64c891a2d9bfd7d325615fef0423a64e0f3, run 39500451137 passed 3/3 | H is remote hosted CPU evidence, not a second Windows/CUDA laptop, arbitrary-machine or historical performance reproduction. R remains same-machine CPU-only evidence; archived CUDA binary reused without rebuilding; initial SDK failures preserved |
 
@@ -76,10 +79,15 @@ reports 16.00 Gbps / 128-bit / 256.032 GB/s. This is class B, not a published
 OEM specification or runtime MHz. Archived integer counters give 36.54610877595663%
 full-device and 9.60865565224468% hybrid relative to that directly reported
 configuration bandwidth, with the original cold-cache kernel-only scope.
-The source criterion says "documented GPU peak" without expressly deciding
-whether such a device report suffices. This supplement does not decide that
-interpretation or close peak acceptance; the applicable published-specification
-gap remains an evidence gap, not an access-permission limitation.
+The source criterion says "documented GPU peak" without requiring a separately
+published OEM datasheet. The sourced interpretation in acceptance-source.md
+records the reporting clause as satisfied within this scope: "percentage of
+NVIDIA App-reported configuration bandwidth" uses a documented theoretical/
+configuration reference. No stricter supervisor amendment was found in the
+inspected sources/history; earlier task search restrictions are not such an
+amendment. This is a technical interpretation, not supervisor approval. The
+unlocated published OEM specification remains a limitation, not a mandatory
+blocker. Class B is not reclassified as a published specification.
 NFR-1 is a measured target
 not met; demonstrated checks elsewhere are satisfied only within their recorded
 scope. Missing historical provenance remains an evidence gap. H now establishes
@@ -119,5 +127,5 @@ correspondence, not a renumbering or assertion it appeared in the old draft.
 | R12 | FR-5/8, NFR-5/6 complete scoped engine validation |
 | R13 | FR-8, NFR-1/5/7 benchmark/convergence |
 | R14 | FR-7/8, NFR-8/9 technical reproducibility; academic reporting separate |
-| B01 | Optional optimization, not started; baseline peak-percentage evidence still required |
+| B01 | Optional optimization, not started; baseline bandwidth reporting satisfied within B/N scope |
 | B02 | Optional multi-asset work, outside scope |

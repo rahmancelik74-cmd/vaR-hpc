@@ -1,5 +1,42 @@
 # Project state
 
+## Bandwidth reporting criterion reconciled: 2026-10-21
+
+Inspection started at main 4a4730d0b505cc2ab31574ca96b4fc5841a3fc21,
+matching remote main; its exact-SHA CI run 39505352529 passed all three jobs.
+Only AGENTS.md and output/ were untracked and preserved. The private continuation
+proposal extraction was read directly and agrees with the authoritative register:
+achieved DRAM GB/s and percentage of documented GPU peak, with profiler metric
+definitions and no fixed bandwidth/GFLOPS threshold. No independently supported
+supervisor requirement for a separately published OEM datasheet was found.
+Earlier task-specific publication restrictions are not supervisor authority.
+
+The [sourced acceptance interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21)
+therefore records reporting as satisfied within the documented kernel scope,
+using the authentic installed-device NVIDIA App configuration bandwidth as the
+documented theoretical/configuration reference. The precise label is
+"percentage of NVIDIA App-reported configuration bandwidth": full-device
+36.54610877595663%, hybrid 9.60865565224468%, against 256.032 GB/s. Original
+unrounded counters/durations and the existing calculation verifier are reused.
+This is a technical interpretation, not supervisor approval or a criterion change.
+
+No separately published applicable OEM specification was located. This remains
+a historical limitation and optional corroboration, not a mandatory blocking
+task. The report remains class B, not class A, runtime clock telemetry, measured
+sustainable peak or end-to-end utilisation. Its post-profile date, cold-cache
+kernel scope, transfer/host exclusions and shared-resource caveats remain explicit.
+The hash-bound reference README and all older checkpoint sections below retain
+their dated status statements; only that unresolved current acceptance status is
+superseded here. No historical evidence, manifest or failed search was rewritten.
+
+No new profiling, simulation, local CPU rebuild or rendering was needed.
+Full-device speedups remain 9.739930524x serial (10x unmet) and 8.307208722x best
+OpenMP; hybrid at 10M did not beat best OpenMP. Historical serial provenance,
+missing independent historical OpenMP cache, mixed-revision convergence and
+sanitizer coverage limits remain. Hosted CPU evidence is not independent
+Windows/CUDA reproduction. Academic submissions/live demo remain unverified;
+overall project completion is not claimed.
+
 ## Authentic NVIDIA configuration report and supplementary ratios: 2026-10-21
 
 At inspection main 945394aa9715d246a9f27f3aad542931eeafdc87, only AGENTS.md
