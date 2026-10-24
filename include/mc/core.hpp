@@ -6,6 +6,7 @@
 #include <vector>
 
 namespace mc {
+struct Portfolio;
 struct Model {
     double initial_value = 100.0; // Positive long holding, V0 = units * S0.
     double drift = 0.05;         // Price drift per year, not mean log return.
@@ -17,6 +18,8 @@ struct Request {
     std::size_t scenarios = 10000;
     std::uint64_t seed = 42;
     std::vector<double> confidence_levels{0.95, 0.99};
+    // Optional borrowed portfolio, immutable for the duration of Engine::run.
+    const Portfolio* portfolio = nullptr;
 };
 struct Estimate { double confidence; double var; };
 struct CudaDiagnostics {
@@ -53,6 +56,7 @@ struct Result {
 // A backend owns RNG, buffers, simulation, quantile and synchronization.
 // No per-scenario CPU callback and no mandatory host loss vector.
 // common_normals is validation-only; caller retains ownership for the call.
+// Portfolio layout: exactly scenarios * asset_count, scenario major.
 class Engine {
 public:
     virtual ~Engine() = default;

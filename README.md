@@ -2,6 +2,10 @@
 
 Abdurrahman Celik - application v0.3.0, 16 October 2026.
 
+Optional [synthetic portfolio mode](docs/portfolio.md) supports 1..5 assets on
+serial, OpenMP and full-device CUDA, with independent structural/moment checks.
+It is a separate extension; existing single-asset acceptance and campaigns remain unchanged.
+
 Technical [reproducibility entry point](docs/reproducibility.md) and
 [FR/NFR evidence audit](docs/requirements-audit.md): distinguish clean software
 builds, selected public integrity checks, local raw archives and offline figures.

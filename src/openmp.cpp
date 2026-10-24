@@ -1,4 +1,5 @@
 #include "mc/openmp.hpp"
+#include "mc/portfolio.hpp"
 #include <omp.h>
 #include <algorithm>
 #include <chrono>
@@ -22,14 +23,17 @@ OpenMPEngine::OpenMPEngine(int threads) : requested_threads_(threads) {
     if (threads < 0) throw std::invalid_argument("Requested threads cannot be negative");
 }
 Result OpenMPEngine::run(const Request& r, const std::vector<double>* common) const {
-    validate_model(r.model);
-    if (r.scenarios == 0 || r.confidence_levels.empty())
-        throw std::invalid_argument("Nonzero scenarios and confidence levels required");
-    for (double c : r.confidence_levels)
-        if (!std::isfinite(c) || c <= 0 || c >= 1)
-            throw std::invalid_argument("Probability must be finite and in (0,1)");
-    if (common && common->size() != r.scenarios)
-        throw std::invalid_argument("Common input count must equal scenario count");
+    const auto portfolio = r.portfolio ? validate_portfolio_request(r, common) : PreparedPortfolio{};
+    if (!r.portfolio) {
+        validate_model(r.model);
+        if (r.scenarios == 0 || r.confidence_levels.empty())
+            throw std::invalid_argument("Nonzero scenarios and confidence levels required");
+        for (double c : r.confidence_levels)
+            if (!std::isfinite(c) || c <= 0 || c >= 1)
+                throw std::invalid_argument("Probability must be finite and in (0,1)");
+        if (common && common->size() != r.scenarios)
+            throw std::invalid_argument("Common input count must equal scenario count");
+    }
     constexpr std::size_t block_size = 4096;
     const auto blocks = 1 + (r.scenarios - 1) / block_size;
     if (blocks > static_cast<std::size_t>((std::numeric_limits<long long>::max)()))
@@ -59,7 +63,12 @@ Result OpenMPEngine::run(const Request& r, const std::vector<double>* common) co
                     const auto count = (std::min)(block_size, r.scenarios - begin);
                     for (std::size_t offset = 0; offset < count; ++offset) {
                         const auto i = begin + offset;
-                        losses[i] = scenario_loss(r.model, common ? (*common)[i] : normal(rng));
+                        if (r.portfolio) {
+                            double epsilon[5];
+                            for (int j = 0; j < portfolio.count; ++j)
+                                epsilon[j] = common ? (*common)[i*portfolio.count+j] : normal(rng);
+                            losses[i] = portfolio_loss(portfolio, epsilon);
+                        } else losses[i] = scenario_loss(r.model, common ? (*common)[i] : normal(rng));
                     }
                 } catch (...) {
 #pragma omp critical(mc_worker_failure)

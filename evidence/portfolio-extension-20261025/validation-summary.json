@@ -1,0 +1,1159 @@
+{
+  "status": "local-implementation-and-validation-passed; git-delivery-blocked",
+  "recorded_utc": "2026-10-24T21:57:02.373262+00:00",
+  "source_baseline_head": "4b2040b72ba7f29f1a6e05c44537c53f4d953976",
+  "source_identity": "baseline plus exact local working-tree byte hashes below; no new commit exists",
+  "remote": "https://github.com/rahmancelik74-cmd/vaR-hpc",
+  "delivery": {
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "new_sha_ci": null,
+    "blocker": "git add cannot create .git/index.lock: Permission denied; gh credentials also unavailable/invalid in executor"
+  },
+  "environment": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12650H (local registry)",
+    "physical_cores": "10 from existing documented inventory; fresh CIM query denied",
+    "generator": "Ninja; VS x64 developer environment",
+    "cmake": "3.31.6-msvc6",
+    "msvc": "19.44.35227; tool directory 14.44.35207",
+    "cuda_nvcc": "13.4.92",
+    "sanitizer": "Compute Sanitizer 2026.3.0.0 build 38855100",
+    "python": "3.11.4",
+    "cpu_release_flags": "/O2 /Ob2 /DNDEBUG; /W4 on core/OpenMP; /EHsc",
+    "cuda_flags": "--fmad=false; -Xcompiler=/Zc:preprocessor; architecture 89",
+    "asan": "serial-only /EHsc /fsanitize=address /Zi, Release, /INCREMENTAL:NO",
+    "placement": "OpenMP teams checked; no per-core pinning",
+    "power_thermal": "Uncontrolled; no thermal equilibrium claim. Other desktop activity present; not a benchmark."
+  },
+  "ctest": {
+    "serial": {
+      "passed": 16,
+      "failed": 0,
+      "log": "results\\portfolio-20261025\\ctest-serial-release.log"
+    },
+    "openmp": {
+      "passed": 17,
+      "failed": 0,
+      "log": "results\\portfolio-20261025\\ctest-openmp-release.log"
+    },
+    "cuda": {
+      "passed": 20,
+      "failed": 0,
+      "log": "results\\portfolio-20261025\\ctest-cuda-release.log"
+    }
+  },
+  "python_regressions": {
+    "passed": 22,
+    "historical_integrity": "selected public inventories passed; 22 benchmark, 32 stage, 24 figure files"
+  },
+  "independent_validation": {
+    "status": "passed",
+    "seed": 20261025,
+    "scenarios": 200000,
+    "family_alpha": 0.01,
+    "rule": "Chebyshev/Bonferroni",
+    "scope": "test RNG production transform and valuation; not native backend RNG moments",
+    "checks": [
+      {
+        "rho": 0.0,
+        "index": 0,
+        "observed": -0.001834242895376637,
+        "expected": 0.0,
+        "error": 0.001834242895376637,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.0,
+        "index": 1,
+        "observed": -0.0008681748976324319,
+        "expected": 0.0,
+        "error": 0.0008681748976324319,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.0,
+        "index": 2,
+        "observed": 0.001818078834834978,
+        "expected": 0.0,
+        "error": 0.001818078834834978,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.0,
+        "index": 3,
+        "observed": 1.0065744968317512,
+        "expected": 1,
+        "error": 0.006574496831751153,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": 0.0,
+        "index": 4,
+        "observed": 0.0019743370602053234,
+        "expected": 0.0,
+        "error": 0.0019743370602053234,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.0,
+        "index": 5,
+        "observed": 0.0022077696560069055,
+        "expected": 0.0,
+        "error": 0.0022077696560069055,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.0,
+        "index": 6,
+        "observed": 1.002030748006134,
+        "expected": 1,
+        "error": 0.002030748006133898,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": 0.0,
+        "index": 7,
+        "observed": -0.0004900348420320388,
+        "expected": 0.0,
+        "error": 0.0004900348420320388,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.0,
+        "index": 8,
+        "observed": 0.9958372473765993,
+        "expected": 1,
+        "error": 0.004162752623400712,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": 0.0,
+        "index": 9,
+        "observed": 806.5930749559977,
+        "expected": 806.577813298185,
+        "error": 0.015261657812743579,
+        "bound": 8.230536085148932
+      },
+      {
+        "rho": 0.0,
+        "index": 10,
+        "observed": 654701.4299321941,
+        "expected": 654673.327950272,
+        "error": 28.1019819220528,
+        "bound": 13445.148940997742
+      },
+      {
+        "rho": 0.6,
+        "index": 0,
+        "observed": -0.001834242895376637,
+        "expected": 0.0,
+        "error": 0.001834242895376637,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.6,
+        "index": 1,
+        "observed": -0.0017950856553319097,
+        "expected": 0.0,
+        "error": 0.0017950856553319097,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.6,
+        "index": 2,
+        "observed": -1.2674856083264625e-05,
+        "expected": 0.0,
+        "error": 1.2674856083264625e-05,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": 0.6,
+        "index": 3,
+        "observed": 1.0065744968317512,
+        "expected": 1,
+        "error": 0.006574496831751153,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": 0.6,
+        "index": 4,
+        "observed": 0.6055241677472096,
+        "expected": 0.6,
+        "error": 0.005524167747209652,
+        "bound": 0.14979986648859203
+      },
+      {
+        "rho": 0.6,
+        "index": 5,
+        "observed": 0.6061743250153778,
+        "expected": 0.6,
+        "error": 0.006174325015377846,
+        "bound": 0.14979986648859203
+      },
+      {
+        "rho": 0.6,
+        "index": 6,
+        "observed": 1.00556186116116,
+        "expected": 1,
+        "error": 0.0055618611611600866,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": 0.6,
+        "index": 7,
+        "observed": 0.6048489206672859,
+        "expected": 0.6,
+        "error": 0.0048489206672859275,
+        "bound": 0.14979986648859203
+      },
+      {
+        "rho": 0.6,
+        "index": 8,
+        "observed": 1.0027175727974518,
+        "expected": 1,
+        "error": 0.0027175727974517727,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": 0.6,
+        "index": 9,
+        "observed": 806.5044933386527,
+        "expected": 806.577813298185,
+        "error": 0.07331995953234127,
+        "bound": 11.731813593553799
+      },
+      {
+        "rho": 0.6,
+        "index": 10,
+        "observed": 658847.0441565692,
+        "expected": 658909.3113408753,
+        "error": 62.26718430616893,
+        "bound": 19365.55578108226
+      },
+      {
+        "rho": -0.3,
+        "index": 0,
+        "observed": -0.001834242895376637,
+        "expected": 0.0,
+        "error": 0.001834242895376637,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": -0.3,
+        "index": 1,
+        "observed": -0.00027791319992479343,
+        "expected": 0.0,
+        "error": 0.00027791319992479343,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": -0.3,
+        "index": 2,
+        "observed": 0.0024721966444128897,
+        "expected": 0.0,
+        "error": 0.0024721966444128897,
+        "bound": 0.1284523257866513
+      },
+      {
+        "rho": -0.3,
+        "index": 3,
+        "observed": 1.0065744968317512,
+        "expected": 1,
+        "error": 0.006574496831751153,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": -0.3,
+        "index": 4,
+        "observed": -0.3000889515309764,
+        "expected": -0.3,
+        "error": 8.895153097643327e-05,
+        "bound": 0.13410816529950742
+      },
+      {
+        "rho": -0.3,
+        "index": 5,
+        "observed": -0.30087666127709256,
+        "expected": -0.3,
+        "error": 0.0008766612770925719,
+        "bound": 0.13410816529950742
+      },
+      {
+        "rho": -0.3,
+        "index": 6,
+        "observed": 1.0013096468893226,
+        "expected": 1,
+        "error": 0.0013096468893225577,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": -0.3,
+        "index": 7,
+        "observed": -0.30149691541558526,
+        "expected": -0.3,
+        "error": 0.001496915415585276,
+        "bound": 0.13410816529950742
+      },
+      {
+        "rho": -0.3,
+        "index": 8,
+        "observed": 0.9975267318299539,
+        "expected": 1,
+        "error": 0.0024732681700461168,
+        "bound": 0.1816590212458495
+      },
+      {
+        "rho": -0.3,
+        "index": 9,
+        "observed": 806.6508091687346,
+        "expected": 806.577813298185,
+        "error": 0.07299587054956191,
+        "bound": 5.749622135669131
+      },
+      {
+        "rho": -0.3,
+        "index": 10,
+        "observed": 652683.8474572911,
+        "expected": 652571.2934323349,
+        "error": 112.5540249561891,
+        "bound": 9357.601653740241
+      }
+    ],
+    "derived": [
+      {
+        "rho": 0.0,
+        "pearson_correlations": [
+          0.0019643020529738326,
+          0.0022084804625450948,
+          -0.0004889810280285752
+        ],
+        "pearson_absolute_bound": 0.1807744049348401,
+        "sample_terminal_variance": 4109.061910531859,
+        "expected_terminal_variance": 4105.559045390226,
+        "variance_absolute_bound": 26790.180739608062
+      },
+      {
+        "rho": 0.6,
+        "pearson_correlations": [
+          0.6018706749907742,
+          0.6033731390423003,
+          0.6023568866769339
+        ],
+        "pearson_absolute_bound": 0.35567560999341796,
+        "sample_terminal_variance": 8397.588369074172,
+        "expected_terminal_variance": 8341.542435993557,
+        "variance_absolute_bound": 38428.66619094037
+      },
+      {
+        "rho": -0.3,
+        "pearson_correlations": [
+          -0.2989126707751503,
+          -0.30026089813543816,
+          -0.30167322025067883
+        ],
+        "pearson_absolute_bound": 0.2619669950014699,
+        "sample_terminal_variance": 1998.3295163645168,
+        "expected_terminal_variance": 2003.524527453119,
+        "variance_absolute_bound": 18665.798454015818
+      }
+    ]
+  },
+  "native_capacity_smoke": {
+    "serial": {
+      "schema_version": 1,
+      "application_version": "0.3.0",
+      "backend": "serial",
+      "random_source": "mt19937_64/std::normal_distribution",
+      "requested_threads": 0,
+      "threads_used": 1,
+      "openmp_version": 0,
+      "cuda": null,
+      "scenarios": 10000000,
+      "seed": "42",
+      "input_mode": "portfolio",
+      "portfolio": {
+        "unit": "USD",
+        "horizon_years": 0.5,
+        "initial_value": 710,
+        "assets": [
+          {
+            "id": "A",
+            "quantity": 2,
+            "initial_price": 100,
+            "drift_annual": 0.05,
+            "volatility_annual": 0.2
+          },
+          {
+            "id": "B",
+            "quantity": 3,
+            "initial_price": 80,
+            "drift_annual": 0.03,
+            "volatility_annual": 0.3
+          },
+          {
+            "id": "C",
+            "quantity": 1,
+            "initial_price": 50,
+            "drift_annual": -0.01,
+            "volatility_annual": 0.15
+          },
+          {
+            "id": "D",
+            "quantity": 4,
+            "initial_price": 20,
+            "drift_annual": 0.02,
+            "volatility_annual": 0
+          },
+          {
+            "id": "E",
+            "quantity": 2,
+            "initial_price": 70,
+            "drift_annual": 0.04,
+            "volatility_annual": 0.25
+          }
+        ],
+        "correlation_row_major": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "lower_factor_row_major": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "convention": "R=C*C^T; Z=C*epsilon; common[scenario*assets+asset]"
+      },
+      "model": null,
+      "calibration": null,
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "mc_var": 87.46103342073539,
+          "analytical_var": null,
+          "signed_error": null
+        },
+        {
+          "confidence": 0.99,
+          "mc_var": 121.75699713264154,
+          "analytical_var": null,
+          "signed_error": null
+        }
+      ],
+      "end_to_end_ms": 1575.2258,
+      "timing_scope": "engine_including_allocation_rng_simulation_quantile_cleanup",
+      "market_predictive_validity_claimed": false
+    },
+    "openmp": {
+      "schema_version": 1,
+      "application_version": "0.3.0",
+      "backend": "openmp",
+      "random_source": "block4096/splitmix64/mt19937_64/std::normal_distribution",
+      "requested_threads": 10,
+      "threads_used": 10,
+      "openmp_version": 200203,
+      "cuda": null,
+      "scenarios": 10000000,
+      "seed": "42",
+      "input_mode": "portfolio",
+      "portfolio": {
+        "unit": "USD",
+        "horizon_years": 0.5,
+        "initial_value": 710,
+        "assets": [
+          {
+            "id": "A",
+            "quantity": 2,
+            "initial_price": 100,
+            "drift_annual": 0.05,
+            "volatility_annual": 0.2
+          },
+          {
+            "id": "B",
+            "quantity": 3,
+            "initial_price": 80,
+            "drift_annual": 0.03,
+            "volatility_annual": 0.3
+          },
+          {
+            "id": "C",
+            "quantity": 1,
+            "initial_price": 50,
+            "drift_annual": -0.01,
+            "volatility_annual": 0.15
+          },
+          {
+            "id": "D",
+            "quantity": 4,
+            "initial_price": 20,
+            "drift_annual": 0.02,
+            "volatility_annual": 0
+          },
+          {
+            "id": "E",
+            "quantity": 2,
+            "initial_price": 70,
+            "drift_annual": 0.04,
+            "volatility_annual": 0.25
+          }
+        ],
+        "correlation_row_major": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "lower_factor_row_major": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "convention": "R=C*C^T; Z=C*epsilon; common[scenario*assets+asset]"
+      },
+      "model": null,
+      "calibration": null,
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "mc_var": 87.37056107912409,
+          "analytical_var": null,
+          "signed_error": null
+        },
+        {
+          "confidence": 0.99,
+          "mc_var": 121.57473398468744,
+          "analytical_var": null,
+          "signed_error": null
+        }
+      ],
+      "end_to_end_ms": 998.7078,
+      "timing_scope": "engine_including_allocation_rng_simulation_quantile_cleanup",
+      "market_predictive_validity_claimed": false
+    },
+    "cuda": {
+      "schema_version": 1,
+      "application_version": "0.3.0",
+      "backend": "cuda",
+      "random_source": "cuRAND/PHILOX4_32_10/normal-double",
+      "requested_threads": 0,
+      "threads_used": 1,
+      "openmp_version": 0,
+      "cuda": {
+        "milestone": "full_device_scale_up",
+        "mode": "full-device",
+        "quantile_location": "device",
+        "requested_batch_size": 0,
+        "effective_batch_size": 10000000,
+        "batch_count": 1,
+        "normals_generated": 50000000,
+        "host_loss_bytes": 0,
+        "losses_transferred": 0,
+        "rng_partition_policy": "One PHILOX normal-double call; final total-request padding only",
+        "scenario_limit": 10000000,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "compute_major": 8,
+        "compute_minor": 9,
+        "nvcc_version": "13.4.92",
+        "driver_api_version": 13030,
+        "runtime_version": 13030,
+        "runtime_header_version": 13040,
+        "curand_header_version": "10.4.4.72",
+        "curand_runtime_version": 10404,
+        "quantile_library": "CUB DeviceRadixSort::SortKeys<double> and device nearest-rank gather",
+        "cub_version": 300403,
+        "host_sorting_used": false,
+        "host_to_device_ms": 0.0030720001086592674,
+        "device_to_host_ms": 0.19964799284934998,
+        "host_to_device_bytes": 16,
+        "device_to_host_bytes": 20,
+        "transfer_timer": "Sum of CUDA Event copy intervals on the engine stream across all batches; pageable host staging is included only in primary wall time",
+        "normals_allocated": 50000000,
+        "cub_temporary_bytes": 82676223,
+        "explicit_device_bytes": 642676259,
+        "total_vram_bytes": 8585216000,
+        "free_before_bytes": 7449083904,
+        "free_with_pipeline_bytes": 6794772480,
+        "allocation_budget_limit_bytes": 5959267123,
+        "capacity_policy": "Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee",
+        "diagnostics": {
+          "schema_version": 1,
+          "enabled": true,
+          "initialization_ms": 0.0030720001086592674,
+          "rng_ms": 27.31110382080078,
+          "loss_ms": 17.547264099121094,
+          "cub_ms": 7.097568035125732,
+          "gather_ms": 0.0942080020904541,
+          "pipeline_span_ms": 52.782527923583984,
+          "host_quantile_ms": 0,
+          "covered_device_stage_sum_ms": 52.05321595724672,
+          "initialization_intervals": 1,
+          "rng_intervals": 1,
+          "loss_intervals": 1,
+          "cub_intervals": 1,
+          "gather_intervals": 1,
+          "scope": "Same-stream Event intervals; stage durations summed across batches; initialization is device error-flag memset only; RNG includes device work enqueued by generation call, not host generator setup; span from first pipeline enqueue through final required D2H, includes host submission gaps; excludes allocations/context/cleanup and hybrid host quantile",
+          "transfer_excluded_scope": "Explicit initialization+RNG+loss+CUB+gather Event sum; excludes copies, host setup/quantile/staging, allocation, context, cleanup and gaps between intervals; not host wall time minus copies"
+        }
+      },
+      "scenarios": 10000000,
+      "seed": "42",
+      "input_mode": "portfolio",
+      "portfolio": {
+        "unit": "USD",
+        "horizon_years": 0.5,
+        "initial_value": 710,
+        "assets": [
+          {
+            "id": "A",
+            "quantity": 2,
+            "initial_price": 100,
+            "drift_annual": 0.05,
+            "volatility_annual": 0.2
+          },
+          {
+            "id": "B",
+            "quantity": 3,
+            "initial_price": 80,
+            "drift_annual": 0.03,
+            "volatility_annual": 0.3
+          },
+          {
+            "id": "C",
+            "quantity": 1,
+            "initial_price": 50,
+            "drift_annual": -0.01,
+            "volatility_annual": 0.15
+          },
+          {
+            "id": "D",
+            "quantity": 4,
+            "initial_price": 20,
+            "drift_annual": 0.02,
+            "volatility_annual": 0
+          },
+          {
+            "id": "E",
+            "quantity": 2,
+            "initial_price": 70,
+            "drift_annual": 0.04,
+            "volatility_annual": 0.25
+          }
+        ],
+        "correlation_row_major": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "lower_factor_row_major": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "convention": "R=C*C^T; Z=C*epsilon; common[scenario*assets+asset]"
+      },
+      "model": null,
+      "calibration": null,
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "mc_var": 87.41231094279733,
+          "analytical_var": null,
+          "signed_error": null
+        },
+        {
+          "confidence": 0.99,
+          "mc_var": 121.57124889912231,
+          "analytical_var": null,
+          "signed_error": null
+        }
+      ],
+      "end_to_end_ms": 153.2236,
+      "timing_scope": "engine_including_allocation_rng_simulation_quantile_cleanup",
+      "market_predictive_validity_claimed": false
+    }
+  },
+  "synthetic_examples": {
+    "serial": {
+      "schema_version": 1,
+      "application_version": "0.3.0",
+      "backend": "serial",
+      "random_source": "mt19937_64/std::normal_distribution",
+      "requested_threads": 0,
+      "threads_used": 1,
+      "openmp_version": 0,
+      "cuda": null,
+      "scenarios": 100003,
+      "seed": "42",
+      "input_mode": "portfolio",
+      "portfolio": {
+        "unit": "USD",
+        "horizon_years": 1,
+        "initial_value": 440,
+        "assets": [
+          {
+            "id": "ALPHA",
+            "quantity": 2,
+            "initial_price": 100,
+            "drift_annual": 0.05,
+            "volatility_annual": 0.2
+          },
+          {
+            "id": "BETA",
+            "quantity": 3,
+            "initial_price": 80,
+            "drift_annual": 0.03,
+            "volatility_annual": 0.3
+          }
+        ],
+        "correlation_row_major": [
+          1,
+          0.6,
+          0.6,
+          1
+        ],
+        "lower_factor_row_major": [
+          1,
+          0,
+          0.6,
+          0.8
+        ],
+        "convention": "R=C*C^T; Z=C*epsilon; common[scenario*assets+asset]"
+      },
+      "model": null,
+      "calibration": null,
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "mc_var": 133.2654960717483,
+          "analytical_var": null,
+          "signed_error": null
+        },
+        {
+          "confidence": 0.99,
+          "mc_var": 176.5875259916709,
+          "analytical_var": null,
+          "signed_error": null
+        }
+      ],
+      "end_to_end_ms": 10.8698,
+      "timing_scope": "engine_including_allocation_rng_simulation_quantile_cleanup",
+      "market_predictive_validity_claimed": false
+    },
+    "openmp": {
+      "schema_version": 1,
+      "application_version": "0.3.0",
+      "backend": "openmp",
+      "random_source": "block4096/splitmix64/mt19937_64/std::normal_distribution",
+      "requested_threads": 10,
+      "threads_used": 10,
+      "openmp_version": 200203,
+      "cuda": null,
+      "scenarios": 100003,
+      "seed": "42",
+      "input_mode": "portfolio",
+      "portfolio": {
+        "unit": "USD",
+        "horizon_years": 1,
+        "initial_value": 440,
+        "assets": [
+          {
+            "id": "ALPHA",
+            "quantity": 2,
+            "initial_price": 100,
+            "drift_annual": 0.05,
+            "volatility_annual": 0.2
+          },
+          {
+            "id": "BETA",
+            "quantity": 3,
+            "initial_price": 80,
+            "drift_annual": 0.03,
+            "volatility_annual": 0.3
+          }
+        ],
+        "correlation_row_major": [
+          1,
+          0.6,
+          0.6,
+          1
+        ],
+        "lower_factor_row_major": [
+          1,
+          0,
+          0.6,
+          0.8
+        ],
+        "convention": "R=C*C^T; Z=C*epsilon; common[scenario*assets+asset]"
+      },
+      "model": null,
+      "calibration": null,
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "mc_var": 132.52181596582986,
+          "analytical_var": null,
+          "signed_error": null
+        },
+        {
+          "confidence": 0.99,
+          "mc_var": 175.0961696414755,
+          "analytical_var": null,
+          "signed_error": null
+        }
+      ],
+      "end_to_end_ms": 9.7868,
+      "timing_scope": "engine_including_allocation_rng_simulation_quantile_cleanup",
+      "market_predictive_validity_claimed": false
+    },
+    "cuda": {
+      "schema_version": 1,
+      "application_version": "0.3.0",
+      "backend": "cuda",
+      "random_source": "cuRAND/PHILOX4_32_10/normal-double",
+      "requested_threads": 0,
+      "threads_used": 1,
+      "openmp_version": 0,
+      "cuda": {
+        "milestone": "full_device_scale_up",
+        "mode": "full-device",
+        "quantile_location": "device",
+        "requested_batch_size": 0,
+        "effective_batch_size": 100003,
+        "batch_count": 1,
+        "normals_generated": 200006,
+        "host_loss_bytes": 0,
+        "losses_transferred": 0,
+        "rng_partition_policy": "One PHILOX normal-double call; final total-request padding only",
+        "scenario_limit": 10000000,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "compute_major": 8,
+        "compute_minor": 9,
+        "nvcc_version": "13.4.92",
+        "driver_api_version": 13030,
+        "runtime_version": 13030,
+        "runtime_header_version": 13040,
+        "curand_header_version": "10.4.4.72",
+        "curand_runtime_version": 10404,
+        "quantile_library": "CUB DeviceRadixSort::SortKeys<double> and device nearest-rank gather",
+        "cub_version": 300403,
+        "host_sorting_used": false,
+        "host_to_device_ms": 0.0030720001086592674,
+        "device_to_host_ms": 0.06889599934220314,
+        "host_to_device_bytes": 16,
+        "device_to_host_bytes": 20,
+        "transfer_timer": "Sum of CUDA Event copy intervals on the engine stream across all batches; pageable host staging is included only in primary wall time",
+        "normals_allocated": 200006,
+        "cub_temporary_bytes": 836607,
+        "explicit_device_bytes": 4036739,
+        "total_vram_bytes": 8585216000,
+        "free_before_bytes": 7449083904,
+        "free_with_pipeline_bytes": 7438598144,
+        "allocation_budget_limit_bytes": 5959267123,
+        "capacity_policy": "Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee",
+        "diagnostics": {
+          "schema_version": 1,
+          "enabled": true,
+          "initialization_ms": 0.002047999994829297,
+          "rng_ms": 5.3787522315979,
+          "loss_ms": 0.12697599828243256,
+          "cub_ms": 0.3458560109138489,
+          "gather_ms": 0.0727040022611618,
+          "pipeline_span_ms": 6.4692158699035645,
+          "host_quantile_ms": 0,
+          "covered_device_stage_sum_ms": 5.926336243050173,
+          "initialization_intervals": 1,
+          "rng_intervals": 1,
+          "loss_intervals": 1,
+          "cub_intervals": 1,
+          "gather_intervals": 1,
+          "scope": "Same-stream Event intervals; stage durations summed across batches; initialization is device error-flag memset only; RNG includes device work enqueued by generation call, not host generator setup; span from first pipeline enqueue through final required D2H, includes host submission gaps; excludes allocations/context/cleanup and hybrid host quantile",
+          "transfer_excluded_scope": "Explicit initialization+RNG+loss+CUB+gather Event sum; excludes copies, host setup/quantile/staging, allocation, context, cleanup and gaps between intervals; not host wall time minus copies"
+        }
+      },
+      "scenarios": 100003,
+      "seed": "42",
+      "input_mode": "portfolio",
+      "portfolio": {
+        "unit": "USD",
+        "horizon_years": 1,
+        "initial_value": 440,
+        "assets": [
+          {
+            "id": "ALPHA",
+            "quantity": 2,
+            "initial_price": 100,
+            "drift_annual": 0.05,
+            "volatility_annual": 0.2
+          },
+          {
+            "id": "BETA",
+            "quantity": 3,
+            "initial_price": 80,
+            "drift_annual": 0.03,
+            "volatility_annual": 0.3
+          }
+        ],
+        "correlation_row_major": [
+          1,
+          0.6,
+          0.6,
+          1
+        ],
+        "lower_factor_row_major": [
+          1,
+          0,
+          0.6,
+          0.8
+        ],
+        "convention": "R=C*C^T; Z=C*epsilon; common[scenario*assets+asset]"
+      },
+      "model": null,
+      "calibration": null,
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "mc_var": 133.0980140704688,
+          "analytical_var": null,
+          "signed_error": null
+        },
+        {
+          "confidence": 0.99,
+          "mc_var": 176.11642251269,
+          "analytical_var": null,
+          "signed_error": null
+        }
+      ],
+      "end_to_end_ms": 80.9991,
+      "timing_scope": "engine_including_allocation_rng_simulation_quantile_cleanup",
+      "market_predictive_validity_claimed": false
+    }
+  },
+  "memory_tools": {
+    "gpu_memcheck": "0 errors; 0 bytes leaked; full portfolio structural/backend executable, A=1/2/3/5, N=1/17/257/4097/10003; includes native/common and overflow path",
+    "gpu_racecheck": "0 hazards displayed; same focused executable; shared-memory hazards only, not global race freedom",
+    "host_asan": "2/2 focused serial portfolio/core tests passed; no OpenMP host race-tool coverage",
+    "large_N": "10M native execution checked on each backend; 10M not sanitizer-covered"
+  },
+  "limits": [
+    "1..5 assets; N=1..10000000 subject to checked resources",
+    "CUDA portfolio full-device only; hybrid rejected; existing single-asset hybrid retained",
+    "No general portfolio VaR convergence acceptance or speedup claim",
+    "Moment oracle tests seeded test RNG through production transform/valuation, not per-backend native RNG distribution",
+    "Chebyshev/Bonferroni bounds conservative; Python runtime needed for independent moment test"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "3f494ef96ae026b24bf7b8b7f620979e51bb4e905171c5d6499b00a70700a14c",
+    "data/portfolio-five.txt": "a27e3395ca4089ffb9f17437732d81043addc0c4e09024e9eafcfc1994bd7549",
+    "data/portfolio-two.txt": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f",
+    "include/mc/core.hpp": "7bf51063fdffbc960112bdd528dff47a7a78e82983bd29083569cb17433b8846",
+    "include/mc/cuda.hpp": "938aada853ae37f5493c4cd4e1f6adedc262beee860595d124136f013321cb8f",
+    "include/mc/data.hpp": "a2698c905f16124a005dd1837e4d8e8c02e7ad62a1c28afc4a016fba2847c51f",
+    "include/mc/detail/cuda_plan.hpp": "7281354e8af0ca52b2bb08f11dbfce56d6dfbaeb86ec40a773a4fb4a64a4178b",
+    "include/mc/openmp.hpp": "0729108a6278ee8bdab35f36d2c98cb16c75df04b2838082fd1afbd2d9045b72",
+    "include/mc/output.hpp": "13d3a44e1f2b1d2a739984d1f9fcd46d6268fbb3a1a4bf8547d3331fd59ac5c4",
+    "include/mc/portfolio.hpp": "03c15bd22defe3a2e4af0e710d8f87adf1f541520de35f799b0c01d668118b1a",
+    "include/mc/version.hpp.in": "87f23e3be0aca6daf8e27daf772977e351c0dae1d50994e2ec3d6c6dd3ef9365",
+    "src/core.cpp": "ddce1df5a4b4c33ab96d0a817923592412e72e3bc64aaceb4f5ebc547de49754",
+    "src/cuda.cu": "88a920e9798772e11553654cd2bb2d354828d0e65ae0d3cf0f63c5b8498d4ce4",
+    "src/data.cpp": "aaf14441379d3a89aa853f9b445107900cb3a98bef95fb1df297ae59ac3e2373",
+    "src/main.cpp": "cb10d4c0a94e210c7d3c4d0dbffc59fce7b39f24e097044bb1b37c815db7ef88",
+    "src/openmp.cpp": "fb8ed230c2864635cd76e383b869a6a0c0485b1d6dedfc6dfec2e80f9b93e190",
+    "src/output.cpp": "7c19e1fb93a8cdca078ccb2d4993974290f969b1396a6e5478260e6546fe7137",
+    "src/portfolio.cpp": "96552e207ec99e9a8e9809991c8a6a77a14457227b6d3d359b25800c38d9bd12",
+    "tests/check_portfolio_moments.py": "abc114efb3b58920c160d881c54e2aa424dab09f95eec47eaa1eb4b09d89464b",
+    "tests/test_portfolio.cpp": "602f377689c33e608462e988e739b89e3e5b1bbe37b9408979017b334f7c3c6e",
+    "tests/test_portfolio_cli.cmake": "ff08a45b031d591549463bfec45b019ebcfbbe5206f50471adadaf0fad51a371"
+  },
+  "build_sha256": {
+    "build-portfolio-serial/CMakeCache.txt": "e4cfc750bc003dfd1c03e478a0b80e0a4d0a2733d116faa9735ddd4e2810baad",
+    "build-portfolio-serial/mc_var.exe": "f70167d5473f57ab7fc499fde1cabbb026be2266727bc01f19fafef34b4faf03",
+    "build-portfolio-serial/mc_portfolio_tests.exe": "45e5470fa80eaba44d27e9d44fffc1c1c23ba8c546f48b7fd6b9145dcdffa923",
+    "build-portfolio-openmp/CMakeCache.txt": "29e7a12b5b9a214e9e3958cc647edc21ea473f93eec536db48c2ac4b1fec2304",
+    "build-portfolio-openmp/mc_var.exe": "31f6f36c8dcd618f801d7494fdcafd6787cad968986d1bfa1856444accc06853",
+    "build-portfolio-openmp/mc_portfolio_tests.exe": "6ddd3287de551720aee265184be21b00b6b1c76dff1e4450f6da0c3c7afe247a",
+    "build-portfolio-ninja-cuda/CMakeCache.txt": "af6dc54786ab14fc8ad374cfaf81ac7fe6fe59c1f64513a953669889ecc60195",
+    "build-portfolio-ninja-cuda/mc_var.exe": "4c6fad98f79201678a5254626a7f2bae9d129fd6f6959252e58f947f5004d400",
+    "build-portfolio-ninja-cuda/mc_portfolio_tests.exe": "4d88478b9addbc035bd65945d30d7b7671c9aa9e2725073c7fbdd0fe499aeabc",
+    "build-portfolio-asan/CMakeCache.txt": "b8f373d5785980ddb61fea2ed9f167686086c12854f0f93a98a18319e2e3fd5c",
+    "build-portfolio-asan/mc_var.exe": "1b860297ce646b5c2d2eb367d40ec8b1faf092614dd94f6aae7e4de613141e77",
+    "build-portfolio-asan/mc_portfolio_tests.exe": "843ba0b71e793bd6ec31f6cb28bfbd174f1f3636fe9d3a30b2bfee6e5616844e"
+  },
+  "artifact_sha256": {
+    "results/portfolio-20261025/build-cpu-final.log": "74a738f8475c4d77343b481070b0c20765f613fb7d73b2e1b76e12b6575ce96e",
+    "results/portfolio-20261025/build-cpu-release.log": "c81a2477e932532feadee43b59b3c1e4cece2fce66dffff009b0f482c38bf12f",
+    "results/portfolio-20261025/build-cpu-verified.log": "32940f29a5d53a90ccffcd02146b5b415161431509d52bccbebc95af51141eb7",
+    "results/portfolio-20261025/build-cpu.cmd": "5a9f76027c895717634030d8f7a668b76a64ea011aca9968d5d80ef394fbdaf1",
+    "results/portfolio-20261025/build-cpu.log": "8c4eba60d6fc2baf3a5a346b4cbccf5da036bcd9e2fc65eb3a32e3560dce026f",
+    "results/portfolio-20261025/build-cuda-final.log": "4eee9132724d59f53c1f03e36e3730bc13c025a08fe37e73525c660136eeb151",
+    "results/portfolio-20261025/build-cuda-release.log": "bf04ee0337edd159bced343dbda31c2da562e6f098dda71bf584b1f964c8b9ae",
+    "results/portfolio-20261025/build-cuda-verified.log": "97700b670682c898ff212a08ec770f1cbb2a05439e9b7d943fe3470e1f8f4118",
+    "results/portfolio-20261025/build-cuda.cmd": "8f0982392cdba7ed3f9a3df2b3f0f5fc8a541ee57c0a64ebb14df1994d93d555",
+    "results/portfolio-20261025/build-cuda.log": "2ddb2ddb30eaab967560895fbd8cb201ff6efc04ab31b41ef67be2fc17054866",
+    "results/portfolio-20261025/capacity-cuda.json": "1a802acc166b7c493ad9ebac28607eadd131ee65248f1290b44067f79a1a3e62",
+    "results/portfolio-20261025/capacity-openmp.json": "105354a50f70e353a8f5af2477257e9857035d0ac2c1d219f97ee75ebb5b1655",
+    "results/portfolio-20261025/capacity-release-cuda.json": "434ae9984bb95cb65eccb1b991359c59c045031d42d0dc0864537181b70ec770",
+    "results/portfolio-20261025/capacity-release-openmp.json": "166173970402f842c3d9c989bc975e3078a66465bc974696fc6c3b0aac127547",
+    "results/portfolio-20261025/capacity-release-serial.json": "77d4ede592015a57974ab5582e4f4aeb102078ae15758c56ec8c88857ecd9f94",
+    "results/portfolio-20261025/capacity-serial.json": "29b0fcbd08551b6d12c960f9a87c4dbef2e5b52a6becab83193691046a2acda7",
+    "results/portfolio-20261025/configure-cuda.log": "239dc6634848ebe6ddeb49c17fd5c5210a64845b7401615aed3f415b2fe53463",
+    "results/portfolio-20261025/ctest-cuda-after-build.log": "2a7cc8051a6b299ffe4dc70664096e1546d83568b0d312afe2cc82e8b5a9c7e9",
+    "results/portfolio-20261025/ctest-cuda-final.log": "4059bf05b356d89175d66a48e43f79231132f7372a3be93fe553a1b64e4676e1",
+    "results/portfolio-20261025/ctest-cuda-release.log": "128b63244f4e223e0e576606d97103bb6a1010e9225c71d3815147fcfede73d5",
+    "results/portfolio-20261025/ctest-cuda.log": "b9ac1afb90ee857c92569a65163fed5be0d77ce58f80eda50278822e9c39008b",
+    "results/portfolio-20261025/ctest-openmp-release.log": "3e7fd5095226b795b80fe5747b5d00b7d696500b3168fd501c5819cff3a9041c",
+    "results/portfolio-20261025/ctest-openmp.log": "718b513890ff8b98c3e60fd949ebc6b3d2fe8626771b10d99ed2afe9bf78dc3f",
+    "results/portfolio-20261025/ctest-serial-release.log": "3fe719cb770bdb0866b6d639be3ea49295d08795236808ff5e6ceefc5a514c92",
+    "results/portfolio-20261025/ctest-serial.log": "f2dc88aac53fef957472c3b5d91d02e387cabf793597a0c9848c4ee07435e2d9",
+    "results/portfolio-20261025/example-cuda.json": "0e757d73122198068ccfddedcafa6f2dba2db7feea13e2027c4d9d7eeb883fad",
+    "results/portfolio-20261025/example-release-cuda.json": "030f84cf05026c45ee8100dd9d414a87a9d42b6a2fc9daba17c9a35bc257f4a0",
+    "results/portfolio-20261025/example-release-openmp.json": "179ea189b4162f000404a6d0b8db32a9e447f354571c7c961b4c1cfcdb986612",
+    "results/portfolio-20261025/example-release-serial.json": "d9193c495a06416d6fb1ffe8eb98b378ad310c1cf9bf484720bce8a54ed51f08",
+    "results/portfolio-20261025/gpu-memcheck-release.log": "fde63d0e99fb99a30b5ef023a68d8b1bbfc684f258d4c537cbc67423fcab46cc",
+    "results/portfolio-20261025/gpu-memcheck.log": "fde63d0e99fb99a30b5ef023a68d8b1bbfc684f258d4c537cbc67423fcab46cc",
+    "results/portfolio-20261025/gpu-racecheck-release.log": "ae96d087bb8514cd87fa6a4d6b70587cfb26ba5f8b3739cf46ddb9ab0b4366d1",
+    "results/portfolio-20261025/gpu-racecheck.log": "ae96d087bb8514cd87fa6a4d6b70587cfb26ba5f8b3739cf46ddb9ab0b4366d1",
+    "results/portfolio-20261025/historical-integrity.json": "4de7f7b9e0e6b78cf6dbf741ba46818a2a741c6f15c213ac4b8b058dd0ed3673",
+    "results/portfolio-20261025/host-asan-ehsc.cmd": "d96375cc2e39cb6652589dbc8ad3a3078d53e8235eede347396165cc69f8e81a",
+    "results/portfolio-20261025/host-asan-ehsc.log": "a2d0a4cdb72dedf9ba34b1a44aee64cf9ab3014eb9dbd3d54c6097149491e2c1",
+    "results/portfolio-20261025/host-asan-release.log": "c74964d1c1ef0844bbcbb3af116ac1e381f31b936114a99cc79fca41cbd1ab8b",
+    "results/portfolio-20261025/host-asan.cmd": "c01c40f0c63bb375bbb3b238a1a4a4ffceafd70bd0c8a7d21e8307550dc29f8c",
+    "results/portfolio-20261025/host-asan.log": "2dd4c725e29723c9263f27a5674386161deb28225f6eaeabaaa3a80dfa60b567",
+    "results/portfolio-20261025/independent-moments-final.json": "1111dfef4ddd3a698920063205c4ffa8f300201f01b8de85ed3b19811505f0f2",
+    "results/portfolio-20261025/independent-moments-release.json": "1111dfef4ddd3a698920063205c4ffa8f300201f01b8de85ed3b19811505f0f2",
+    "results/portfolio-20261025/independent-moments.json": "37a9cb151efb0f3abd776f24f760e0ed14ae1102d211a6723f749b99b5522a5c",
+    "results/portfolio-20261025/python-regressions.log": "ac3cff98992df676e8448a9e42c1be5979dd79d207cc48cee23f6ec42d0138ee"
+  }
+}

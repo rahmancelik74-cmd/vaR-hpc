@@ -1,5 +1,12 @@
 # Architecture baseline
 
+Optional portfolio extension: [contract, inputs and validation](portfolio.md).
+`Request::portfolio` is a borrowed immutable optional input to the same Engine
+boundary; null retains the established single-asset path. `portfolio.cpp` owns
+shared input validation and Cholesky preparation outside engine timing. Each
+backend retains native RNG, scalar loss storage and its own quantile pipeline.
+Portfolio CUDA supports full-device only and rejects hybrid explicitly.
+
 Updated: 2026-10-18. Application version: 0.3.0; original baseline: 0.2.1.
 This records the implemented design and planned extensions separately.
 OpenMP is implemented and Windows-verified. CUDA now supports the full-device

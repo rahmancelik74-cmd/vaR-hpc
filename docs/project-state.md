@@ -1,5 +1,17 @@
 # Project state
 
+## Optional portfolio extension: 2026-10-25
+
+The explicitly authorized synthetic portfolio extension adds 1..5 fixed long
+holdings in one valuation unit, validated positive-definite shock correlation,
+lower Cholesky and serial/OpenMP/full-device CUDA valuation. See
+[portfolio.md](portfolio.md) for the separate P-1..P-5/P-T1..P-T2 register,
+predeclared checks, actual local coverage and limitations. Historical Plan A
+criteria, single-asset campaigns and FR/NFR IDs are unchanged. No general
+portfolio VaR convergence acceptance, performance improvement, supervisor
+approval or academic delivery is claimed. Local checks and remote Git/CI status
+are distinct; the extension evidence records actual delivery status.
+
 ## Required live demonstrations prepared and locally rehearsed: 2026-10-21
 
 Starting main HEAD was 04a9b5281def039df3bc4b2f3fea43d2f4f70e19; its exact-SHA

@@ -1,4 +1,5 @@
 #include "mc/core.hpp"
+#include "mc/portfolio.hpp"
 #include <algorithm>
 #include <chrono>
 #include <cmath>
@@ -56,12 +57,15 @@ double sorted_quantile(const std::vector<double>& losses, double confidence) {
     return losses.at(std::min(index, losses.size() - 1));
 }
 Result SerialEngine::run(const Request& r, const std::vector<double>* common) const {
-    validate_model(r.model);
-    if (r.scenarios == 0 || r.confidence_levels.empty())
-        throw std::invalid_argument("Nonzero scenarios and confidence levels required");
-    for (double c : r.confidence_levels) validate_probability(c);
-    if (common && common->size() != r.scenarios)
-        throw std::invalid_argument("Common input count must equal scenario count");
+    const auto portfolio = r.portfolio ? validate_portfolio_request(r, common) : PreparedPortfolio{};
+    if (!r.portfolio) {
+        validate_model(r.model);
+        if (r.scenarios == 0 || r.confidence_levels.empty())
+            throw std::invalid_argument("Nonzero scenarios and confidence levels required");
+        for (double c : r.confidence_levels) validate_probability(c);
+        if (common && common->size() != r.scenarios)
+            throw std::invalid_argument("Common input count must equal scenario count");
+    }
     // Parsed model already available; allocations, RNG, sort and buffer
     // destruction are included. CLI printing and input parsing are excluded.
     const auto start = std::chrono::steady_clock::now();
@@ -72,8 +76,14 @@ Result SerialEngine::run(const Request& r, const std::vector<double>* common) co
         std::vector<double> losses(r.scenarios);
         std::mt19937_64 rng(r.seed);
         std::normal_distribution<double> normal(0.0, 1.0);
-        for (std::size_t i = 0; i < r.scenarios; ++i)
-            losses[i] = scenario_loss(r.model, common ? (*common)[i] : normal(rng));
+        for (std::size_t i = 0; i < r.scenarios; ++i) {
+            if (r.portfolio) {
+                double epsilon[5];
+                for (int j = 0; j < portfolio.count; ++j)
+                    epsilon[j] = common ? (*common)[i*portfolio.count+j] : normal(rng);
+                losses[i] = portfolio_loss(portfolio, epsilon);
+            } else losses[i] = scenario_loss(r.model, common ? (*common)[i] : normal(rng));
+        }
         std::sort(losses.begin(), losses.end());
         for (double c : r.confidence_levels)
             result.estimates.push_back({c, sorted_quantile(losses, c)});

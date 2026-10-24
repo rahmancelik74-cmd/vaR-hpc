@@ -1,4 +1,5 @@
 #include "mc/output.hpp"
+#include "mc/portfolio.hpp"
 #include "mc/detail/cuda_plan.hpp"
 #include "mc/version.hpp"
 #include <cmath>
@@ -85,7 +86,7 @@ void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
 }
 void write_run_json(std::ostream& output, const Request& r,
                     const Result& result, const CsvMetadata* csv) {
-    validate_model(r.model);
+    if (!r.portfolio) validate_model(r.model);
     if (!std::isfinite(result.end_to_end_ms) || result.end_to_end_ms < 0)
         throw std::invalid_argument("Invalid elapsed time");
     std::ostringstream out;
@@ -102,13 +103,46 @@ void write_run_json(std::ostream& output, const Request& r,
     if (result.cuda) cuda_metadata(out, *result.cuda); else out << "null";
     // Strings avoid precision loss for uint64 seeds in JSON consumers.
     out << ",\"scenarios\":" << r.scenarios << ",\"seed\":\"" << r.seed << '"';
-    out << ",\"input_mode\":\"" << (csv ? "csv_calibration" : "fixed_parameter_demo") << '"';
-    out << ",\"model\":{\"initial_value\":";
-    number(out, r.model.initial_value);
-    out << ",\"drift_annual\":"; number(out, r.model.drift);
-    out << ",\"volatility_annual\":"; number(out, r.model.volatility);
-    out << ",\"horizon_years\":"; number(out, r.model.horizon);
-    out << "},\"calibration\":";
+    out << ",\"input_mode\":\"" << (r.portfolio ? "portfolio" : (csv ? "csv_calibration" : "fixed_parameter_demo")) << '"';
+    if (r.portfolio) {
+        const auto& p = *r.portfolio;
+        const auto b = prepare_portfolio(p);
+        out << ",\"portfolio\":{\"unit\":"; string_value(out, p.unit);
+        out << ",\"horizon_years\":"; number(out, p.horizon);
+        out << ",\"initial_value\":"; number(out, b.initial_value);
+        out << ",\"assets\":[";
+        for (std::size_t i = 0; i < p.assets.size(); ++i) {
+            if (i) out << ',';
+            const auto& a = p.assets[i];
+            out << "{\"id\":"; string_value(out, a.id);
+            out << ",\"quantity\":"; number(out, a.quantity);
+            out << ",\"initial_price\":"; number(out, a.price);
+            out << ",\"drift_annual\":"; number(out, a.drift);
+            out << ",\"volatility_annual\":"; number(out, a.volatility);
+            out << '}';
+        }
+        out << "],\"correlation_row_major\":[";
+        for (std::size_t i = 0; i < p.correlation.size(); ++i) {
+            if (i) out << ',';
+            number(out, p.correlation[i]);
+        }
+        out << "],\"lower_factor_row_major\":[";
+        for (int i = 0; i < b.count; ++i) for (int j = 0; j < b.count; ++j) {
+            if (i || j) out << ',';
+            number(out, b.factor[i*5+j]);
+        }
+        out << "],\"convention\":\"R=C*C^T; Z=C*epsilon; common[scenario*assets+asset]\"}";
+    }
+    if (r.portfolio) out << ",\"model\":null";
+    else {
+        out << ",\"model\":{\"initial_value\":";
+        number(out, r.model.initial_value);
+        out << ",\"drift_annual\":"; number(out, r.model.drift);
+        out << ",\"volatility_annual\":"; number(out, r.model.volatility);
+        out << ",\"horizon_years\":"; number(out, r.model.horizon);
+        out << '}';
+    }
+    out << ",\"calibration\":";
     if (!csv) out << "null";
     else {
         out << "{\"observations\":" << csv->observations
@@ -123,13 +157,13 @@ void write_run_json(std::ostream& output, const Request& r,
     out << ",\"estimates\":[";
     bool first = true;
     for (const auto& e : result.estimates) {
-        const double reference = analytical_var(r.model, e.confidence);
+        const double reference = r.portfolio ? 0 : analytical_var(r.model, e.confidence);
         if (!first) out << ',';
         first = false;
         out << "{\"confidence\":"; number(out, e.confidence);
         out << ",\"mc_var\":"; number(out, e.var);
-        out << ",\"analytical_var\":"; number(out, reference);
-        out << ",\"signed_error\":"; number(out, e.var - reference);
+        out << ",\"analytical_var\":"; if (r.portfolio) out << "null"; else number(out, reference);
+        out << ",\"signed_error\":"; if (r.portfolio) out << "null"; else number(out, e.var - reference);
         out << '}';
     }
     out << "],\"end_to_end_ms\":"; number(out, result.end_to_end_ms);

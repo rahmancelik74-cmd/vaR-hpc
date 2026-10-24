@@ -1,4 +1,5 @@
 #include "mc/cuda.hpp"
+#include "mc/portfolio.hpp"
 #include "mc/detail/cuda_plan.hpp"
 #include <cuda_runtime.h>
 #include <curand.h>
@@ -136,6 +137,20 @@ __global__ void quantile_kernel(const double* sorted, const std::size_t* indices
     const int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < count) values[i] = sorted[indices[i]];
 }
+__global__ void portfolio_kernel(PreparedPortfolio p, const double* normals,
+                                 double* losses, int count, int* invalid) {
+    const int s = blockIdx.x * blockDim.x + threadIdx.x;
+    if (s >= count) return;
+    double loss = 0;
+    for (int i = 0; i < p.count; ++i) {
+        double z = 0;
+        for (int j = 0; j <= i; ++j)
+            z += p.factor[i*5+j]*normals[static_cast<std::size_t>(s)*p.count+j];
+        loss -= p.values[i]*expm1(p.drifts[i]+p.scales[i]*z);
+    }
+    if (!isfinite(loss)) atomicMax(invalid, 2);
+    losses[s] = loss;
+}
 void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::size_t requested,
                      Resources& resources, const cudaDeviceProp& properties, Result& result) {
     auto& info = *result.cuda;
@@ -215,12 +230,15 @@ std::string compiler_version() {
 }
 }
 Result CudaEngine::run(const Request& r, const std::vector<double>* common) const {
-    validate_model(r.model);
+    const auto portfolio = r.portfolio ? validate_portfolio_request(r, common) : PreparedPortfolio{};
+    if (r.portfolio && mode_ == CudaMode::Hybrid)
+        throw std::invalid_argument("Portfolio CUDA hybrid mode is unsupported; select full-device");
+    if (!r.portfolio) validate_model(r.model);
     detail::validate_cuda_counts(r.scenarios, r.confidence_levels.size());
     for (double c : r.confidence_levels)
         if (!std::isfinite(c) || c <= 0 || c >= 1)
             throw std::invalid_argument("Probability must be finite and in (0,1)");
-    if (common && common->size() != r.scenarios)
+    if (!r.portfolio && common && common->size() != r.scenarios)
         throw std::invalid_argument("Common input count must equal scenario count");
     if (mode_ != CudaMode::FullDevice && mode_ != CudaMode::Hybrid)
         throw std::invalid_argument("Invalid CUDA mode");
@@ -267,7 +285,9 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
             for (double c : r.confidence_levels)
                 indices.push_back(detail::quantile_index(c, r.scenarios));
             // Normal-double generation requires an even output count. Only N values are consumed.
-            info.normals_allocated = detail::normal_count(r.scenarios, common != nullptr);
+            const auto normal_size = detail::checked_multiply(r.scenarios,
+                r.portfolio ? static_cast<std::size_t>(portfolio.count) : std::size_t{1});
+            info.normals_allocated = detail::normal_count(normal_size, common != nullptr);
             const auto loss_bytes = detail::checked_multiply(r.scenarios, sizeof(double));
             const auto index_bytes = detail::checked_multiply(k, sizeof(std::size_t));
             const auto value_bytes = detail::checked_multiply(k, sizeof(double));
@@ -291,7 +311,7 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
             auto workspace = resources.allocate<unsigned char>(workspace_bytes);
             const auto pipeline = resources.start(5);
             resources.copy(indices_device, indices.data(), index_bytes, cudaMemcpyHostToDevice, info);
-            if (common) resources.copy(normals, common->data(), loss_bytes, cudaMemcpyHostToDevice, info);
+            if (common) resources.copy(normals, common->data(), detail::checked_multiply(normal_size, sizeof(double)), cudaMemcpyHostToDevice, info);
             else {
                 check_rng(curandCreateGenerator(&resources.generator, CURAND_RNG_PSEUDO_PHILOX4_32_10), "cuRAND device generator creation");
                 check_rng(curandSetStream(resources.generator, resources.stream), "cuRAND stream selection");
@@ -305,7 +325,9 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
                 check(cudaMemsetAsync(invalid_device, 0, sizeof(int), resources.stream), "Device error flag initialization");
             });
             resources.measure(2, [&] {
-            losses_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(r.model, normals, losses, n, invalid_device);
+            if (r.portfolio)
+                portfolio_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(portfolio, normals, losses, n, invalid_device);
+            else losses_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(r.model, normals, losses, n, invalid_device);
             check(cudaGetLastError(), "Loss kernel launch");
             });
             int invalid = 0;

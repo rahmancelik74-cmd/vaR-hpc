@@ -1,4 +1,5 @@
 #include "mc/core.hpp"
+#include "mc/portfolio.hpp"
 #include "mc/data.hpp"
 #include "mc/output.hpp"
 #include "mc/version.hpp"
@@ -77,7 +78,7 @@ int main(int argc, char** argv) {
                 batch_size = static_cast<std::size_t>(value);
             } else {
                 if (option.rfind("--", 0) == 0 &&
-                    !(option == "--csv" && positional.size() == 1))
+                    !((option == "--csv" || option == "--portfolio") && positional.size() == 1))
                     throw std::invalid_argument("Unknown, misplaced or duplicate option");
                 positional.push_back(argv[i]);
             }
@@ -99,11 +100,13 @@ int main(int argc, char** argv) {
         argc = static_cast<int>(positional.size());
         argv = positional.data();
         const bool csv_mode = argc > 1 && std::string(argv[1]) == "--csv";
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output)";
-        if ((!csv_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)))
+        const bool portfolio_mode = argc > 1 && std::string(argv[1]) == "--portfolio";
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --portfolio file [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output)";
+        if ((!csv_mode && !portfolio_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)) ||
+            (portfolio_mode && (argc < 3 || argc > 5)))
             throw std::invalid_argument(usage);
         mc::Request request;
-        const int first = csv_mode ? 3 : 1;
+        const int first = (csv_mode || portfolio_mode) ? 3 : 1;
         if (argc > first) {
             const auto n = positive_integer(argv[first]);
             if (n > std::numeric_limits<std::size_t>::max())
@@ -114,6 +117,11 @@ int main(int argc, char** argv) {
         if (request.scenarios == 0)
             throw std::invalid_argument("Scenario count must be positive");
         mc::CsvMetadata metadata;
+        mc::Portfolio portfolio;
+        if (portfolio_mode) {
+            portfolio = mc::load_portfolio(argv[2]);
+            request.portfolio = &portfolio;
+        }
         std::cout << std::setprecision(10);
         if (csv_mode) {
             const auto horizon_days = argc > 5 ? positive_integer(argv[5]) : 10;
@@ -138,7 +146,7 @@ int main(int argc, char** argv) {
                       << " T_years=" << request.model.horizon
                       << " horizon_trading_days=" << horizon_days
                       << " trading_days_per_year=" << days_per_year << '\n';
-        } else if (!json_mode) {
+        } else if (!json_mode && !portfolio_mode) {
             std::cout << "Synthetic fixed-parameter demo; not market validation or a benchmark campaign.\n";
         }
         std::unique_ptr<mc::Engine> engine;
@@ -167,6 +175,11 @@ int main(int argc, char** argv) {
             << " effective_batch_size=" << result.cuda->effective_batch_size
             << " batch_count=" << result.cuda->batch_count << '\n';
         for (const auto& e : result.estimates) {
+            if (portfolio_mode) {
+                std::cout << "confidence=" << e.confidence << " mc_var=" << e.var
+                          << " analytical_var=unavailable\n";
+                continue;
+            }
             const auto reference = mc::analytical_var(request.model, e.confidence);
             std::cout << "confidence=" << e.confidence << " mc_var=" << e.var
                       << " analytical_var=" << reference
