@@ -169,8 +169,23 @@ No OpenMP host race detector or 10M sanitizer coverage is claimed. Hardware,
 toolchain, exact-byte source/binary/cache/log hashes and actual output are in the
 [extension evidence](../evidence/portfolio-extension-20261025/README.md).
 
-Git delivery is blocked in this executor: `.git/index.lock` creation is denied.
-No files were staged, committed or pushed; therefore no new SHA or exact-SHA CI
-result exists. The original remote main was verified as
-4b2040b72ba7f29f1a6e05c44537c53f4d953976 using Git's OpenSSL transport after
-Schannel could not obtain credentials. No access controls or settings changed.
+## Published implementation and hosted CI
+
+The implementation was subsequently committed and published as
+[f0b887819976ff0b579acc1a308991177f05aeda](https://github.com/rahmancelik74-cmd/vaR-hpc/commit/f0b887819976ff0b579acc1a308991177f05aeda).
+Its [exact-SHA CI run 40136758943](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40136758943)
+completed successfully. The actual hosted jobs were `cpu (OFF)` and `cpu (ON)`
+on Ubuntu, plus `windows-instrumentation` on Windows. The Ubuntu jobs built and
+ran CTest with CUDA disabled, with OpenMP OFF/ON respectively, and ran offline
+provenance/integrity checks. The Windows job ran CPU recorder smoke,
+instrumentation and retained engine tests. Hosted CI did not execute CUDA.
+The Windows/OpenMP/RTX results above remain separate local validation evidence.
+
+The unchanged [original evidence package](../evidence/portfolio-extension-20261025/README.md)
+and its [validation summary](../evidence/portfolio-extension-20261025/validation-summary.json)
+describe their preparation time, when the executor could not create
+`.git/index.lock` and delivery was blocked. Their failure records, raw logs and
+hashes are preserved; those historical statements are superseded for current
+delivery status by the published commit and CI links above. Publication and
+CPU CI do not establish general portfolio VaR statistical acceptance, a formal
+performance result, wider sanitizer coverage, advisor approval or academic delivery.

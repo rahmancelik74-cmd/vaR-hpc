@@ -9,8 +9,17 @@ lower Cholesky and serial/OpenMP/full-device CUDA valuation. See
 predeclared checks, actual local coverage and limitations. Historical Plan A
 criteria, single-asset campaigns and FR/NFR IDs are unchanged. No general
 portfolio VaR convergence acceptance, performance improvement, supervisor
-approval or academic delivery is claimed. Local checks and remote Git/CI status
-are distinct; the extension evidence records actual delivery status.
+approval or academic delivery is claimed.
+
+The implementation was published as
+[f0b887819976ff0b579acc1a308991177f05aeda](https://github.com/rahmancelik74-cmd/vaR-hpc/commit/f0b887819976ff0b579acc1a308991177f05aeda),
+with successful [exact-SHA CI run 40136758943](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40136758943).
+Its actual jobs were Ubuntu `cpu (OFF)` / `cpu (ON)` and Windows
+`windows-instrumentation`; hosted CI did not execute CUDA. Local Windows,
+OpenMP and RTX validation remains separate. The unchanged
+[original portfolio evidence](../evidence/portfolio-extension-20261025/README.md)
+records the earlier preparation-time Git blocker, not current delivery status.
+See [the delivery clarification](portfolio.md#published-implementation-and-hosted-ci).
 
 ## Required live demonstrations prepared and locally rehearsed: 2026-10-21
 

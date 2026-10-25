@@ -5,6 +5,10 @@ Abdurrahman Celik - application v0.3.0, 16 October 2026.
 Optional [synthetic portfolio mode](docs/portfolio.md) supports 1..5 assets on
 serial, OpenMP and full-device CUDA, with independent structural/moment checks.
 It is a separate extension; existing single-asset acceptance and campaigns remain unchanged.
+The [published portfolio implementation](https://github.com/rahmancelik74-cmd/vaR-hpc/commit/f0b887819976ff0b579acc1a308991177f05aeda)
+has [successful exact-SHA CPU CI](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40136758943).
+Local Windows/OpenMP/RTX validation is separate; hosted CI did not execute CUDA.
+See [current delivery status and the historical evidence clarification](docs/portfolio.md#published-implementation-and-hosted-ci).
 
 Technical [reproducibility entry point](docs/reproducibility.md) and
 [FR/NFR evidence audit](docs/requirements-audit.md): distinguish clean software
