@@ -1,5 +1,37 @@
 # Project state
 
+## Portfolio quantile/convergence and timing campaign: 2026-10-25
+
+The [separate frozen portfolio study](portfolio-campaign.md) ran against production
+baseline b33f061a75c17e579ce27bcc9915284e6d9d7812 without engine changes.
+Three synthetic fixtures, independent 20M-scenario CPU references, native
+serial/OpenMP10/CUDA full-device at N=100000/1000000/10000000 and five seeds
+produced 270 quantile comparisons. None rejected the predeclared distributional
+consistency test. At N=10M, 9/18 realized five-seed mean targets passed and 9/18
+were inconclusive under the frozen reference-precision rule; no general
+portfolio VaR acceptance is claimed. The 20M reference cap was retained.
+
+The formal original two/five-asset benchmark completed 546 fresh processes:
+126 excluded warm-ups and 420 measured repetitions across 42 rows. At 10M,
+CUDA mean-time ratios were 9.361277708x serial / 7.009375208x best OpenMP for
+two assets, and 9.492752075x / 6.444923908x for five assets. CPU baselines were
+faster at 100k; best OpenMP was also faster for the two-asset 1M case. These are
+observed ratios for like workloads, not an optimization improvement or a new
+10x requirement. All timing spread and thread rows are retained. These primary
+values use the single complete protocol-permitted replacement: the entire first
+546-process timing attempt was invalidated because executor metadata serialization
+overlapped measurement. All first-attempt samples are preserved separately;
+reference/statistical data are unchanged and were not rerun. No selective
+outlier replacement or acceptance-limit revision occurred.
+
+See the [new evidence package](../evidence/portfolio-campaign-20261025/README.md)
+for protocol/fixture/source/build hashes, raw CSVs, reference uncertainty,
+figures, checks and provenance limitations. Historical packages, FR/NFR
+criteria, single-asset campaigns and portfolio hybrid rejection are unchanged.
+The new tooling/evidence were collected with explicit uncommitted tooling
+state; local campaign completion is separate from Git publication and exact-SHA
+hosted CI. Hosted CPU checks do not reproduce local CUDA timing or statistics.
+
 ## Optional portfolio extension: 2026-10-25
 
 The explicitly authorized synthetic portfolio extension adds 1..5 fixed long

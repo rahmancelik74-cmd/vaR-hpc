@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "analytical_deterministic_small_factor_checks": true,
+  "moment_seed": 778899,
+  "moment_checks": [
+    {
+      "observed": 721.9756805550878,
+      "expected": 722.0729845427718,
+      "bound": 5.053905672885953
+    },
+    {
+      "observed": 525495.2036812647,
+      "expected": 525646.3887649107,
+      "bound": 7448.507077233221
+    },
+    {
+      "observed": 457.2364922009146,
+      "expected": 457.5633074240489,
+      "bound": 4.829117996421774
+    },
+    {
+      "observed": 212952.2714858152,
+      "expected": 213250.91040472878,
+      "bound": 4704.367440297349
+    },
+    {
+      "observed": 456.872047071489,
+      "expected": 457.5633074240489,
+      "bound": 8.261729029469308
+    },
+    {
+      "observed": 219996.5717586712,
+      "expected": 220740.20806023065,
+      "bound": 8352.524316628507
+    }
+  ]
+}

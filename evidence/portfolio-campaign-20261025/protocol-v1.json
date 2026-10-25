@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "extension_ids": [
+    "P-V1 independent reference",
+    "P-V2 native statistical consistency",
+    "P-V3 realized five-seed mean practical target",
+    "P-B1 formal portfolio benchmark"
+  ],
+  "fixtures": {
+    "five-identity": {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/five-identity.txt",
+      "sha256": "a27e3395ca4089ffb9f17437732d81043addc0c4e09024e9eafcfc1994bd7549"
+    },
+    "two-negative": {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/two-negative.txt",
+      "sha256": "b844128cc404d3e9a326d9149bd5c67abdfe990a7458bbb6e78ccf8a8323615a"
+    },
+    "two-positive": {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/two-positive.txt",
+      "sha256": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f"
+    }
+  },
+  "confidence": [
+    0.95,
+    0.99
+  ],
+  "scenario_grid": [
+    100000,
+    1000000,
+    10000000
+  ],
+  "validation_engines": [
+    "serial",
+    "openmp10",
+    "cuda"
+  ],
+  "validation_seeds": [
+    2026102501,
+    2026102502,
+    2026102503,
+    2026102504,
+    2026102505
+  ],
+  "reference": {
+    "scenarios": 20000000,
+    "chunk_size": 250000,
+    "rng": "NumPy PCG64DXSM/Generator.standard_normal float64",
+    "seeds": {
+      "two-positive": 90372001,
+      "two-negative": 90372002,
+      "five-identity": 90372003
+    },
+    "hard_limit_per_fixture": 20000000,
+    "escalation": "none; retain and mark reference-precision inconclusive if CI half-width > practical_target/2",
+    "quantile": "NumPy inverted_cdf, global sorted scalar losses; no batch quantiles",
+    "construction": "explicit rho/sqrt(1-rho^2) for two assets; identity for five; no production Cholesky",
+    "valuation": "q*S0*exp annual GBM, V0-sum(VT), float64; no production helpers"
+  },
+  "family_error": {
+    "total": 0.01,
+    "reference_quantile_intervals": 0.0025,
+    "reference_uniform_cdf_DKW": 0.0025,
+    "native_order_statistics": 0.005,
+    "reference_quantile_comparisons": 6,
+    "reference_cdf_families": 3,
+    "native_quantile_comparisons": 270
+  },
+  "practical_target_fraction_V0": 0.0005,
+  "practical_rule": "For each realized five-seed mean m and reference quantile CI [L,U], pass if max(abs(m-L),abs(m-U)) <= .0005*V0; fail if distance(m,[L,U]) > target; otherwise inconclusive. Excess reference CI half-width forces inconclusive. Confirmatory criterion at N=10000000, smaller N diagnostic. Not population mean equivalence.",
+  "consistency_rule": "F(qhat)~Beta(k,N+1-k), k=ceil(alpha*N). Per-comparison tail .005/(2*270). Reference empirical F(qhat) must lie within beta central bounds expanded by uniform DKW epsilon sqrt(log(2/(.0025/3))/(2*M)). Outside means rejected; inside means not rejected, not proof of equivalence. Any rejected seed prevents group consistency pass.",
+  "benchmark": {
+    "fixtures": [
+      "two-positive",
+      "five-identity"
+    ],
+    "configurations": [
+      "serial",
+      "openmp1",
+      "openmp2",
+      "openmp4",
+      "openmp8",
+      "openmp10",
+      "cuda"
+    ],
+    "seed": 42,
+    "warmups": 3,
+    "measured": 10,
+    "expected_processes": 546,
+    "expected_measured": 420,
+    "expected_warmups": 126,
+    "order": "fixture order as listed, N ascending, all warm-up rounds then measured; reverse config order on odd zero-based rounds, rotate left by (3*round)%7",
+    "process": "fresh owned suspended CLI process, fresh CUDA context; full allowed CPU pool, NORMAL_PRIORITY_CLASS, OS worker scheduling; no per-core pinning",
+    "timer": "engine end_to_end_ms; includes allocation/native RNG/correlated GBM/portfolio loss/global quantile/transfers/synchronization/cleanup and context work inside engine; excludes process startup, parsing, Cholesky, output, launcher telemetry and fixed delay",
+    "diagnostics": false,
+    "inter_run_delay_seconds": 0.1,
+    "power": "require AC-line status, battery saver and active scheme unchanged versus initial inventory; battery percent retained but not a filter; no settings changes; unmeasured physical conditions unknown",
+    "target": "no portfolio speedup threshold; Tserial/Tconfig and TbestOpenMP/Tconfig each fixture/N"
+  },
+  "failure_policy": {
+    "sample_timeout_seconds": 120,
+    "outliers": "retain all successful measured samples; no value-based exclusions",
+    "interruption": "stop and preserve full attempt; at most one complete replacement attempt in a NEW directory with reason, never cherry-pick replacements",
+    "reference_failure": "retain partial attempt; do not shrink N or fabricate precision",
+    "sequential": "reference, validation, benchmark run serially; no competing reference/profiling/sanitizer work during benchmark"
+  },
+  "pilot": "none; all declared reference and validation results confirmatory",
+  "limits": "Finite synthetic fixtures only, PRNG ideal-iid modeling assumption; no universal convergence, market prediction, advisor approval or academic submission; existing FR/NFR unchanged."
+}

@@ -1,0 +1,231 @@
+{
+  "processor_groups": 1,
+  "logical_processors": 16,
+  "process_mask_hex": "ffff",
+  "system_mask_hex": "ffff",
+  "cores": [
+    {
+      "core_index": 0,
+      "efficiency_class": 1,
+      "smt_flag": 1,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "3"
+        }
+      ]
+    },
+    {
+      "core_index": 1,
+      "efficiency_class": 1,
+      "smt_flag": 1,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "c"
+        }
+      ]
+    },
+    {
+      "core_index": 2,
+      "efficiency_class": 1,
+      "smt_flag": 1,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "30"
+        }
+      ]
+    },
+    {
+      "core_index": 3,
+      "efficiency_class": 1,
+      "smt_flag": 1,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "c0"
+        }
+      ]
+    },
+    {
+      "core_index": 4,
+      "efficiency_class": 1,
+      "smt_flag": 1,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "300"
+        }
+      ]
+    },
+    {
+      "core_index": 5,
+      "efficiency_class": 1,
+      "smt_flag": 1,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "c00"
+        }
+      ]
+    },
+    {
+      "core_index": 6,
+      "efficiency_class": 0,
+      "smt_flag": 0,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "1000"
+        }
+      ]
+    },
+    {
+      "core_index": 7,
+      "efficiency_class": 0,
+      "smt_flag": 0,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "2000"
+        }
+      ]
+    },
+    {
+      "core_index": 8,
+      "efficiency_class": 0,
+      "smt_flag": 0,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "4000"
+        }
+      ]
+    },
+    {
+      "core_index": 9,
+      "efficiency_class": 0,
+      "smt_flag": 0,
+      "groups": [
+        {
+          "group": 0,
+          "logical_mask_hex": "8000"
+        }
+      ]
+    }
+  ],
+  "openmp_version": 200203,
+  "runtime": {
+    "module": "vcomp140.dll",
+    "file_version": "14.50.35719.0"
+  },
+  "power": {
+    "ac_line_status": 1,
+    "battery_percent": 98,
+    "battery_flags": 1,
+    "battery_saver": 0,
+    "active_power_scheme": "5da85d85-eb0c-4710-a805-6da8bbcf1f02",
+    "frequency_query_status": 0,
+    "frequency_snapshot_mhz": [
+      {
+        "logical_processor": 0,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 1,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 2,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 3,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 4,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 5,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 6,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 7,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 8,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 9,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 10,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 11,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 12,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 13,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 14,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      },
+      {
+        "logical_processor": 15,
+        "current": 2300,
+        "maximum": 2300,
+        "limit": 2300
+      }
+    ],
+    "cpu_package_temperature_c": null,
+    "temperature_status": "Not measured; no package sensor reader configured"
+  }
+}

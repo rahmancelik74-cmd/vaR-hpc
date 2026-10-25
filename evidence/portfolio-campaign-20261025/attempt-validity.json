@@ -1,0 +1,8 @@
+{
+  "protocol_version": 1,
+  "first_benchmark_attempt": "invalidated for primary performance interpretation; all 546 samples retained unchanged",
+  "reason": "Executor metadata serialization overlapped timing and generated unexpected CPU work. It is a known measurement-condition defect, not an outlier rule.",
+  "replacement": "one complete new-directory benchmark replacement, same binary/fixtures/N/configurations/repetitions/seed, no partial cherry-picking",
+  "reference_validation": "Original 20M references and 135 native validation processes finished before interference; retained unchanged, no extra sampling",
+  "replacement_directory": "benchmark-replacement-v1"
+}

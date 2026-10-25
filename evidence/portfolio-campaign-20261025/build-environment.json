@@ -1,0 +1,25 @@
+{
+  "cpu_model": "12th Gen Intel(R) Core(TM) i7-12650H",
+  "os_version": "Windows-10-10.0.26200-SP0",
+  "cmake": "cmake version 3.31.6-msvc6",
+  "nvcc": [
+    "nvcc: NVIDIA (R) Cuda compiler driver",
+    "Copyright (c) 2005-2026 NVIDIA Corporation",
+    "Built on Sun_Sep_01_02:23:07_Pacific_Standard_Time_2026",
+    "Cuda compilation tools, release 13.4, V13.4.92",
+    "Build cuda_13.4.r13.4/compiler.38855100_0"
+  ],
+  "CXX_compiler_identification": [
+    "set(CMAKE_CXX_COMPILER_ID \"MSVC\")",
+    "set(CMAKE_CXX_COMPILER_VERSION \"19.44.35227.0\")",
+    "set(CMAKE_CXX_SIZEOF_DATA_PTR \"8\")"
+  ],
+  "CUDA_compiler_identification": [
+    "set(CMAKE_CUDA_COMPILER_ID \"NVIDIA\")",
+    "set(CMAKE_CUDA_COMPILER_VERSION \"13.4.92\")",
+    "set(CMAKE_CUDA_HOST_COMPILER_ID \"MSVC\")",
+    "set(CMAKE_CUDA_HOST_COMPILER_VERSION \"19.44.35227.0\")",
+    "set(CMAKE_CUDA_SIZEOF_DATA_PTR \"8\")"
+  ],
+  "policy": "Observed installed tools; full flags and binary/cache hashes in manifest.json. No machine settings changed."
+}

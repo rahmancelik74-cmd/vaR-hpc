@@ -1,0 +1,5 @@
+{
+  "directory": "benchmark-replacement-v1",
+  "local_directory": "results/portfolio-campaign-20261025/benchmark-replacement-v1",
+  "policy": "Primary benchmark uses the single complete predeclared replacement; all first-attempt timing records remain in parent; native validation/reference reused unchanged."
+}

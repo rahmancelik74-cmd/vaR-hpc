@@ -1,0 +1,2 @@
+# Preserve exact protocol, fixture, exported data and figure bytes across checkout.
+* -text

@@ -1,0 +1,35 @@
+{
+  "scope": "exact bytes; package .gitattributes and specific tooling attributes preserve line endings; inventory excludes itself",
+  "package_files": {
+    ".gitattributes": "54a2683fcca4fc087123edbedf3603b05a62a12ebd34cf991aa9489a5a009c57",
+    "benchmark-raw.csv": "238c5fce0084b83fd5dcfac7a4cc789070fdd2430fcefb905a07cf436821ac19",
+    "benchmark-summary.csv": "530c2775b51f80d4c285f40e8255306471b9f2447ebbc6559b5e6e74993fae93",
+    "build-environment.json": "dd5c50accf99034a93f50819ced573ab0c6986edf4e3e525bc9fa26d2ccb2281",
+    "convergence.csv": "d1373ecad9262e60b409b1aa69151b813be703d03979c2f87d5519cb87f2ebc9",
+    "figure-data.json": "185e8cff79f7d8908f9689cfaa363951c62362bbea140316096d562ca145bdd1",
+    "figures/convergence.png": "bcceec1445787bfc308ae0dabae9171d6b294a06789c755b9bff5afd310af0cd",
+    "figures/convergence.svg": "a7a83db5e47e1f091cabd13900d8572cedcc31caf841af7dc8d2a0757e2c4c7f",
+    "figures/runtime.png": "66464dde50845080c6546a3756cad4aad589a912a30a4b797fed742ae0af9c88",
+    "figures/runtime.svg": "2d05a47f3299a46c9603a0d7151e8b1daba59cfd6c384be482f55ff23610a720",
+    "figures/speedup.png": "7b52f543b6140c34571c24e29edcdbca98d1e8c55cd25858ddfa0de49dd01443",
+    "figures/speedup.svg": "48d4203de2c8e21056bca23521ed52a6d0a977d889984198fbc6d32b6f51f2f3",
+    "fixtures/five-identity.txt": "a27e3395ca4089ffb9f17437732d81043addc0c4e09024e9eafcfc1994bd7549",
+    "fixtures/two-negative.txt": "b844128cc404d3e9a326d9149bd5c67abdfe990a7458bbb6e78ccf8a8323615a",
+    "fixtures/two-positive.txt": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f",
+    "freeze-v1.json": "3d22df996c15536c1feefffbfa98128ea30bf611acabeb75e2c8f38686f583ac",
+    "machine-inventory.json": "592d29e4e9086e52a172c2d7a4a6361748e388eac7db9967c38958f9cc3650d4",
+    "manifest.json": "2c485b7b6e590ea5abc240703ef578f781d10701530ed948fe900427e6a02664",
+    "oracle-checks.json": "72390dbd1083e3c73b2a25d083687bd6891f8b781ccc667fc3fb02b2cbb89f04",
+    "protocol-v1.json": "7bbc540d342a1458de01e888f0e58bf5d6af9f165d6c3c202b0f5a31fdb0123c",
+    "PROTOCOL-v1.md": "b3f83822b69d10efa5aef081c944b20bb72f60daa9ab88fde2fdf7f4d2545471",
+    "README.md": "7d778f2927532e4a04475a843b4c38efd7a60b7bcfdf1bdc03b9b25b948f7048",
+    "reference.json": "858e38effff4db478c924000fd9b57ab4796115bbd18294ec6fd3ed48ab0c130",
+    "validation-details.csv": "b4f27cbc94651fd13d58bb08cfb25159b9cb15e5a1db49fb19444bf9190ca594",
+    "validation-raw.csv": "96c2f32d9b47d3b66921de684364cbdd9bc391afac4f5a4e57cb368445860bfd"
+  },
+  "hash_bound_tooling": {
+    "scripts/portfolio_campaign.py": "3d46b5dad2c1e88d7736232ee64125d2b8e3f60a8ceb66e4f6978d98d75f5938",
+    "scripts/plot_portfolio_campaign.py": "6cc9416f204effde3da526e55148aeb8da30005564e3ba52dc4116afbe6387bc",
+    "scripts/verify_portfolio_campaign.py": "b9335bb6b251ad1251f5c3e1ab2f60efdae5dc372545007643bcf84f70fb1bbc"
+  }
+}

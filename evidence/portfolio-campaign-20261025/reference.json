@@ -1,0 +1,124 @@
+{
+  "status": "complete",
+  "numpy": "1.24.3",
+  "scipy": "1.10.1",
+  "python": "3.11.4 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 13:38:37) [MSC v.1916 64 bit (AMD64)]",
+  "python_executable_sha256": "aa88c4a01a9a69c64a1abda1cf3e25408f6d728f649b926829e1f66cc5e4102b",
+  "numpy_module_sha256": "db1688c531009e2e024cb574b44736147d4d935af67b9ae0d96a3b13d05aa12f",
+  "scipy_module_sha256": "7b52b07fd3c9c9e9425b3c4deddda6fb67c64aae4e08f122224867d0e75fddaf",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "oracle_sha256": "3d46b5dad2c1e88d7736232ee64125d2b8e3f60a8ceb66e4f6978d98d75f5938",
+  "cases": {
+    "five-identity": {
+      "fixture": {
+        "path": "evidence/portfolio-campaign-20261025/fixtures/five-identity.txt",
+        "sha256": "a27e3395ca4089ffb9f17437732d81043addc0c4e09024e9eafcfc1994bd7549"
+      },
+      "initial_value": 710.0,
+      "assets": 5,
+      "scenarios": 20000000,
+      "seed": 90372003,
+      "sample_terminal_mean": 722.0805117285219,
+      "sample_terminal_variance": 4256.463662259132,
+      "exact_terminal_mean": 722.0729845427718,
+      "exact_terminal_variance": 4256.993758404802,
+      "quantiles": [
+        {
+          "confidence": 0.95,
+          "var": 87.40395135944709,
+          "lower": 87.31616612717119,
+          "upper": 87.49289185735995,
+          "lower_index": 18996557,
+          "upper_index": 19003438,
+          "coverage": 0.9995842499774334,
+          "dkw_epsilon": 0.0004411129111785337
+        },
+        {
+          "confidence": 0.99,
+          "var": 121.67418553392929,
+          "lower": 121.5368915387993,
+          "upper": 121.81819642608434,
+          "lower_index": 19798427,
+          "upper_index": 19801569,
+          "coverage": 0.9995853260851107,
+          "dkw_epsilon": 0.0004411129111785337
+        }
+      ],
+      "array_sha256": "d481294a74863db888c3f10489632b85ff945d488f603b667b0a79de260330c5"
+    },
+    "two-negative": {
+      "fixture": {
+        "path": "evidence/portfolio-campaign-20261025/fixtures/two-negative.txt",
+        "sha256": "b844128cc404d3e9a326d9149bd5c67abdfe990a7458bbb6e78ccf8a8323615a"
+      },
+      "initial_value": 440.0,
+      "assets": 2,
+      "scenarios": 20000000,
+      "seed": 90372002,
+      "sample_terminal_mean": 457.5553668952853,
+      "sample_terminal_variance": 3887.0606064189133,
+      "exact_terminal_mean": 457.5633074240489,
+      "exact_terminal_variance": 3886.7301038941077,
+      "quantiles": [
+        {
+          "confidence": 0.95,
+          "var": 70.51507840725719,
+          "lower": 70.4425895208501,
+          "upper": 70.58395612559951,
+          "lower_index": 18996557,
+          "upper_index": 19003438,
+          "coverage": 0.9995842499774334,
+          "dkw_epsilon": 0.0004411129111785337
+        },
+        {
+          "confidence": 0.99,
+          "var": 98.32014476180814,
+          "lower": 98.20346796190239,
+          "upper": 98.4392509521964,
+          "lower_index": 19798427,
+          "upper_index": 19801569,
+          "coverage": 0.9995853260851107,
+          "dkw_epsilon": 0.0004411129111785337
+        }
+      ],
+      "array_sha256": "0b034b455087c0214899b53c89e5c1c58c2a3f4989c22e04999890e654885a2a"
+    },
+    "two-positive": {
+      "fixture": {
+        "path": "evidence/portfolio-campaign-20261025/fixtures/two-positive.txt",
+        "sha256": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f"
+      },
+      "initial_value": 440.0,
+      "assets": 2,
+      "scenarios": 20000000,
+      "seed": 90372001,
+      "sample_terminal_mean": 457.57111077567646,
+      "sample_terminal_variance": 11375.098555902383,
+      "exact_terminal_mean": 457.5633074240489,
+      "exact_terminal_variance": 11376.027759395976,
+      "quantiles": [
+        {
+          "confidence": 0.95,
+          "var": 133.16175657598978,
+          "lower": 133.0504259815006,
+          "upper": 133.27672703921831,
+          "lower_index": 18996557,
+          "upper_index": 19003438,
+          "coverage": 0.9995842499774334,
+          "dkw_epsilon": 0.0004411129111785337
+        },
+        {
+          "confidence": 0.99,
+          "var": 176.4427756970204,
+          "lower": 176.27099138934693,
+          "upper": 176.61048728055562,
+          "lower_index": 19798427,
+          "upper_index": 19801569,
+          "coverage": 0.9995853260851107,
+          "dkw_epsilon": 0.0004411129111785337
+        }
+      ],
+      "array_sha256": "4835cf9518dd6d727cba85d0c9753fd54abfb3966f650e02fb86618c6867e879"
+    }
+  }
+}

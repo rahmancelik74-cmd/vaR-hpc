@@ -9,6 +9,9 @@ The [published portfolio implementation](https://github.com/rahmancelik74-cmd/va
 has [successful exact-SHA CPU CI](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40136758943).
 Local Windows/OpenMP/RTX validation is separate; hosted CI did not execute CUDA.
 See [current delivery status and the historical evidence clarification](docs/portfolio.md#published-implementation-and-hosted-ci).
+Separate [portfolio statistical validation and formal timing](docs/portfolio-campaign.md)
+retain a frozen independent-reference protocol, all native seeds, all benchmark
+samples and uncertainty-limited outcomes; historical single-asset ratios are unchanged.
 
 Technical [reproducibility entry point](docs/reproducibility.md) and
 [FR/NFR evidence audit](docs/requirements-audit.md): distinguish clean software

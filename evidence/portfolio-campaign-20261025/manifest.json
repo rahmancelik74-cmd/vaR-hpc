@@ -1,0 +1,252 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-25T10:53:05.188687+00:00",
+  "head": "b33f061a75c17e579ce27bcc9915284e6d9d7812",
+  "git_status": [
+    "?? AGENTS.md",
+    "?? evidence/portfolio-campaign-20261025/",
+    "?? output/",
+    "?? scripts/plot_portfolio_campaign.py",
+    "?? scripts/portfolio_campaign.py",
+    "?? tests/test_portfolio_campaign.py"
+  ],
+  "source_snapshot": {
+    "CMakeLists.txt": {
+      "local_exact_sha256": "3f494ef96ae026b24bf7b8b7f620979e51bb4e905171c5d6499b00a70700a14c",
+      "git_normalized_blob_sha256": "633fd025cb4965a6709611570d590b124919b6cdc095bf153de0cf3db0ef4a78"
+    },
+    "include/mc/core.hpp": {
+      "local_exact_sha256": "7bf51063fdffbc960112bdd528dff47a7a78e82983bd29083569cb17433b8846",
+      "git_normalized_blob_sha256": "7bf51063fdffbc960112bdd528dff47a7a78e82983bd29083569cb17433b8846"
+    },
+    "include/mc/cuda.hpp": {
+      "local_exact_sha256": "938aada853ae37f5493c4cd4e1f6adedc262beee860595d124136f013321cb8f",
+      "git_normalized_blob_sha256": "938aada853ae37f5493c4cd4e1f6adedc262beee860595d124136f013321cb8f"
+    },
+    "include/mc/data.hpp": {
+      "local_exact_sha256": "a2698c905f16124a005dd1837e4d8e8c02e7ad62a1c28afc4a016fba2847c51f",
+      "git_normalized_blob_sha256": "a2698c905f16124a005dd1837e4d8e8c02e7ad62a1c28afc4a016fba2847c51f"
+    },
+    "include/mc/detail/cuda_plan.hpp": {
+      "local_exact_sha256": "7281354e8af0ca52b2bb08f11dbfce56d6dfbaeb86ec40a773a4fb4a64a4178b",
+      "git_normalized_blob_sha256": "7281354e8af0ca52b2bb08f11dbfce56d6dfbaeb86ec40a773a4fb4a64a4178b"
+    },
+    "include/mc/openmp.hpp": {
+      "local_exact_sha256": "0729108a6278ee8bdab35f36d2c98cb16c75df04b2838082fd1afbd2d9045b72",
+      "git_normalized_blob_sha256": "0729108a6278ee8bdab35f36d2c98cb16c75df04b2838082fd1afbd2d9045b72"
+    },
+    "include/mc/output.hpp": {
+      "local_exact_sha256": "13d3a44e1f2b1d2a739984d1f9fcd46d6268fbb3a1a4bf8547d3331fd59ac5c4",
+      "git_normalized_blob_sha256": "d8e0ebc5aa7308289fe1d1b4490874d59a89668b5cbc85929462846ad3e4f686"
+    },
+    "include/mc/portfolio.hpp": {
+      "local_exact_sha256": "03c15bd22defe3a2e4af0e710d8f87adf1f541520de35f799b0c01d668118b1a",
+      "git_normalized_blob_sha256": "03c15bd22defe3a2e4af0e710d8f87adf1f541520de35f799b0c01d668118b1a"
+    },
+    "include/mc/version.hpp.in": {
+      "local_exact_sha256": "87f23e3be0aca6daf8e27daf772977e351c0dae1d50994e2ec3d6c6dd3ef9365",
+      "git_normalized_blob_sha256": "87f23e3be0aca6daf8e27daf772977e351c0dae1d50994e2ec3d6c6dd3ef9365"
+    },
+    "src/core.cpp": {
+      "local_exact_sha256": "ddce1df5a4b4c33ab96d0a817923592412e72e3bc64aaceb4f5ebc547de49754",
+      "git_normalized_blob_sha256": "ddce1df5a4b4c33ab96d0a817923592412e72e3bc64aaceb4f5ebc547de49754"
+    },
+    "src/cuda.cu": {
+      "local_exact_sha256": "88a920e9798772e11553654cd2bb2d354828d0e65ae0d3cf0f63c5b8498d4ce4",
+      "git_normalized_blob_sha256": "88a920e9798772e11553654cd2bb2d354828d0e65ae0d3cf0f63c5b8498d4ce4"
+    },
+    "src/data.cpp": {
+      "local_exact_sha256": "aaf14441379d3a89aa853f9b445107900cb3a98bef95fb1df297ae59ac3e2373",
+      "git_normalized_blob_sha256": "aaf14441379d3a89aa853f9b445107900cb3a98bef95fb1df297ae59ac3e2373"
+    },
+    "src/main.cpp": {
+      "local_exact_sha256": "cb10d4c0a94e210c7d3c4d0dbffc59fce7b39f24e097044bb1b37c815db7ef88",
+      "git_normalized_blob_sha256": "e5201cb2e74e646d68f188c19c6650346f883748dc6ea5c0bd3b833ddd1760a6"
+    },
+    "src/openmp.cpp": {
+      "local_exact_sha256": "fb8ed230c2864635cd76e383b869a6a0c0485b1d6dedfc6dfec2e80f9b93e190",
+      "git_normalized_blob_sha256": "fb8ed230c2864635cd76e383b869a6a0c0485b1d6dedfc6dfec2e80f9b93e190"
+    },
+    "src/output.cpp": {
+      "local_exact_sha256": "7c19e1fb93a8cdca078ccb2d4993974290f969b1396a6e5478260e6546fe7137",
+      "git_normalized_blob_sha256": "60bd092dfdfb38dff63b21195dee7b93d312d5f56d66d94fb16b646d21d6bef9"
+    },
+    "src/portfolio.cpp": {
+      "local_exact_sha256": "96552e207ec99e9a8e9809991c8a6a77a14457227b6d3d359b25800c38d9bd12",
+      "git_normalized_blob_sha256": "96552e207ec99e9a8e9809991c8a6a77a14457227b6d3d359b25800c38d9bd12"
+    },
+    "tools/cpu_probe.cpp": {
+      "local_exact_sha256": "ef0a8d48df99327fc6981107616f7c5c6c1aba81bad1590e833177bf0940e95e",
+      "git_normalized_blob_sha256": "ef0a8d48df99327fc6981107616f7c5c6c1aba81bad1590e833177bf0940e95e"
+    }
+  },
+  "artifacts": {
+    "build-portfolio-campaign-20261025/build.ninja": "e80a74bd902162571150f4c9e5ae03f26d87d82f6b4a301235539729ee10ff35",
+    "build-portfolio-campaign-20261025/CMakeCache.txt": "ddd5d8a7db385f50726714522d64590e96b4fbe4fa976688c83400fb2c6b22d1",
+    "build-portfolio-campaign-20261025/cudart64_13.dll": "d26fd1c2629594759af569a5252f94e4568d4ebeca67dc323834deb141aa278a",
+    "build-portfolio-campaign-20261025/curand64_10.dll": "2ae1d341cd7da1dab91e2215c62f627e0e0288ff54cdc9003e908746584b5b2b",
+    "build-portfolio-campaign-20261025/mc_cpu_probe.exe": "ffa0fd285974ef9570c2a787f2bfd83d4b3fc0d3771d65189c3fe2821d2fe7f2",
+    "build-portfolio-campaign-20261025/mc_cuda_diagnostic_tests.exe": "08148dac64667d6d16f892558b5ca9fe5ce65f7c7cf35bee53511ab1a2afea50",
+    "build-portfolio-campaign-20261025/mc_cuda_hybrid_tests.exe": "8e851ad252f1b3d853c180a926ae2064c32327c6ce0fe6fd2bc29213cdd6549b",
+    "build-portfolio-campaign-20261025/mc_cuda_plan_tests.exe": "8d93b4a9f97b772554f04c673cfe5eaa52e7654bebbefe23bc3398e7077b09b5",
+    "build-portfolio-campaign-20261025/mc_cuda_tests.exe": "9c04b1d936650da1efcee40358f90e0dbd978caf03d18daa930c7a0189d822ec",
+    "build-portfolio-campaign-20261025/mc_data_tests.exe": "1076e6b8babcc2b045ebc99eb97ea49dc4af014e5aa5ef50b98482fe243f39f5",
+    "build-portfolio-campaign-20261025/mc_launcher_child.exe": "30a54eaf6b9e67ee21f40b53a6441b5cca4579e1325c51068add465c00eb8190",
+    "build-portfolio-campaign-20261025/mc_openmp_tests.exe": "07e808b72c44e71f36f7e202d92c15773e69b6b607c4605a229a04f2dfb61c90",
+    "build-portfolio-campaign-20261025/mc_output_tests.exe": "c44215b4ddcfd93d07043e046a999126d28ad581a2910b7af334cf58ef382dea",
+    "build-portfolio-campaign-20261025/mc_portfolio_tests.exe": "77b680aee8f9bb4cb5c16f9b338133556b01779d79fdcdf787b45b5eac21d945",
+    "build-portfolio-campaign-20261025/mc_tests.exe": "852a014036dc6472b688fa7b571449f59b1d65b03a8243f7049a8040e88a98e9",
+    "build-portfolio-campaign-20261025/mc_var.exe": "68e685231252770edfc9c8dd33a76fda610dd94c082b8637fb0714acb9b817b3"
+  },
+  "runner_sha256": "3d46b5dad2c1e88d7736232ee64125d2b8e3f60a8ceb66e4f6978d98d75f5938",
+  "protocol_sha256": "7bbc540d342a1458de01e888f0e58bf5d6af9f165d6c3c202b0f5a31fdb0123c",
+  "executable": "build-portfolio-campaign-20261025/mc_var.exe",
+  "provenance": "New dedicated x64 Ninja Release build observed in local build.log; production exact bytes and Git-normalized bytes distinguished; tooling uncommitted; not independent source-to-binary proof",
+  "process_policy": "fresh owned suspended CLI process, fresh CUDA context; full allowed CPU pool, NORMAL_PRIORITY_CLASS, OS worker scheduling; no per-core pinning",
+  "timing": "engine end_to_end_ms; includes allocation/native RNG/correlated GBM/portfolio loss/global quantile/transfers/synchronization/cleanup and context work inside engine; excludes process startup, parsing, Cholesky, output, launcher telemetry and fixed delay",
+  "physical_conditions": "User absent; surface/cooling/vendor fan/ambient unknown; CPU temperature unmeasured; no equilibrium assertion or setting changes",
+  "env_policy": "OMP_DYNAMIC=FALSE OMP_NESTED=FALSE; other listed OMP/affinity variables unset in child; BLAS thread caps1",
+  "compiler_flags": [
+    "CMAKE_CUDA_ARCHITECTURES:UNINITIALIZED=89",
+    "CMAKE_CUDA_FLAGS:STRING=-D_WINDOWS -Xcompiler=\" /GR /EHsc\"",
+    "CMAKE_CUDA_FLAGS_DEBUG:STRING=-Xcompiler=\" -Zi -Ob0 -Od /RTC1\"",
+    "CMAKE_CUDA_FLAGS_MINSIZEREL:STRING=-Xcompiler=\"-O1 -Ob1\" -DNDEBUG",
+    "CMAKE_CUDA_FLAGS_RELEASE:STRING=-Xcompiler=\"-O2 -Ob2\" -DNDEBUG",
+    "CMAKE_CUDA_FLAGS_RELWITHDEBINFO:STRING=-Xcompiler=\" -Zi -O2 -Ob1\" -DNDEBUG",
+    "CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /GR /EHsc",
+    "CMAKE_CXX_FLAGS_DEBUG:STRING=/Zi /Ob0 /Od /RTC1",
+    "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/O1 /Ob1 /DNDEBUG",
+    "CMAKE_CXX_FLAGS_RELEASE:STRING=/O2 /Ob2 /DNDEBUG",
+    "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG",
+    "OpenMP_CXX_FLAGS:STRING=-openmp",
+    "CMAKE_CUDA_FLAGS-ADVANCED:INTERNAL=1",
+    "CMAKE_CUDA_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+    "CMAKE_CUDA_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+    "CMAKE_CUDA_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+    "CMAKE_CUDA_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1",
+    "OpenMP_CXX_FLAGS-ADVANCED:INTERNAL=1"
+  ],
+  "native_metadata": {
+    "serial": {
+      "backend": "serial",
+      "random_source": "mt19937_64/std::normal_distribution",
+      "openmp_version": 0,
+      "cuda": null
+    },
+    "openmp": {
+      "backend": "openmp",
+      "random_source": "block4096/splitmix64/mt19937_64/std::normal_distribution",
+      "openmp_version": 200203,
+      "cuda": null
+    },
+    "cuda": {
+      "backend": "cuda",
+      "random_source": "cuRAND/PHILOX4_32_10/normal-double",
+      "openmp_version": 0,
+      "cuda": {
+        "milestone": "full_device_scale_up",
+        "mode": "full-device",
+        "quantile_location": "device",
+        "requested_batch_size": 0,
+        "effective_batch_size": 100000,
+        "batch_count": 1,
+        "normals_generated": 500000,
+        "host_loss_bytes": 0,
+        "losses_transferred": 0,
+        "rng_partition_policy": "One PHILOX normal-double call; final total-request padding only",
+        "scenario_limit": 10000000,
+        "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "compute_major": 8,
+        "compute_minor": 9,
+        "nvcc_version": "13.4.92",
+        "driver_api_version": 13030,
+        "runtime_version": 13030,
+        "runtime_header_version": 13040,
+        "curand_header_version": "10.4.4.72",
+        "curand_runtime_version": 10404,
+        "quantile_library": "CUB DeviceRadixSort::SortKeys<double> and device nearest-rank gather",
+        "cub_version": 300403,
+        "host_sorting_used": false,
+        "host_to_device_ms": 0.004095999989658594,
+        "device_to_host_ms": 0.07334399968385696,
+        "host_to_device_bytes": 16,
+        "device_to_host_bytes": 20,
+        "transfer_timer": "Sum of CUDA Event copy intervals on the engine stream across all batches; pageable host staging is included only in primary wall time",
+        "normals_allocated": 500000,
+        "cub_temporary_bytes": 836351,
+        "explicit_device_bytes": 6436387,
+        "total_vram_bytes": 8585216000,
+        "free_before_bytes": 7449083904,
+        "free_with_pipeline_bytes": 7436500992,
+        "allocation_budget_limit_bytes": 5959267123,
+        "capacity_policy": "Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee"
+      }
+    }
+  },
+  "gpu_observations": [
+    {
+      "utc": "2026-10-25T10:53:05.342218+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 47, 11.15 W, [N/A], 480 MHz, 810 MHz, P5\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    },
+    {
+      "utc": "2026-10-25T10:54:16.944259+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 51, 17.13 W, [N/A], 2100 MHz, 8001 MHz, P0\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    },
+    {
+      "utc": "2026-10-25T10:54:35.173880+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 51, 15.14 W, [N/A], 2100 MHz, 6001 MHz, P4\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    },
+    {
+      "utc": "2026-10-25T10:55:00.908569+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 52, 14.89 W, [N/A], 2100 MHz, 7001 MHz, P3\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    },
+    {
+      "utc": "2026-10-25T10:56:57.641669+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 51, 11.17 W, [N/A], 885 MHz, 810 MHz, P5\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    },
+    {
+      "utc": "2026-10-25T10:57:16.345030+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 52, 14.90 W, [N/A], 2100 MHz, 7001 MHz, P3\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    },
+    {
+      "utc": "2026-10-25T10:57:43.787577+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 52, 14.26 W, [N/A], 2100 MHz, 7001 MHz, P3\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    },
+    {
+      "utc": "2026-10-25T10:59:50.049291+00:00",
+      "exit_code": 0,
+      "stdout": "name, driver_version, temperature.gpu, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz], pstate\r\nNVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 49, 4.96 W, [N/A], 210 MHz, 405 MHz, P8\r\n",
+      "stderr": "",
+      "scope": "point observation, not thermal equilibrium or continuous telemetry"
+    }
+  ],
+  "errors": [],
+  "processes": 681,
+  "finished_utc": "2026-10-25T10:59:50.049291+00:00"
+}

@@ -3,6 +3,12 @@
 This extension is separate from Plan A and all existing FR-1..FR-9/NFR-1..NFR-9
 criteria. No market data, advisor approval or academic delivery is implied.
 
+The subsequent [portfolio campaign](portfolio-campaign.md) evaluates independent
+native-RNG VaR/convergence and formal portfolio timing under a separately frozen
+protocol. Its finite-fixture outcomes include inconclusive practical targets;
+it does not establish universal portfolio VaR statistical acceptance. The initial
+validation and published implementation records below remain historical.
+
 ## Contract and extension register
 
 P-1: Validate 1..5 unique assets (2..5 for multi-asset use), positive finite
