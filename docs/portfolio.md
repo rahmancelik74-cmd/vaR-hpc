@@ -1,5 +1,12 @@
 # Optional synthetic portfolio extension
 
+The [historical calibration extension](portfolio-calibration.md) now supplies
+portfolio-v1 from validated, aligned real equity imports. Its separate PC register
+does not alter engine contracts or the historical synthetic campaign criteria.
+Actual local integration and delivery limitations are recorded in
+[the new evidence summary](../evidence/portfolio-calibration-20261026/README.md).
+Portfolio hybrid remains unsupported.
+
 The [targeted reference precision follow-up](../evidence/portfolio-precision-20261025-v1/README.md)
 completed two new fixed 80M references. All twelve reused two-asset N=10M
 realized-five-seed-mean endpoint rows pass the unchanged .0005*V0 target under

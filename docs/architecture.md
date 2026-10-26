@@ -1,5 +1,12 @@
 # Architecture baseline
 
+Historical portfolio inputs can now be prepared offline by
+`scripts/calibrate_portfolio.py`; see [its strict calibration contract](portfolio-calibration.md).
+It reuses existing import artifacts and produces unchanged portfolio-v1 input.
+Alignment/calibration stay outside Engine::run and engine timing. The independent
+original-byte Decimal audit and native integration recorder are in
+`scripts/verify_portfolio_calibration.py`. No engine, RNG or hybrid contract changed.
+
 Optional portfolio extension: [contract, inputs and validation](portfolio.md).
 `Request::portfolio` is a borrowed immutable optional input to the same Engine
 boundary; null retains the established single-asset path. `portfolio.cpp` owns

@@ -1,5 +1,13 @@
 # Historical equity import
 
+2026-10-26 continuation: real MSFT+AAPL portfolio calibration and modest native
+serial/OpenMP/full-device CUDA integration completed locally. See
+[the calibration contract](portfolio-calibration.md) and
+[evidence summary](../evidence/portfolio-calibration-20261026/README.md).
+Raw prices, metadata snapshots and numerical outputs remain ignored/private;
+the existing Kibot restrictions and correspondence limitations are preserved.
+The older single-asset working context and acquisition history below remain intact.
+
 Working candidate: MSFT daily closing prices, requested inclusive interval
 2023-01-01 through 2025-12-31. One share, ten trading days and 252 observations
 per year remain **working settings**, not final study decisions. Expected

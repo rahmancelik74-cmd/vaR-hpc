@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "baseline": "c21efc1258898aabe26d065de7c50961b79e94e0",
+  "real_multi_asset_calibration": "completed_locally",
+  "independent_original_byte_calibration": "passed",
+  "native_integration": {"serial": "passed", "openmp": "passed", "cuda_full_device": "passed"},
+  "portfolio_hybrid": "unsupported_not_implemented",
+  "private_completion_record": "results/portfolio-calibration-20261026/final-v4/completion.json",
+  "git": {"commit": null, "push": "not_performed", "new_exact_sha_ci": "not_available"},
+  "blockers": ["Git index.lock creation denied", "Local gh token invalid"],
+  "manual_step": "Run the new baseline-bound delivery script in an authorized session with working existing authentication",
+  "delivery_command": "C:/Users/rahma/anaconda3/python.exe -B scripts/deliver-portfolio-calibration.py",
+  "publication_boundary": "No provider observations, dataset hashes, numerical derived values or correspondence in this package",
+  "hosted_ci_scope": "Redistributable synthetic inputs only; no network data or local CUDA execution"
+}

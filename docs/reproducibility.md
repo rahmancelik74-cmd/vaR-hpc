@@ -1,5 +1,11 @@
 # Technical reproducibility entry point
 
+Historical portfolio calibration is documented separately in
+[portfolio-calibration.md](portfolio-calibration.md). Its Python >=3.11 synthetic
+tests run offline without provider data; private original-byte auditing and local
+CUDA integration are separate from hosted CI. No historical download is added
+to the checks below.
+
 This package separates a new software build, selected historical evidence
 integrity, original raw execution provenance and offline derived figures.
 It does not reproduce machine timing, acquire provider prices, install packages

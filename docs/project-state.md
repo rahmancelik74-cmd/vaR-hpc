@@ -1,5 +1,41 @@
 # Project state
 
+## Real historical portfolio calibration: 2026-10-26
+
+Started at main c21efc1258898aabe26d065de7c50961b79e94e0, also confirmed as
+remote main using a noninteractive, command-local OpenSSL read. Existing untracked
+AGENTS.md, output/ and the other pre-existing untracked path were preserved.
+Real MSFT+AAPL daily unadjusted USD Close imports passed strict shared Nasdaq
+session alignment, independent original-byte Decimal calibration and modest
+serial/OpenMP/CUDA full-device integration. The new PC register is separate
+from all unchanged FR/NFR IDs and synthetic study criteria; no portfolio hybrid,
+benchmark, reference/convergence campaign or academic artifact was created.
+
+See [the contract and commands](portfolio-calibration.md) and
+[technical evidence](../evidence/portfolio-calibration-20261026/README.md).
+All real observations, original metadata, exact-byte dataset hashes, derived
+calibration/backend outputs and numerical audit differences stay in ignored
+data/local and results. The existing correspondence archive remains outside Git;
+its sender authority is not independently authenticated. New AAPL data was
+actually acquired under documented guest access, not assumed available from MSFT.
+
+Local checks passed: CUDA/OpenMP 21 CTests, CUDA OFF/OpenMP 18, serial-only 17,
+plus 50 Python regressions (17 focused calibration tests). Those checks include separate common-input engine
+regressions and retained single-asset hybrid behavior. Native historical checks
+are connectivity/model serialization checks, not equal-sample numerical tests,
+statistical acceptance, financial suitability or speedup evidence.
+
+Delivery is blocked in this executor: `.git/index.lock` creation is denied and
+the local gh token is invalid. No commit/push or new exact-SHA CI is claimed.
+The reviewed files and NEW baseline-bound delivery script are prepared:
+`C:/Users/rahma/anaconda3/python.exe -B scripts/deliver-portfolio-calibration.py`.
+Run once from an ordinary authorized session with working existing GitHub
+authentication. It checks only the permitted repository/account, stages reviewed
+task files, commits/pushes normally and waits boundedly for all three exact-SHA CI
+jobs. It preserves commit/push/CI state for resumption after a partial delivery;
+it changes no credentials, global Git settings or permissions. Hosted CI uses
+synthetic fixtures only and cannot establish private-data or RTX execution.
+
 ## Targeted portfolio reference precision follow-up: 2026-10-25
 
 Starting main HEAD was e0fc594f14bd1814856c668132e21808d1826083, independently

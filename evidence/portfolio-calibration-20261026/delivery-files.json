@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "baseline": "c21efc1258898aabe26d065de7c50961b79e94e0",
+  "hash_basis": "Exact local bytes before Git normalization; not provider data",
+  "files": {
+    "CMakeLists.txt": "d05d1b45c542634130f2b332151e36f47ff70a616d1c2fd728e4ea38a417a333",
+    "docs/architecture.md": "01d9fa4953cfa3c8e024dde61cd1d7251be0da5ea8423ddd88ac77bcc91c6fc7",
+    "docs/historical-data.md": "ca6c3e1f0d63e860e207922f352d127cff0b151bf1115e3276e074631918508f",
+    "docs/portfolio.md": "891de8e3cd54fea38287a2a17dd174ee8bf21743727c88de52232b04ddda1079",
+    "docs/portfolio-calibration.md": "bd8a7b70c0e3f0636e92961af73bd6bf07bafead44dc15d041778310f426e4b9",
+    "docs/project-state.md": "d4ea6ae5bccc0581dbb317396062d300d6fa3f963de84f7c7fbbc343c32662ca",
+    "docs/reproducibility.md": "c0edd3bfd86dfb1060598c2d37c0fd3c11aca1504974d530793dcb7772596adf",
+    "scripts/.gitattributes": "4b4f0412fabf7a7cc3f2ef5d256e4560ab1b731ca9902febde907b8aa250fe55",
+    "scripts/calibrate_portfolio.py": "4d3e908b419a02932806c27094d0b9ae6def80b778ea8fb3866a0e2da84b7903",
+    "scripts/verify_portfolio_calibration.py": "9a6342b36d82ad2b025e2819773e6a1b3beda70e3f651db4d71e5bb6b2bb0b2b",
+    "scripts/deliver-portfolio-calibration.py": "070c1b6345333b14898106b2e3231a7052fadf94938a2180c76c4989eb704cf4",
+    "tests/test_portfolio_calibration.py": "006b06fa41af82b476150fa8b5556b3a03d626a57ba276d9ec616db1731448f8",
+    "evidence/portfolio-calibration-20261026/.gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "evidence/portfolio-calibration-20261026/README.md": "8ad357895679403b8ec9882a76f45afa9d4ac1d6a81b1950c133bb8144f801bb",
+    "evidence/portfolio-calibration-20261026/completion.json": "0be5e3231527fa914f73c5e0e90f441c2a47b2ce8b9e629fc8024109cdfbcd2e"
+  }
+}

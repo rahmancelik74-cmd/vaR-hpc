@@ -82,6 +82,10 @@ if(BUILD_TESTING)
   add_test(NAME portfolio_structural_backends COMMAND mc_portfolio_tests)
   find_package(Python3 COMPONENTS Interpreter QUIET)
   if(Python3_Interpreter_FOUND)
+    if(Python3_VERSION VERSION_GREATER_EQUAL 3.11)
+      add_test(NAME portfolio_historical_calibration COMMAND "${Python3_EXECUTABLE}" -B -m unittest
+        discover -s "${CMAKE_CURRENT_SOURCE_DIR}/tests" -p test_portfolio_calibration.py -v)
+    endif()
     add_test(NAME portfolio_independent_moments COMMAND "${Python3_EXECUTABLE}"
       "${CMAKE_CURRENT_SOURCE_DIR}/tests/check_portfolio_moments.py" "$<TARGET_FILE:mc_portfolio_tests>")
   endif()
