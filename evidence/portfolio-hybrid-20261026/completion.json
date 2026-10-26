@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-26T12:59:55.976507+00:00",
+  "baseline": "ca6bb72725115dc7f143cef3b5eda2649985d1c3",
+  "portfolio_hybrid": "implemented_and_RTX_tested",
+  "common_native_cases": 264,
+  "bounded_native_distributional_consistency": "passed; finite two-fixture DKW check only",
+  "capacity_five_asset_10m": "passed; 153 batches of at most 65535",
+  "private_historical_integration": "passed; original private outputs reused unchanged",
+  "regressions": {
+    "cuda_openmp": "22/22",
+    "serial_only": "17/17",
+    "cuda_off_openmp": "18/18",
+    "python_portfolio": "28/28"
+  },
+  "sanitizer": "264-case memcheck passed; full racecheck timed out; focused 20-case memcheck/racecheck passed",
+  "prior_evidence": "355 pre-existing files preserved",
+  "git": {
+    "HEAD": "ca6bb72725115dc7f143cef3b5eda2649985d1c3",
+    "commit": null,
+    "push": false,
+    "new_exact_sha_ci": null
+  },
+  "blockers": [
+    "Git index.lock creation denied in this executor",
+    "Existing gh authentication HTTP 401"
+  ],
+  "manual_step": "Run the new task-specific delivery script once in an ordinary authorized session with working existing authentication",
+  "delivery_command": "C:/Users/rahma/anaconda3/python.exe -B scripts/deliver-portfolio-hybrid.py",
+  "persistent_delivery_state": "results/portfolio-hybrid-delivery-20261026/state.json",
+  "academic_delivery": false
+}

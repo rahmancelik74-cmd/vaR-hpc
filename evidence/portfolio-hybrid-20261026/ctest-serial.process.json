@@ -1,0 +1,13 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "build-portfolio-hybrid-serial",
+    "--output-on-failure"
+  ],
+  "started_utc": "2026-10-26T12:42:28.471948+00:00",
+  "completed_utc": "2026-10-26T12:42:46.053870+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "96b5166c1d3494c9022dc5d6dc7954845f53dbac53d21aaa8ea52122753f6e4f",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

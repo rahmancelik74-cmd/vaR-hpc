@@ -114,6 +114,13 @@ void structural() {
     const auto result = mc::SerialEngine{}.run(r, &epsilon);
     require(std::abs(result.estimates[0].var-oracle[18]) < 1e-10*470, "Independent 95 rank");
     require(std::abs(result.estimates[1].var-oracle[19]) < 1e-10*470, "Independent 99 rank");
+#ifdef MC_HAS_CUDA
+    for (std::size_t batch : {1,3,20,99}) {
+        const auto hybrid = mc::CudaEngine(mc::CudaMode::Hybrid,batch).run(r,&epsilon);
+        require(std::abs(hybrid.estimates[0].var-oracle[18]) < 1e-10*470, "Independent hybrid 95 rank");
+        require(std::abs(hybrid.estimates[1].var-oracle[19]) < 1e-10*470, "Independent hybrid 99 rank");
+    }
+#endif
     std::ostringstream out; mc::write_run_json(out, r, result);
     require(out.str().find("\"analytical_var\":null") != std::string::npos, "No general analytical VaR");
     r.scenarios = 0; rejects([&] { mc::SerialEngine{}.run(r); });
@@ -171,7 +178,7 @@ void backends() {
         compare(mc::CudaEngine{}.run(r, &common));
         const auto native_gpu = mc::CudaEngine{}.run(r);
         require(native_gpu.cuda->normals_generated == (n*a+(n*a)%2), "CUDA normal padding");
-        rejects([&] { mc::CudaEngine(mc::CudaMode::Hybrid, 17).run(r); });
+        compare(mc::CudaEngine(mc::CudaMode::Hybrid, 17).run(r, &common));
         auto invalid = common; invalid[0] = std::numeric_limits<double>::quiet_NaN();
         rejects([&] { mc::CudaEngine{}.run(r, &invalid); });
 #endif
@@ -190,6 +197,7 @@ void backends() {
 #endif
 #ifdef MC_HAS_CUDA
         check(mc::CudaEngine{});
+        check(mc::CudaEngine(mc::CudaMode::Hybrid,3));
 #endif
     };
     p.horizon = 0; check_deterministic(0);

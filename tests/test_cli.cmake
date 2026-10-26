@@ -77,6 +77,16 @@ if(CUDA_ENABLED)
      NOT last_output MATCHES "\"losses_transferred\":11")
     message(FATAL_ERROR "Hybrid batch/RNG metadata missing")
   endif()
+  succeeds(--portfolio "${SOURCE_DIR}/data/portfolio-two.txt" 11 42 --backend cuda --cuda-mode hybrid --batch-size 3 --json)
+  if(NOT last_output MATCHES "\"requested_mode\":\"hybrid\"" OR
+     NOT last_output MATCHES "\"effective_mode\":\"hybrid\"" OR
+     NOT last_output MATCHES "\"asset_count\":2" OR
+     NOT last_output MATCHES "\"effective_batch_size\":3" OR
+     NOT last_output MATCHES "\"batch_count\":4" OR
+     NOT last_output MATCHES "\"normals_generated\":22" OR
+     NOT last_output MATCHES "\"analytical_var\":null")
+    message(FATAL_ERROR "Portfolio hybrid contract metadata missing")
+  endif()
   succeeds(5 42 --backend cuda --cuda-mode hybrid --batch-size 99 --json)
   if(NOT last_output MATCHES "\"effective_batch_size\":5" OR NOT last_output MATCHES "\"batch_count\":1")
     message(FATAL_ERROR "Hybrid one-batch clamp missing")

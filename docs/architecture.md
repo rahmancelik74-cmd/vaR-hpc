@@ -5,14 +5,16 @@ Historical portfolio inputs can now be prepared offline by
 It reuses existing import artifacts and produces unchanged portfolio-v1 input.
 Alignment/calibration stay outside Engine::run and engine timing. The independent
 original-byte Decimal audit and native integration recorder are in
-`scripts/verify_portfolio_calibration.py`. No engine, RNG or hybrid contract changed.
+`scripts/verify_portfolio_calibration.py`. The calibration extension itself did not change engine/RNG contracts; the
+subsequent PH extension below adds portfolio hybrid execution.
 
 Optional portfolio extension: [contract, inputs and validation](portfolio.md).
 `Request::portfolio` is a borrowed immutable optional input to the same Engine
 boundary; null retains the established single-asset path. `portfolio.cpp` owns
 shared input validation and Cholesky preparation outside engine timing. Each
 backend retains native RNG, scalar loss storage and its own quantile pipeline.
-Portfolio CUDA supports full-device only and rejects hybrid explicitly.
+Portfolio CUDA supports full-device and explicit hybrid batches with one global
+host scalar-loss quantile; see [the PH contract](portfolio-hybrid.md).
 
 Updated: 2026-10-18. Application version: 0.3.0; original baseline: 0.2.1.
 This records the implemented design and planned extensions separately.

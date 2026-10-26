@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.4\\bin\\compute-sanitizer.bat",
+    "--version"
+  ],
+  "started_utc": "2026-10-26T12:43:19.710335+00:00",
+  "completed_utc": "2026-10-26T12:43:19.782160+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "0577498ee770d1efbe0b4bac62830ae052f824d3b41e8adfb7df0f451b3320dc",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

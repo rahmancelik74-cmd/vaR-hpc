@@ -1,0 +1,13 @@
+{
+  "command": [
+    "cmd",
+    "/d",
+    "/c",
+    "results\\portfolio-hybrid-20261026\\build-cuda.cmd"
+  ],
+  "started_utc": "2026-10-26T12:41:43.115539+00:00",
+  "completed_utc": "2026-10-26T12:42:01.958178+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "41e232d6d799ea2b7cff790827db09474816b4407c103fadf34032c794031e23",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

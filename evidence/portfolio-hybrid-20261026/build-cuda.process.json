@@ -1,0 +1,14 @@
+{
+  "command": [
+    "cmd",
+    "/d",
+    "/s",
+    "/c",
+    "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" >nul && cmake -S . -B build-portfolio-hybrid-cuda -G Ninja -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_CUDA=ON -DMC_ENABLE_OPENMP=ON -DPython3_EXECUTABLE=C:/Users/rahma/anaconda3/python.exe -DCMAKE_CUDA_ARCHITECTURES=89 && cmake --build build-portfolio-hybrid-cuda --parallel 4"
+  ],
+  "started_utc": "2026-10-26T12:41:11.279249+00:00",
+  "completed_utc": "2026-10-26T12:41:11.300186+00:00",
+  "exit_code": 1,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "cf1cf3809001bafd0d6ec30409e4219519d867c1a4ac00717edecb27c2f4feda"
+}

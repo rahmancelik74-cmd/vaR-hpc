@@ -1,0 +1,15 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "build-portfolio-hybrid-serial",
+    "--output-on-failure",
+    "-R",
+    "portfolio_structural_backends|cli_contract_tests"
+  ],
+  "started_utc": "2026-10-26T12:49:43.097959+00:00",
+  "completed_utc": "2026-10-26T12:49:45.143905+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "fcfab60a3a7e9195c9d2eb741e8a1037a95cf1a0a9d1dc446b8f16d843d63129",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

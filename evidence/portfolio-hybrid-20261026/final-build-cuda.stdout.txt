@@ -1,0 +1,15 @@
+[1/9] Building CXX object CMakeFiles\mc_portfolio_tests.dir\tests\test_portfolio.cpp.obj
+[2/9] Building CUDA object CMakeFiles\mc_cuda.dir\src\cuda.cu.obj
+cuda.cu
+[3/9] Linking CXX static library mc_cuda.lib
+[4/9] Linking CXX executable mc_var.exe
+[5/9] Linking CXX executable mc_portfolio_tests.exe
+[6/9] Linking CXX executable mc_cuda_tests.exe
+[7/9] Linking CXX executable mc_cuda_diagnostic_tests.exe
+[8/9] Linking CXX executable mc_portfolio_hybrid_tests.exe
+FAILED: mc_portfolio_hybrid_tests.exe 
+C:\WINDOWS\system32\cmd.exe /C "cd . && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=CMakeFiles\mc_portfolio_hybrid_tests.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100261~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100261~1.0\x64\mt.exe --manifests  -- C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1444~1.352\bin\Hostx64\x64\link.exe /nologo CMakeFiles\mc_portfolio_hybrid_tests.dir\tests\test_portfolio_hybrid.cpp.obj  /out:mc_portfolio_hybrid_tests.exe /implib:mc_portfolio_hybrid_tests.lib /pdb:mc_portfolio_hybrid_tests.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO /subsystem:console -LIBPATH:C:\PROGRA~1\NVIDIA~2\CUDA\v13.4\lib\x64 mc_cuda.lib  mc_core.lib  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\lib\x64\cudart.lib"  "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\lib\x64\curand.lib"  cudadevrt.lib  cudart.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\rahma\Masaüstü\graduation_project\gpu-montecarlo-starter\build-portfolio-hybrid-cuda && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.4/bin/x64/cudart64_13.dll" "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.4/bin/x64/curand64_10.dll" C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/build-portfolio-hybrid-cuda""
+LINK: command "C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1444~1.352\bin\Hostx64\x64\link.exe /nologo CMakeFiles\mc_portfolio_hybrid_tests.dir\tests\test_portfolio_hybrid.cpp.obj /out:mc_portfolio_hybrid_tests.exe /implib:mc_portfolio_hybrid_tests.lib /pdb:mc_portfolio_hybrid_tests.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO /subsystem:console -LIBPATH:C:\PROGRA~1\NVIDIA~2\CUDA\v13.4\lib\x64 mc_cuda.lib mc_core.lib C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\lib\x64\cudart.lib C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.4\lib\x64\curand.lib cudadevrt.lib cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST:EMBED,ID=1" failed (exit code 1104) with the following output:
+LINK : fatal error LNK1104: cannot open file 'mc_portfolio_hybrid_tests.exe'
+[9/9] Linking CXX executable mc_cuda_hybrid_tests.exe
+ninja: build stopped: subcommand failed.

@@ -1,0 +1,33 @@
+test_bad_dates_prices_and_sessions (test_portfolio_calibration.CalibrationTests.test_bad_dates_prices_and_sessions) ... ok
+test_calendar_rejection (test_portfolio_calibration.CalibrationTests.test_calendar_rejection) ... ok
+test_cli_output_boundary_and_nonzero_failure (test_portfolio_calibration.CalibrationTests.test_cli_output_boundary_and_nonzero_failure) ... ok
+test_cli_success_hashes_and_no_overwrite (test_portfolio_calibration.CalibrationTests.test_cli_success_hashes_and_no_overwrite) ... ok
+test_explicit_window_exclusions (test_portfolio_calibration.CalibrationTests.test_explicit_window_exclusions) ... ok
+test_hash_tampering (test_portfolio_calibration.CalibrationTests.test_hash_tampering) ... ok
+test_independent_audit_detects_original_byte_change (test_portfolio_calibration.CalibrationTests.test_independent_audit_detects_original_byte_change) ... ok
+test_independent_audit_detects_statistic_change (test_portfolio_calibration.CalibrationTests.test_independent_audit_detects_statistic_change) ... ok
+test_independent_audit_rejects_changed_valuation_date (test_portfolio_calibration.CalibrationTests.test_independent_audit_rejects_changed_valuation_date) ... ok
+test_independent_known_statistics (test_portfolio_calibration.CalibrationTests.test_independent_known_statistics) ... ok
+test_independent_original_byte_audit (test_portfolio_calibration.CalibrationTests.test_independent_original_byte_audit) ... ok
+test_initial_value_overflow (test_portfolio_calibration.CalibrationTests.test_initial_value_overflow) ... ok
+test_metadata_mismatch (test_portfolio_calibration.CalibrationTests.test_metadata_mismatch) ... ok
+test_missing_from_all_assets (test_portfolio_calibration.CalibrationTests.test_missing_from_all_assets) ... ok
+test_order_valuation_and_counts (test_portfolio_calibration.CalibrationTests.test_order_valuation_and_counts) ... ok
+test_reject_statistics (test_portfolio_calibration.CalibrationTests.test_reject_statistics) ... ok
+test_two_through_five_assets (test_portfolio_calibration.CalibrationTests.test_two_through_five_assets) ... ok
+test_frozen_matrix_and_workloads (test_portfolio_campaign.PortfolioCampaignTests.test_frozen_matrix_and_workloads) ... ok
+test_practical_is_worst_case_not_interval_overlap (test_portfolio_campaign.PortfolioCampaignTests.test_practical_is_worst_case_not_interval_overlap) ... ok
+test_reference_quantile_coverage (test_portfolio_campaign.PortfolioCampaignTests.test_reference_quantile_coverage) ... ok
+test_classification (test_portfolio_precision.PrecisionTests.test_classification) ... ok
+test_exact_moments (test_portfolio_precision.PrecisionTests.test_exact_moments) ... ok
+test_known_cdf_reductions (test_portfolio_precision.PrecisionTests.test_known_cdf_reductions) ... ok
+test_rank_coverage (test_portfolio_precision.PrecisionTests.test_rank_coverage) ... ok
+test_swap_tight_transform (test_portfolio_precision.PrecisionTests.test_swap_tight_transform) ... ok
+test_valuation_reductions_and_small_scenarios (test_portfolio_precision.PrecisionTests.test_valuation_reductions_and_small_scenarios) ... ok
+test_published_evidence (test_portfolio_precision_integrity.PrecisionIntegrityTests.test_published_evidence) ... ok
+test_reject_changed_observations_and_decisions (test_portfolio_precision_integrity.PrecisionIntegrityTests.test_reject_changed_observations_and_decisions) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 3.036s
+
+OK

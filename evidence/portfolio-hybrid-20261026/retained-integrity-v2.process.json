@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Users\\rahma\\anaconda3\\python.exe",
+    "-B",
+    "scripts/check-reproducibility.py"
+  ],
+  "started_utc": "2026-10-26T12:47:51.536565+00:00",
+  "completed_utc": "2026-10-26T12:47:52.012254+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "1c69b8ea7972d71994b3c91e3bfefb93485e7b980a91b05d6ba103963bbaea76",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

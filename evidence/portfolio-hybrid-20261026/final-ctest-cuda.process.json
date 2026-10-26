@@ -1,0 +1,13 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "build-portfolio-hybrid-cuda",
+    "--output-on-failure"
+  ],
+  "started_utc": "2026-10-26T12:56:03.941887+00:00",
+  "completed_utc": "2026-10-26T12:56:27.913208+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "ef33b70f368c6a39415b41e65815e93699af473218d4fed360a81c9ee7aadf95",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

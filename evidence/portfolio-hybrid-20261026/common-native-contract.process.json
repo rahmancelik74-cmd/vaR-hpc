@@ -1,0 +1,10 @@
+{
+  "command": [
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\build-portfolio-hybrid-cuda\\mc_portfolio_hybrid_tests.exe"
+  ],
+  "started_utc": "2026-10-26T12:43:16.091681+00:00",
+  "completed_utc": "2026-10-26T12:43:19.480501+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "5dcd331444adf440637c6bc16623db29d153df24e3827946a7ec63defaaab158",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-10-26T12:58:30.040694+00:00",
+  "baseline": "ca6bb72725115dc7f143cef3b5eda2649985d1c3",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.4 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 13:38:37) [MSC v.1916 64 bit (AMD64)]",
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "logical_processors": 16,
+  "host_details": {
+    "cpu_model": "CIM query denied; no new named-model/topology measurement",
+    "power_scheme_observed": "Office (5da85d85-eb0c-4710-a805-6da8bbcf1f02)",
+    "affinity_pinning": "Not explicitly set or measured; inherited process placement",
+    "thermal_equilibrium": "Unknown; device-summary.stdout.txt is a snapshot, not run-wide telemetry"
+  },
+  "sources": {
+    "CMakeLists.txt": "01f2a270c3798baf25cc2ea99367290476c42a02cb59c300caba25e56231e084",
+    "src/core.cpp": "ddce1df5a4b4c33ab96d0a817923592412e72e3bc64aaceb4f5ebc547de49754",
+    "src/cuda.cu": "3c120e72ae1240b39f2060bbcf19d59618a30132a8e3f341f15a47009fc58bec",
+    "src/data.cpp": "aaf14441379d3a89aa853f9b445107900cb3a98bef95fb1df297ae59ac3e2373",
+    "src/main.cpp": "cb10d4c0a94e210c7d3c4d0dbffc59fce7b39f24e097044bb1b37c815db7ef88",
+    "src/openmp.cpp": "fb8ed230c2864635cd76e383b869a6a0c0485b1d6dedfc6dfec2e80f9b93e190",
+    "src/output.cpp": "05fed8c617f1c3e1ff575e87501da24246ce62c9841417dceec7508bd05a1230",
+    "src/portfolio.cpp": "96552e207ec99e9a8e9809991c8a6a77a14457227b6d3d359b25800c38d9bd12",
+    "include/mc/core.hpp": "fa2e3643dffbb5d787e3004eadae1e9afe0fb3e7d96e0b552284946d56c9023e",
+    "include/mc/cuda.hpp": "938aada853ae37f5493c4cd4e1f6adedc262beee860595d124136f013321cb8f",
+    "include/mc/data.hpp": "a2698c905f16124a005dd1837e4d8e8c02e7ad62a1c28afc4a016fba2847c51f",
+    "include/mc/openmp.hpp": "0729108a6278ee8bdab35f36d2c98cb16c75df04b2838082fd1afbd2d9045b72",
+    "include/mc/output.hpp": "13d3a44e1f2b1d2a739984d1f9fcd46d6268fbb3a1a4bf8547d3331fd59ac5c4",
+    "include/mc/portfolio.hpp": "03c15bd22defe3a2e4af0e710d8f87adf1f541520de35f799b0c01d668118b1a",
+    "include/mc/version.hpp.in": "87f23e3be0aca6daf8e27daf772977e351c0dae1d50994e2ec3d6c6dd3ef9365",
+    "include/mc/detail/cuda_plan.hpp": "7281354e8af0ca52b2bb08f11dbfce56d6dfbaeb86ec40a773a4fb4a64a4178b",
+    "tests/test_portfolio_hybrid.cpp": "4fba1f8d352b3ff51019612dee8d656ddb02f53b9632cfb981da7a35165b6370",
+    "tests/test_portfolio.cpp": "f8f88330a561559c3d6da219e2f3ab79c5c046b7033e9f1de3d386e6bd944cc3",
+    "tests/test_cli.cmake": "dc812df86b43e190bbb519e142d06a2be3ef489fa37d2f47db084329ffbaabe4",
+    "tests/test_portfolio_cli.cmake": "fae74c607b0a66f3417f903c58eba723da0a4041dcea9fec396cab1e9e8dd945"
+  },
+  "final_artifacts": {
+    "build-portfolio-hybrid-cuda/CMakeCache.txt": "3d2f0c7051c0a54e27a2e899d4dfd53820dd0f1338f5e279e9d365d1c3b1db76",
+    "build-portfolio-hybrid-cuda/mc_var.exe": "e3f9e8ab45b9dce505af6e572345414f997b9485d6423fb36e0c99e1394687d2",
+    "build-portfolio-hybrid-cuda/mc_portfolio_tests.exe": "c2bc5ae33a245ed77cb117b8b5f972fc8aaf476ee2393982597e79dc32b4ff73",
+    "build-portfolio-hybrid-cuda/mc_portfolio_hybrid_tests.exe": "104f3746cabb71c42c813f4f4e1013007c3369813ace1113475353fc14847dca",
+    "build-portfolio-hybrid-cuda/mc_cuda_hybrid_tests.exe": "7b95022062d0f7c9d606234fcdbb9cafd6a29044df9285fb104fbc559cfdc417",
+    "build-portfolio-hybrid-cuda/mc_cuda.lib": "806cd715d6bdbdc427518f6166a81c41b601a1729b4c5a200db434b608eee5c8",
+    "build-portfolio-hybrid-serial/CMakeCache.txt": "d2130861a0f4893975f15d6baa0f11ffd72e8fc74d1364f319ba9abe6b70e303",
+    "build-portfolio-hybrid-serial/mc_var.exe": "68a4754738f44236e1b843a0b1e02924993c2eeba843b8da6eeaf7bc26072c38",
+    "build-portfolio-hybrid-serial/mc_portfolio_tests.exe": "55991a842c94af6123c521831962eafdefc540262bae75b5baa826a3d801eafd",
+    "build-portfolio-hybrid-openmp/CMakeCache.txt": "308eb78cf1b8692d5f582028c8ddffb4c6539164c3d12b5451669b765a21e254",
+    "build-portfolio-hybrid-openmp/mc_var.exe": "c4469f74e59178af82f3cde0f7d25c484232c8494dbadc513bbfb3d6c731fc73",
+    "build-portfolio-hybrid-openmp/mc_portfolio_tests.exe": "99d90ea62bf1c8be8bfa9aff0a931576918827b79a0f6541e5f0cc15d776c0e4"
+  },
+  "versions": {
+    "cmake": "cmake version 3.31.6-msvc6\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+    "git": "git version 2.55.0.windows.5",
+    "ctest": "ctest version 3.31.6-msvc6\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake)."
+  },
+  "provenance_limit": "Final artifact hashes bind the final rebuild; early statistical/private integration executable hashes were not captured before a same-production-source relink. Original commands and tool metadata remain recorded; no binary equivalence proof claimed."
+}

@@ -152,17 +152,27 @@ __global__ void portfolio_kernel(PreparedPortfolio p, const double* normals,
     losses[s] = loss;
 }
 void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::size_t requested,
-                     Resources& resources, const cudaDeviceProp& properties, Result& result) {
+                     Resources& resources, const cudaDeviceProp& properties, Result& result,
+                     const PreparedPortfolio* portfolio) {
     auto& info = *result.cuda;
     info.mode = "hybrid";
     info.requested_batch_size = requested;
-    info.effective_batch_size = detail::hybrid_batch_size(r.scenarios, requested, common != nullptr);
-    info.normals_allocated = detail::normal_count(info.effective_batch_size, common != nullptr);
+    const auto assets = portfolio ? static_cast<std::size_t>(portfolio->count) : std::size_t{1};
+    // Portfolio batches retain scenario boundaries; pad each odd normal payload.
+    info.effective_batch_size = portfolio ? (std::min)(r.scenarios, requested)
+        : detail::hybrid_batch_size(r.scenarios, requested, common != nullptr);
+    info.normals_allocated = detail::normal_count(
+        detail::checked_multiply(info.effective_batch_size, assets), common != nullptr);
     std::vector<double> host_losses;
     info.host_loss_bytes = detail::host_loss_storage(r.scenarios, host_losses.max_size());
     info.explicit_device_bytes = detail::hybrid_device_bytes(info.normals_allocated, info.effective_batch_size);
     detail::loss_blocks(info.effective_batch_size, properties.maxGridSize[0],
         properties.maxThreadsDim[0], properties.maxThreadsPerBlock);
+    if (!common && portfolio) {
+        check_rng(curandCreateGenerator(&resources.generator, CURAND_RNG_PSEUDO_PHILOX4_32_10), "Hybrid cuRAND generator creation");
+        check_rng(curandSetStream(resources.generator, resources.stream), "Hybrid cuRAND stream selection");
+        check_rng(curandSetPseudoRandomGeneratorSeed(resources.generator, r.seed), "Hybrid cuRAND seed");
+    }
     check(cudaMemGetInfo(&info.free_before_bytes, &info.total_vram_bytes), "Hybrid VRAM preflight");
     info.allocation_budget_limit_bytes = detail::memory_budget_80pct(info.free_before_bytes);
     detail::require_memory_budget(info.explicit_device_bytes, info.free_before_bytes);
@@ -171,21 +181,28 @@ void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::s
     auto normals = resources.allocate<double>(info.normals_allocated);
     auto losses = resources.allocate<double>(info.effective_batch_size);
     auto invalid_device = resources.allocate<int>(1);
-    if (!common) {
+    if (!common && !portfolio) {
         check_rng(curandCreateGenerator(&resources.generator, CURAND_RNG_PSEUDO_PHILOX4_32_10), "Hybrid cuRAND generator creation");
         check_rng(curandSetStream(resources.generator, resources.stream), "Hybrid cuRAND stream selection");
         check_rng(curandSetPseudoRandomGeneratorSeed(resources.generator, r.seed), "Hybrid cuRAND seed");
     }
-    std::size_t offset = 0;
+    std::size_t offset = 0, expected_generated = 0;
     const auto pipeline = resources.start(5);
     while (offset < r.scenarios) {
         const auto count = (std::min)(info.effective_batch_size, r.scenarios - offset);
         const auto bytes = detail::checked_multiply(count, sizeof(double));
         const auto next = detail::checked_add(offset, count);
         if (next > host_losses.size()) throw std::runtime_error("Hybrid batch exceeds host loss storage");
-        if (common) resources.copy(normals, common->data() + offset, bytes, cudaMemcpyHostToDevice, info);
+        const auto payload = detail::checked_multiply(count, assets);
+        const auto normal_offset = detail::checked_multiply(offset, assets);
+        const auto normal_end = detail::checked_add(normal_offset, payload);
+        if (common && normal_end > common->size())
+            throw std::runtime_error("Hybrid normal slice exceeds common input");
+        if (common) resources.copy(normals, common->data() + normal_offset,
+            detail::checked_multiply(payload, sizeof(double)), cudaMemcpyHostToDevice, info);
         else {
-            const auto generated = detail::normal_count(count, false);
+            const auto generated = detail::normal_count(payload, false);
+            expected_generated = detail::checked_add(expected_generated, generated);
             if (generated > info.normals_allocated) throw std::runtime_error("Hybrid normal buffer too small");
             resources.measure(1, [&] {
                 check_rng(curandGenerateNormalDouble(resources.generator, normals, generated, 0.0, 1.0), "Hybrid cuRAND normal generation");
@@ -198,7 +215,9 @@ void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::s
         const auto blocks = detail::loss_blocks(count, properties.maxGridSize[0],
             properties.maxThreadsDim[0], properties.maxThreadsPerBlock);
         resources.measure(2, [&] {
-          losses_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(
+          if (portfolio) portfolio_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(
+            *portfolio, normals, losses, detail::checked_int(count), invalid_device);
+          else losses_kernel<<<blocks, detail::cuda_loss_threads, 0, resources.stream>>>(
             r.model, normals, losses, detail::checked_int(count), invalid_device);
         check(cudaGetLastError(), "Hybrid loss kernel launch");
         });
@@ -213,7 +232,7 @@ void hybrid_pipeline(const Request& r, const std::vector<double>* common, std::s
     }
     resources.stop(pipeline);
     if (offset != r.scenarios || info.losses_transferred != r.scenarios
-        || (!common && info.normals_generated != detail::normal_count(r.scenarios, false)))
+        || (!common && info.normals_generated != expected_generated))
         throw std::runtime_error("Hybrid scenario accounting mismatch");
     check(cudaStreamSynchronize(resources.stream), "Hybrid pipeline completion");
     check(cudaMemGetInfo(&info.free_with_pipeline_bytes, &info.total_vram_bytes), "Hybrid VRAM pipeline snapshot");
@@ -231,8 +250,6 @@ std::string compiler_version() {
 }
 Result CudaEngine::run(const Request& r, const std::vector<double>* common) const {
     const auto portfolio = r.portfolio ? validate_portfolio_request(r, common) : PreparedPortfolio{};
-    if (r.portfolio && mode_ == CudaMode::Hybrid)
-        throw std::invalid_argument("Portfolio CUDA hybrid mode is unsupported; select full-device");
     if (!r.portfolio) validate_model(r.model);
     detail::validate_cuda_counts(r.scenarios, r.confidence_levels.size());
     for (double c : r.confidence_levels)
@@ -251,6 +268,7 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
         result.random_source = common ? "common-host-inputs" : "cuRAND/PHILOX4_32_10/normal-double";
         result.cuda.emplace();
         auto& info = *result.cuda;
+        info.portfolio_assets = r.portfolio ? portfolio.count : 0;
         int count = 0;
         check(cudaGetDeviceCount(&count), "CUDA device discovery");
         if (count == 0) throw std::runtime_error("No CUDA device available");
@@ -272,7 +290,8 @@ Result CudaEngine::run(const Request& r, const std::vector<double>* common) cons
             resources.diagnostics = &*info.diagnostics;
         }
         if (mode_ == CudaMode::Hybrid) {
-            hybrid_pipeline(r, common, batch_size_, resources, properties, result);
+            hybrid_pipeline(r, common, batch_size_, resources, properties, result,
+                r.portfolio ? &portfolio : nullptr);
         } else {
             info.effective_batch_size = r.scenarios;
             info.batch_count = 1;

@@ -1,0 +1,10 @@
+[1/9] Building CXX object CMakeFiles\mc_portfolio_hybrid_tests.dir\tests\test_portfolio_hybrid.cpp.obj
+[2/9] Building CUDA object CMakeFiles\mc_cuda.dir\src\cuda.cu.obj
+cuda.cu
+[3/9] Linking CXX static library mc_cuda.lib
+[4/9] Linking CXX executable mc_cuda_diagnostic_tests.exe
+[5/9] Linking CXX executable mc_portfolio_tests.exe
+[6/9] Linking CXX executable mc_cuda_tests.exe
+[7/9] Linking CXX executable mc_var.exe
+[8/9] Linking CXX executable mc_portfolio_hybrid_tests.exe
+[9/9] Linking CXX executable mc_cuda_hybrid_tests.exe

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\build-portfolio-hybrid-cuda\\mc_var.exe",
+    "--portfolio",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\evidence\\portfolio-campaign-20261025\\fixtures\\two-positive.txt",
+    "1000000",
+    "2026102601",
+    "--backend",
+    "cuda",
+    "--cuda-mode",
+    "hybrid",
+    "--batch-size",
+    "65535",
+    "--json"
+  ],
+  "started_utc": "2026-10-26T12:42:06.825328+00:00",
+  "completed_utc": "2026-10-26T12:42:07.050221+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "d0d2f784673c2f587b42b2a975bfff39ac676004a807e9ef5c11d31b03e80ac7",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

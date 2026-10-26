@@ -1,0 +1,15 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "build-portfolio-hybrid-openmp",
+    "--output-on-failure",
+    "-R",
+    "portfolio_structural_backends|cli_contract_tests"
+  ],
+  "started_utc": "2026-10-26T12:49:50.947568+00:00",
+  "completed_utc": "2026-10-26T12:49:52.534215+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "7b424adec52225d4fd75595bb0ebcdbb6c45618f44b7364c7b979a0f6e1c2aec",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

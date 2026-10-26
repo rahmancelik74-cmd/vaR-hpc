@@ -1,0 +1,32 @@
+-- The CXX compiler identification is MSVC 19.44.35227.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenMP_CXX: -openmp (found version "2.0")
+-- Found OpenMP: TRUE (found version "2.0") found components: CXX
+-- Configuring done (3.2s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/build-portfolio-hybrid-openmp
+[1/21] Building CXX object CMakeFiles\mc_core.dir\src\output.cpp.obj
+[2/21] Building CXX object CMakeFiles\mc_core.dir\src\data.cpp.obj
+[3/21] Building CXX object CMakeFiles\mc_core.dir\src\core.cpp.obj
+[4/21] Building CXX object CMakeFiles\mc_core.dir\src\portfolio.cpp.obj
+[5/21] Linking CXX static library mc_core.lib
+[6/21] Building CXX object CMakeFiles\mc_cuda_plan_tests.dir\tests\test_cuda_plan.cpp.obj
+[7/21] Building CXX object CMakeFiles\mc_openmp.dir\src\openmp.cpp.obj
+[8/21] Linking CXX static library mc_openmp.lib
+[9/21] Building CXX object CMakeFiles\mc_portfolio_tests.dir\tests\test_portfolio.cpp.obj
+[10/21] Building CXX object CMakeFiles\mc_var.dir\src\main.cpp.obj
+[11/21] Building CXX object CMakeFiles\mc_tests.dir\tests\test_core.cpp.obj
+[12/21] Linking CXX executable mc_var.exe
+[13/21] Linking CXX executable mc_portfolio_tests.exe
+[14/21] Building CXX object CMakeFiles\mc_data_tests.dir\tests\test_data.cpp.obj
+[15/21] Building CXX object CMakeFiles\mc_output_tests.dir\tests\test_output.cpp.obj
+[16/21] Linking CXX executable mc_cuda_plan_tests.exe
+[17/21] Linking CXX executable mc_tests.exe
+[18/21] Linking CXX executable mc_output_tests.exe
+[19/21] Building CXX object CMakeFiles\mc_openmp_tests.dir\tests\test_openmp.cpp.obj
+[20/21] Linking CXX executable mc_data_tests.exe
+[21/21] Linking CXX executable mc_openmp_tests.exe

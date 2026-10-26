@@ -1,0 +1,12 @@
+-- Configuring done (1.9s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/rahma/Masaüstü/graduation_project/gpu-montecarlo-starter/build-portfolio-hybrid-cuda
+[1/8] Building CUDA object CMakeFiles\mc_cuda.dir\src\cuda.cu.obj
+cuda.cu
+[2/8] Linking CXX static library mc_cuda.lib
+[3/8] Linking CXX executable mc_portfolio_tests.exe
+[4/8] Linking CXX executable mc_var.exe
+[5/8] Linking CXX executable mc_cuda_tests.exe
+[6/8] Linking CXX executable mc_cuda_diagnostic_tests.exe
+[7/8] Linking CXX executable mc_portfolio_hybrid_tests.exe
+[8/8] Linking CXX executable mc_cuda_hybrid_tests.exe

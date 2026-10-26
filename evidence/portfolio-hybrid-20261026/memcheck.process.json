@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.4\\bin\\compute-sanitizer.bat",
+    "--tool",
+    "memcheck",
+    "--error-exitcode",
+    "99",
+    "--leak-check",
+    "full",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\build-portfolio-hybrid-cuda\\mc_portfolio_hybrid_tests.exe"
+  ],
+  "started_utc": "2026-10-26T12:43:19.790384+00:00",
+  "completed_utc": "2026-10-26T12:44:09.854015+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "01bd0fdbe7d91c5731a630bb98e0f96a4ffecf1fa46b4fb0d6a3f16665a5f15c",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

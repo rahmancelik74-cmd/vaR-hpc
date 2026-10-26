@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-10-26T12:38:46.075716+00:00",
+  "protocol_sha256": "6af116955d8cb57b56dbb8ebda1e3dc03d4e1c6deb7f4af85d7e5b97de7506cb",
+  "fixtures": {
+    "evidence\\portfolio-campaign-20261025\\fixtures\\two-positive.txt": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f",
+    "evidence\\portfolio-campaign-20261025\\fixtures\\two-negative.txt": "b844128cc404d3e9a326d9149bd5c67abdfe990a7458bbb6e78ccf8a8323615a"
+  }
+}

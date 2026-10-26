@@ -1,0 +1,10 @@
+{
+  "target_sha256": "ec3ca1a0111da96675a8c7e57bdb594145f294063ebc2f6a760ad8855a94a8aa",
+  "source_sha256": {
+    "tests\\test_portfolio_hybrid.cpp": "c1e06096dd2a7f9ff40367540d6effdd484b4e2ec04b7251dad163c67eb76e76",
+    "src\\cuda.cu": "3c120e72ae1240b39f2060bbcf19d59618a30132a8e3f341f15a47009fc58bec",
+    "src\\portfolio.cpp": "96552e207ec99e9a8e9809991c8a6a77a14457227b6d3d359b25800c38d9bd12",
+    "include\\mc\\core.hpp": "fa2e3643dffbb5d787e3004eadae1e9afe0fb3e7d96e0b552284946d56c9023e"
+  },
+  "scope": "Executable hash captured while racecheck retained its original loaded binary; final relink deferred until sanitizer exits"
+}

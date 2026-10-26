@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "scope": "Bounded native distributional consistency only; no practical VaR target or universal acceptance",
+  "family_error": 0.01,
+  "uniform_DKW_events": 4,
+  "n": 1000000,
+  "numpy": "1.24.3",
+  "checks": [
+    {
+      "fixture": "two-positive",
+      "confidence": 0.95,
+      "native_var": 133.45313378079956,
+      "reference_cdf": 0.950422,
+      "error": 0.00042200000000003346,
+      "bound": 0.0036573948713638487,
+      "passed": true
+    },
+    {
+      "fixture": "two-positive",
+      "confidence": 0.99,
+      "native_var": 176.76372576265425,
+      "reference_cdf": 0.990215,
+      "error": 0.00021499999999996522,
+      "bound": 0.0036573948713638487,
+      "passed": true
+    },
+    {
+      "fixture": "two-negative",
+      "confidence": 0.95,
+      "native_var": 70.36314269965567,
+      "reference_cdf": 0.949983,
+      "error": 1.6999999999933735e-05,
+      "bound": 0.0036573948713638487,
+      "passed": true
+    },
+    {
+      "fixture": "two-negative",
+      "confidence": 0.99,
+      "native_var": 98.18683056434782,
+      "reference_cdf": 0.990055,
+      "error": 5.500000000002725e-05,
+      "bound": 0.0036573948713638487,
+      "passed": true
+    }
+  ]
+}

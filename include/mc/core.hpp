@@ -29,6 +29,7 @@ struct CudaDiagnostics {
     std::size_t cub_intervals = 0, gather_intervals = 0;
 };
 struct CudaMetadata {
+    int portfolio_assets = 0;
     std::optional<CudaDiagnostics> diagnostics;
     std::string mode = "full-device";
     std::size_t requested_batch_size = 0, effective_batch_size = 0, batch_count = 0;

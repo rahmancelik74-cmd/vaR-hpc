@@ -1,0 +1,29 @@
+{
+  "status": "blocked_in_executor",
+  "observed_this_session": [
+    {
+      "command": [
+        "git",
+        "add",
+        "--dry-run",
+        "--",
+        "src/cuda.cu"
+      ],
+      "finding": "fatal: Unable to create .git/index.lock: Permission denied",
+      "git_mutation_completed": false
+    },
+    {
+      "command": [
+        "gh",
+        "api",
+        "user",
+        "--jq",
+        ".login"
+      ],
+      "finding": "HTTP 401 Requires authentication"
+    }
+  ],
+  "remote_main_read": "ca6bb72725115dc7f143cef3b5eda2649985d1c3",
+  "remote_url": "https://github.com/rahmancelik74-cmd/vaR-hpc.git",
+  "retry_policy": "No repeat of unchanged denied Git writes/authentication; no permission, global configuration or account changes"
+}

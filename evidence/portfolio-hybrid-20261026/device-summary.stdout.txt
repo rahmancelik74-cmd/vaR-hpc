@@ -1,0 +1,2 @@
+name, driver_version, memory.total [MiB], memory.used [MiB], temperature.gpu, pstate, power.draw [W], power.limit [W], clocks.current.graphics [MHz], clocks.current.memory [MHz]
+NVIDIA GeForce RTX 4060 Laptop GPU, 610.88, 8188 MiB, 857 MiB, 60, P0, 25.94 W, [N/A], 2520 MHz, 8001 MHz

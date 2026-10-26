@@ -1,0 +1,13 @@
+{
+  "command": [
+    "cmd",
+    "/d",
+    "/c",
+    "results\\portfolio-hybrid-20261026\\final-build-serial.cmd"
+  ],
+  "started_utc": "2026-10-26T12:49:36.365654+00:00",
+  "completed_utc": "2026-10-26T12:49:43.085607+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "6f7febffe9fc2458ef42bf5a6e973886a0bd302bed679fbd23b0e86d68b339ad",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "build-portfolio-hybrid-openmp",
+    "--output-on-failure"
+  ],
+  "started_utc": "2026-10-26T12:42:56.588246+00:00",
+  "completed_utc": "2026-10-26T12:43:16.075010+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "63c49fcc01504971b02756ff7d720268b5214c3b6fa86468a0b0fc2428745691",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

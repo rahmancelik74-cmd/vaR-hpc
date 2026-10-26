@@ -1,5 +1,10 @@
 # Explicit hybrid CUDA batching
 
+This page describes the retained single-asset convention. Portfolio support is
+a separate [PH extension](portfolio-hybrid.md): exact scenario batches, N*A
+scenario-major inputs and per-call odd-normal padding. Earlier evidence below
+remains historical.
+
 The default CUDA mode remains full-device, with one global CUB 3.4.3 sort and
 device rank gather. Hybrid is selected explicitly; allocation failure never
 switches modes or reduces N. Both modes support 1 <= N <= 10000000 and 1 through

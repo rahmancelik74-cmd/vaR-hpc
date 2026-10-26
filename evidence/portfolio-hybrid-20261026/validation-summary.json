@@ -1,0 +1,56 @@
+{
+  "status": "passed_with_coverage_limits",
+  "common_native": {
+    "cases_passed": 264,
+    "maximum_common_difference": 2.842170943040401e-14,
+    "absolute_tolerance_fraction_V0": 1e-10,
+    "global_rank_oracle": true,
+    "native_repeat_and_payload": true,
+    "errors_and_recovery": true
+  },
+  "regressions": {
+    "cuda_openmp": 22,
+    "serial_only": 17,
+    "cuda_off_openmp": 18,
+    "python_portfolio": 28,
+    "final_affected_cpu_contracts": {
+      "serial": 2,
+      "openmp": 2
+    }
+  },
+  "sanitizer": {
+    "full_matrix_memcheck": "0 errors, 0 bytes leaked",
+    "full_matrix_racecheck": "600s timeout; not passed",
+    "focused_memcheck": "20 cases; 0 errors, 0 bytes leaked",
+    "focused_racecheck": "20 cases; 0 hazards displayed",
+    "limitations": "No general global-memory race freedom, host safety, injected allocation/API failures or 10M sanitizer coverage"
+  },
+  "capacity": {
+    "assets": 5,
+    "scenarios": 10000000,
+    "batch_size": 65535,
+    "batch_count": 153,
+    "final_partial_batch": 38680,
+    "normals_generated": 50000152,
+    "explicit_device_bytes": 3145692,
+    "host_loss_bytes": 80000000,
+    "free_before_bytes": 7451181056,
+    "free_with_pipeline_bytes": 7438598144,
+    "snapshot_difference_bytes": 12582912,
+    "scope": "Capacity/integration only; no peak measurement or benchmark"
+  },
+  "private_historical": "passed; outputs ignored",
+  "prior_evidence": {
+    "files": 355,
+    "local_exact_byte_recheck": "passed",
+    "HEAD_after_established_filters": "355/355 match",
+    "raw_HEAD_blob_match": 341,
+    "other_14": "Existing checkout newline forms; no local bytes changed"
+  },
+  "git": {
+    "HEAD": "ca6bb72725115dc7f143cef3b5eda2649985d1c3",
+    "commit": null,
+    "push": false,
+    "new_exact_sha_ci": null
+  }
+}

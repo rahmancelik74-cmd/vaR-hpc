@@ -1,0 +1,11 @@
+{
+  "command": [
+    "nvcc",
+    "--version"
+  ],
+  "started_utc": "2026-10-26T12:43:19.681354+00:00",
+  "completed_utc": "2026-10-26T12:43:19.696331+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "9acd4f65bb9b51daf49ce1c5febf78de95903f1359c9492aacfbe07aa0fd1ef0",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

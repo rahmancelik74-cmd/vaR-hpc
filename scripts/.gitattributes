@@ -11,3 +11,5 @@ deliver-portfolio-precision.ps1 -text
 calibrate_portfolio.py -text
 verify_portfolio_calibration.py -text
 deliver-portfolio-calibration.py -text
+check-portfolio-hybrid.py -text
+deliver-portfolio-hybrid.py -text

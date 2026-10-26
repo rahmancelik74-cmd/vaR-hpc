@@ -10,7 +10,7 @@ reject(--portfolio "${fixture}" 10000001)
 reject(--portfolio "${fixture}" 17 -1)
 reject(--portfolio "${fixture}" 17 18446744073709551616)
 reject(--portfolio "${fixture}" 17 42 unexpected)
-reject(--portfolio "${fixture}" --backend cuda --cuda-mode hybrid --batch-size 17)
+reject(--portfolio "${fixture}" --backend cuda --cuda-mode hybrid --batch-size 0)
 set(bad "${CMAKE_CURRENT_BINARY_DIR}/invalid-portfolio.txt")
 foreach(contents IN ITEMS
     "portfolio-v1 USD 1 0"

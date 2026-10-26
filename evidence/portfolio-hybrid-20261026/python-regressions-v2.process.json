@@ -1,0 +1,19 @@
+{
+  "command": [
+    "C:\\Users\\rahma\\anaconda3\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_portfolio*.py",
+    "-v"
+  ],
+  "started_utc": "2026-10-26T12:47:47.943990+00:00",
+  "completed_utc": "2026-10-26T12:47:51.515233+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e5559e58b76b2abb3c7a3111a545c01f2fd63efc55fe5bc5e55a6c3f2171a3bf"
+}

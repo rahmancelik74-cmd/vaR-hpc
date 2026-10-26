@@ -31,13 +31,19 @@ void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
     out << "{\"milestone\":";
     string_value(out, hybrid ? "hybrid_batching" : "full_device_scale_up");
     out << ",\"mode\":"; string_value(out, c.mode);
+    if (c.portfolio_assets) {
+        out << ",\"requested_mode\":"; string_value(out, c.mode);
+        out << ",\"effective_mode\":"; string_value(out, c.mode);
+        out << ",\"asset_count\":" << c.portfolio_assets;
+    }
     out << ",\"quantile_location\":"; string_value(out, hybrid ? "host" : "device");
     out << ",\"requested_batch_size\":" << c.requested_batch_size
         << ",\"effective_batch_size\":" << c.effective_batch_size << ",\"batch_count\":" << c.batch_count
         << ",\"normals_generated\":" << c.normals_generated << ",\"host_loss_bytes\":" << c.host_loss_bytes
         << ",\"losses_transferred\":" << c.losses_transferred
         << ",\"rng_partition_policy\":";
-    string_value(out, hybrid ? "One persistent PHILOX generator; even interior calls; final total-request padding only; call partition is part of RNG configuration, no batch-size invariance promised"
+    string_value(out, hybrid && c.portfolio_assets ? "One persistent PHILOX generator; scenario-major batch payload B*A; each odd payload padded by one unused normal; exact requested scenario batch capped at N; call partition is part of RNG configuration, no batch-size invariance promised"
+        : hybrid ? "One persistent PHILOX generator; even interior calls; final total-request padding only; call partition is part of RNG configuration, no batch-size invariance promised"
         : "One PHILOX normal-double call; final total-request padding only");
     out << ",\"scenario_limit\":"
         << detail::cuda_scenario_limit << ",\"device\":";
@@ -61,7 +67,8 @@ void cuda_metadata(std::ostream& out, const CudaMetadata& c) {
         << ",\"free_before_bytes\":" << c.free_before_bytes << ",\"free_with_pipeline_bytes\":" << c.free_with_pipeline_bytes
         << ",\"allocation_budget_limit_bytes\":" << c.allocation_budget_limit_bytes
         << ",\"capacity_policy\":";
-    string_value(out, hybrid ? "Reject three explicit batch buffers exceeding floor(4*free_before_bytes/5); queried after context/stream/events, before buffer allocation; excludes host losses, opaque library/context allocations and other GPU activity; not a capacity guarantee"
+    string_value(out, hybrid && c.portfolio_assets ? "Reject three explicit batch buffers exceeding floor(4*free_before_bytes/5); queried after context/stream/events and native generator setup, before buffers; no CUB workspace; opaque lazy RNG/context allocations and competing activity use reserve; snapshots are not peaks or capacity guarantees"
+        : hybrid ? "Reject three explicit batch buffers exceeding floor(4*free_before_bytes/5); queried after context/stream/events, before buffer allocation; excludes host losses, opaque library/context allocations and other GPU activity; not a capacity guarantee"
         : "Reject explicit buffers exceeding floor(4*free_before_bytes/5); queried after context, stream, events and CUB storage query, before pipeline allocation; excludes opaque library/context allocations and other GPU activity; not a capacity guarantee");
     if (c.diagnostics) {
         const auto& d = *c.diagnostics;

@@ -5,7 +5,7 @@ portfolio-v1 from validated, aligned real equity imports. Its separate PC regist
 does not alter engine contracts or the historical synthetic campaign criteria.
 Actual local integration and delivery limitations are recorded in
 [the new evidence summary](../evidence/portfolio-calibration-20261026/README.md).
-Portfolio hybrid remains unsupported.
+Portfolio hybrid is supported as a separate [PH extension](portfolio-hybrid.md).
 
 The [targeted reference precision follow-up](../evidence/portfolio-precision-20261025-v1/README.md)
 completed two new fixed 80M references. All twelve reused two-asset N=10M
@@ -14,7 +14,8 @@ the new four-interval 99% reference family. Numerical conditional integration
 corroborates the intervals but is not certified error control. Original 9/18
 pass, 9/18 inconclusive and all six five-identity passes remain historical and
 unchanged; no combined 99% claim is made. Engines and their observations did
-not change. Historical calibration and portfolio hybrid remain future work.
+not change. Historical calibration and portfolio hybrid are now separate extensions; those
+reference results do not establish their acceptance.
 
 This extension is separate from Plan A and all existing FR-1..FR-9/NFR-1..NFR-9
 criteria. No market data, advisor approval or academic delivery is implied.
@@ -60,14 +61,14 @@ single-asset behavior. Common normals are caller-owned, read-only, finite,
 exactly N*A doubles, scenario-major: common[s*A+i]. They bypass native RNG.
 Native serial uses mt19937_64/normal_distribution; OpenMP retains fixed 4096
 scenario blocks with SplitMix64 block seeds and private generators. Assets
-are consumed in input order per scenario. CUDA generates N*A normals on device
+are consumed in input order per scenario. Full-device CUDA generates N*A normals on device
 using PHILOX normal-double, padding only the final odd count. Equal seeds across
 backends, modes or layouts do not imply equal samples. OpenMP native results
 are invariant across thread counts within the same build.
 
 P-5: All portfolio backends accept N=1..10000000 subject to checked allocation
-and available resources. CUDA supports full-device only; hybrid is explicitly
-rejected for portfolios and retained for single assets. Native CUDA allocates
+and available resources. CUDA supports full-device and explicit hybrid execution; see the separate
+[PH contract](portfolio-hybrid.md) for batches, RNG partition and global host quantile. Native CUDA allocates
 no host N*A matrix; device normals, scalar losses, sorted losses and CUB scratch
 are included in the existing 80%-free explicit-memory preflight. No automatic
 fallback. CUB remains 3.4.3 on the reference toolchain.

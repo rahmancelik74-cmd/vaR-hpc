@@ -1,5 +1,9 @@
 # Technical reproducibility entry point
 
+Portfolio hybrid CUDA has a separate [contract and local reproduction commands](portfolio-hybrid.md).
+Its [PH-1 evidence](../evidence/portfolio-hybrid-20261026/README.md) is separate
+from hosted CPU CI, prior reference studies and private historical outputs.
+
 Historical portfolio calibration is documented separately in
 [portfolio-calibration.md](portfolio-calibration.md). Its Python >=3.11 synthetic
 tests run offline without provider data; private original-byte auditing and local

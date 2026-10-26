@@ -1,5 +1,35 @@
 # Project state
 
+## Portfolio hybrid CUDA extension: 2026-10-26
+
+Implemented and locally GPU-tested explicit portfolio hybrid execution from
+main ca6bb72725115dc7f143cef3b5eda2649985d1c3. See the
+[PH contract](portfolio-hybrid.md) and [new evidence package](../evidence/portfolio-hybrid-20261026/README.md).
+The former portfolio hybrid rejection is superseded; older dated statements
+below and all existing FR/NFR/portfolio criteria and evidence are preserved.
+
+Actual Windows RTX 4060 Laptop checks: final CUDA/OpenMP 22/22 CTests,
+serial-only 17/17, CUDA OFF/OpenMP 18/18; 28 portfolio Python regressions;
+264 common/native cases, unchanged 1e-10*V0 tolerance, exact native repeat.
+Fixed two-fixture 1M native/reference DKW consistency passed four comparisons;
+no general statistical/practical-target or speedup claim. Full matrix memcheck
+passed; broad racecheck timed out at 600s, then focused 20-case memcheck and
+racecheck passed with zero reported errors/leaks/hazards. Coverage limits are
+explicit in the new evidence; no 10M sanitizer or new host-safety proof.
+
+Five-asset N=10000000 native capacity run completed, B=65535, 153 batches,
+80M host-loss bytes, 3145692 explicit device bytes. Existing private historical
+calibration audit and modest hybrid integration passed without reacquisition
+or recalibration. No benchmark/reference campaign or academic work was added.
+
+Delivery remains blocked only by this executor's Git index write restriction
+and invalid existing gh authentication (401). No new commit/push/CI is claimed.
+Run the NEW baseline-bound script once from an authorized session with working
+existing credentials: `C:/Users/rahma/anaconda3/python.exe -B scripts/deliver-portfolio-hybrid.py`.
+Persistent preparation record: evidence/portfolio-hybrid-20261026/completion.json;
+resumable delivery state: results/portfolio-hybrid-delivery-20261026/state.json.
+Hosted CPU CI will not represent local CUDA or private historical execution.
+
 ## Real historical portfolio calibration: 2026-10-26
 
 Started at main c21efc1258898aabe26d065de7c50961b79e94e0, also confirmed as

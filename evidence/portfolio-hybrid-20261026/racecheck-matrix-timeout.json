@@ -1,0 +1,17 @@
+{
+  "status": "timed_out_not_passed",
+  "timeout_seconds": 600,
+  "command": [
+    "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.4\\bin\\compute-sanitizer.bat",
+    "--tool",
+    "racecheck",
+    "--error-exitcode",
+    "99",
+    "C:\\Users\\rahma\\Masa\u00fcst\u00fc\\graduation_project\\gpu-montecarlo-starter\\build-portfolio-hybrid-cuda\\mc_portfolio_hybrid_tests.exe"
+  ],
+  "scope": "Original 264-case matrix",
+  "start_binding": "memcheck.process.json completed_utc immediately precedes this run",
+  "raw_output": "Not retained by original timeout wrapper; no clean hazard result claimed",
+  "cleanup": "Own expired compute-sanitizer PID 7908 and test PID 41712 were verified by name/start and stopped after timeout; no other process touched",
+  "supplement": "New --focused test selection reduces repeated tiny RNG calls; thresholds and production code unchanged"
+}

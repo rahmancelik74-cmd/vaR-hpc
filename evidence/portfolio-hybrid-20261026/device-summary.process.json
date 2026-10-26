@@ -1,0 +1,12 @@
+{
+  "command": [
+    "nvidia-smi",
+    "--query-gpu=name,driver_version,memory.total,memory.used,temperature.gpu,pstate,power.draw,power.limit,clocks.current.graphics,clocks.current.memory",
+    "--format=csv"
+  ],
+  "started_utc": "2026-10-26T12:47:47.867556+00:00",
+  "completed_utc": "2026-10-26T12:47:47.936351+00:00",
+  "exit_code": 0,
+  "stdout_sha256": "2c3e383443deb4dfd0ac17660ae32dec584cd5ae67a1459c8344053c65ebbcf6",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

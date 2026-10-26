@@ -1,0 +1,3 @@
+========= COMPUTE-SANITIZER
+{"cases_passed":20,"maximum_common_difference":0,"absolute_tolerance_fraction_V0":1e-10,"global_rank_oracle":true,"native_repeat_and_payload":true,"errors_and_recovery":true}
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)

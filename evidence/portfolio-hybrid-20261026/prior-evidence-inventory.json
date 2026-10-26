@@ -1,0 +1,1780 @@
+{
+  "scope": "All 355 pre-existing tracked evidence files; actual local raw-byte inventory, preserved during PH work",
+  "files": [
+    {
+      "path": "evidence/cuda-probe-20261016/CMakeLists.txt",
+      "sha256": "42bd1bcf3762149594d9bb2c0eb4fa7b6926a619e212febc808adabdf1ec5714",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/cuda-probe-20261016/execution.log",
+      "sha256": "5e94d9e136d289f4015e4b4b5769ab631222ab8f54f1785de3a27052a4dd717b",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/cuda-probe-20261016/probe.cu",
+      "sha256": "819cc537eabd0e6e2bfc595788f86d9f1f06b17ba20ed5221996853d3bc9e735",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/portfolio-calibration-20261026/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-calibration-20261026/README.md",
+      "sha256": "8ad357895679403b8ec9882a76f45afa9d4ac1d6a81b1950c133bb8144f801bb",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-calibration-20261026/completion.json",
+      "sha256": "0be5e3231527fa914f73c5e0e90f441c2a47b2ce8b9e629fc8024109cdfbcd2e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-calibration-20261026/delivery-files.json",
+      "sha256": "ef6159743f8c6ab44d7b581cc6ca57ca3e097de0e3a876085c43c6e1dad6ab41",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/.gitattributes",
+      "sha256": "54a2683fcca4fc087123edbedf3603b05a62a12ebd34cf991aa9489a5a009c57",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/PROTOCOL-v1.md",
+      "sha256": "b3f83822b69d10efa5aef081c944b20bb72f60daa9ab88fde2fdf7f4d2545471",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/README.md",
+      "sha256": "e3f349060583c8dbe45535b33944904a2937750e4f3eeb14f7a84efeb172c0c7",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/artifact-sha256.json",
+      "sha256": "7b85fff53981b82dd5247dcbb97cda43ebc239aa674cc39ecebe64182427ab1a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/attempt-validity.json",
+      "sha256": "1fbcce2b209c1e91c394f684007e29f84b15530ccf0a405c917528a3318135fe",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/attempt1-README.md",
+      "sha256": "7d778f2927532e4a04475a843b4c38efd7a60b7bcfdf1bdc03b9b25b948f7048",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/attempt1-artifact-sha256.json",
+      "sha256": "e3574d8536a35ea83b3346651a69abdaca71501fbf5ed206d5a69dea3cd9e6c8",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/attempt1-tooling/plot_portfolio_campaign.py",
+      "sha256": "6cc9416f204effde3da526e55148aeb8da30005564e3ba52dc4116afbe6387bc",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/attempt1-tooling/portfolio_campaign.py",
+      "sha256": "3d46b5dad2c1e88d7736232ee64125d2b8e3f60a8ceb66e4f6978d98d75f5938",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/attempt1-tooling/verify_portfolio_campaign.py",
+      "sha256": "b9335bb6b251ad1251f5c3e1ab2f60efdae5dc372545007643bcf84f70fb1bbc",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-raw.csv",
+      "sha256": "238c5fce0084b83fd5dcfac7a4cc789070fdd2430fcefb905a07cf436821ac19",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/PROTOCOL-v1.md",
+      "sha256": "b3f83822b69d10efa5aef081c944b20bb72f60daa9ab88fde2fdf7f4d2545471",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/README.md",
+      "sha256": "bbaae20594432a969ba0bcc84c2befccac61177b227db2dfb19c069d3ccd96aa",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/artifact-sha256.json",
+      "sha256": "7c53181a3e3fa880da35cc90e8b055f10adaccebaa4f64a8ed7bc25b62a5ffbe",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/benchmark-raw.csv",
+      "sha256": "a0ef21e8ab399c8ee3db11fa53aa4df27042491667de7d1d219eec465c1c593a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/benchmark-summary.csv",
+      "sha256": "764d6b557e0c598f61861767e47aac2b574231a2690ca95ad117bb27df8d00d1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/build-environment.json",
+      "sha256": "dd5c50accf99034a93f50819ced573ab0c6986edf4e3e525bc9fa26d2ccb2281",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/convergence.csv",
+      "sha256": "d1373ecad9262e60b409b1aa69151b813be703d03979c2f87d5519cb87f2ebc9",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/figure-data.json",
+      "sha256": "9bc7bbadc89bc3b99fe103bff348e4bb6f4f246b33fd8bacedb6be60953a2c4e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/figures/convergence.png",
+      "sha256": "bcceec1445787bfc308ae0dabae9171d6b294a06789c755b9bff5afd310af0cd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/figures/convergence.svg",
+      "sha256": "a7a83db5e47e1f091cabd13900d8572cedcc31caf841af7dc8d2a0757e2c4c7f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/figures/runtime.png",
+      "sha256": "a431f70d6c8fa42a200ea761c8cc7794448964ead418479c4a556a6c47417dbe",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/figures/runtime.svg",
+      "sha256": "bfa2e456a8deaf0a00d8c8a446a9b316ce593cafe81a0a9f387f5b1a432247ae",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/figures/speedup.png",
+      "sha256": "c0317b29d2e64b06d4636a02cee316a84fb127b259dcb8c6857bce4abac136cc",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/figures/speedup.svg",
+      "sha256": "686ef82e2dbbb10b5024d69743a75d7790535a1c02cc1eb82fa64a6449be4c26",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/freeze-v1.json",
+      "sha256": "3d22df996c15536c1feefffbfa98128ea30bf611acabeb75e2c8f38686f583ac",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/machine-inventory.json",
+      "sha256": "592d29e4e9086e52a172c2d7a4a6361748e388eac7db9967c38958f9cc3650d4",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/manifest.json",
+      "sha256": "15ac954987cfc8cc3ca5e698e8e13c7a1e20b8b5351451d5f2eefc1bb4ba2174",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/oracle-checks.json",
+      "sha256": "72390dbd1083e3c73b2a25d083687bd6891f8b781ccc667fc3fb02b2cbb89f04",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/protocol-v1.json",
+      "sha256": "7bbc540d342a1458de01e888f0e58bf5d6af9f165d6c3c202b0f5a31fdb0123c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/reference.json",
+      "sha256": "858e38effff4db478c924000fd9b57ab4796115bbd18294ec6fd3ed48ab0c130",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/validation-details.csv",
+      "sha256": "b4f27cbc94651fd13d58bb08cfb25159b9cb15e5a1db49fb19444bf9190ca594",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-replacement-v1/validation-raw.csv",
+      "sha256": "96c2f32d9b47d3b66921de684364cbdd9bc391afac4f5a4e57cb368445860bfd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/benchmark-summary.csv",
+      "sha256": "530c2775b51f80d4c285f40e8255306471b9f2447ebbc6559b5e6e74993fae93",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/build-environment.json",
+      "sha256": "dd5c50accf99034a93f50819ced573ab0c6986edf4e3e525bc9fa26d2ccb2281",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/convergence.csv",
+      "sha256": "d1373ecad9262e60b409b1aa69151b813be703d03979c2f87d5519cb87f2ebc9",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/figure-data.json",
+      "sha256": "185e8cff79f7d8908f9689cfaa363951c62362bbea140316096d562ca145bdd1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/figures/convergence.png",
+      "sha256": "bcceec1445787bfc308ae0dabae9171d6b294a06789c755b9bff5afd310af0cd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/figures/convergence.svg",
+      "sha256": "a7a83db5e47e1f091cabd13900d8572cedcc31caf841af7dc8d2a0757e2c4c7f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/figures/runtime.png",
+      "sha256": "66464dde50845080c6546a3756cad4aad589a912a30a4b797fed742ae0af9c88",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/figures/runtime.svg",
+      "sha256": "2d05a47f3299a46c9603a0d7151e8b1daba59cfd6c384be482f55ff23610a720",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/figures/speedup.png",
+      "sha256": "7b52f543b6140c34571c24e29edcdbca98d1e8c55cd25858ddfa0de49dd01443",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/figures/speedup.svg",
+      "sha256": "48d4203de2c8e21056bca23521ed52a6d0a977d889984198fbc6d32b6f51f2f3",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/five-identity.txt",
+      "sha256": "a27e3395ca4089ffb9f17437732d81043addc0c4e09024e9eafcfc1994bd7549",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/two-negative.txt",
+      "sha256": "b844128cc404d3e9a326d9149bd5c67abdfe990a7458bbb6e78ccf8a8323615a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/two-positive.txt",
+      "sha256": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/freeze-v1.json",
+      "sha256": "3d22df996c15536c1feefffbfa98128ea30bf611acabeb75e2c8f38686f583ac",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/machine-inventory.json",
+      "sha256": "592d29e4e9086e52a172c2d7a4a6361748e388eac7db9967c38958f9cc3650d4",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/manifest.json",
+      "sha256": "2c485b7b6e590ea5abc240703ef578f781d10701530ed948fe900427e6a02664",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/oracle-checks.json",
+      "sha256": "72390dbd1083e3c73b2a25d083687bd6891f8b781ccc667fc3fb02b2cbb89f04",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/primary-selection.json",
+      "sha256": "be4ac6d261816449c06f31150adf7fb333410d1f8c828a5f4e6a25cb5b3c3e73",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/protocol-v1.json",
+      "sha256": "7bbc540d342a1458de01e888f0e58bf5d6af9f165d6c3c202b0f5a31fdb0123c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/reference.json",
+      "sha256": "858e38effff4db478c924000fd9b57ab4796115bbd18294ec6fd3ed48ab0c130",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/validation-details.csv",
+      "sha256": "b4f27cbc94651fd13d58bb08cfb25159b9cb15e5a1db49fb19444bf9190ca594",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-campaign-20261025/validation-raw.csv",
+      "sha256": "96c2f32d9b47d3b66921de684364cbdd9bc391afac4f5a4e57cb368445860bfd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-extension-20261025/README.md",
+      "sha256": "d1a81bb0dbb2d80d9417fb57d0e0490cb05f9aa1f63108ac11a6c7e372aa26b2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-extension-20261025/validation-summary.json",
+      "sha256": "3d3e5ec03bd1f88a9257ceea968dd57f9f93829c5cabfa7b4d1d5f2502111635",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/.gitattributes",
+      "sha256": "5e2f30fa8c3a77e1bb59d1ecb42f99a35836f12e08c7c35e6139c87bdd0cc40a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/README.md",
+      "sha256": "113510b99b8a4e8ea066c59a3b0953131556a06f26fd336af954d4121f184a74",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/artifact-sha256.json",
+      "sha256": "ca405366e7e7846038c8a9a11599153296ced5b80d10b4b3978dd302819b4911",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/comparison.png",
+      "sha256": "a54339d98121d12f00177e8a5dc9e6ef877c96f8e96c1e410cc9a9ac578129da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/completion.json",
+      "sha256": "11a584e048c04ce8f20f050d7a29cbd09962d7634e2a298d364fd3349df767c2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/delivery-files.json",
+      "sha256": "f248c0976f011ca750fc1036d3f83ad9197656fcf2fc1f6fe54074e39eacb204",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/delivery.json",
+      "sha256": "639f42ca2baaeab479db7cdc6aa644de39e16c21cc49fe1071001278f95192a7",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/figure-data.json",
+      "sha256": "546702b8605fe59bb3f7fda1a4e120a011042b4c1b067e28db817ee66a21d8fa",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/freeze-v1.json",
+      "sha256": "248fbd480d3575213bc57dfe3da40fa7d829ca6d92fabc0a8995528269c094fb",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/numerical.json",
+      "sha256": "ae695e628f8b301225d82d8bacfbfad304b9f92989dd7ba9dec32242a345cf75",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/protocol-v1.json",
+      "sha256": "e214d3c9f56c3a4a8601d550861042e850a70d21af628eca7506615a46ce8182",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/reassessment.csv",
+      "sha256": "4dfe67dd6c10aa7a0685bbc4a4a4c1c49852479af520bce3cce41ecf6c9039eb",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/reference.json",
+      "sha256": "c9538ea0cb382a72940812a6a7a1ec3728061c2db3c5e49e26e292781526471c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/portfolio-precision-20261025-v1/verification.json",
+      "sha256": "fc4fb07074b493da85d9362ba784955df5be684d7e2e13420dd16373a2d2f6bd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/serial_validation.csv",
+      "sha256": "7198ce9efe0dbc4b1929c87f47c65137ecc8c7e9a9b7632396d76cd5ce587d88",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v022-serial-benchmark-20261016/estimates.csv",
+      "sha256": "084968dd420a7a6e0030d69bddb6f2b7d600b6bb850fd40cc452103dc8fcf365",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-serial-benchmark-20261016/manifest.json",
+      "sha256": "d1e36ef495be6a4b0f32993b698c7162fd8a37aae7805d62cf1aa0eb58ee9813",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-serial-benchmark-20261016/runs.jsonl",
+      "sha256": "7d7b8ba01ad214d2e7f348ce611f8492618b38b8a22d9bc3be3140f01b741be8",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v022-serial-benchmark-20261016/timing-summary.csv",
+      "sha256": "e9eabdd5831f5e2a86d4c251c0bd3a560042c0846cc0ab1422e7c4901250ccea",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-smoke-20261015/ctest.log",
+      "sha256": "5f73ab2ceff595fd314518970737cf9a2497fc7ffa0d65fc37ef5810dcdb51e8",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-smoke-20261015/estimates.csv",
+      "sha256": "90e6fbf2a0f5822ffd2fc52119e54139140d3d83d0f99c132c9d7ccc75593dff",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-smoke-20261015/manifest.json",
+      "sha256": "7df7aba7b36ff70480ad40814c4d5dd567bd26ebe1f19c53ea4f48d134e1e13d",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-smoke-20261015/runs.jsonl",
+      "sha256": "3f34ed368c852c8998c4cdee97bc6f6818eb054c853cb15c9a18cc5053dfda8e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v022-validation-20261016/estimates.csv",
+      "sha256": "80295900dcba8b07b0bfd72c669e4274f4ad62268594a44c01099e32dbe30a58",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-validation-20261016/manifest.json",
+      "sha256": "91d0a5d5e5f48450f535689db05168ab2f05aa8157b2ef2ff7fb533fb45657d4",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/v022-validation-20261016/runs.jsonl",
+      "sha256": "ff186cea9b123d3cf02fb3d5e746feea5cc2fab05e12a565eb35729dc6c1b329",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/README.md",
+      "sha256": "f1708e1cd4031bbbe65a42e901eba8a279a5b1b34375f1197a958b1b5b4a6957",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/counter-discovery.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/counter-discovery.stdout.txt",
+      "sha256": "ef0fe1c729c95b62f944a2002e75a425ea1716a6b9da415172d2c83bad324b30",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/focused-check.stderr.txt",
+      "sha256": "690fd2269dd42ccf27feebb0e363b4728baced54e51ff6b4d7164bf95e4170b5",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/gpu-inventory.stdout.txt",
+      "sha256": "164025f3c3dfa3e6f35b1c69eceefbd5052c089af2f634c57c6bbc4bf9c10639",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/integrity-check.stdout.txt",
+      "sha256": "8c6931d3be8a59a2b6ce8decc85bc1a6692b431dacb5035bb648e581c1935a56",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/manifest.json",
+      "sha256": "f8148545f48594244228565b6ed3c1611591d6547c9a00e7e0693bca40fccece",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/ncu-version.stdout.txt",
+      "sha256": "8066827ce7533ba106250999f6f9c9ff0afd0636ed1d248549e7fd558001d37f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-access-20261020/oem-inventory.json",
+      "sha256": "d9adebbf9d0a3fbf992cf2b10d92f3e5e828ddff9f1cc50cd9e0f9a254f5a972",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/.gitattributes",
+      "sha256": "50524bc54be6323af4266e11f2ca0b4d574bad39253c8c5293eca7d3173fa822",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/README.md",
+      "sha256": "de79d4f8e41b992c0aebd48400ac0dbacb10501f957f90a864fd8c7072d12d2c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/counter-discovery.process.json",
+      "sha256": "f0519154210c863555f77b92ffe7a366371574e4e6922ec59078c3f3e4fdda53",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/counter-discovery.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/counter-discovery.stdout.txt",
+      "sha256": "ef0fe1c729c95b62f944a2002e75a425ea1716a6b9da415172d2c83bad324b30",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/gpu-inventory.process.json",
+      "sha256": "307f750887c5b23f299cc1d46e693c99ef5dbce958cc3072598ad07bdad85842",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/gpu-inventory.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/gpu-inventory.stdout.txt",
+      "sha256": "aeebe113df1473e470dd6fae2761c90355774884f2b6c4ec8242e3f70bf0ab98",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/inspection-ci.json",
+      "sha256": "0985936c6519642d95af63e08236912dc00bd7fd47052edf1583d65cf8018e73",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/integrity-check.stdout.txt",
+      "sha256": "41a90363d17ff55386352b95b8645b2f0e3713cea0d61062949fc3b68112545a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/manifest.json",
+      "sha256": "074007bb4c1e9d3e6755cc2e6fa2a118613af0c4c1835135a3894ab9ab3d1087",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/ncu-version.process.json",
+      "sha256": "818a86c8ea90d196057e429a4e58e582d7037e692f96d47dd9faa65c2af09b1b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/ncu-version.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/ncu-version.stdout.txt",
+      "sha256": "8066827ce7533ba106250999f6f9c9ff0afd0636ed1d248549e7fd558001d37f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/oem-inventory.json",
+      "sha256": "accd26a20bab4e27035a92640894cc6cbab028637dffb88c923132e74aea15c7",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/source-review.json",
+      "sha256": "08cdebec9da95a2ed5065e79bf8c965b878dfbd655d1e48d24c6693733f03c29",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/tool-identity.json",
+      "sha256": "00177a3248f10e276cdfa40fe380649168352504f6d3a1561f516764c9dbbab6",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-bandwidth-followup-20261020/validate.ps1",
+      "sha256": "1c304c981bf6761960fe70c9bc990620a6000496c28064a65977cf357079bf07",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/01_error_vs_scenarios.svg",
+      "sha256": "388520b8f845acd570adb5d3a57b3b78ac27b39127d38c7bc83741fe885d00f1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/02_seed_signed_errors.svg",
+      "sha256": "c0be2bb8592f92ca0e441af4b05961c9a07a4f0d0a479a1ba1baf40b99c88eb5",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/03_seed_standard_deviation.svg",
+      "sha256": "9691dde430e8bcab2b51fd6cf260c43d185a196687fb88805c1428877839b86f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/04_separate_10m_acceptance.svg",
+      "sha256": "1912681af40433c5d1bbbe774cc411982794df06248da7e4d1ef49d94415ced1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/README.md",
+      "sha256": "c39997e9153519f7e887e4562fb36e0fd8867272d70575802177f66efb4348ab",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/convergence_figures.pdf",
+      "sha256": "754cceeae32001fa436befe7a1181d5a70dddcd23a083770ba31acee263838a0",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/convergence_figures.py",
+      "sha256": "eafef1b54e8948c9e93f1abd3dec777b201fd140e0f1c03daa6ce5910c571397",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/figure-manifest.json",
+      "sha256": "b7827c82f7915398ab6f0ccb9c6ad9ae2df9c9c395a38857ff18dd0c7ea25143",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/focused-tests.process.json",
+      "sha256": "dca09d67f5b5436c4a578c2b99ac57bd504b849ed51074e0c3a6126da8babdbd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/focused-tests.stderr.txt",
+      "sha256": "cad5da457c1ac83abb375c17cf1fa142e3ac7ab14ef9cd36944df79b8f1252b1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/focused-tests.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/historical-documents/docs/convergence.md",
+      "sha256": "d900a543c55b97677582fa21f5664788fb22b38293d3c25d7443e3deaf785533",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/historical-documents/docs/project-state.md",
+      "sha256": "3c42f203acf2c9c7b73c91ff74a8ad47f5edaf11393f557e28ed333cbf238c02",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/numerical-reaudit.json",
+      "sha256": "1557705b87152e96b323d86716852bde6ddd0b26c7b6d850fdbdc845d721008f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/original-failure.process.json",
+      "sha256": "3bb531881d3923910360079a0f82db856ad052b48e2dd0ae693fbabfa2211229",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/original-failure.stderr.txt",
+      "sha256": "49cae9c6c0f66a934433110474804d58806850abacc35ef479aefee5edc5bfdd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/original-failure.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/plotted-data-check.json",
+      "sha256": "0221d6b1ae6be40d7bbfa96bf48df867457e8d6660e811bc0877a9128271b3ab",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/plotted-data.json",
+      "sha256": "f847d8a7576aced42cb6f04f6549cbb81e3ebd03a318ee392a2f76fc01816436",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/provenance-policy.json",
+      "sha256": "8f701286a709f89dc7d3b85f31a0acc3a35053e1921b09805e837c79d001d0de",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/selection-manifest.v2.json",
+      "sha256": "595e0b045cb053e3fcd4708e3b1d5d0853a7426c776217a6c9c5d14508665b67",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/verification.json",
+      "sha256": "1be1450b2a7c34214a8e357b5dfaa92ace2d4799d91ad386b055a6ea8b317b1b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/verify-plotted-data.py",
+      "sha256": "dd53caff814bc2e1a95eba40114586dfc8ab6f12d63a62ba145d4e624431335a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020-v2/visual-check.json",
+      "sha256": "d7acf61d5d75a9817fa6407e1ff0833c2903a14c04345a4dcc401c53a4c231ba",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/.gitattributes",
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/01_error_vs_scenarios.svg",
+      "sha256": "347c6ce8b29879f6b33dbdd4521a337fefca347f05d73c62808360b5daf2ef6e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/02_seed_signed_errors.svg",
+      "sha256": "62adbec2124cd6c7eff3a217441f37dfd65e0913dbc0181b35a2b28bc0bd7366",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/03_seed_standard_deviation.svg",
+      "sha256": "35227c21914f28eea227ade05c57d4dcf5bd697c7363786afdb5006b13d79992",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/04_separate_10m_acceptance.svg",
+      "sha256": "d133320cc6fb8bd0238f7c7b01f64f9b0a97c4364a0a42def7abac4ec95a5593",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/README.md",
+      "sha256": "1e2068cc09d823caf62ad74425b65e6f10e35c1427a5fbdbec0bc117edc537f3",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/convergence_figures.pdf",
+      "sha256": "6f0fd1b53d42167cd6568476a6ae13acb6b1575f3dadb85cc4b9fc44bf08059c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/convergence_figures.py",
+      "sha256": "5494c7b493cd34a14f4d9eabad5f52fcec0ba38b366965daa047fae89c1d37fe",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/selection-manifest.json",
+      "sha256": "4d18c677f56e5302f81839d86af1d51f9b262cf933b6d9e40566ab4cadce0de1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-figures-20261020/verification.json",
+      "sha256": "b6007d55995000ed311d0a902aef45a3f1f9678b952ab926f97908bfa4dbf8b0",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-preparation-20261019/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-preparation-20261019/README.md",
+      "sha256": "8f1742828da2326f4d570bb4104ad08e82754e9526a93c60d7017b27b6a79407",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-preparation-20261019/focused-tests.json",
+      "sha256": "152c1a8bbef154fdc661021b50a6478ae299f0dbc519ef981a65dc1a5ac821db",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-preparation-20261019/plan.json",
+      "sha256": "84f1da88778d56a9880ef7a252243654b6cbed3cffbaf4c4b7f1c2e7fceea322",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-preparation-20261019/verification.json",
+      "sha256": "49f55b24825543cd9724c67a81edcc1b104fd9feb27e1687fa17119ff3762b56",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/README.md",
+      "sha256": "22a08cd9717482b721251fc136ecbcd26850720ca063b193b2519fcd2fdc102d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/acceptance-10m.csv",
+      "sha256": "c58342ce7d317fe363a0803a648640868c116127787c5ee8c73c41be6f7caf0d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/analysis.json",
+      "sha256": "4fdea77ee04d249eca48d921e0e92c19f6b016558f90f1ec2f051729198d43c4",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/clean-source-focused-tests.json",
+      "sha256": "dcee6ab063903bc72f098abdaeb549e7aee04aabf5829001c3b78b5a19983161",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/closure-audit.json",
+      "sha256": "44980eaccaa658ca95990ad4cd8df2dc79941c0b7e8e4caa2e64cc0f6e725295",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/delivery-manifest.json",
+      "sha256": "e0ee86ca3a4921f03f7613cc08d8410393e21ffa7a895ec5bdfca64ef3d3fe0e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/independent-audit.json",
+      "sha256": "34d10d9fee3de4aa25b44075a0839e21611c2cb9404a0baddae3ab6138155bc6",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/per-seed.csv",
+      "sha256": "b97339d9f9cb54b9edbbc468ff8255b1d6fb81de08b501adbdbc3064ac1bb581",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/review-focused-tests.json",
+      "sha256": "6b997381262f166819cb746698b5c3a2df2530b46f783682a541a70c1c952435",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/review.json",
+      "sha256": "4c6d2ae2a49e57c4d7eb913fb6f684cc07532613fe68a1e8626cee18ba15051b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-convergence-windows-20261020/summary.csv",
+      "sha256": "309a0236150f4e06441d2a38d07a65b197ce4dd676665f7bc50ab6ebe3454174",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/README.md",
+      "sha256": "83481f7ef8f5de02c10845ac4d6e0f21d15feb9b46f133ce9870d09fc32a0a71",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/artifact-sha256.json",
+      "sha256": "fc541d8381e4302c76d7616a8f0ab868ca53a926e459f49ec3cf41d63490da28",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/affinity-checks.json",
+      "sha256": "2d9c987082cedc4cade5eeb29184a40b3b644a427a61bc6280a803bce29d1e79",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/build.log",
+      "sha256": "1a1aff2857dac5d392453f0f3bdb375fed2b3255b43e04d173183c8927f0f1ce",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/configure.log",
+      "sha256": "951ad696f50ec53b85add2a2a713a2b6d749f7a6dc5d3c5caad523a6fd81275f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/ctest.log",
+      "sha256": "15c10ecf3bcaa4c17a459acc267ff61deca7b99d59527e239d6bf8fcbf61dfd9",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/independent-audit.json",
+      "sha256": "6ccca4f02dd19428159a7c268a0622341900b251acc072d67ecfedfbfbf1f44a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/inventory.json",
+      "sha256": "d9ee80fae0fc47d07677ed79ca7dd5c2ee659432820d560926cf1efebd7f64bb",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/manifest.json",
+      "sha256": "634ac96e06875ef7010f582183f09e1831c9dd50310dc7e083d983a4bdd2c300",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/process-observations.jsonl",
+      "sha256": "6167d7d468d64c87d4a71520d3edb4c3652a3d2f25e693d904724c292ce472dc",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/runs.jsonl",
+      "sha256": "f8580d576156507f4b81469cb75c08e6e87de9bdc7836c422447406d73b90fe4",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/summary.csv",
+      "sha256": "c4e3f6cbac052da9269912d3826ca30ce65873c4fcd9f2018e36f8273cfc9cf0",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/benchmark/summary.json",
+      "sha256": "d29afb7590cac0643db4bcea5b8be5052c3a4f4993032f425d6e4613ef06bdee",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/hosted-OFF.log",
+      "sha256": "12562c9bc71f64c94c7e5d244d6c3251151b5bd9fa62f941f60e3191299f4100",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/hosted-ON.log",
+      "sha256": "4607d279b135d88d345a3177a318a51e9315e7fcd490bff403db0169a043720b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/hosted-ci.json",
+      "sha256": "910c59a925643927c019d97dc8aa85778c37d8e6ef56f648ddc5ca0c58bff275",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/hosted-windows.log",
+      "sha256": "4f9f3321b04dc7d1e9e34ccffc217d27ee77f2844402edbe9a31a890052a0c1a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/affinity-checks.json",
+      "sha256": "5aea85e4d3bd024dcafcf76d0c1df4af368ce6f0cbc1e777fb870929b0280c6f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/build.log",
+      "sha256": "3d5f362ea949dd458d1ecbea883c11c35f9d1462ccc6549b38d06c72bdd5f989",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/configure.log",
+      "sha256": "62468a17a2987ab034f6a9e8434bdabed923986bdfee3466f439f5d1e596120c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/ctest.log",
+      "sha256": "3f0c08b9d0bc4e1c0715e40d75ef1e6873a1badcab9d481463a7cae8088bd094",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/independent-audit.json",
+      "sha256": "9f54b059d34c605239d2736bfb9b7f5c832e34e5ec387ecb7c915e215c94a3d7",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/inventory.json",
+      "sha256": "d9ee80fae0fc47d07677ed79ca7dd5c2ee659432820d560926cf1efebd7f64bb",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/manifest.json",
+      "sha256": "72157d442974bf8acdefcd8de28a7ebe8fcc6062ce7f97b836790e776dd7f3bf",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/process-observations.jsonl",
+      "sha256": "5b05274c9396d8cf8c47a8334c04c4dd079f6b7dbc766b95c8e27721993cdd34",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/runs.jsonl",
+      "sha256": "b287ae50ea5290026130e32f874cb3ae72e36ffed59dd49fad1aefe481e8f0f2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/summary.csv",
+      "sha256": "0b20568a5be94a10967209c90327f72ca78a823bec4035f42d67857bbca3066e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cpu-scaling-windows-20261016/smoke/summary.json",
+      "sha256": "8bb17d9cf9ccaa66ec9218c27cff53b028f9b1c68cf968147ea6b8b1661db549",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/README.md",
+      "sha256": "05b9f1285029ca72ca4cdaee92e95f52a9eae9f01a20b528c91511774224056b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/artifact-sha256.json",
+      "sha256": "8f1aee0091bebe80241beb9bfaa9460af241cb037e4d16a255317e928c56812c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/build-cpu-OFF.log",
+      "sha256": "4df4ecec553978e2669ee533a2e90ae977d08f6e083492787977bb09f4700bae",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/build-cpu-ON.log",
+      "sha256": "a4f8642cc776634c298cfb1cc6eefafd4788dd4f96fbaf442626dd57e7c7fe1e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/build-cuda.log",
+      "sha256": "19898b55d3d130eec560846eafb45f12f9e1b40c93d60b99ffe4f59e229ae354",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/common-input-checks.json",
+      "sha256": "be6256131b1313915120404038dfe5c0a23ad39222712be4e3368fc385fde55d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/configure-cpu-OFF.log",
+      "sha256": "668671cb6f60ccc0fc3dbd2d1b69aa52548ae089245aa00221102660daa7e999",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/configure-cpu-ON.log",
+      "sha256": "9603d196bd7ed651bfeeb75bced32b5ae634562d71b5e59c9d3c726d207bbbd0",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/configure-cuda.log",
+      "sha256": "71add0960d96fb6c638b240e86be3e0a83a3e2b94a82950821d96fd78cd38fea",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/ctest-cpu-OFF.log",
+      "sha256": "7c766c4a0a5c84d4827c0ed7f7d790568caaf0291ec7a7566d4457173bb91b68",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/ctest-cpu-ON.log",
+      "sha256": "78ef2dd6f18c400cb57d83fbdbb8f8304adcaae06c73e3c683967d337fbad293",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/ctest-cuda.log",
+      "sha256": "74cfb9189d9ff2228437541ad088df263fb62f1f598235342e840695655a1559",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/hosted-cpu-OFF.log",
+      "sha256": "68b51aed335be8b91364002ce44d869a916cc607b63f17e2587a5137734d85e2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/hosted-cpu-ON.log",
+      "sha256": "eec85e8ef39b5fcdd515e93f99c6e055cf3663045928ac4dbaac4ebb247d41f0",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/hosted-cpu-ci.json",
+      "sha256": "35b85d796d74377fc28d45a96fe89270a6e5e805e4d9af1fdf6ab5825358e4a2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/hosted-cpu-windows.log",
+      "sha256": "e6294fc281cc04e64c2b9ee9da62bf3036bdf2389f6cfff64975b93d35b12b19",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/independent-audit.json",
+      "sha256": "710780114ea4934ae43e15cace2ae7ec5489ae834290cc565e0525c10a74ab8a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/manifest.json",
+      "sha256": "e4ebdb608023676c4bca76e47984ceee16d01adb99ee4b5c7bc4c70355ea01ca",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/native-N10000.json",
+      "sha256": "a6fbe551604db67e11b4828106b57bda42fc3d8089477085187b65970fe8809a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/native-N5.json",
+      "sha256": "11cda591ae1425366c95f734d79a5b5f590b7098a820447cd7b5e4acd3283865",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-skeleton-windows-20261016/nvcc-version.log",
+      "sha256": "9acd4f65bb9b51daf49ce1c5febf78de95903f1359c9492aacfbe07aa0fd1ef0",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/README.md",
+      "sha256": "49aa043b7007e1e983f6034f1677a681b35dfcc049c58fa8299144c80871effd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/artifact-sha256.json",
+      "sha256": "bebdd92ae6f2b13c684a817628272c358fb3a3c016d0853dd6218569e540da20",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/audit-corrected-failed.ps1",
+      "sha256": "eb363abb9b2a35e0b210813f6cb6a40819cd5231e1edbe92c4e6c18add6a0898",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/audit-correction-1.json",
+      "sha256": "939f86fc1383f02033598763d6ef6cccd35e092884aed286da5496864b9acaa8",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/audit-correction-2.json",
+      "sha256": "cbcaf85cc4da19849a886b8b8ba5ddf24f7b1dfc5419925195512c4615b5f3d8",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/audit-failed-1.json",
+      "sha256": "bc3c415623f963df85b81bde1006c1bfc9871f1502a7d538cbad01e2ec081ead",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/audit-failed-2.json",
+      "sha256": "09d1c1e864ae7850328c240cddae5c8377dbaa14998fb1cf58e85445f9cd1413",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/audit-original-failed.ps1",
+      "sha256": "63398481e362c4a526a03ef472482de0e6735bda18ea02c655faaf6de2b1032f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/auditor-final-original.ps1",
+      "sha256": "434d58f1edd10f9bc11c3ade0627f21663fa5f23c74e34b8fce7cb5eb7bb0579",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/closure-audit.json",
+      "sha256": "0cb0016d93ed3987b918df2f6c2dae3529aa821c9991dd113b24c1fa6d560285",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/conditions-status.json",
+      "sha256": "27f24fa698b38dd8271a97a792d5df911e0d446cc0508de4cb8cc79370a9a3ff",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/csv-decoding-observations.json",
+      "sha256": "09f3bf8cee3ad3a18cfaf4904c68ddbcd41afc6c4ddeb05d1ce187bea33123d4",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/ctest-diagnostics.log",
+      "sha256": "12308f82e9c63ee6fb2b55d602bfdb1b6042c0613b40f0f666636fea88632ffa",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/current-telemetry-summary.json",
+      "sha256": "1d16a3c6651f5ca1fc4720cb1aec285570d01ffd0e91d69911ed390e2a4dbd61",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/first-attempt.json",
+      "sha256": "743ac4e0830785571cbbd5949ebe7f2ac3ab2b05031cca5cf97a05a233b96057",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/fixture.csv",
+      "sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/independent-audit-final.json",
+      "sha256": "6a08f4c6b740d0beeb87297a5922871cf71391ecd7c30c60b37af712de809f78",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/independent-fixture.json",
+      "sha256": "d5a463b0cd5389dea5ed32323c8f4acb8c75fc5d1d81f069388a2a766bbe379b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/original-final-reaudit.json",
+      "sha256": "574ee866153113edf94ee92a248bcba8c31aa417247fce91a00840e39a5fde49",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/plan.json",
+      "sha256": "d0f8e8996fd99e376922082ae059d85cb1701759920441369426f26394899d87",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/provenance.json",
+      "sha256": "41bd0c17dc3adf33b2749367f5ff1b46e0875c2ce15f910dcd1069de0e10bc54",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/publication-validation.json",
+      "sha256": "048e626c8c90619352650cf06274c6402f1b3540666cf2db00514dfbd844cddf",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/reusable-auditor-tests.json",
+      "sha256": "acaaf7902e4e5873fbd9438b4f808eae3467fccd99b4fc7e22a6143da618c826",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/reusable-reaudit.json",
+      "sha256": "8952dc4153400bf5684a4ff045595bb248723cb48dbedeabc525afb8202fdf72",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/runtime-environment.json",
+      "sha256": "f45e55d1e8198da7e8c6ab57cf8e40a669c91767c45640336cc24093bc5b725d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/samples.csv",
+      "sha256": "734d0428a574356c6c266bf9419d70a967460eb932f1b90af53de3c0432cc6b7",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/session-final-verification.json",
+      "sha256": "493431c8f47314f7b90aebabddc63e525c0bfbeb9959efee9419c91c170ab324",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/six-configuration-summary.csv",
+      "sha256": "1de69d2ec75951161ddbf573ed8affd3b2470c4be5c679d7b58ac60a187a4f5c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/six-configuration-summary.json",
+      "sha256": "8cc8ae91a079a9f8fbfbd69023d468f29105a8595b2b2820130c08f4d82023f2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/summary.csv",
+      "sha256": "60cbae49689ebde10cb9571f2c85563c38e39406ad6d0f8dcf30bc241c8c3bec",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/summary.json",
+      "sha256": "919742e52f989df78b526a31cb681a10328542b161f8e190fa4fa42804ef8062",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-cuda-stage-diagnostics-windows-20261019/verify.ps1",
+      "sha256": "48e98ce92717a0b7d7d91fe6b0fad1cd5e392678fdccea11f3f099ca27586dc8",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/.gitattributes",
+      "sha256": "255c78ef97f58a85bd56f1f8ca93f39bcab1d1b936b021b0c111ffa7986548c2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/README.md",
+      "sha256": "a2593c648d73ab58d8484e94ea7e3944e0833dde3f8587988c7792ed09ce51af",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/access.process.json",
+      "sha256": "4eb5bc40da396359391e3d94f02f4f397c3d811f09454305052a0d49584a1a0a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/access.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/access.stdout.txt",
+      "sha256": "488e9374a1f689cdd2cd130108be72a3cc1575fa5dc7443ee6183d907c8761e9",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/full-device.process.json",
+      "sha256": "b800ff9c6b634a38d5aa339963ed1584fb2a260b317028417fb17ef96db97d14",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/full-device.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/full-device.stdout.txt",
+      "sha256": "953c44b52693c549466c1be6b6384795ea8902aff2a3c29557c87a5f17bf59a8",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/hybrid.process.json",
+      "sha256": "4b4f1d1360799a14265ab97567c675e8e1d17fe42ab312919f7314b407a646ba",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/hybrid.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/hybrid.stdout.txt",
+      "sha256": "14eb9294cced559ee34751e6a6c048938f3629835a327d31e24f42fcf8ab92d3",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/independent-audit.json",
+      "sha256": "ebc9250d2dbb75b12d4adc81cb783e4cfdcf79e7fb3565f2291f7ef27be05221",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/kernel-metrics.json",
+      "sha256": "1f919083ec003837680db85aef452d96cc448e536ae35c6492fd34e81775fd43",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/manifest.json",
+      "sha256": "1804b7d958fcafdb1abbc37d321c9bef1f4e20be744c96110434001fea11abd6",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/portability.json",
+      "sha256": "689309a19a94d3e7883f70c4764d309f82f0039f03c29c69e66b82627ecfe929",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/source-review.json",
+      "sha256": "70c2a464497d672d8f4bd31b602f8b88aaa08a9a65f2100046836cf98876b57b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/summary.json",
+      "sha256": "84401285f3653f3aced5db358ead5cb88a96a11a85c974c057ee577e764fbd0b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/telemetry-after.stdout.txt",
+      "sha256": "54d17ee50f7b56f028c32e6c0ee2c561f5c8d33d239b8f0cdcdda563200aa5c6",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/telemetry-before.stdout.txt",
+      "sha256": "9a904f561c5ba867ae30870e7ffd580fb0589dca1f4eabfa9d20608dde9ff5f1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/tool-identity.json",
+      "sha256": "37f1ee3acb3bad97265255bcc512a307dbc99a69310e0fc73ee6f06afa671a8d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/validation.json",
+      "sha256": "99119e1179b588f885a7dc61bfdc78cfa9fe669432b7637bda73fef144a12e16",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/verify.py",
+      "sha256": "fc38a30bffd37fcd8b58277f8b742dd43b5985edd274d296f12cdb5dd8eb88d7",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/version.stdout.txt",
+      "sha256": "8066827ce7533ba106250999f6f9c9ff0afd0636ed1d248549e7fd558001d37f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/workload-check.json",
+      "sha256": "4be0ea1516e5fb7abecb4cf2ef4f2a2f109e8a643c282f4c15560698c2557611",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-baseline-20261020/workload-identity.json",
+      "sha256": "4c7c288f4cfc14df0c31b1e30aa2e01cbb9e55c95db012bba6b668f3b1a266ce",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/.gitattributes",
+      "sha256": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/README.md",
+      "sha256": "692323037af562905a818d4d5627c777031258cfc76b960c954d5e364aeb95d8",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/audit.json",
+      "sha256": "ed96780ac609c69f417775d26b7baafce859bd56b8cf79caf53624242c902306",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/checks.json",
+      "sha256": "852a3e135fedf045771fcb6d8c4daab4d9c9b7fb4b6860a675ef6ac6eee6db1a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/manifest.json",
+      "sha256": "20ae5472f7d102d92d8d92fee2b2da1a61c047152e32551791e6c13d98077681",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-dram-review-20261020/source-review.json",
+      "sha256": "7ae757753a5509f1ee52545c5f512e817be4d506d784982b2830209d724f294f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-hosted-cpu-reproduction-20261021/.gitattributes",
+      "sha256": "44901630dee524418a6016e3e857f14799a9fd73b17a499b6bb3cb8151262cd0",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-hosted-cpu-reproduction-20261021/README.md",
+      "sha256": "17fa7c6339e347754f531797af0b431609f6506839cbaa34451d753ebfa2494d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-hosted-cpu-reproduction-20261021/checks.json",
+      "sha256": "305bcb82411ec4dc566b3dd921ea189212e791f8614fefaa4c1b5398e254b0b5",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-hosted-cpu-reproduction-20261021/manifest.json",
+      "sha256": "3f0a4d616efebb6f7cb02beb9a44dc7dd50b586472aaf5509d6042f76584d6ba",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-hosted-cpu-reproduction-20261021/trial.json",
+      "sha256": "69aa2576de9bdf0f5e2f9e240aa198fb2df2986bdb439e9805079310027f9f83",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-hosted-cpu-reproduction-20261021/ubuntu-off.excerpt.log",
+      "sha256": "b06799b92222f5f500f28a8b7a19acb6b71d671c8771aaeda7a5896572d89d4e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-hosted-cpu-reproduction-20261021/ubuntu-on.excerpt.log",
+      "sha256": "81c9e70472f1d227f9d95405eb2790802726230eab417c891cc546f690726e19",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-nvidia-configuration-reference-20261021/.gitattributes",
+      "sha256": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-nvidia-configuration-reference-20261021/README.md",
+      "sha256": "73129ab6fd94c850d32c80af2778c4f2d89d1dacee14bbce8f546592397fdc39",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-nvidia-configuration-reference-20261021/calculate.py",
+      "sha256": "a52fb7719a300444f1c521fc73928ab8d30ca5156799349a48d7acfcea4d2561",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-nvidia-configuration-reference-20261021/calculation.json",
+      "sha256": "29c3a69f9cc3a2746ebafcc164228ca96501496c43e769f0943963593ef5bbe1",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-nvidia-configuration-reference-20261021/checks.json",
+      "sha256": "0df1ce94fac22bc880f8a88b4e45c61c06576777c573acf340bb97ae61cd0c19",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-nvidia-configuration-reference-20261021/manifest.json",
+      "sha256": "feffc23512702565be47d245a7cf1820b1693ab3ff2a272342d56659ef3fe308",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-nvidia-configuration-reference-20261021/report-extract.json",
+      "sha256": "4f13887c94e2aad18149437e37406a6562bd4b6ae791d34577d8bc50fc75abaf",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/README.md",
+      "sha256": "909ff836a73eb513b52c029dcac4fcfa4c463f3fa93a7b87e2671510670e34f6",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/acceptance.json",
+      "sha256": "fc22acb543c1791eed67dbecee4830a2fa935d2d3a059790de24f3f159aac933",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/artifact-sha256.json",
+      "sha256": "c6c08862bbdf61fdc8c209d2bc50799bf131cbb288e8d998320a2e81f80dde92",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/audit.json",
+      "sha256": "e0b2aa9348846ac53a776f24b47e16ad43775ef60e3e7d966fd55cdc928b2eee",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/build-OFF.log",
+      "sha256": "4874fbe95573f5873c028746a3a4f94cb94c3e4943c572ac17c0b0e40313b887",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/build-ON.log",
+      "sha256": "258b34edd2219505fe8f5f9d4a294fac5c6f57d74e24e3ec06db4b5625727b09",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/build-settings.json",
+      "sha256": "6a4d951aedb54419b62a4c9df1ef42991efbc8ddf85ec0dff377377d28b1416b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/configure-OFF.log",
+      "sha256": "85d693b08d6ee6a777f76bf0df273ea867ef4c90faace42393558a4642b11a2a",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/configure-ON.log",
+      "sha256": "fc24639047fc269091424d6335d14ef68cd83143f9ed611640b14ade4c3e79a6",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/ctest-OFF.log",
+      "sha256": "6b13b1a515191b7cb49a1f053e6be40aec62ecfaf5af467035f8e7f21b8e072f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/ctest-ON.log",
+      "sha256": "ed8b2146ac59273cde5680385e504eb1568eca43a9506a1d1bda27f40d7c63f6",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/estimates.csv",
+      "sha256": "74996befd36e57f45607a374eed5b7bef5640a5ac86dcd6cbdc38e7993e313c7",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/hosted-ci.json",
+      "sha256": "a89d3cf48dc895bd324bdf8430e9647763ebedfb323a33b95bbae2fa4cd4d035",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/hosted-ctest-OFF.log",
+      "sha256": "9a3f0644ea92142a8b027d918c6b9541d18d01ca9dfcc104c12cd44eae59fc9d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/hosted-ctest-ON.log",
+      "sha256": "b036b348f2459778c95b2c2a011544186782c312cc93d8c50a7930afeb2db7af",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/manifest.json",
+      "sha256": "8cc830d5a84cb113526d2cf03db0ee0783241d8c47ca3d36351c13b7cb3b7439",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/native-thread-invariance.json",
+      "sha256": "72173ab704f91834bcc8eee884f9dfca2132f72f27fd90ec93ffd45cb4d33a94",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/runs.jsonl",
+      "sha256": "6b5d3890bea3687e3e8a4194f0e4da682aa8f0422ed51a507bdc58ce28f4164c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/serial-smoke.json",
+      "sha256": "d98f34963d469e59c0d5f22312532031800ef1f755ddf0a13fe6ddbba1a0d44b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-openmp-windows-correctness-20261016/smoke.json",
+      "sha256": "20dfa1a23d1ef804a452fc88597d8345d58459f201d48f3447ae8d0053688b0f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/README.md",
+      "sha256": "13bf4811a788f7b1df5ddf86d0e5a3b10a51529da9745992574849dfbe1f48fe",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/artifact-sha256.json",
+      "sha256": "3b6a5830520cff86ed8f9b326cc135db0f35aa15e40185736e932a5b371478ff",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/audit-session.ps1",
+      "sha256": "ea69d58748cd7949d69d4ab1a67db815e96e9fbbbb52dc4721059284d520d59e",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/closure-audit.json",
+      "sha256": "1956de2925c75bab0a511275bdc68d7aee621124d700b4930eff1e00178bbd0d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/ctest.log",
+      "sha256": "3e9424c58188dd47e81b85a77a76fbe9b1916d728d0c12ad9ed21c82382fa6e2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/first-invocation-failure.json",
+      "sha256": "585313442c0fda65c804992d0d0e10d9e3bc2c0e8e4c1cdc33e18ffc6d28d1da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/fixture.csv",
+      "sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/independent-fixture.json",
+      "sha256": "d5a463b0cd5389dea5ed32323c8f4acb8c75fc5d1d81f069388a2a766bbe379b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/plan.json",
+      "sha256": "0ef13f3c2f43e96c782a169a20c457bf827efb197f2f8b00da3b4c20c3bb5638",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/provenance.json",
+      "sha256": "0b30c20eca7a2baeb915f4786821bec22f0d2d1feb80948b4ad2939a679d781d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/publication-validation.json",
+      "sha256": "c2515d2b4eedb36e8c50d7b93c5f81bc39a3c6211787fabc8b3dd399841b9f94",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/recorder-audit.json",
+      "sha256": "7910c56bbe62bdff8e81ced9990cc222f6a7b18a3a0a9d373e3c882da5a2221b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/recorder-reaudit.json",
+      "sha256": "45d29155f7c1a190ff60b2b01b57954f4fb44781edfc2689a5b57d3493cc96a3",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/review.ps1",
+      "sha256": "319b293cd4276adfbcc353de613117a82741a519906261966f8a425a7c6c1941",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/runtime-environment.json",
+      "sha256": "f45e55d1e8198da7e8c6ab57cf8e40a669c91767c45640336cc24093bc5b725d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/samples.csv",
+      "sha256": "fa62bbe7e9742d2cbdb85f3cf96ef7365bec4cbc8d22d00ad8a7478e87859419",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/session-audit.json",
+      "sha256": "253bf296163b6dcd5efb07f3e260df16e4270e26330622a177faed0db5fe561c",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/session-reaudit.json",
+      "sha256": "d3ab5b434fe469a4f3b61ad730b63295a65e115e594c0e4583c726d990f6bfa9",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/session-report.md",
+      "sha256": "7f3329dde7bc6345bbd3c7c10e43b1c1c892e188d6a7669ccea51a59542fe88b",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/summary.csv",
+      "sha256": "f4e6d9a615d476ab29e737d65e172e0b4a3100a73f88b1c7bcd5f1604d515ebc",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/summary.json",
+      "sha256": "18e785ffc7ad4dfb54274ea5698d3d74aa5f75e16c7df8d120e67d1801a1bcbd",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-primary-benchmark-windows-20261019/user-conditions.json",
+      "sha256": "00d8f3d3c0f742580d6f66700a8b780f5768ef6e8d477c1bc35f851d36187626",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/README.md",
+      "sha256": "3876e0aa25c8df387dd118506f2c04d528a20949df3e935ea49c6155eadc2e8d",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/build-check-summary.json",
+      "sha256": "bc89b5b007d036aad4d65a5a2f2b93ca6353f7b245936bba69e763672e4b029f",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/derived-check.json",
+      "sha256": "569a4dd9d8206593edf3c93c3c78d93b3875ba3d9f01c82e134c5869183af4b2",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/fixture-check.json",
+      "sha256": "c0f0c91f52a15df231e4772c7a9d9f0d30cd56f68aa453b593f85f82164fcdfb",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/focused-check.stderr.txt",
+      "sha256": "44f6a244f63b94a00e1cbed30b4ce5b101a7352f31f1e7c4a5b9f0b3edb748a5",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/manifest.json",
+      "sha256": "72a15f2e62eda7ead494daaff7edff6158ccd63b10a0ac196f2d00d514dc4cb5",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/public-check.stdout.txt",
+      "sha256": "1c69b8ea7972d71994b3c91e3bfefb93485e7b980a91b05d6ba103963bbaea76",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/raw-convergence-check.json",
+      "sha256": "94f0e778a54273ce77985f7d42f2328295dee0419941081f3791bc8ebabea851",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/v030-reproducibility-20261020/selected-local-check.json",
+      "sha256": "8de0de3bdc7f7235aea4ad329e5bbed4a47bd159fd044d481e3bd8c2d27c7049",
+      "raw_equals_HEAD_blob": true
+    },
+    {
+      "path": "evidence/validation-context.json",
+      "sha256": "6f7330d8304e7a76b9bbd40414f6af6e0d14d81785173cca35933faf3c63d00d",
+      "raw_equals_HEAD_blob": false
+    },
+    {
+      "path": "evidence/windows-release-ctest-20261015.log",
+      "sha256": "4f3b3b3907899052ec8b3a00b2eb840cf08f76fd69af4e1922e9dfc41a185696",
+      "raw_equals_HEAD_blob": false
+    }
+  ]
+}

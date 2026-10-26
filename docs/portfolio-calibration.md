@@ -1,7 +1,9 @@
 # Historical portfolio calibration
 
 PC-1..PC-4 extend the portfolio register only. FR-1..FR-9/NFR-1..NFR-9 and
-engine contracts are unchanged. Portfolio hybrid remains unsupported.
+engine contracts are unchanged by calibration. Portfolio hybrid is now supported
+by the separate [PH extension](portfolio-hybrid.md); its private historical
+integration reuses these outputs without reacquisition or recalibration.
 
 ## Contract frozen before historical evaluation
 
