@@ -1,0 +1,34 @@
+{
+  "status": "blocked_before_staging",
+  "baseline_head": "e0fc594f14bd1814856c668132e21808d1826083",
+  "branch": "main",
+  "remote": "https://github.com/rahmancelik74-cmd/vaR-hpc",
+  "remote_main_observed": "e0fc594f14bd1814856c668132e21808d1826083",
+  "remote_observation": "Connected GitHub fetch_commit(main) read-only tool; local git ls-remote failed.",
+  "git_add_exit_code": 1,
+  "git_add_error": "fatal: Unable to create .git/index.lock: Permission denied",
+  "network_error": "schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS (0x8009030e)",
+  "gh_auth": "gh auth status exit 1: default account token invalid in executor",
+  "new_commit": null,
+  "pushed": false,
+  "new_exact_sha_ci": null,
+  "old_ci": {
+    "url": "https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40224368818",
+    "observed_jobs": {
+      "cpu (ON)": "success",
+      "cpu (OFF)": "success",
+      "windows-instrumentation": "success"
+    },
+    "scope": "Read-only connector fetch_workflow_run_jobs; historical campaign delivery, NOT follow-up CI"
+  },
+  "manual_step": "powershell -NoProfile -File scripts/deliver-portfolio-precision.ps1",
+  "manual_context": "Run from repository root in ordinary authorized PowerShell with existing working Git/GitHub credentials. Script stops on failed authentication; no account switches, settings changes or force push.",
+  "post_delivery_record": "results/portfolio-precision-20261025-v1/delivery-result.json",
+  "verify_only_preflight": {
+    "exit_code": 0,
+    "result": "passed",
+    "scope": "Explicit task scope, baseline, allowed origin URLs, existing staging scope, exact local task hashes, published arithmetic/integrity, eight focused tests, CRLF-aware source/document whitespace; no Git writes, push or credentials queried.",
+    "command": "powershell -NoProfile -File scripts/deliver-portfolio-precision.ps1 -VerifyOnly",
+    "observed_utc": "2026-10-25T19:38:45.891849+00:00"
+  }
+}

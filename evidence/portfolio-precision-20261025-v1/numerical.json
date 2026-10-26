@@ -1,0 +1,268 @@
+{
+  "status": "complete",
+  "command": [
+    "scripts/portfolio_precision.py",
+    "numerical"
+  ],
+  "cases": {
+    "two-negative": [
+      {
+        "confidence": 0.95,
+        "modes": {
+          "primary": {
+            "var": 70.5342130926989,
+            "terminal_quantile": 369.4657869073011,
+            "cdf": 0.05000000000000046,
+            "quadrature_error_estimate": 8.15179376913383e-16,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 4.163336342344337e-16,
+            "estimated_cdf_error_budget": 1.2315130263875227e-15,
+            "propagated_quantile_error_estimate": 7.958078640513122e-13,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 13,
+            "bracket_expansions": 0
+          },
+          "tight": {
+            "var": 70.5342130926989,
+            "terminal_quantile": 369.4657869073011,
+            "cdf": 0.05000000000000046,
+            "quadrature_error_estimate": 8.15179376913383e-16,
+            "omitted_tail_bound": 3.552964224155306e-33,
+            "cdf_residual": 4.163336342344337e-16,
+            "estimated_cdf_error_budget": 1.2315130111478167e-15,
+            "propagated_quantile_error_estimate": 7.958078640513122e-13,
+            "root_xtol": 1e-11,
+            "root_rtol": 1e-13,
+            "iterations": 13,
+            "bracket_expansions": 0
+          },
+          "probability": {
+            "var": 70.53421309269919,
+            "terminal_quantile": 369.4657869073008,
+            "cdf": 0.049999999999999725,
+            "quadrature_error_estimate": 2.2710055593432804e-12,
+            "omitted_tail_bound": 0.0,
+            "cdf_residual": 3.191891195797325e-16,
+            "estimated_cdf_error_budget": 2.27132474846286e-12,
+            "propagated_quantile_error_estimate": 9.432596925762482e-10,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 13,
+            "bracket_expansions": 0
+          },
+          "swapped": {
+            "var": 70.53421309269919,
+            "terminal_quantile": 369.4657869073008,
+            "cdf": 0.049999999999999725,
+            "quadrature_error_estimate": 1.3250780764628899e-14,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 3.191891195797325e-16,
+            "estimated_cdf_error_budget": 1.3569969899448337e-14,
+            "propagated_quantile_error_estimate": 5.7411853049416095e-12,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 13,
+            "bracket_expansions": 0
+          }
+        },
+        "mode_spread": 2.8421709430404007e-13,
+        "assessment": "Empirical stability only; no rigorous total floating-point/quadrature bound."
+      },
+      {
+        "confidence": 0.99,
+        "modes": {
+          "primary": {
+            "var": 98.32798116042608,
+            "terminal_quantile": 341.6720188395739,
+            "cdf": 0.010000000000062292,
+            "quadrature_error_estimate": 1.1129005824830657e-16,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 6.228351168147128e-14,
+            "estimated_cdf_error_budget": 6.23948017549593e-14,
+            "propagated_quantile_error_estimate": 9.112000043387525e-11,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 13,
+            "bracket_expansions": 0
+          },
+          "tight": {
+            "var": 98.32798116051691,
+            "terminal_quantile": 341.6720188394831,
+            "cdf": 0.010000000000000087,
+            "quadrature_error_estimate": 1.112896375364431e-16,
+            "omitted_tail_bound": 3.552964224155306e-33,
+            "cdf_residual": 7.806255641895632e-17,
+            "estimated_cdf_error_budget": 1.8935219395539942e-16,
+            "propagated_quantile_error_estimate": 3.410605131648481e-13,
+            "root_xtol": 1e-11,
+            "root_rtol": 1e-13,
+            "iterations": 14,
+            "bracket_expansions": 0
+          },
+          "probability": {
+            "var": 98.32798116042602,
+            "terminal_quantile": 341.672018839574,
+            "cdf": 0.010000000000062258,
+            "quadrature_error_estimate": 2.120297906995282e-12,
+            "omitted_tail_bound": 0.0,
+            "cdf_residual": 6.224881721195175e-14,
+            "estimated_cdf_error_budget": 2.1825467242072338e-12,
+            "propagated_quantile_error_estimate": 3.1826630220166408e-09,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 13,
+            "bracket_expansions": 0
+          },
+          "swapped": {
+            "var": 98.32798116042602,
+            "terminal_quantile": 341.672018839574,
+            "cdf": 0.010000000000062311,
+            "quadrature_error_estimate": 3.773465782749573e-15,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 6.230259363970703e-14,
+            "estimated_cdf_error_budget": 6.607605943769631e-14,
+            "propagated_quantile_error_estimate": 9.640643838793039e-11,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 13,
+            "bracket_expansions": 0
+          }
+        },
+        "mode_spread": 9.089262675843202e-11,
+        "assessment": "Empirical stability only; no rigorous total floating-point/quadrature bound."
+      }
+    ],
+    "two-positive": [
+      {
+        "confidence": 0.95,
+        "modes": {
+          "primary": {
+            "var": 133.18838970660988,
+            "terminal_quantile": 306.8116102933901,
+            "cdf": 0.04999999999999989,
+            "quadrature_error_estimate": 5.551933219005335e-16,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 1.5265566588595902e-16,
+            "estimated_cdf_error_budget": 7.078490030261986e-16,
+            "propagated_quantile_error_estimate": 3.979039320256561e-13,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 14,
+            "bracket_expansions": 0
+          },
+          "tight": {
+            "var": 133.18838970660988,
+            "terminal_quantile": 306.8116102933901,
+            "cdf": 0.04999999999999989,
+            "quadrature_error_estimate": 5.551933219005335e-16,
+            "omitted_tail_bound": 3.552964224155306e-33,
+            "cdf_residual": 1.5265566588595902e-16,
+            "estimated_cdf_error_budget": 7.078489877864925e-16,
+            "propagated_quantile_error_estimate": 3.979039320256561e-13,
+            "root_xtol": 1e-11,
+            "root_rtol": 1e-13,
+            "iterations": 14,
+            "bracket_expansions": 0
+          },
+          "probability": {
+            "var": 133.18838970660988,
+            "terminal_quantile": 306.8116102933901,
+            "cdf": 0.050000000000000065,
+            "quadrature_error_estimate": 2.0984521946470152e-12,
+            "omitted_tail_bound": 0.0,
+            "cdf_residual": 2.0816681711721685e-17,
+            "estimated_cdf_error_budget": 2.098473011328727e-12,
+            "propagated_quantile_error_estimate": 1.3958469935460016e-09,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 14,
+            "bracket_expansions": 0
+          },
+          "swapped": {
+            "var": 133.18838970660983,
+            "terminal_quantile": 306.8116102933902,
+            "cdf": 0.04999999999999992,
+            "quadrature_error_estimate": 6.875044299965896e-16,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 1.249000902703301e-16,
+            "estimated_cdf_error_budget": 8.124045355066257e-16,
+            "propagated_quantile_error_estimate": 5.684341886080801e-13,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 14,
+            "bracket_expansions": 0
+          }
+        },
+        "mode_spread": 5.684341886080802e-14,
+        "assessment": "Empirical stability only; no rigorous total floating-point/quadrature bound."
+      },
+      {
+        "confidence": 0.99,
+        "modes": {
+          "primary": {
+            "var": 176.3899093062107,
+            "terminal_quantile": 263.6100906937893,
+            "cdf": 0.010000000000000023,
+            "quadrature_error_estimate": 1.1135941642985198e-16,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 1.3877787807814457e-17,
+            "estimated_cdf_error_budget": 1.252372194773725e-16,
+            "propagated_quantile_error_estimate": 3.410605131648481e-13,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 16,
+            "bracket_expansions": 0
+          },
+          "tight": {
+            "var": 176.3899093062107,
+            "terminal_quantile": 263.6100906937893,
+            "cdf": 0.010000000000000023,
+            "quadrature_error_estimate": 1.1135941642985198e-16,
+            "omitted_tail_bound": 3.552964224155306e-33,
+            "cdf_residual": 1.3877787807814457e-17,
+            "estimated_cdf_error_budget": 1.2523720423766644e-16,
+            "propagated_quantile_error_estimate": 3.410605131648481e-13,
+            "root_xtol": 1e-11,
+            "root_rtol": 1e-13,
+            "iterations": 16,
+            "bracket_expansions": 0
+          },
+          "probability": {
+            "var": 176.389909306211,
+            "terminal_quantile": 263.610090693789,
+            "cdf": 0.009999999999999903,
+            "quadrature_error_estimate": 1.8137427725224217e-12,
+            "omitted_tail_bound": 0.0,
+            "cdf_residual": 1.0581813203458523e-16,
+            "estimated_cdf_error_budget": 1.8138485906544563e-12,
+            "propagated_quantile_error_estimate": 3.979835128120612e-09,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 16,
+            "bracket_expansions": 0
+          },
+          "swapped": {
+            "var": 176.3899093062107,
+            "terminal_quantile": 263.6100906937893,
+            "cdf": 0.010000000000000028,
+            "quadrature_error_estimate": 1.6494664848057235e-15,
+            "omitted_tail_bound": 1.523970604832094e-23,
+            "cdf_residual": 1.9081958235744878e-17,
+            "estimated_cdf_error_budget": 1.6685484582811744e-15,
+            "propagated_quantile_error_estimate": 3.751665644813329e-12,
+            "root_xtol": 1e-09,
+            "root_rtol": 1e-13,
+            "iterations": 16,
+            "bracket_expansions": 0
+          }
+        },
+        "mode_spread": 2.8421709430404007e-13,
+        "assessment": "Empirical stability only; no rigorous total floating-point/quadrature bound."
+      }
+    ]
+  },
+  "errors": [],
+  "interpretation": "Corroboration only. QUADPACK error estimates and mode agreement are not certified enclosures.",
+  "duration_seconds": 0.8591484000207856
+}

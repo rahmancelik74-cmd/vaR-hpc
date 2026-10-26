@@ -1,5 +1,15 @@
 # Portfolio statistical validation and formal benchmark
 
+A separate [post-campaign precision follow-up](../evidence/portfolio-precision-20261025-v1/README.md)
+now supplies fixed 80M references for both two-asset fixtures and corroborating
+one-dimensional conditional integration. Its twelve unchanged N=10M observed
+five-seed means all pass the original .0005*V0 practical rule against the new
+rank intervals, including all nine formerly inconclusive rows. The new 99%
+coverage family includes only its four reference quantiles; original coverage
+and results below remain separate. No historical Beta/DKW decision, five-asset
+reference, native output or formal benchmark was replaced or rerun. The new
+interval widths also reflect a distinct predeclared error-budget allocation.
+
 This synthetic extension study has its own P-V1/P-V2/P-V3/P-B1 protocol.
 The existing single-asset FR/NFR requirements and historical campaigns are
 unchanged. The initial [portfolio implementation evidence](../evidence/portfolio-extension-20261025/README.md)

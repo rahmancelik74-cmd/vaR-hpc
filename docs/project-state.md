@@ -1,5 +1,43 @@
 # Project state
 
+## Targeted portfolio reference precision follow-up: 2026-10-25
+
+Starting main HEAD was e0fc594f14bd1814856c668132e21808d1826083, independently
+matching remote main through the connected read-only GitHub tool. Both fixed
+80M two-asset references completed after a new protocol/source freeze. Four
+interval widths changed from .141367/.235783/.226301/.339496 to
+.060902/.099527/.097987/.146836 USD (negative .95/.99, positive .95/.99).
+Both increased sample size and separately predeclared coverage allocation
+contribute to the narrowing. All 12 reused N=10M two-asset observed five-seed
+means pass the unchanged .22 USD practical target, including the nine previously
+inconclusive rows; none fail or remain inconclusive in this follow-up.
+
+Independent conditional integration, swapped assets, tighter tolerances and a
+probability-variable transformation agree within 9.09e-11 USD and lie within
+all four new reference intervals. Quadrature error estimates are not certified
+bounds; these values corroborate only and do not classify acceptance. At least
+99% simultaneous reference coverage applies to the new four-interval family
+under ideal-iid assumptions, separately from the original study. No combined
+99% or population-mean equivalence assertion is made.
+
+Original 9/18 practical passes, 9/18 inconclusive, Beta/DKW outcomes, six passing
+five-identity endpoints, reference arrays and all benchmark evidence are intact.
+No engines, native runs, five-asset calculation, historical calibration, hybrid,
+academic deliverable or optimization changed. See the
+[follow-up package](../evidence/portfolio-precision-20261025-v1/README.md) for
+full precision comparisons, frozen protocol, runtime/source/input/array hashes,
+reproduction, local verification and limitations. Eight focused tests and full
+new-array integrity/rank checks passed; the original campaign public verifier
+also passed. Hosted checks will verify public arithmetic without large sampling.
+
+Local execution is complete; new commit/push/CI remain blocked: this executor
+cannot create `.git/index.lock`; Git TLS credentials and the local gh token
+also failed. No account/permission changes were attempted. Run
+`powershell -NoProfile -File scripts/deliver-portfolio-precision.ps1`
+from an ordinary authorized PowerShell session to perform the narrowly scoped
+hash-checked delivery and bounded exact-SHA CI verification. The script stops
+on any authentication, scope, hash or CI failure and preserves unrelated work.
+
 ## Portfolio quantile/convergence and timing campaign: 2026-10-25
 
 The [separate frozen portfolio study](portfolio-campaign.md) ran against production

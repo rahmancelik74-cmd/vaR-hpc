@@ -1,0 +1,107 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-25T19:29:10.905699+00:00",
+  "command": [
+    "scripts/portfolio_precision.py",
+    "reference"
+  ],
+  "source_head": "e0fc594f14bd1814856c668132e21808d1826083",
+  "source_exact_sha256": "cd43bde51c3938413921856af965312dec73aa589635e31b68c3ec1e83b1b52a",
+  "protocol_sha256": "e214d3c9f56c3a4a8601d550861042e850a70d21af628eca7506615a46ce8182",
+  "freeze_sha256": "248fbd480d3575213bc57dfe3da40fa7d829ca6d92fabc0a8995528269c094fb",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.4 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 13:38:37) [MSC v.1916 64 bit (AMD64)]",
+  "executable": "C:\\Users\\rahma\\anaconda3\\python.exe",
+  "executable_sha256": "aa88c4a01a9a69c64a1abda1cf3e25408f6d728f649b926829e1f66cc5e4102b",
+  "numpy": "1.24.3",
+  "scipy": "1.10.1",
+  "numpy_init_sha256": "db1688c531009e2e024cb574b44736147d4d935af67b9ae0d96a3b13d05aa12f",
+  "scipy_init_sha256": "7b52b07fd3c9c9e9425b3c4deddda6fb67c64aae4e08f122224867d0e75fddaf",
+  "source_git_blob": "New uncommitted script at execution; exact bytes frozen before samples; not a HEAD blob.",
+  "cases": {
+    "two-negative": {
+      "fixture": {
+        "path": "evidence/portfolio-campaign-20261025/fixtures/two-negative.txt",
+        "sha256": "b844128cc404d3e9a326d9149bd5c67abdfe990a7458bbb6e78ccf8a8323615a"
+      },
+      "seed": 1749202601,
+      "scenarios": 80000000,
+      "initial_value": 440.0,
+      "quantiles": [
+        {
+          "confidence": 0.95,
+          "var": 70.54594724591385,
+          "lower": 70.51490294382523,
+          "upper": 70.57580489493535,
+          "lower_index": 75994104,
+          "upper_index": 76005892,
+          "coverage": 0.9975017905496292,
+          "width": 0.060901951110110986
+        },
+        {
+          "confidence": 0.99,
+          "var": 98.339993855653,
+          "lower": 98.289833845119,
+          "upper": 98.38936094907024,
+          "lower_index": 79197307,
+          "upper_index": 79202689,
+          "coverage": 0.9975036763433324,
+          "width": 0.09952710395123177
+        }
+      ],
+      "array_path": "results/portfolio-precision-20261025-v1/two-negative.npy",
+      "array_sha256": "d343bc81db780184749886dc1502a7ff623552f0804547be298cc24e65f4f737",
+      "array_bytes": 640000128,
+      "sample_terminal_mean": 457.55372989511426,
+      "sample_terminal_second_moment": 213241.99490144965,
+      "exact_terminal_mean": 457.5633074240489,
+      "exact_terminal_second_moment": 213250.91040472878,
+      "mean_standard_error": 0.006970231437956443,
+      "second_moment_standard_error": 6.790169520056463,
+      "duration_seconds": 22.750127400038764
+    },
+    "two-positive": {
+      "fixture": {
+        "path": "evidence/portfolio-campaign-20261025/fixtures/two-positive.txt",
+        "sha256": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f"
+      },
+      "seed": 1749202602,
+      "scenarios": 80000000,
+      "initial_value": 440.0,
+      "quantiles": [
+        {
+          "confidence": 0.95,
+          "var": 133.16421063814101,
+          "lower": 133.11552447228723,
+          "upper": 133.21351123537335,
+          "lower_index": 75994104,
+          "upper_index": 76005892,
+          "coverage": 0.9975017905496292,
+          "width": 0.0979867630861122
+        },
+        {
+          "confidence": 0.99,
+          "var": 176.37478411223617,
+          "lower": 176.30123316971122,
+          "upper": 176.44806873706563,
+          "lower_index": 79197307,
+          "upper_index": 79202689,
+          "coverage": 0.9975036763433324,
+          "width": 0.14683556735440106
+        }
+      ],
+      "array_path": "results/portfolio-precision-20261025-v1/two-positive.npy",
+      "array_sha256": "384c868e8df70c78ea0fbf90b7ba2113959ed87fa6b46fbc57a451153a7072e8",
+      "array_bytes": 640000128,
+      "sample_terminal_mean": 457.57245489953783,
+      "sample_terminal_second_moment": 220745.9451723628,
+      "exact_terminal_mean": 457.5633074240489,
+      "exact_terminal_second_moment": 220740.20806023065,
+      "mean_standard_error": 0.011924778697839625,
+      "second_moment_standard_error": 12.05583040654592,
+      "duration_seconds": 21.202707700023893
+    }
+  },
+  "errors": [],
+  "duration_seconds": 44.02042000001529
+}

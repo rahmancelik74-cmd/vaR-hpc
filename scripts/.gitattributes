@@ -3,3 +3,8 @@ portfolio_campaign.py -text
 plot_portfolio_campaign.py -text
 verify_portfolio_campaign.py -text
 portfolio_benchmark_replacement.py -text
+portfolio_precision.py -text
+verify_portfolio_precision.py -text
+plot_portfolio_precision.py -text
+audit_portfolio_precision.py -text
+deliver-portfolio-precision.ps1 -text

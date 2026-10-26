@@ -1,0 +1,31 @@
+{
+  "baseline": "e0fc594f14bd1814856c668132e21808d1826083",
+  "scope": "Exact local bytes before staging; delivery-files.json is the inventory itself and is excluded from its self-hash. The script independently pins the exact task path set. Frozen evidence and hash-bound scripts must also match index bytes; documentation normalization is checked separately.",
+  "files": {
+    ".github/workflows/build.yml": "4725763dd268d31d1cf5ecef9f27d330341af41064d13bcb5960cadfa3d2e4bc",
+    "docs/portfolio-campaign.md": "48e7f71340be61329ad9d3351005deffd7533244642f13666bcd08f5dfd4a783",
+    "docs/portfolio.md": "7abd81876cc19fa07be89e159658a18f78fc654da38504a8b13b763a3533d9ba",
+    "docs/project-state.md": "56d485a86bfc05e52333ca1a6ebcfde988782dd182fc0d4f6e93a50ac3dd6205",
+    "evidence/portfolio-precision-20261025-v1/.gitattributes": "5e2f30fa8c3a77e1bb59d1ecb42f99a35836f12e08c7c35e6139c87bdd0cc40a",
+    "evidence/portfolio-precision-20261025-v1/artifact-sha256.json": "ca405366e7e7846038c8a9a11599153296ced5b80d10b4b3978dd302819b4911",
+    "evidence/portfolio-precision-20261025-v1/comparison.png": "a54339d98121d12f00177e8a5dc9e6ef877c96f8e96c1e410cc9a9ac578129da",
+    "evidence/portfolio-precision-20261025-v1/completion.json": "11a584e048c04ce8f20f050d7a29cbd09962d7634e2a298d364fd3349df767c2",
+    "evidence/portfolio-precision-20261025-v1/delivery.json": "639f42ca2baaeab479db7cdc6aa644de39e16c21cc49fe1071001278f95192a7",
+    "evidence/portfolio-precision-20261025-v1/figure-data.json": "546702b8605fe59bb3f7fda1a4e120a011042b4c1b067e28db817ee66a21d8fa",
+    "evidence/portfolio-precision-20261025-v1/freeze-v1.json": "248fbd480d3575213bc57dfe3da40fa7d829ca6d92fabc0a8995528269c094fb",
+    "evidence/portfolio-precision-20261025-v1/numerical.json": "ae695e628f8b301225d82d8bacfbfad304b9f92989dd7ba9dec32242a345cf75",
+    "evidence/portfolio-precision-20261025-v1/protocol-v1.json": "e214d3c9f56c3a4a8601d550861042e850a70d21af628eca7506615a46ce8182",
+    "evidence/portfolio-precision-20261025-v1/README.md": "113510b99b8a4e8ea066c59a3b0953131556a06f26fd336af954d4121f184a74",
+    "evidence/portfolio-precision-20261025-v1/reassessment.csv": "4dfe67dd6c10aa7a0685bbc4a4a4c1c49852479af520bce3cce41ecf6c9039eb",
+    "evidence/portfolio-precision-20261025-v1/reference.json": "c9538ea0cb382a72940812a6a7a1ec3728061c2db3c5e49e26e292781526471c",
+    "evidence/portfolio-precision-20261025-v1/verification.json": "fc4fb07074b493da85d9362ba784955df5be684d7e2e13420dd16373a2d2f6bd",
+    "scripts/.gitattributes": "63e02beb43995eb32bae592ae58411877dacba5622607d77c1827d7c08a3e5a4",
+    "scripts/audit_portfolio_precision.py": "e6b81e8778f896e738a5fd268e65110ae89bff3ac479184ef445b2181fc69532",
+    "scripts/deliver-portfolio-precision.ps1": "9aa263bccbdfbbec56c98dd074179ac6fb16be24f1da7ea6fe2fde12ee798848",
+    "scripts/plot_portfolio_precision.py": "1eb184122ce1921776e006c238ea144b18bdaf3226c6fa9aedb25372f59e3717",
+    "scripts/portfolio_precision.py": "cd43bde51c3938413921856af965312dec73aa589635e31b68c3ec1e83b1b52a",
+    "scripts/verify_portfolio_precision.py": "eb283a69515c78b6f84a8d4806819657de38934f14921dacc5c053381be822b0",
+    "tests/test_portfolio_precision.py": "16bdec93c8ba21bb4c98dcc91d9901e8a4708715f4b7d57900d39b582a5d0913",
+    "tests/test_portfolio_precision_integrity.py": "b186499278cf2d4522b6943045076b593b8952cbad8e60498c61086281c16541"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "study": "New post-campaign precision follow-up; original frozen study unchanged",
+  "created_utc": "2026-10-25T19:29:10.388387+00:00",
+  "fixtures": {
+    "two-negative": {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/two-negative.txt",
+      "sha256": "b844128cc404d3e9a326d9149bd5c67abdfe990a7458bbb6e78ccf8a8323615a"
+    },
+    "two-positive": {
+      "path": "evidence/portfolio-campaign-20261025/fixtures/two-positive.txt",
+      "sha256": "f6557c069b19932027cb5272a3cc8d268117cf63800c71c6c8e4cf9f954bdd6f"
+    }
+  },
+  "seeds": {
+    "two-negative": 1749202601,
+    "two-positive": 1749202602
+  },
+  "seed_policy": "Fresh explicit labels disjoint from old reference/native/check streams; no seed search. PRNG independence is a modeling assumption.",
+  "samples_per_fixture": 80000000,
+  "hard_sample_ceiling_per_fixture": 80000000,
+  "chunk_size": 250000,
+  "rng": "NumPy PCG64DXSM Generator.standard_normal float64, scenario-major two normals",
+  "construction": "Z1=e1; Z2=rho*e1+sqrt(1-rho^2)*e2. Ordered original asset parameters; q*(S0*exp(...)), V0-sum(VT); no production helpers.",
+  "quantile": "Global ascending scalar losses; zero-based ceil(alpha*M)-1; no interpolation, chunk quantiles or clipping.",
+  "confidence": [
+    0.95,
+    0.99
+  ],
+  "family_error": 0.01,
+  "interval_count": 4,
+  "per_interval_error": 0.0025,
+  "interval": "Binomial central rank interval: l=max(1,ppf(delta/2)); u=min(M,ppf(1-delta/2)+1); [loss[l-1],loss[u-1]]. Check actual coverage >=1-delta.",
+  "coverage_scope": "At least 99% simultaneous coverage of FOUR new reference quantiles under continuous ideal-iid model, Bonferroni. Reused observed means are fixed comparisons. Separate from original study coverage; NO combined 99% claim.",
+  "practical_target_fraction_V0": 0.0005,
+  "practical_rule": "Pass max(|m-L|,|m-U|)<=target; fail distance(m,[L,U])>target; else inconclusive. Half-width>target/2 overrides to inconclusive. Realized five-seed means only, not population means.",
+  "reuse": "All twelve two-asset N=10M rows from original convergence.csv and original validation-raw.csv; verify means, five seeds and original input bytes. No native execution. Original Beta/DKW/statistical and five-identity records unchanged.",
+  "resource_policy": "Sequential fixtures; each NPY 640000128 bytes; two retained files about 1.28GB; in-place sort(kind=quicksort), 250k chunks, no full normal matrix. OS mapped pages may use ~640MB per fixture plus chunks. Require 2GB free disk; no external processes/parallel fixtures.",
+  "failure_policy": "One attempt per fixture; exclusive directory creation; no reruns, extensions, seed changes or threshold relaxation. Preserve partial arrays and error record on failure/interruption. Hard wall ceiling 3600s TOTAL reference generation; check per chunk/before and after sort. One uninterruptible sort may overrun; reject if elapsed exceeds ceiling. No five-asset generation.",
+  "numerical_method": "Condition on first standard normal; integrate phi(z)*Phi((log(s-X(z))-b2-rho*c2*z)/(c2*sqrt(1-rho^2))) for X<s; invert CDF(s)=1-alpha by bracketed brentq. Stable log remainder via log(s)+log(-expm1(log(X)-log(s))).",
+  "numerical_controls": "Primary z in [-10,10], adaptive quad split every 1 and at log(s) crossing. epsabs=epsrel=2e-11; root xtol=1e-9 rtol=1e-13. Check swapped asset order; tight [-12,12], eps=2e-13 xtol=1e-11; alternative u=Phi(z) integral on [0,Phi(crossing)] with probability partitions. Reject all IntegrationWarnings/nonfinite values/bracketing failures. Handle T=0 and zero vol analytically.",
+  "numerical_error": "Record quadrature error estimates and analytic omitted Gaussian tail <=2*Phi(-B); propagate estimated CDF error by inversion at p +/- (max root quadrature estimate + tail + residual), report root spread and tolerance. Error estimates/spread are empirical diagnostics, NOT rigorous certified bounds. Numerical results corroborate only and NEVER determine practical classification.",
+  "numerical_validation": "Known deterministic and single-random-asset reductions; explicit small normal scenarios; exact first/second/fourth moments; swap assets, tighter tolerances and probability transformation. No production imports, no five-dimensional integration.",
+  "hard_numerical_ceiling": "Four modes per quantile, four fixture/confidence pairs; at most 120s per quadrature call and 100 root iterations; stop and record errors on failure.",
+  "source_head": "e0fc594f14bd1814856c668132e21808d1826083"
+}

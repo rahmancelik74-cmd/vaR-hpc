@@ -1,5 +1,14 @@
 # Optional synthetic portfolio extension
 
+The [targeted reference precision follow-up](../evidence/portfolio-precision-20261025-v1/README.md)
+completed two new fixed 80M references. All twelve reused two-asset N=10M
+realized-five-seed-mean endpoint rows pass the unchanged .0005*V0 target under
+the new four-interval 99% reference family. Numerical conditional integration
+corroborates the intervals but is not certified error control. Original 9/18
+pass, 9/18 inconclusive and all six five-identity passes remain historical and
+unchanged; no combined 99% claim is made. Engines and their observations did
+not change. Historical calibration and portfolio hybrid remain future work.
+
 This extension is separate from Plan A and all existing FR-1..FR-9/NFR-1..NFR-9
 criteria. No market data, advisor approval or academic delivery is implied.
 

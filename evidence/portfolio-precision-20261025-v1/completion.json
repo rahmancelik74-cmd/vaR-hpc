@@ -1,0 +1,17 @@
+{
+  "status": "local_calculations_complete",
+  "endpoint_totals": {
+    "pass": 12,
+    "fail": 0,
+    "inconclusive": 0
+  },
+  "previously_inconclusive_totals": {
+    "pass": 9,
+    "fail": 0,
+    "inconclusive": 0
+  },
+  "five_identity": "Original six pass outcomes and 20M reference unchanged; not part of follow-up coverage family.",
+  "original_study": "9/18 pass, 9/18 inconclusive, 0 fail unchanged; Beta/DKW unchanged",
+  "coverage": "At least 99% simultaneous coverage of FOUR new reference quantiles under continuous ideal-iid model, Bonferroni. Reused observed means are fixed comparisons. Separate from original study coverage; NO combined 99% claim.",
+  "delivery": "Pending; local completion is not commit/push/CI evidence"
+}

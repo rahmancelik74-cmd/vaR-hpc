@@ -31,6 +31,8 @@ jobs:
         run: python3 -B evidence/v030-dram-baseline-20261020/verify.py
       - name: Portfolio campaign public arithmetic and figures (no campaign execution)
         run: python3 -B scripts/verify_portfolio_campaign.py
+      - name: Portfolio precision follow-up arithmetic and integrity (no reference generation)
+        run: python3 -B scripts/verify_portfolio_precision.py
       - run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DMC_ENABLE_OPENMP=${{ matrix.openmp }} -DMC_ENABLE_CUDA=OFF -DMC_BUILD_CPU_TOOLS=OFF -DBUILD_TESTING=ON
       - run: cmake --build build --parallel
       - run: ctest --test-dir build --output-on-failure

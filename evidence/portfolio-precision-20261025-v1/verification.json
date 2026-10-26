@@ -1,0 +1,237 @@
+{
+  "status": "passed",
+  "utc": "2026-10-25T19:37:08.943450+00:00",
+  "scope": "Focused reference/integration/reassessment tests; local full sorted-array hashes/ranks; original public campaign integrity; 30 original endpoint launch-record hashes/values. No engines or large generation launched.",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\rahma\\anaconda3\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_portfolio_precision*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_classification (test_portfolio_precision.PrecisionTests.test_classification) ... ok\r\ntest_exact_moments (test_portfolio_precision.PrecisionTests.test_exact_moments) ... ok\r\ntest_known_cdf_reductions (test_portfolio_precision.PrecisionTests.test_known_cdf_reductions) ... ok\r\ntest_rank_coverage (test_portfolio_precision.PrecisionTests.test_rank_coverage) ... ok\r\ntest_swap_tight_transform (test_portfolio_precision.PrecisionTests.test_swap_tight_transform) ... ok\r\ntest_valuation_reductions_and_small_scenarios (test_portfolio_precision.PrecisionTests.test_valuation_reductions_and_small_scenarios) ... ok\r\ntest_published_evidence (test_portfolio_precision_integrity.PrecisionIntegrityTests.test_published_evidence) ... ok\r\ntest_reject_changed_observations_and_decisions (test_portfolio_precision_integrity.PrecisionIntegrityTests.test_reject_changed_observations_and_decisions) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 8 tests in 1.140s\r\n\r\nOK\r\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\rahma\\anaconda3\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_portfolio_campaign.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_frozen_matrix_and_workloads (test_portfolio_campaign.PortfolioCampaignTests.test_frozen_matrix_and_workloads) ... ok\r\ntest_practical_is_worst_case_not_interval_overlap (test_portfolio_campaign.PortfolioCampaignTests.test_practical_is_worst_case_not_interval_overlap) ... ok\r\ntest_reference_quantile_coverage (test_portfolio_campaign.PortfolioCampaignTests.test_reference_quantile_coverage) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 3 tests in 0.709s\r\n\r\nOK\r\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\rahma\\anaconda3\\python.exe",
+        "-B",
+        "scripts/verify_portfolio_precision.py",
+        "--local"
+      ],
+      "exit_code": 0,
+      "stdout": "Portfolio precision integrity/arithmetic passed including local arrays\r\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\rahma\\anaconda3\\python.exe",
+        "-B",
+        "scripts/verify_portfolio_campaign.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\r\n  \"status\": \"passed\",\r\n  \"scope\": \"public summary/figure arithmetic; raw reference arrays and launch records not checked\",\r\n  \"native_processes\": 135,\r\n  \"benchmark_processes\": 546,\r\n  \"measured\": 420,\r\n  \"summary_rows\": 42\r\n}\r\n",
+      "stderr": ""
+    }
+  ],
+  "reused_endpoint_records": [
+    {
+      "id": 76,
+      "path": "results/portfolio-campaign-20261025/processes/0076.json",
+      "sha256": "e4321a960d7d484e3ee842aeb8ba9ea356080492f0c71f744fc0d16e0da260a1"
+    },
+    {
+      "id": 77,
+      "path": "results/portfolio-campaign-20261025/processes/0077.json",
+      "sha256": "922f07d07c53c103ebefe6f999312c427703301326aed455283b8906bc55e97a"
+    },
+    {
+      "id": 78,
+      "path": "results/portfolio-campaign-20261025/processes/0078.json",
+      "sha256": "7c94a9754e43b20be0e83a9c2f49d70f57a77c7010bc0a20dd93065388219c4b"
+    },
+    {
+      "id": 79,
+      "path": "results/portfolio-campaign-20261025/processes/0079.json",
+      "sha256": "6182e7616d2f0ac5720ef08c549b9ecc65cf03e5d06c1c7afdfefa53e53b8ead"
+    },
+    {
+      "id": 80,
+      "path": "results/portfolio-campaign-20261025/processes/0080.json",
+      "sha256": "6ce8dc0f3c76d54d37772dcf23f245bb01db8c8008cd7b776039ad6474192bed"
+    },
+    {
+      "id": 81,
+      "path": "results/portfolio-campaign-20261025/processes/0081.json",
+      "sha256": "4be75b7d42334d7d8f5893550d6422a91eea6969adf3a4754332d410a6b10dec"
+    },
+    {
+      "id": 82,
+      "path": "results/portfolio-campaign-20261025/processes/0082.json",
+      "sha256": "0d0a9c07373128cfd4eab1da69d925bca0bdd817a38edda08017cb90a1c33579"
+    },
+    {
+      "id": 83,
+      "path": "results/portfolio-campaign-20261025/processes/0083.json",
+      "sha256": "320109d5f435de35743fa5ef49e25cd6c1acd9d635cc96f90a35ab1008be8968"
+    },
+    {
+      "id": 84,
+      "path": "results/portfolio-campaign-20261025/processes/0084.json",
+      "sha256": "890d04353d3a65cecc5a6a91f7291088d6fee013d5ede38305679f6d15624c05"
+    },
+    {
+      "id": 85,
+      "path": "results/portfolio-campaign-20261025/processes/0085.json",
+      "sha256": "60edfcad73852c3cb79f5a39712be6330ef75d5e92c1abdde505b18ed23b68e4"
+    },
+    {
+      "id": 86,
+      "path": "results/portfolio-campaign-20261025/processes/0086.json",
+      "sha256": "264df07eb5e35ba9c5ea592f3d1e9b38ec7e9e9c1d167410aab529f3943c8c92"
+    },
+    {
+      "id": 87,
+      "path": "results/portfolio-campaign-20261025/processes/0087.json",
+      "sha256": "e34202cfdd93354870cc0cc2ab984cab4ac236d2a7dd73e872d6f15512a4ab27"
+    },
+    {
+      "id": 88,
+      "path": "results/portfolio-campaign-20261025/processes/0088.json",
+      "sha256": "06daadba0111f83f2bb349e180907f7f19d332117f9c15e7e5b989c9a1ae5575"
+    },
+    {
+      "id": 89,
+      "path": "results/portfolio-campaign-20261025/processes/0089.json",
+      "sha256": "cd28f016a94685310261261040c6e8065075eef13c8c9b6c6a7326b3e3be21f7"
+    },
+    {
+      "id": 90,
+      "path": "results/portfolio-campaign-20261025/processes/0090.json",
+      "sha256": "bd3e9154a281c0d58d3c29422e292a0c2010175794b83b8084e25aa4832e60ec"
+    },
+    {
+      "id": 121,
+      "path": "results/portfolio-campaign-20261025/processes/0121.json",
+      "sha256": "6efdc8ca2507cabd2813e324fa254d9acd1caf8d10166b9a25c90fd5078704d9"
+    },
+    {
+      "id": 122,
+      "path": "results/portfolio-campaign-20261025/processes/0122.json",
+      "sha256": "235d97f69482b75db3b492af3fa8583325dad12e41d9c9811fc318c3b5e16c5f"
+    },
+    {
+      "id": 123,
+      "path": "results/portfolio-campaign-20261025/processes/0123.json",
+      "sha256": "1707e1986d40b7d3a8afd939caacf747ffdb3765d89285a9d80087b5f2b80612"
+    },
+    {
+      "id": 124,
+      "path": "results/portfolio-campaign-20261025/processes/0124.json",
+      "sha256": "20c63db7ce525dcbd5c88ba86ad3c8b6ba7f3c79aa58bd5a6a49e6851fbc24bd"
+    },
+    {
+      "id": 125,
+      "path": "results/portfolio-campaign-20261025/processes/0125.json",
+      "sha256": "09429491b106803ca1fcbe2843ebc58457c732a0496fcf61f099671098bbf401"
+    },
+    {
+      "id": 126,
+      "path": "results/portfolio-campaign-20261025/processes/0126.json",
+      "sha256": "a421e5e47008a93a939910a47e22f19223e81a06e3a022c0e844361446bf9105"
+    },
+    {
+      "id": 127,
+      "path": "results/portfolio-campaign-20261025/processes/0127.json",
+      "sha256": "ca0261513e1bee78ea47376695bc7ca4c668c1d86815ea5db18f61233bd8038b"
+    },
+    {
+      "id": 128,
+      "path": "results/portfolio-campaign-20261025/processes/0128.json",
+      "sha256": "8ffd8b4865fd89ed740b0fdedee51ab56c2c36804d410f23660592c08350ffe3"
+    },
+    {
+      "id": 129,
+      "path": "results/portfolio-campaign-20261025/processes/0129.json",
+      "sha256": "4bae1b12323d55f8653983b177c4ce9346a9c27eec43df80eb40f31bc96f1316"
+    },
+    {
+      "id": 130,
+      "path": "results/portfolio-campaign-20261025/processes/0130.json",
+      "sha256": "6136fe3cb4d4a5f03f73159600c9d506bcee61118408f3268dad499c134d273a"
+    },
+    {
+      "id": 131,
+      "path": "results/portfolio-campaign-20261025/processes/0131.json",
+      "sha256": "13471979088f31a99332498b946f073cdccfcea3b14f3842b39fc78e552866c8"
+    },
+    {
+      "id": 132,
+      "path": "results/portfolio-campaign-20261025/processes/0132.json",
+      "sha256": "bd4e57e99cafe7f5b2486b1d388206810636a7a14c4442f89454b7711bbde0ee"
+    },
+    {
+      "id": 133,
+      "path": "results/portfolio-campaign-20261025/processes/0133.json",
+      "sha256": "59078006e295acd72738b1c8025f8ed0fd213f7ec07e705c65ff37eccc547465"
+    },
+    {
+      "id": 134,
+      "path": "results/portfolio-campaign-20261025/processes/0134.json",
+      "sha256": "41973e886c2d827b8cfde717b9e76b78a59e1b461b0c6c9f775b10d6d7515378"
+    },
+    {
+      "id": 135,
+      "path": "results/portfolio-campaign-20261025/processes/0135.json",
+      "sha256": "25ccd8d136669f4072fd9c1ed99760cfd5ed0bd1b20b8d6d005772b8ddd32500"
+    }
+  ],
+  "compiled_runtime_modules": {
+    "numpy.random._pcg64": {
+      "path": "C:\\Users\\rahma\\anaconda3\\Lib\\site-packages\\numpy\\random\\_pcg64.cp311-win_amd64.pyd",
+      "sha256": "1b0bae38289656f518930d611d9e9066b7e6972f661241f3abebfb2e17359608"
+    },
+    "numpy.core._multiarray_umath": {
+      "path": "C:\\Users\\rahma\\anaconda3\\Lib\\site-packages\\numpy\\core\\_multiarray_umath.cp311-win_amd64.pyd",
+      "sha256": "1a2e09c207eb5f71aa147222ebd8975ab05cce8830e047ca2a8dc248da8137a1"
+    },
+    "scipy.integrate._quadpack": {
+      "path": "C:\\Users\\rahma\\anaconda3\\Lib\\site-packages\\scipy\\integrate\\_quadpack.cp311-win_amd64.pyd",
+      "sha256": "50386a696dae70aa73f4f0580de8c68be498685caeb6dd0d5c2329e167cbe9f3"
+    },
+    "scipy.optimize._zeros": {
+      "path": "C:\\Users\\rahma\\anaconda3\\Lib\\site-packages\\scipy\\optimize\\_zeros.cp311-win_amd64.pyd",
+      "sha256": "a6d4df6d2c1e73da48364c7a5aa7d21f90f9d2dd6fbe04f012ecf724b8a3cdd7"
+    }
+  },
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "logical_cpu_count": 16,
+  "production_source_diff": "empty; no production source/build contract changes",
+  "protocol_sha256": "e214d3c9f56c3a4a8601d550861042e850a70d21af628eca7506615a46ce8182",
+  "figure_review": "Rendered comparison.png inspected at 1600x832; no clipping; exported data checked against CSV."
+}
