@@ -1,0 +1,13 @@
+{
+  "calendar": "nasdaq-2023-2025",
+  "start": "2024-01-02",
+  "end": "2024-01-08",
+  "assets": [
+    {
+      "csv": "ALPHA.csv",
+      "metadata": "ALPHA.json",
+      "quantity": 1,
+      "format": "existing_csv"
+    }
+  ]
+}

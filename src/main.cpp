@@ -10,6 +10,7 @@
 #include "mc/cuda.hpp"
 #endif
 #include <iomanip>
+#include <cmath>
 #include <iostream>
 #include <limits>
 #include <memory>
@@ -40,10 +41,21 @@ int main(int argc, char** argv) {
         bool cuda_mode_seen = false, batch_seen = false;
         bool diagnostics = false;
         bool backend_seen = false, threads_seen = false;
+        bool quantity_seen = false;
+        double quantity = 1.0;
         std::vector<char*> positional{argv[0]};
         for (int i = 1; i < argc; ++i) {
             const std::string option = argv[i];
-            if (option == "--backend") {
+            if (option == "--quantity") {
+                if (quantity_seen || i + 1 >= argc)
+                    throw std::invalid_argument("Missing or duplicate --quantity");
+                quantity_seen = true;
+                const std::string text = argv[++i];
+                std::size_t used = 0;
+                quantity = std::stod(text, &used);
+                if (used != text.size() || !std::isfinite(quantity) || quantity <= 0)
+                    throw std::invalid_argument("Quantity must be finite and positive");
+            } else if (option == "--backend") {
                 if (backend_seen || i + 1 >= argc)
                     throw std::invalid_argument("Missing or duplicate --backend");
                 backend_seen = true;
@@ -101,7 +113,9 @@ int main(int argc, char** argv) {
         argv = positional.data();
         const bool csv_mode = argc > 1 && std::string(argv[1]) == "--csv";
         const bool portfolio_mode = argc > 1 && std::string(argv[1]) == "--portfolio";
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --portfolio file [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output)";
+        if (quantity_seen && !csv_mode)
+            throw std::invalid_argument("--quantity requires --csv");
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --portfolio file [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --quantity positive_number (CSV only) --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output)";
         if ((!csv_mode && !portfolio_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)) ||
             (portfolio_mode && (argc < 3 || argc > 5)))
             throw std::invalid_argument(usage);
@@ -130,6 +144,7 @@ int main(int argc, char** argv) {
             const auto fitted = mc::calibrate(prices, static_cast<double>(days_per_year),
                                              static_cast<double>(horizon_days));
             request.model = fitted.model;
+            request.model.initial_value *= quantity;
             metadata = {prices.size(), fitted.returns_count, prices.front().date,
                         prices.back().date, fitted.mean_log_return,
                         fitted.sample_log_variance, horizon_days, days_per_year};

@@ -2,6 +2,10 @@
 
 Abdurrahman Celik - application v0.3.0, 16 October 2026.
 
+Local browser application: run `python -B scripts/start_local.py`, then open
+`http://127.0.0.1:8765`. See [prerequisites, supported data and limits](docs/local-browser.md)
+for synthetic examples, strict local uploads, engine comparisons and downloads.
+
 Optional [synthetic portfolio mode](docs/portfolio.md) supports 1..5 assets on
 serial, OpenMP and full-device or explicit hybrid CUDA, with independent structural/moment checks.
 The [portfolio hybrid contract and local evidence](docs/portfolio-hybrid.md)

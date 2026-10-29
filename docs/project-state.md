@@ -1,5 +1,30 @@
 # Project state
 
+## Local browser application: 2026-10-30
+
+The explicitly authorized local application adds a Python standard-library
+loopback service and English browser UI over the existing C++ CLI, strict equity
+importer and portfolio calibrator. See [startup, contracts and limits](local-browser.md).
+Original redistributable artificial examples, local uploads with declared
+provenance, exact session validation, quantities/horizon, actual backend probes,
+sequential comparisons, cancellation and explicit JSON/CSV downloads are included.
+The CLI gains a CSV-only optional positive --quantity (default 1); calibration,
+engine algorithms, timing boundary and historical evidence are unchanged.
+No historical data, new campaign, academic artifact or public deployment is added.
+
+Local Windows verification passed: CUDA/OpenMP 23/23 CTests, CUDA OFF/OpenMP
+19/19, serial-only 18/18; all six adapter test groups including actual C++
+cancellation and direct CLI equivalence; 50 existing Python checks (one explicit
+no-executable integration skip), JavaScript syntax and selected public evidence
+integrity. Both example endpoints and all three engine paths were also exercised
+against the running loopback service. No formal campaigns were repeated.
+
+Browser UI automation was attempted but stopped by Computer Use because the
+current Windows browser URL could not be determined confidently for policy
+checks. Visual layout, browser interactions and displayed-value verification
+therefore remain unverified in this execution; HTTP-to-C++ integration and direct
+CLI JSON comparisons are separate automated checks. No browser success is claimed.
+
 ## Portfolio hybrid CUDA extension: 2026-10-26
 
 Implemented and locally GPU-tested explicit portfolio hybrid execution from

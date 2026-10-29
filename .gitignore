@@ -2,3 +2,5 @@
 /results/
 *.exe
 /data/local/
+__pycache__/
+*.pyc

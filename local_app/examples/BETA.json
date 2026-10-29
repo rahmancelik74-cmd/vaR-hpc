@@ -1,0 +1,17 @@
+{
+  "source_name": "Project artificial fixture",
+  "source_url": "https://example.invalid/artificial",
+  "symbol": "BETA",
+  "currency": "USD",
+  "retrieved_utc": "2024-01-09T00:00:00Z",
+  "download_method": "Original artificial values authored for this application; not downloaded",
+  "price_adjustment_policy": "unadjusted",
+  "price_policy_url": "https://example.invalid/artificial",
+  "local_reuse_conditions": "Original synthetic fixture; redistribution permitted",
+  "reuse_policy_url": "https://example.invalid/artificial",
+  "local_use_verified": true,
+  "redistribution_permission": "verified",
+  "data_kind": "artificial_fixture",
+  "currency_basis_url": "https://example.invalid/artificial",
+  "close_definition": "Artificial Close; no corporate actions or adjustments"
+}
