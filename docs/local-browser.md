@@ -43,6 +43,24 @@ fingerprints to match. Prefer the default rebuilding command. This is local
 staleness detection, not signed build provenance. Ctrl+C stops the service and
 cancels an active child. Closing a browser tab does not cancel a job; use Cancel.
 
+## Quick walkthrough
+
+1. Run the startup command above and open http://127.0.0.1:8765.
+2. Select Single asset or Two-asset portfolio, click **Try an example**, then
+   **Run analysis**. Serial is a usable default; select other available engines
+   for a sequential comparison.
+3. Read V0, the valuation unit, 95%/99% VaR, horizon, N and seed alongside the
+   actual backend/mode. Negative VaR is retained; general portfolio analytical
+   VaR is unavailable. Engine and application times have different scopes and
+   are illustrative. Download JSON/CSV explicitly when needed.
+4. For local files, choose **Use my data**, select each supported CSV and its
+   metadata JSON, set positive quantities and the supported calendar/date range,
+   then **Validate files**. Review the preview before running. The contracts
+   below describe required metadata and rejected inputs.
+5. Use **Cancel operation** for an active job, or Ctrl+C in the service terminal
+   to stop the service and clean up its active child. Closing the tab alone does
+   not stop the service.
+
 ## Examples and local data
 
 Click **Try an example**, then **Run analysis**. Choose a single asset or the
@@ -168,6 +186,53 @@ non-Windows hosts. Python >=3.11 is required for registration. Hosted CPU builds
 remain CUDA OFF. Synthetic GPU checks are connectivity/regression checks, not
 new campaigns, profiling or sanitizer studies.
 
+## First local version: delivery and verification status (2026-10-30)
+
+The first local application version is delivered within its documented Windows,
+loopback-only research scope: synthetic examples, 1..5 long holdings in one unit,
+strict supported local-file imports/calibration, available serial/OpenMP/CUDA
+modes, sequential comparisons, cancellation and explicit result downloads.
+The implementation and follow-ups are published through
+[9a9c35349ad2eb6649102751c99cb09a6c3b28e0](https://github.com/rahmancelik74-cmd/vaR-hpc/commit/9a9c35349ad2eb6649102751c99cb09a6c3b28e0),
+with successful [exact-SHA CI](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40982418499).
+This is local software delivery, not public production readiness, advisor
+approval, academic submission or completion of the whole graduation project.
+
+Evidence is separated by method. Automated service/controller/engine checks
+cover direct CLI equivalence, input rejection, process failure/timeout, actual
+child cancellation/cleanup, recovery, export contents and private diagnostic
+bytes/encoding. Controller doubles verify presentation logic and stale-download
+invalidation; they are not visual browser tests. Hosted CPU CI is separate from
+local Windows/CUDA execution.
+
+Later direct browser observations were supplied from a **separate session**.
+The private observation notes and referenced corrected-error screenshots were
+reviewed for this documentation closeout; they are not reproduced here. They
+are externally supplied observations, not browser tests executed by the
+implementation executor or newly repeated in this closeout. The records identify
+the delivered revisions as reported context, rather than independently querying
+Git or CI or proving the running service's source-to-binary identity. Repository
+HEAD/remote and the implementation CI result were checked separately here.
+
+| Separate-session observed coverage | Technical conclusion and boundary |
+| --- | --- |
+| Synthetic single-asset and two-asset analysis; serial/OpenMP/CUDA full-device comparison | Real results displayed, negative VaR retained and general portfolio analytical VaR unavailable; no statistical acceptance or benchmark claim. |
+| Portfolio CUDA hybrid, N=10003, batch=257 | Successful display with 39 batches (final payload 237); equal seeds across modes do not imply equal samples. |
+| Synthetic file selection, metadata/calendar validation, preview and analysis | Supported local-file flow observed; missing metadata/session and malformed-file rejection observed. The original malformed-file attempt reached the minimum-row guard, so it alone did not test nonnumeric-price rejection. |
+| Cancellation followed by a successful small analysis; rejection with no engine selected | Cancelled/rejected operations removed prior results/download controls; browser observation did not independently inspect the OS process tree. |
+| Browser JSON/CSV download buttons and parsed files | Settings and values matched across downloads and rounded displayed values; raw precision remained available. Visible times used two decimals after page reload. |
+| Corrected minimum-observation error at desktop and 390x844 | Concise rejection without trace/path/source excerpts or corrupted path characters; failed state, disabled Run analysis and no completed result/download controls observed. Alert role and aria-atomic were checked in the DOM. The narrow error page had equal scrollWidth/clientWidth, with no horizontal overflow observed. |
+
+These specific observations supersede blanket statements that those flows and
+the reproduced corrected-error view still await manual inspection. Coverage does
+not establish every responsive layout, full keyboard/focus behavior, a complete
+accessibility or screen-reader audit, or independent browser-session OS cleanup
+verification. Other error cases, UTF-8 child behavior and exact diagnostic-byte
+preservation rely on the automated checks, not on the corrected-error screenshot.
+The 2023..2025 Nasdaq calendar, supported file dialects, provenance declarations,
+GBM/model limitations and resource limits above remain in force. No private
+provider data or new research campaign was used for this closeout.
+
 ## Presentation follow-up and verification boundary (2026-10-30)
 
 Visible application elapsed milliseconds and engine wall milliseconds now use
@@ -181,26 +246,17 @@ or replacement dataset cannot keep exporting the previous result as current.
 Controller tests cover this lifecycle and unchanged result data, using explicitly
 labelled test doubles; they are not browser evidence.
 
-The follow-up attempted supported browser access again: the browser inventory
-was empty and the Chrome browser surface reported unavailable. The Windows
-Computer Use surface could discover Chrome, but stopped before navigation because
-it could not determine the current URL confidently enough for policy checks.
-No security bypass was attempted. No new browser flow or visual layout was
-verified in this follow-up. In particular, UI hybrid selection, file selection/
-preview/errors, cancellation/recovery, download clicks, desktop/narrow layouts
-and focus/accessibility inspection remain unverified by this executor. The
-reported observations from a separate chat are context, not new execution here.
+Historically, the implementation executor's browser inventory was empty and
+Chrome was unavailable; Windows Computer Use stopped before navigation because
+it could not determine the current URL confidently for policy checks. No bypass
+was attempted. Those failed attempts remain accurate observations of that
+executor, while later separate-session browser coverage is summarized above.
 
 Independent checks exercise real HTTP-to-C++ hybrid portfolio N=10003, batch=257
 (39 batches, final payload 237), strict synthetic upload errors, cancellation and
 recovery. JSON/CSV response parsing checks settings, estimates and raw engine
 milliseconds. These checks do not establish browser download behavior or visual
 presentation. No private provider data or formal campaign is involved.
-
-The remaining manual action is to open the local URL and perform the listed UI
-flows, including a narrow viewport and parsing files saved by the download
-buttons. Browser-tool access must be restored before automated visual claims.
-
 
 ## Public errors and private diagnostics
 
@@ -230,10 +286,8 @@ sufficient rows, missing sessions, missing metadata, unexpected process failure,
 private exact-byte capture, UTF-8 non-ASCII output and valid-analysis recovery.
 The registered local-browser CTest includes these focused checks.
 
-For this error follow-up, the supplied private observation record and screenshot
-were read as third-party observations and were not copied into the repository.
-Direct browser inspection was attempted: no enabled browser appeared in the
-executor inventory, and creating an IAB tab returned Browser is not available.
-Desktop/narrow visual and assistive-technology presentation therefore still
-require manual inspection at the local URL. HTTP/controller tests are not
-browser verification. No previously completed research campaign was repeated.
+During the error implementation follow-up, the executor could not open an IAB
+tab and did not perform direct visual verification. The separate session later
+reproduced the corrected minimum-observation error at desktop and narrow widths;
+the current-status summary above records that observation and its limits.
+HTTP/controller tests remain distinct from browser verification.

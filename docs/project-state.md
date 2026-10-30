@@ -19,11 +19,27 @@ no-executable integration skip), JavaScript syntax and selected public evidence
 integrity. Both example endpoints and all three engine paths were also exercised
 against the running loopback service. No formal campaigns were repeated.
 
-Browser UI automation was attempted but stopped by Computer Use because the
-current Windows browser URL could not be determined confidently for policy
-checks. Visual layout, browser interactions and displayed-value verification
-therefore remain unverified in this execution; HTTP-to-C++ integration and direct
-CLI JSON comparisons are separate automated checks. No browser success is claimed.
+The first local application version and its timing/error-presentation follow-ups
+are published through
+[9a9c35349ad2eb6649102751c99cb09a6c3b28e0](https://github.com/rahmancelik74-cmd/vaR-hpc/commit/9a9c35349ad2eb6649102751c99cb09a6c3b28e0),
+with [successful exact-SHA CI, all three jobs](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40982418499).
+Later separate-session direct browser observations cover examples, backend
+comparison/hybrid, supported synthetic uploads and rejection, cancellation and
+recovery, download contents/precision, timing display and the corrected error at
+desktop/390x844. The private notes and corrected-error screenshots were reviewed
+for this documentation closeout; these are attributed external observations,
+not new browser execution by this executor. See the
+[current coverage and limitations](local-browser.md#first-local-version-delivery-and-verification-status-2026-10-30).
+
+Earlier implementation-executor browser-access failures remain historical facts;
+they no longer imply that the later observed flows await manual inspection.
+Automated service/controller/engine checks remain separate evidence. No complete
+accessibility/screen-reader audit, every-layout verification or independent
+browser-session OS process-tree inspection is claimed. Delivery is scoped to the
+local research application; the calendar/model/data limits remain, and this does
+not establish public production readiness, advisor approval, academic submission
+or completion of the overall graduation project. This closeout changes documents
+only and repeats no research campaign.
 
 ## Portfolio hybrid CUDA extension: 2026-10-26
 
