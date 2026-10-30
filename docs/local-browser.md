@@ -167,3 +167,36 @@ Windows PowerShell for imports; those integration cases skip explicitly on
 non-Windows hosts. Python >=3.11 is required for registration. Hosted CPU builds
 remain CUDA OFF. Synthetic GPU checks are connectivity/regression checks, not
 new campaigns, profiling or sanitizer studies.
+
+## Presentation follow-up and verification boundary (2026-10-30)
+
+Visible application elapsed milliseconds and engine wall milliseconds now use
+exactly two decimal places. The running-state seconds already use one decimal
+place. These are display-only formats: raw engine values, timing definitions,
+JSON/CSV precision and VaR formatting are unchanged.
+
+Starting a replacement analysis invalidates the previous download identity before
+the request is sent. Thus an immediately rejected request, failed/cancelled job,
+or replacement dataset cannot keep exporting the previous result as current.
+Controller tests cover this lifecycle and unchanged result data, using explicitly
+labelled test doubles; they are not browser evidence.
+
+The follow-up attempted supported browser access again: the browser inventory
+was empty and the Chrome browser surface reported unavailable. The Windows
+Computer Use surface could discover Chrome, but stopped before navigation because
+it could not determine the current URL confidently enough for policy checks.
+No security bypass was attempted. No new browser flow or visual layout was
+verified in this follow-up. In particular, UI hybrid selection, file selection/
+preview/errors, cancellation/recovery, download clicks, desktop/narrow layouts
+and focus/accessibility inspection remain unverified by this executor. The
+reported observations from a separate chat are context, not new execution here.
+
+Independent checks exercise real HTTP-to-C++ hybrid portfolio N=10003, batch=257
+(39 batches, final payload 237), strict synthetic upload errors, cancellation and
+recovery. JSON/CSV response parsing checks settings, estimates and raw engine
+milliseconds. These checks do not establish browser download behavior or visual
+presentation. No private provider data or formal campaign is involved.
+
+The remaining manual action is to open the local URL and perform the listed UI
+flows, including a narrow viewport and parsing files saved by the download
+buttons. Browser-tool access must be restored before automated visual claims.

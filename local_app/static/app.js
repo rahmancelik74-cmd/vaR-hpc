@@ -2,6 +2,7 @@
 const $ = id => document.getElementById(id);
 let dataset = null, active = null, completed = null, info = null;
 const format = n => n == null ? 'Unavailable' : Number(n).toLocaleString('en-US', {maximumFractionDigits: 8});
+const milliseconds = n => n == null ? 'Unavailable' : Number(n).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 function notice(message, success = false) { $('notice').hidden = !message; $('notice').textContent = message; $('notice').className = success ? 'success' : ''; }
 async function api(path, body) {
   const response = await fetch(path, body === undefined ? {} : {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
@@ -14,12 +15,15 @@ function busy(value) {
   $('run').disabled = value || !dataset; $('cancel').hidden = !value;
 }
 function resetData() {
-  dataset = null; completed = null;
+  dataset = null; clearResults();
   $('preview').hidden = true; $('empty').hidden = false;
   $('data-state').textContent = 'AWAITING VALIDATION';
-  $('downloads').hidden = true;
-  $('result-body').textContent = 'Your completed analysis will appear here.';
   $('run').disabled = true;
+}
+function clearResults(message = 'Your completed analysis will appear here.') {
+  completed = null;
+  $('downloads').hidden = true;
+  $('result-body').textContent = message;
 }
 function text(tag, value, parent, cls) {
   const node = document.createElement(tag); node.textContent = value;
@@ -63,10 +67,10 @@ function renderResults(job) {
   const parent = $('result-body'); parent.className = ''; parent.replaceChildren();
   const first = job.results[0], model = first.portfolio || first.model, unit = job.provenance.unit;
   const metrics = document.createElement('div'); metrics.className = 'metrics'; parent.append(metrics);
-  for (const [label, value] of [['INITIAL VALUE', `${format(model.initial_value)} ${unit}`], ['SCENARIOS / SEED', `${format(first.scenarios)} / ${first.seed}`], ['APPLICATION ELAPSED', `${format(job.elapsed_ms)} ms`]]) {
+  for (const [label, value] of [['INITIAL VALUE', `${format(model.initial_value)} ${unit}`], ['SCENARIOS / SEED', `${format(first.scenarios)} / ${first.seed}`], ['APPLICATION ELAPSED', `${milliseconds(job.elapsed_ms)} ms`]]) {
     const m = document.createElement('div'); m.className = 'metric'; text('small', label, m); text('strong', value, m); metrics.append(m);
   }
-  table(parent, ['Engine / mode', '95% VaR', '99% VaR', '95% analytical', '99% analytical', 'Engine wall ms'], job.results.map(r => [r.backend + (r.cuda ? ' / '+r.cuda.mode : ''), ...r.estimates.map(e => `${format(e.mc_var)} ${unit}`), ...r.estimates.map(e => e.analytical_var == null ? 'Unavailable' : `${format(e.analytical_var)} ${unit}`), format(r.end_to_end_ms)]));
+  table(parent, ['Engine / mode', '95% VaR', '99% VaR', '95% analytical', '99% analytical', 'Engine wall ms'], job.results.map(r => [r.backend + (r.cuda ? ' / '+r.cuda.mode : ''), ...r.estimates.map(e => `${format(e.mc_var)} ${unit}`), ...r.estimates.map(e => e.analytical_var == null ? 'Unavailable' : `${format(e.analytical_var)} ${unit}`), milliseconds(r.end_to_end_ms)]));
   text('p', `Horizon: ${format(model.horizon_years)} years. Positive long holdings; negative VaR is retained. General portfolio analytical VaR is unavailable.`, parent, 'caption');
   text('p', job.timing_notice, parent, 'caption');
   for (const r of job.results) if (r.cuda) text('p', `CUDA ${r.cuda.mode}: requested batch ${r.cuda.requested_batch_size}, effective batch ${r.cuda.effective_batch_size}, ${r.cuda.batch_count} batches.`, parent, 'caption');
@@ -75,7 +79,7 @@ function renderResults(job) {
 }
 async function follow(job) {
   active = job.id; busy(true); notice('');
-  $('downloads').hidden = true;
+  clearResults();
   for (;;) {
     let state;
     try { state = await api('/api/jobs/'+active); }
@@ -92,7 +96,7 @@ async function follow(job) {
     await new Promise(resolve => setTimeout(resolve, 300));
   }
 }
-function action(fn) { return async () => { try { await fn(); } catch (error) { notice(error.message); $('status').textContent = 'Operation failed. Review the error above.'; if (!active) busy(false); } }; }
+function action(fn) { return async () => { try { await fn(); } catch (error) { notice(error.message); $('status').textContent = 'Operation failed. Review the error above.'; if (!active) { clearResults('No completed analysis is available for this operation.'); busy(false); } } }; }
 function addAsset() {
   if ($('assets').children.length >= 5) return notice('At most five assets are supported.');
   const row = document.createElement('div'); row.className = 'asset-row';
@@ -124,7 +128,7 @@ $('run').onclick = action(async () => {
     if (input.value === 'cuda') { config.mode = $('cuda-mode').value; if (config.mode === 'hybrid') config.batch_size = Number($('batch').value); }
     engines.push(config);
   });
-  $('result-body').textContent = 'Analysis is running. Results will appear after all selected engines finish.';
+  clearResults('Analysis is running. Results will appear after all selected engines finish.');
   await follow(await api('/api/run', {dataset: dataset.id, scenarios: Number($('scenarios').value), seed: $('seed').value, horizon_days: Number($('horizon').value), engines}));
 });
 $('cancel').onclick = action(async () => { if (active) { await api('/api/jobs/'+active+'/cancel', {}); $('status').textContent = 'Cancellation requested. Waiting for child-process cleanup.'; } });

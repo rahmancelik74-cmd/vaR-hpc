@@ -1,5 +1,7 @@
 """Local browser adapter regressions; only artificial public inputs are used."""
 import base64
+import csv
+import io
 import http.client
 import json
 import os
@@ -92,6 +94,7 @@ class LocalAppContract(unittest.TestCase):
         # Invalid datasets cannot reach a child process.
         job = self.job('/api/run', self.settings('unknown'))
         self.assertEqual(job['state'], 'failed')
+        self.assertEqual(self.request('/api/jobs/'+job['id']+'/json')[0], 400)
         self.app.datasets['test-settings'] = {'public':{}, 'imports':[]}
         try:
             for change in ({'scenarios':0}, {'seed':'18446744073709551616'}, {'horizon_days':0},
@@ -180,10 +183,30 @@ class LocalAppContract(unittest.TestCase):
                 direct = json.loads(subprocess.check_output([str(self.exe)]+prefix+args+['--json']))
                 for key in ('estimates','model','portfolio','seed','scenarios','backend','calibration'):
                     self.assertEqual(actual.get(key),direct.get(key),key)
+                if config.get('mode') == 'hybrid' and count == 2:
+                    self.assertEqual(actual['cuda']['mode'], 'hybrid')
+                    self.assertEqual(actual['cuda']['requested_batch_size'], 257)
+                    self.assertEqual(actual['cuda']['effective_batch_size'], 257)
+                    self.assertEqual(actual['cuda']['batch_count'], 39)
+                    self.assertEqual(actual['scenarios'] % 257, 237)
             for extension in ('json','csv'):
                 status, data = self.request('/api/jobs/'+job['id']+'/'+extension)
                 self.assertEqual(status,200)
                 self.assertIn(b'provenance',data)
+                if extension == 'json':
+                    downloaded = json.loads(data)
+                    self.assertEqual(downloaded['settings'], request)
+                    self.assertEqual(downloaded['results'], job['results'])
+                else:
+                    rows = list(csv.DictReader(io.StringIO(data.decode('ascii'))))
+                    expected = [(r, e) for r in job['results'] for e in r['estimates']]
+                    self.assertEqual(len(rows), len(expected))
+                    for row, (result, estimate) in zip(rows, expected):
+                        self.assertEqual(json.loads(row['settings_json']), request)
+                        self.assertEqual(float(row['mc_var']), estimate['mc_var'])
+                        self.assertEqual(float(row['engine_ms']), result['end_to_end_ms'])
+                        self.assertEqual(row['seed'], request['seed'])
+                        self.assertEqual(int(row['N']), request['scenarios'])
             if count == 1:
                 direct2=json.loads(subprocess.check_output([str(self.exe),'--csv',str(prices),'10003',request['seed'],'10','252','--quantity','2','--json']))
                 self.assertEqual(direct2['model']['initial_value'],2*job['results'][0]['model']['initial_value'])
