@@ -43,3 +43,28 @@ jobs:
       - name: Recorder smoke, instrumentation and retained engine tests
         shell: powershell
         run: ./scripts/run-cpu-benchmark.ps1 -Mode smoke -OutputDirectory results/ci-cpu-smoke
+  windows-portable:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          architecture: x64
+      - name: Build CPU portable ZIP and audit native dependencies
+        run: python -B scripts/build_portable.py --output results/portable-ci
+      - name: Test extracted package in paths with spaces and non-ASCII characters
+        shell: powershell
+        run: |
+          $zip = Get-ChildItem results/portable-ci -Filter '*.zip' | Select-Object -ExpandProperty FullName
+          python -B scripts/check_portable.py $zip --output results/portable-ci-verification
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Retained CPU application and engine regressions
+        run: ctest --test-dir build-local-app --output-on-failure
+      - name: Publish portable CPU artifact (no Release or tag)
+        uses: actions/upload-artifact@v4
+        with:
+          name: mc-lab-portable-cpu-${{ github.sha }}
+          path: results/portable-ci/Monte Carlo Lab CPU/
+          retention-days: 30
+          if-no-files-found: error

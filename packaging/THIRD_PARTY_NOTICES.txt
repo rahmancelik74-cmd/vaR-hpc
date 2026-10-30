@@ -1,0 +1,27 @@
+THIRD-PARTY NOTICES - MC LAB PORTABLE CPU
+
+CPython 3.14.9 Windows x64 embedded distribution (python.org): PSF License Version 2
+and incorporated software notices. Complete upstream LICENSE.txt is retained in
+runtime/LICENSE.txt and licenses/Python-LICENSE.txt. The interpreter is unmodified;
+optional unused extension modules are omitted and python314._pth selects only
+bundled runtime/resources. No pip, site packages or installed Python are used.
+https://www.python.org/ftp/python/3.14.9/
+https://docs.python.org/3.14/using/windows.html#the-embeddable-package
+https://docs.python.org/3.14/license.html
+
+Microsoft Visual C++ desktop x64 CRT and OpenMP redistributable DLLs are included
+unmodified from the licensed Visual Studio 2022 VC/redist tree, excluding debug
+and onecore files. Redistribution is subject to the builder's valid Visual Studio
+license and the official Distributable Code list, including individual application-
+local DLL deployment. Included upstream license document:
+licenses/Visual-Studio-2022-License.docx
+https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution
+https://learn.microsoft.com/en-us/cpp/windows/determining-which-dlls-to-redistribute
+Copyright Microsoft Corporation. All rights reserved.
+
+Windows and Windows PowerShell are operating-system prerequisites, not copied
+into this package. No CUDA/NVIDIA libraries, Anaconda components, PyInstaller,
+third-party Python packages, private provider data or historical research evidence
+are distributed. Application sources and original artificial fixtures are from
+the source revision recorded in package-manifest.json. This notice does not
+change the project's licensing or confer rights to uploaded provider data.

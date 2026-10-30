@@ -1,0 +1,55 @@
+MONTE CARLO LAB - WINDOWS CPU PORTABLE EDITION v1
+
+1. Extract the ENTIRE ZIP into a normal local folder. Do not run inside the ZIP.
+2. Double-click Start Monte Carlo Lab.exe. After integrity/readiness checks your
+   default browser opens the local application on an available loopback port.
+3. Choose Try an example, then Run analysis. Serial and OpenMP are bundled.
+   CUDA is unavailable in this CPU edition; it is never substituted silently.
+4. Use my data accepts 1..5 supported CSV/metadata pairs with positive quantities
+   in one currency. The built-in Nasdaq calendar covers ONLY 2023..2025. Every
+   expected session is required. No filling, reordering or calendar intersection.
+   For a valid example pair see resources/local_app/examples/ALPHA.csv and JSON.
+   Metadata declares source/rights/adjustment policy; declarations are not proof
+   of licensing or price accuracy. Source CSVs are not modified.
+   Select existing_csv for a date,close header with ascending ISO dates and
+   positive numeric Close values, or kibot_daily for the existing headerless
+   six-column MM/DD/YYYY OHLCV dialect. At least three observations are needed.
+   Supply a JSON metadata file per asset using the example's required fields:
+   source/retrieval, symbol, currency, adjustment definition and reuse policy.
+   Replace synthetic declarations with truthful information for your own data.
+5. Stop using the separate Stop application window. Closing that window also
+   stops the service. Closing a browser tab alone does not. Relaunch only after
+   stopping the previous copy. Do not terminate unrelated services.
+
+Supported: Windows 11 x64, x64 CPU with SSE2 (no AVX requirement), built-in Windows
+PowerShell 5.1, installed supported default browser, writable LOCALAPPDATA.
+Windows Server 2022 is used for CI verification, not a consumer clean-machine
+claim. ARM64 and 32-bit Windows are not supported. 8 GB RAM is recommended for
+larger interactive requests; resource limits still apply. No administrator or
+installed Python/Git/build/CUDA tools are required. No internet access is needed.
+
+User files/logs: %LOCALAPPDATA%\MCLabPortable\workspace\data\local\browser-app
+Launcher state/errors: %LOCALAPPDATA%\MCLabPortable\sessions
+Resources beside the executable are immutable. Keep the entire extracted folder
+intact. If integrity fails, extract the original ZIP again. This package is not
+code-signed: SHA-256 is an integrity check, not authenticated signed provenance.
+Respect Windows/organizational restrictions. Do not disable security protections
+if Windows or your administrator blocks execution.
+
+Data stays local. JSON/CSV downloads are explicit and can contain private source
+prices/provenance; store them appropriately. No telemetry or external uploads.
+VaR may be negative. General portfolio analytical VaR is unavailable. GBM does
+not establish predictive validity or investment suitability. Interactive timings
+are illustrative, not benchmark/statistical acceptance evidence. Engine wall time
+and total application elapsed time differ. Equal backend seeds need not mean
+equal samples. No academic submission or advisor approval is implied.
+
+Uploads and records are preserved between launches. To free space, stop the app
+and archive/remove only identified MCLabPortable session/data folders. Never
+remove unrelated historical evidence. The package creates no installed service,
+scheduled task, firewall exception or startup entry. Windows Job Object containment
+terminates owned descendants if the launcher exits unexpectedly.
+
+See package-manifest.json and integrity.sha256 for contents/source revision/hashes,
+and dependency-audit.json for native imports. These do not certify arbitrary
+machines or eliminate antivirus/enterprise policy compatibility limitations.

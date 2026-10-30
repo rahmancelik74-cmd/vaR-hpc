@@ -5,6 +5,9 @@ standard-library HTTP/process handling and buildless HTML/CSS/JavaScript. There
 are no pip/npm runtime dependencies, accounts, network data requests or telemetry.
 The application is separate from formal benchmark and acceptance workflows.
 
+Recipients without development tools can use the [Windows CPU portable package](windows-portable.md).
+The source-based startup below remains the development path, including optional CUDA.
+
 ## Start
 
 From the repository root, in PowerShell:

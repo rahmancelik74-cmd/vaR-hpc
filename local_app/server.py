@@ -20,7 +20,11 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 import calibrate_portfolio as cal
-from start_local import source_hash
+
+def source_hash():
+    # Development-only check; packaged startup never imports the build launcher.
+    from start_local import source_hash as development_hash
+    return development_hash()
 
 MAX_FILE = 1024 * 1024
 MAX_BODY = 8 * 1024 * 1024
@@ -74,22 +78,30 @@ class Cancelled(Exception):
 
 
 class Application:
-    def __init__(self, executable):
+    def __init__(self, executable, workspace=None, package=None):
         self.executable = Path(executable).resolve()
+        self.workspace = Path(workspace).resolve() if workspace else ROOT
+        self.package = package
         require(self.executable.is_file(), 'Configured executable does not exist')
-        manifest = cal.read_json(self.executable.parent/'local-app-build.json')
-        require(manifest['configuration'] == 'Release' and manifest['source_sha256'] == source_hash()
-                and manifest['executable_sha256'] == cal.digest(self.executable),
-                'Executable/source build fingerprint mismatch; run the default startup command to rebuild')
+        if package:
+            manifest = package
+            require(package['edition'] == 'cpu' and package['configuration'] == 'Release', 'Invalid CPU package')
+        else:
+            manifest = cal.read_json(self.executable.parent/'local-app-build.json')
+            require(manifest['configuration'] == 'Release' and manifest['source_sha256'] == source_hash()
+                    and manifest['executable_sha256'] == cal.digest(self.executable),
+                    'Executable/source build fingerprint mismatch; run the default startup command to rebuild')
         self.build = manifest
-        self.identity = {'sha256': cal.digest(self.executable), 'source_sha256': source_hash(), 'configuration': 'Release',
+        self.identity = {'sha256': cal.digest(self.executable), 'source_sha256': manifest.get('source_sha256'), 'configuration': 'Release',
                          'adapter_sha256': cal.digest(__file__), 'calibrator_sha256': cal.digest(cal.__file__),
                          'calendar_sha256': cal.digest(CALENDAR)}
+        if package:
+            self.identity.update(source_revision=package['source_revision'], provenance='unsigned package manifest; no runtime Git claim')
         self.lock = threading.RLock()
         self.active = None
         self.jobs = {}
         self.datasets = {}
-        self.home = ROOT/'data/local/browser-app'
+        self.home = self.workspace/'data/local/browser-app'
         self.home.mkdir(parents=True, exist_ok=True)
         self.session = self.home/secrets.token_hex(12)
         self.session.mkdir()
@@ -111,7 +123,7 @@ class Application:
         if job and job['cancel'].is_set():
             raise Cancelled()
         try:
-            process = subprocess.Popen(argv, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            process = subprocess.Popen(argv, cwd=self.workspace, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                        creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0,
                                        start_new_session=os.name != 'nt')
         except OSError as exc:
@@ -244,10 +256,10 @@ class Application:
         require(len(self.datasets) < 12, 'Dataset limit reached; restart the application')
         if 'example' in payload:
             require(payload['example'] in ('single', 'portfolio'), 'Unknown example')
-            payload = cal.read_json(Path(__file__).parent/'examples'/('request-'+payload['example']+'.json'))
+            payload = cal.read_json(ROOT/'local_app/examples'/('request-'+payload['example']+'.json'))
             for item in payload['assets']:
                 for key in ('csv', 'metadata'):
-                    item[key] = base64.b64encode((Path(__file__).parent/'examples'/item[key]).read_bytes()).decode('ascii')
+                    item[key] = base64.b64encode((ROOT/'local_app/examples'/item[key]).read_bytes()).decode('ascii')
         require(payload.get('calendar') == 'nasdaq-2023-2025', 'Select the supported Nasdaq 2023..2025 calendar')
         start, end = payload.get('start'), payload.get('end')
         try:
@@ -279,10 +291,25 @@ class Application:
                 require(isinstance(metadata.get(key), str) and metadata[key].strip(), 'Missing metadata: '+key)
             imported = source/'import'
             error_report = source/'import-error.json'
-            self.process(['powershell.exe', '-NoProfile', '-File', str(ROOT/'scripts/import-equity-data.ps1'),
+            import_args = ['powershell.exe', '-NoProfile', '-File', str(ROOT/'scripts/import-equity-data.ps1'),
                           '-InputFile', str(source/'upload.csv'), '-MetadataFile', str(source/'metadata.json'),
                           '-OutputDirectory', str(imported), '-RequestedStart', start, '-RequestedEnd', end,
-                          '-SourceFormat', item['format'], '-ErrorReportFile', str(error_report)], job,
+                          '-SourceFormat', item['format'], '-ErrorReportFile', str(error_report)]
+            if self.package:
+                # Fixed, integrity-checked command; file data is passed in a JSON request,
+                # never interpolated into executable code or a command line.
+                import_request = dict(InputFile=str(source/'upload.csv'), MetadataFile=str(source/'metadata.json'),
+                                      OutputDirectory=str(imported), RequestedStart=start, RequestedEnd=end,
+                                      SourceFormat=item['format'], ErrorReportFile=str(error_report),
+                                      PortableRoot=str(self.workspace), PackageRevision=self.package['source_revision'])
+                write_json(source/'import-request.json', import_request)
+                command = (ROOT/'scripts/portable-import.txt').read_text(encoding='ascii')
+                # The only argument embedded here is an app-owned path, encoded as UTF-16.
+                request_b64 = base64.b64encode(str(source/'import-request.json').encode('utf-16le')).decode('ascii')
+                command = "$requestPath=[Text.Encoding]::Unicode.GetString([Convert]::FromBase64String('"+request_b64+"'))\n"+command
+                import_args = [str(Path(os.environ['SystemRoot'])/'System32/WindowsPowerShell/v1.0/powershell.exe'),
+                               '-NoProfile', '-NonInteractive', '-Command', command]
+            self.process(import_args, job,
                          operation='Price file import', error_report=error_report)
             rows = cal.prices(imported/'prices.csv')
             require([d for d, p in rows] == expected,

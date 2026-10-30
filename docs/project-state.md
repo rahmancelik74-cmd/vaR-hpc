@@ -2,6 +2,14 @@
 
 ## Local browser application: 2026-10-30
 
+The [portable CPU distribution](windows-portable.md) adds an app-local embedded
+Python runtime, current serial/OpenMP engine, native launcher/owned-process
+shutdown, per-user writable storage, integrity/dependency audits and a Windows
+CI artifact build/test path. Source CUDA development support remains separate.
+No public hosting configuration or deployment was found or added. Extracted
+package checks are distinct from clean consumer-machine and visual UI coverage;
+see the portable guide for the actual verification limits.
+
 The explicitly authorized local application adds a Python standard-library
 loopback service and English browser UI over the existing C++ CLI, strict equity
 importer and portfolio calibrator. See [startup, contracts and limits](local-browser.md).

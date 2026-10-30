@@ -117,7 +117,8 @@ function Assert-EquityMetadata($Metadata) {
 function Convert-EquityData {
     param([string]$InputFile,[string]$MetadataFile,[string]$OutputDirectory,
           [string]$RequestedStart='2023-01-01',[string]$RequestedEnd='2025-12-31',[switch]$AllowReordering,
-          [ValidateSet('existing_csv','kibot_daily')][string]$SourceFormat='existing_csv')
+          [ValidateSet('existing_csv','kibot_daily')][string]$SourceFormat='existing_csv',
+          [string]$PortableRoot,[string]$PackageRevision)
     Assert-EquityDate $RequestedStart;Assert-EquityDate $RequestedEnd
     if($RequestedStart -cgt $RequestedEnd){Stop-EquityValidation 'invalid_csv' 'Requested date range is reversed'}
     $inputPath=(Resolve-Path -LiteralPath $InputFile).Path
@@ -138,7 +139,10 @@ function Convert-EquityData {
     $selected=@($sorted | Where-Object {$_.date -cge $RequestedStart -and $_.date -cle $RequestedEnd})
     if($selected.Count -lt 3){Stop-EquityValidation 'too_few_observations' 'Requested interval contains fewer than three observations'}
     $output=[IO.Path]::GetFullPath($OutputDirectory)
-    $root=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+    if($PortableRoot) {
+        if($PackageRevision -cnotmatch '^[0-9a-f]{40}$'){throw 'Invalid package revision'}
+        $root=[IO.Path]::GetFullPath($PortableRoot)
+    } else { $root=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path }
     $localRoot=Join-Path $root 'data/local'
     $prefix=[IO.Path]::GetFullPath($localRoot).TrimEnd('\','/')+[IO.Path]::DirectorySeparatorChar
     if(-not $output.StartsWith($prefix,[StringComparison]::OrdinalIgnoreCase)){throw 'Output must be a new subdirectory under ignored data/local'}
@@ -156,11 +160,15 @@ function Convert-EquityData {
         'Write date,close UTF-8 without BOM and LF newlines; preserve price text')
     if(-not $ascending){$transformations+='Explicitly reorder unique observations by ascending ISO date'}
     if($SourceFormat -ceq 'kibot_daily'){$transformations+='Explicit Kibot daily dialect: headerless six-field OHLCV; convert MM/DD/YYYY dates to ISO, retaining every row'}
-    $revision=(& git -C $root rev-parse HEAD);if($LASTEXITCODE -ne 0){throw 'Cannot read source revision'}
-    $dirty=@(& git -C $root status --porcelain --untracked-files=normal);if($LASTEXITCODE -ne 0){throw 'Cannot read source status'}
+    if($PortableRoot) { $revision=$PackageRevision;$gitDirty=$null }
+    else {
+        $revision=(& git -C $root rev-parse HEAD);if($LASTEXITCODE -ne 0){throw 'Cannot read source revision'}
+        $dirty=@(& git -C $root status --porcelain --untracked-files=normal);if($LASTEXITCODE -ne 0){throw 'Cannot read source status'}
+        $gitDirty=($dirty.Count -gt 0)
+    }
     $manifest=[ordered]@{
         schema_version=1;purpose='Local equity import; not benchmark or statistical acceptance'
-        source=$metadata;converted_utc=[DateTimeOffset]::UtcNow.ToString('o');source_revision=$revision.Trim();git_dirty=($dirty.Count -gt 0)
+        source=$metadata;converted_utc=[DateTimeOffset]::UtcNow.ToString('o');source_revision=$revision.Trim();git_dirty=$gitDirty
         requested_date_start=$RequestedStart;requested_date_end=$RequestedEnd
         actual_date_start=$selected[0].date;actual_date_end=$selected[-1].date
         source_date_start=$sorted[0].date;source_date_end=$sorted[-1].date
@@ -172,7 +180,7 @@ function Convert-EquityData {
         raw_sha256=(Get-EquityHash (Join-Path $output 'raw.csv'))
         converted_sha256=(Get-EquityHash (Join-Path $output 'prices.csv'))
         source_metadata_sha256=(Get-EquityHash (Join-Path $output 'source-metadata.json'))
-        importer_sha256=(Get-EquityHash $PSCommandPath)
+        importer_sha256=$(if($PortableRoot){$null}else{Get-EquityHash $PSCommandPath})
     }
     Write-EquityJson (Join-Path $output 'manifest.json') $manifest
     return [pscustomobject]$manifest
