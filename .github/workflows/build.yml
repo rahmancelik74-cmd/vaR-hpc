@@ -60,6 +60,7 @@ jobs:
           python -B scripts/check_portable.py $zip --output results/portable-ci-verification
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Retained CPU application and engine regressions
+        shell: powershell
         run: ctest --test-dir build-local-app --output-on-failure
       - name: Publish portable CPU artifact (no Release or tag)
         uses: actions/upload-artifact@v4
