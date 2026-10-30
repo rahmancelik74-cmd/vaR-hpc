@@ -27,6 +27,9 @@ Windows Server 2022 is used for CI verification, not a consumer clean-machine
 claim. ARM64 and 32-bit Windows are not supported. 8 GB RAM is recommended for
 larger interactive requests; resource limits still apply. No administrator or
 installed Python/Git/build/CUDA tools are required. No internet access is needed.
+Full resource/generated-data paths must stay below the Windows 260-character
+limit. Use the normal LOCALAPPDATA location; custom roots over 120 characters
+are unsupported. Extract to a reasonably short folder path.
 
 User files/logs: %LOCALAPPDATA%\MCLabPortable\workspace\data\local\browser-app
 Launcher state/errors: %LOCALAPPDATA%\MCLabPortable\sessions

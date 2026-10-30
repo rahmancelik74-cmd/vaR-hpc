@@ -21,6 +21,11 @@ limits from [the application guide](local-browser.md) still apply. ARM64 and
 Anaconda, Git, CMake, Ninja, Visual Studio, CUDA Toolkit or npm are unnecessary.
 Enterprise application-control restrictions remain applicable; do not disable
 security protections to run the unsigned application.
+Windows legacy path limits still apply to PowerShell and runtime file operations:
+keep full resource and generated-data paths below 260 characters. Use the normal
+Windows LOCALAPPDATA location; custom LOCALAPPDATA roots longer than 120 characters
+are unsupported. Deeply nested test extraction/data roots can exceed this limit
+even when spaces and Unicode are handled correctly. No OS long-path setting is changed.
 
 The CPU edition bundles serial/OpenMP and explicitly reports CUDA unavailable.
 CUDA development startup remains available from sources. No optional CUDA binary
