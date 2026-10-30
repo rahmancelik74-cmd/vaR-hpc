@@ -31,6 +31,13 @@ def save(p,obj):p.write_text(json.dumps(obj,indent=2,ensure_ascii=True)+'\n',enc
 def copy(src,dst):dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dst)
 
 
+def build_tool(name,env):
+    # Windows CreateProcess does not use the supplied child PATH to locate argv[0].
+    path=shutil.which(name,path=env['PATH'])
+    if not path:raise RuntimeError('Required build tool not found in Visual Studio environment: '+name)
+    return path
+
+
 def environment():
     vswhere=Path(os.environ['ProgramFiles(x86)'])/'Microsoft Visual Studio/Installer/vswhere.exe'
     install=Path(subprocess.check_output([str(vswhere),'-latest','-property','installationPath'],text=True).strip())
@@ -48,7 +55,7 @@ def dependencies(stage,env):
     system=Path(os.environ['SystemRoot'])/'System32'
     for p in stage.rglob('*'):
         if p.suffix.lower() not in ('.exe','.dll','.pyd'):continue
-        out=subprocess.check_output(['dumpbin.exe','/dependents',str(p)],env=env,text=True)
+        out=subprocess.check_output([build_tool('dumpbin.exe',env),'/dependents',str(p)],env=env,text=True)
         names=sorted(set(re.findall(r'^\s+([A-Za-z0-9_.-]+\.dll)\s*$',out,re.M|re.I)),key=str.lower)
         for name in names:
             bundled=(p.parent/name).is_file()
@@ -100,7 +107,7 @@ catch { Write-EquityJson $request.ErrorReportFile @{schema_version=1;code=$_.Exc
     for name in CRT:
         if (redist/'Microsoft.VC143.CRT'/name).exists():copy(redist/'Microsoft.VC143.CRT'/name,stage/'resources/bin'/name)
     copy(redist/'Microsoft.VC143.OpenMP/vcomp140.dll',stage/'resources/bin/vcomp140.dll')
-    subprocess.run(['mt.exe','-nologo','-manifest',str(ROOT/'packaging/windows-utf8.manifest'),
+    subprocess.run([build_tool('mt.exe',env),'-nologo','-manifest',str(ROOT/'packaging/windows-utf8.manifest'),
                     '-outputresource:'+str(stage/'resources/bin/mc_var.exe')+';#1'],env=env,check=True)
     launcher=stage/'Start Monte Carlo Lab.exe'
     compiler=install/'VC/Tools/MSVC'/env['VCTOOLSVERSION'].strip('/\\')/'bin/Hostx64/x64/cl.exe'
