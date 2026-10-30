@@ -118,8 +118,11 @@ catch { Write-EquityJson $request.ErrorReportFile @{schema_version=1;code=$_.Exc
     copy(ROOT/'packaging/THIRD_PARTY_NOTICES.txt',stage/'THIRD_PARTY_NOTICES.txt')
     # Include upstream license text unmodified, in addition to its runtime copy.
     copy(stage/'runtime/LICENSE.txt',stage/'licenses/Python-LICENSE.txt')
-    license_edition=install.name if install.name in ('Community','Professional','Enterprise') else 'Community'
-    license_url=f'https://visualstudio.microsoft.com/wp-content/uploads/2021/11/Visual-Studio-2022-{license_edition}-License-EN.docx'
+    license_edition=install.name
+    if license_edition not in ('Community','Professional','Enterprise'):
+        raise RuntimeError('Use a licensed Visual Studio Community, Professional or Enterprise builder')
+    license_document='Community' if license_edition=='Community' else 'Enterprise-Professional'
+    license_url=f'https://visualstudio.microsoft.com/wp-content/uploads/2021/11/Visual-Studio-2022-{license_document}-License-EN.docx'
     (stage/'licenses/Visual-Studio-2022-License.docx').write_bytes(urllib.request.urlopen(license_url,timeout=60).read())
     audit=dependencies(stage,env)
     save(stage/'dependency-audit.json',audit)
