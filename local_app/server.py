@@ -14,6 +14,7 @@ import subprocess
 import sys
 import threading
 import time
+import traceback
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,7 +32,27 @@ STATIC = Path(__file__).parent/'static'
 
 def require(test, message):
     if not test:
-        raise ValueError(message)
+        raise UserError(message)
+
+
+class UserError(ValueError):
+    """A message authored by this adapter, safe for the public error field."""
+    def __init__(self, message, code='invalid_input'):
+        super().__init__(message)
+        self.code = code
+
+
+IMPORT_ERRORS = {
+    'too_few_observations': 'The price file must contain at least three observations.',
+    'invalid_number': 'The price file contains an invalid number. Check that prices are finite and positive and volume is a nonnegative integer.',
+    'invalid_csv': 'The price file is invalid. Check the supported CSV header, dates, row order and field values, then validate again.',
+    'invalid_metadata': 'Required source metadata is missing or invalid. Check the metadata JSON and its source, currency, adjustment and local-use declarations.',
+}
+
+
+class ProcessFailure(UserError):
+    def __init__(self, message, code='process_failed'):
+        super().__init__(message, code)
 
 
 def integer(value, low, high, name):
@@ -82,15 +103,19 @@ class Application:
                 json.loads(value)
                 self.capabilities[backend] = {'available': True, 'reason': 'Startup execution probe passed'}
             except Exception as exc:
-                self.capabilities[backend] = {'available': False, 'reason': str(exc)}
+                (self.session/('startup-'+backend+'-exception.txt')).write_text(traceback.format_exc(), encoding='utf-8')
+                self.capabilities[backend] = {'available': False, 'reason': 'Startup execution probe failed. Review private local diagnostics.'}
         require(self.capabilities['serial']['available'], 'Serial executable probe failed')
 
-    def process(self, argv, job, raw=False):
+    def process(self, argv, job, raw=False, operation='Engine execution', error_report=None):
         if job and job['cancel'].is_set():
             raise Cancelled()
-        process = subprocess.Popen(argv, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                   creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0,
-                                   start_new_session=os.name != 'nt')
+        try:
+            process = subprocess.Popen(argv, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                       creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0,
+                                       start_new_session=os.name != 'nt')
+        except OSError as exc:
+            raise ProcessFailure(f'{operation} could not start. Check the local installation and try again; private diagnostics contain details.') from exc
         with self.lock:
             if job:
                 job['process'] = process
@@ -100,13 +125,24 @@ class Application:
                 if job and job['cancel'].is_set():
                     raise Cancelled()
                 if time.monotonic() > deadline or (job and time.monotonic()-job['started'] > 180):
-                    raise ValueError(f'Child process exceeded {TIMEOUT} seconds')
+                    raise ProcessFailure(f'{operation} exceeded the time limit. Reduce the request size and try again.')
                 try:
                     stdout, stderr = process.communicate(timeout=.1)
                     break
                 except subprocess.TimeoutExpired:
                     continue
-            require(process.returncode == 0, 'Child process failed: '+stderr.decode('utf-8', errors='replace')[-4000:])
+            if process.returncode != 0:
+                code = None
+                if error_report and Path(error_report).is_file():
+                    try:
+                        report = cal.read_json(error_report)
+                        if report.get('schema_version') == 1:
+                            code = report.get('code')
+                    except (ValueError, OSError):
+                        pass
+                if isinstance(code, str) and code in IMPORT_ERRORS:
+                    raise ProcessFailure(IMPORT_ERRORS[code], code=code)
+                raise ProcessFailure(f'{operation} failed. Try again; if the problem persists, review the private local job diagnostics. The cause could not be determined.')
             if job and job['cancel'].is_set():
                 raise Cancelled()
             return stdout if raw else stdout.decode('utf-8-sig')
@@ -123,7 +159,16 @@ class Application:
                     finally:
                         if process.poll() is None:
                             process.kill()
-                process.communicate(timeout=10)
+                stdout, stderr = process.communicate(timeout=10)
+                # Exact redirected bytes, including on timeout/cancellation. No HTTP route.
+                record = self.session/(job['id'] if job else 'startup')
+                record.mkdir(exist_ok=True)
+                prefix = record/secrets.token_hex(8)
+                prefix.with_suffix('.stdout.bin').write_bytes(stdout)
+                prefix.with_suffix('.stderr.bin').write_bytes(stderr)
+                write_json(prefix.with_suffix('.process.json'), {
+                    'operation': operation, 'argv': argv, 'exit_code': process.returncode,
+                    'diagnostic_encoding': 'utf-8' if error_report else 'not_assumed; raw bytes authoritative'})
             finally:
                 with self.lock:
                     if job:
@@ -163,7 +208,15 @@ class Application:
         except Exception as exc:
             with self.lock:
                 job['state'] = 'failed'
-                job['error'] = str(exc)
+                try:
+                    (self.session/(job['id']+'-exception.txt')).write_text(traceback.format_exc(), encoding='utf-8')
+                except OSError:
+                    pass
+                job['error_code'] = exc.code if isinstance(exc, UserError) else 'operation_failed'
+                job['error'] = str(exc) if isinstance(exc, UserError) else (
+                    'Data validation failed. Check the selected files and metadata, then try again. Private local job diagnostics contain details.'
+                    if job['kind'] == 'validate' else
+                    'Analysis failed. Check the settings and try again. Private local job diagnostics contain details.')
         finally:
             with self.lock:
                 job['elapsed_ms'] = (time.monotonic()-job['started'])*1000
@@ -171,7 +224,7 @@ class Application:
                     write_json(self.session/(job['id']+'-job.json'), self.snapshot(job))
                 except OSError as exc:
                     job['state'] = 'failed'
-                    job['error'] = 'Cannot save local job record: '+str(exc)
+                    job['error'] = 'Cannot save the local job record. Check available disk space and try again.'
                 finally:
                     self.active = None
 
@@ -197,7 +250,10 @@ class Application:
                     item[key] = base64.b64encode((Path(__file__).parent/'examples'/item[key]).read_bytes()).decode('ascii')
         require(payload.get('calendar') == 'nasdaq-2023-2025', 'Select the supported Nasdaq 2023..2025 calendar')
         start, end = payload.get('start'), payload.get('end')
-        expected = cal.sessions(cal.read_json(CALENDAR), cal.date(start), cal.date(end))
+        try:
+            expected = cal.sessions(cal.read_json(CALENDAR), cal.date(start), cal.date(end))
+        except ValueError as exc:
+            raise UserError('Invalid date interval or calendar coverage. Use valid dates within Nasdaq 2023..2025 with at least three sessions.') from exc
         assets = payload.get('assets')
         require(isinstance(assets, list) and 1 <= len(assets) <= 5, 'Supply 1..5 assets')
         folder = self.session/job['id']
@@ -212,20 +268,25 @@ class Application:
                 try:
                     data = base64.b64decode(item[key], validate=True)
                 except (ValueError, KeyError, binascii.Error) as exc:
-                    raise ValueError('CSV and metadata files are both required') from exc
+                    raise UserError('CSV and metadata files are both required') from exc
                 require(0 < len(data) <= MAX_FILE, 'Each upload must be 1 byte..1 MiB')
                 (source/filename).write_bytes(data)
-            metadata = cal.read_json(source/'metadata.json')
+            try:
+                metadata = cal.read_json(source/'metadata.json')
+            except ValueError as exc:
+                raise UserError('The metadata file must contain valid JSON with all required source declarations.', 'invalid_metadata') from exc
             for key in ('currency_basis_url', 'close_definition'):
                 require(isinstance(metadata.get(key), str) and metadata[key].strip(), 'Missing metadata: '+key)
             imported = source/'import'
+            error_report = source/'import-error.json'
             self.process(['powershell.exe', '-NoProfile', '-File', str(ROOT/'scripts/import-equity-data.ps1'),
                           '-InputFile', str(source/'upload.csv'), '-MetadataFile', str(source/'metadata.json'),
                           '-OutputDirectory', str(imported), '-RequestedStart', start, '-RequestedEnd', end,
-                          '-SourceFormat', item['format']], job)
+                          '-SourceFormat', item['format'], '-ErrorReportFile', str(error_report)], job,
+                         operation='Price file import', error_report=error_report)
             rows = cal.prices(imported/'prices.csv')
             require([d for d, p in rows] == expected,
-                    'Missing/unexpected Nasdaq sessions; no filling, intersection or reordering is allowed')
+                    'Missing/unexpected Nasdaq sessions. Supply every expected trading session in the selected interval; no filling or reordering is allowed.')
             declarations.append(metadata)
             imports.append({'import': str(imported), 'quantity': quantity})
             previews.append({'symbol': metadata['symbol'], 'quantity': quantity, 'rows': rows,
@@ -287,7 +348,10 @@ class Application:
             prefix = ['--csv', str(Path(item['import'])/'prices.csv'), str(n), seed, str(horizon), '252',
                       '--quantity', str(item['quantity'])]
         else:
-            calibration, text = cal.calibrate(folder/'calibration-request.json')
+            try:
+                calibration, text = cal.calibrate(folder/'calibration-request.json')
+            except ValueError as exc:
+                raise UserError('Portfolio calibration failed. Check aligned observations, positive variance and nonsingular correlation; private diagnostics contain details.', 'calibration_failed') from exc
             (folder/'portfolio.txt').write_text(text, encoding='ascii')
             write_json(folder/'calibration.json', calibration)
             prefix = ['--portfolio', str(folder/'portfolio.txt'), str(n), seed]

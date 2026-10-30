@@ -563,3 +563,9 @@ h1 {
 .metric strong {
   overflow-wrap:anywhere
 }
+
+#notice, #status {
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:anywhere;
+}

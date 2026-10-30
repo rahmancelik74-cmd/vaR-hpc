@@ -112,7 +112,7 @@ class LocalAppContract(unittest.TestCase):
             del self.app.datasets['test-settings']
 
     def test_process_failure_timeout_and_cancellation(self):
-        with self.assertRaisesRegex(ValueError, 'Child process failed'):
+        with self.assertRaisesRegex(ValueError, 'Engine execution failed'):
             self.app.process([str(self.exe), '--invalid-option'], None)
         with patch.object(module, 'TIMEOUT', .1):
             with self.assertRaisesRegex(ValueError, 'exceeded'):

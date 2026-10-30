@@ -3,7 +3,7 @@ const $ = id => document.getElementById(id);
 let dataset = null, active = null, completed = null, info = null;
 const format = n => n == null ? 'Unavailable' : Number(n).toLocaleString('en-US', {maximumFractionDigits: 8});
 const milliseconds = n => n == null ? 'Unavailable' : Number(n).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-function notice(message, success = false) { $('notice').hidden = !message; $('notice').textContent = message; $('notice').className = success ? 'success' : ''; }
+function notice(message, success = false) { $('notice').setAttribute('role', success ? 'status' : 'alert'); $('notice').setAttribute('aria-atomic', 'true'); $('notice').hidden = !message; $('notice').textContent = message; $('notice').className = success ? 'success' : ''; }
 async function api(path, body) {
   const response = await fetch(path, body === undefined ? {} : {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
   const result = await response.json();

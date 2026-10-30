@@ -84,7 +84,7 @@ if(BUILD_TESTING)
   if(Python3_Interpreter_FOUND)
     if(Python3_VERSION VERSION_GREATER_EQUAL 3.11)
       add_test(NAME local_browser_contract COMMAND "${Python3_EXECUTABLE}" -B -m unittest
-        discover -s "${CMAKE_CURRENT_SOURCE_DIR}/tests" -p test_local_app.py -v)
+        discover -s "${CMAKE_CURRENT_SOURCE_DIR}/tests" -p "test_local*.py" -v)
       set_tests_properties(local_browser_contract PROPERTIES
         ENVIRONMENT "MC_LOCAL_APP_EXE=$<TARGET_FILE:mc_var>" TIMEOUT 180)
       add_test(NAME portfolio_historical_calibration COMMAND "${Python3_EXECUTABLE}" -B -m unittest

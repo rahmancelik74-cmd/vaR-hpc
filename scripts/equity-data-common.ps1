@@ -1,5 +1,10 @@
 Set-StrictMode -Version 2.0
 $script:EquityCulture=[Globalization.CultureInfo]::InvariantCulture
+function Stop-EquityValidation([string]$Code,[string]$Message) {
+    $failure=[ArgumentException]::new($Message)
+    $failure.Data['validation_code']=$Code
+    throw $failure
+}
 function Get-EquityHash([string]$Path) {
     (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()
 }
@@ -10,7 +15,7 @@ function Assert-EquityDate([string]$Value) {
     $parsed=[datetime]::MinValue
     if($Value -cnotmatch '^\d{4}-\d{2}-\d{2}$' -or -not [datetime]::TryParseExact(
         $Value,'yyyy-MM-dd',$script:EquityCulture,[Globalization.DateTimeStyles]::None,[ref]$parsed)) {
-        throw 'Invalid date; expected a valid YYYY-MM-DD'
+        Stop-EquityValidation 'invalid_csv' 'Invalid date; expected a valid YYYY-MM-DD'
     }
 }
 function Get-EquityNumber([string]$Value,[bool]$Positive=$true) {
@@ -19,61 +24,65 @@ function Get-EquityNumber([string]$Value,[bool]$Positive=$true) {
         -not [double]::TryParse($Value,[Globalization.NumberStyles]::Float,$script:EquityCulture,[ref]$number) -or
         [double]::IsNaN($number) -or [double]::IsInfinity($number) -or
         ($Positive -and $number -le 0) -or (-not $Positive -and $number -lt 0)) {
-        throw 'Invalid numeric field; expected a finite positive price or nonnegative volume'
+        Stop-EquityValidation 'invalid_number' 'Invalid numeric field; expected a finite positive price or nonnegative volume'
     }
     return $number
 }
 function Read-EquityPrices([byte[]]$Bytes,[ValidateSet('existing_csv','kibot_daily')][string]$SourceFormat='existing_csv') {
     # Narrow dialect: UTF-8, optional BOM, LF/CRLF, unquoted comma-separated fields.
-    try{$text=[Text.UTF8Encoding]::new($false,$true).GetString($Bytes)}catch{throw 'Invalid UTF-8 source CSV'}
+    try{$text=[Text.UTF8Encoding]::new($false,$true).GetString($Bytes)}catch{Stop-EquityValidation 'invalid_csv' 'Invalid UTF-8 source CSV'}
     if($text.Length -gt 0 -and $text[0] -eq [char]0xFEFF){$text=$text.Substring(1)}
-    if($text.Contains('"') -or $text -match '[^\x09\x0A\x0D\x20-\x7E]') {throw 'Unsupported CSV encoding or quoting'}
-    if($text -match '\r(?!\n)'){throw 'Unsupported bare CR line ending'}
+    if($text.Contains('"') -or $text -match '[^\x09\x0A\x0D\x20-\x7E]') {Stop-EquityValidation 'invalid_csv' 'Unsupported CSV encoding or quoting'}
+    if($text -match '\r(?!\n)'){Stop-EquityValidation 'invalid_csv' 'Unsupported bare CR line ending'}
     $lines=@($text -split '\r?\n')
     if($lines.Count -gt 0 -and $lines[-1] -eq ''){$lines=$lines[0..($lines.Count-2)]}
     $lineOffset=1
     if($SourceFormat -ceq 'kibot_daily') {
-        if($lines.Count -lt 3){throw 'At least three price rows are required'}
+        if($lines.Count -lt 3){Stop-EquityValidation 'too_few_observations' 'At least three price rows are required'}
         $normalized=@('Date,Open,High,Low,Close,Volume')
         for($i=0;$i -lt $lines.Count;$i++) {
             $fields=@($lines[$i].Split(','));$date=[datetime]::MinValue
-            if($fields.Count -ne 6){throw "CSV line $($i+1): Kibot daily requires exactly six headerless fields"}
+            if($fields.Count -ne 6){Stop-EquityValidation 'invalid_csv' "CSV line $($i+1): Kibot daily requires exactly six headerless fields"}
             if($fields[0] -cnotmatch '^\d{2}/\d{2}/\d{4}$' -or -not [datetime]::TryParseExact(
                 $fields[0],'MM/dd/yyyy',$script:EquityCulture,[Globalization.DateTimeStyles]::None,[ref]$date)) {
-                throw "CSV line $($i+1): Invalid Kibot MM/DD/YYYY date"
+                Stop-EquityValidation 'invalid_csv' "CSV line $($i+1): Invalid Kibot MM/DD/YYYY date"
             }
             $fields[0]=$date.ToString('yyyy-MM-dd',$script:EquityCulture)
             $normalized+=($fields -join ',')
         }
         $lines=$normalized;$lineOffset=0
     }
-    if($lines.Count -lt 4){throw 'At least three price rows are required'}
+    if($lines.Count -lt 4){Stop-EquityValidation 'too_few_observations' 'At least three price rows are required'}
     $header=$lines[0]
     if($header -ceq 'date,close'){$dateIndex=0;$closeIndex=1}
     elseif($header -ceq 'Date,Open,High,Low,Close,Volume' -or
            $header -ceq 'Date,Open,High,Low,Close,Adj Close,Volume'){$dateIndex=0;$closeIndex=4}
-    else {throw 'Unsupported CSV header; an explicit Close field is required (never Adj Close fallback)'}
+    else {Stop-EquityValidation 'invalid_csv' 'Unsupported CSV header; an explicit Close field is required (never Adj Close fallback)'}
     $columns=@($header.Split(','));$seen=[Collections.Generic.HashSet[string]]::new()
     $rows=[Collections.Generic.List[object]]::new()
     for($i=1;$i -lt $lines.Count;$i++) {
         try {
             $fields=@($lines[$i].Split(','))
-            if($fields.Count -ne $columns.Count -or $lines[$i] -eq ''){throw 'Wrong field count or blank record'}
+            if($fields.Count -ne $columns.Count -or $lines[$i] -eq ''){Stop-EquityValidation 'invalid_csv' 'Wrong field count or blank record'}
             $date=$fields[$dateIndex];Assert-EquityDate $date
-            if(-not $seen.Add($date)){throw 'Duplicate date'}
+            if(-not $seen.Add($date)){Stop-EquityValidation 'invalid_csv' 'Duplicate date'}
             $values=@()
             for($j=1;$j -lt $fields.Count;$j++) {
                 $volume=$columns[$j] -ceq 'Volume'
                 $value=Get-EquityNumber $fields[$j] (-not $volume)
-                if($volume -and $fields[$j] -cnotmatch '^\d+$'){throw 'Volume must be a nonnegative integer'}
+                if($volume -and $fields[$j] -cnotmatch '^\d+$'){Stop-EquityValidation 'invalid_csv' 'Volume must be a nonnegative integer'}
                 $values+=,$value
             }
             if($columns.Count -gt 2 -and ($values[2] -gt $values[0] -or $values[2] -gt $values[3] -or
                 $values[1] -lt $values[0] -or $values[1] -lt $values[3] -or $values[2] -gt $values[1])) {
-                throw 'Inconsistent OHLC range'
+                Stop-EquityValidation 'invalid_csv' 'Inconsistent OHLC range'
             }
             $rows.Add([pscustomobject]@{date=$date;close=(Get-EquityNumber $fields[$closeIndex]);close_text=$fields[$closeIndex]})
-        } catch {throw "CSV line $($i+$lineOffset): $($_.Exception.Message)"}
+        } catch {
+            $failure=[ArgumentException]::new("CSV line $($i+$lineOffset): $($_.Exception.Message)", $_.Exception)
+            $failure.Data['validation_code']=$_.Exception.Data['validation_code']
+            throw $failure
+        }
     }
     return [pscustomobject]@{rows=$rows.ToArray();selected_price_field=$columns[$closeIndex];header=$header}
 }
@@ -82,27 +91,27 @@ function Assert-EquityMetadata($Metadata) {
         'price_adjustment_policy','price_policy_url','local_reuse_conditions','reuse_policy_url','local_use_verified',
         'redistribution_permission','data_kind')) {
         if($name -cnotin $Metadata.PSObject.Properties.Name -or $null -eq $Metadata.$name -or
-            [string]::IsNullOrWhiteSpace([string]$Metadata.$name)){throw "Missing source metadata: $name"}
-        if($name -cne 'local_use_verified' -and $Metadata.$name -isnot [string]){throw "Source metadata must be text: $name"}
+            [string]::IsNullOrWhiteSpace([string]$Metadata.$name)){Stop-EquityValidation 'invalid_metadata' "Missing source metadata: $name"}
+        if($name -cne 'local_use_verified' -and $Metadata.$name -isnot [string]){Stop-EquityValidation 'invalid_metadata' "Source metadata must be text: $name"}
     }
     foreach($name in @('source_url','price_policy_url','reuse_policy_url')) {
         $uri=$null
         if(-not [uri]::TryCreate([string]$Metadata.$name,[UriKind]::Absolute,[ref]$uri) -or
             $uri.Scheme -cne 'https' -or $uri.UserInfo -ne '' -or $uri.Fragment -ne '' -or
-            $uri.Query -match '(?i)(api.?key|token|secret|password|crumb)=') {throw 'Source/policy URLs must be HTTPS without credentials'}
+            $uri.Query -match '(?i)(api.?key|token|secret|password|crumb)=') {Stop-EquityValidation 'invalid_metadata' 'Source/policy URLs must be HTTPS without credentials'}
     }
-    if($Metadata.local_use_verified -isnot [bool] -or -not $Metadata.local_use_verified){throw 'Verified local-use conditions are required'}
-    if($Metadata.redistribution_permission -cnotin @('unverified','prohibited','verified')){throw 'Invalid redistribution permission status'}
-    if($Metadata.data_kind -cnotin @('historical_provider','artificial_fixture')){throw 'Invalid data kind'}
+    if($Metadata.local_use_verified -isnot [bool] -or -not $Metadata.local_use_verified){Stop-EquityValidation 'invalid_metadata' 'Verified local-use conditions are required'}
+    if($Metadata.redistribution_permission -cnotin @('unverified','prohibited','verified')){Stop-EquityValidation 'invalid_metadata' 'Invalid redistribution permission status'}
+    if($Metadata.data_kind -cnotin @('historical_provider','artificial_fixture')){Stop-EquityValidation 'invalid_metadata' 'Invalid data kind'}
     if($Metadata.price_adjustment_policy -cnotin @('unadjusted','split_adjusted','split_and_dividend_adjusted')) {
-        throw 'An explicit verified price-adjustment policy is required; unknown is not accepted'
+        Stop-EquityValidation 'invalid_metadata' 'An explicit verified price-adjustment policy is required; unknown is not accepted'
     }
-    if($Metadata.symbol -cnotmatch '^[A-Z0-9.\-]{1,24}$' -or $Metadata.currency -cnotmatch '^[A-Z]{3}$'){throw 'Invalid symbol or currency code'}
+    if($Metadata.symbol -cnotmatch '^[A-Z0-9.\-]{1,24}$' -or $Metadata.currency -cnotmatch '^[A-Z]{3}$'){Stop-EquityValidation 'invalid_metadata' 'Invalid symbol or currency code'}
     $timestamp=[DateTimeOffset]::MinValue
     if([string]$Metadata.retrieved_utc -cnotmatch '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$' -or
         -not [DateTimeOffset]::TryParse([string]$Metadata.retrieved_utc,$script:EquityCulture,
             [Globalization.DateTimeStyles]::None,[ref]$timestamp) -or $timestamp -gt [DateTimeOffset]::UtcNow) {
-        throw 'Invalid or future original retrieval timestamp; expected UTC ISO 8601'
+        Stop-EquityValidation 'invalid_metadata' 'Invalid or future original retrieval timestamp; expected UTC ISO 8601'
     }
 }
 function Convert-EquityData {
@@ -110,13 +119,13 @@ function Convert-EquityData {
           [string]$RequestedStart='2023-01-01',[string]$RequestedEnd='2025-12-31',[switch]$AllowReordering,
           [ValidateSet('existing_csv','kibot_daily')][string]$SourceFormat='existing_csv')
     Assert-EquityDate $RequestedStart;Assert-EquityDate $RequestedEnd
-    if($RequestedStart -cgt $RequestedEnd){throw 'Requested date range is reversed'}
+    if($RequestedStart -cgt $RequestedEnd){Stop-EquityValidation 'invalid_csv' 'Requested date range is reversed'}
     $inputPath=(Resolve-Path -LiteralPath $InputFile).Path
     $metadataPath=(Resolve-Path -LiteralPath $MetadataFile).Path
     $bytes=[IO.File]::ReadAllBytes($inputPath)
     $metadataBytes=[IO.File]::ReadAllBytes($metadataPath)
     try{$metadata=[Text.UTF8Encoding]::new($false,$true).GetString($metadataBytes) | ConvertFrom-Json}
-    catch{throw 'Invalid UTF-8 source metadata JSON'}
+    catch{Stop-EquityValidation 'invalid_metadata' 'Invalid UTF-8 source metadata JSON'}
     Assert-EquityMetadata $metadata
     $parsed=Read-EquityPrices $bytes $SourceFormat
     $rows=@($parsed.rows);$ascending=$true;$descending=$true
@@ -124,10 +133,10 @@ function Convert-EquityData {
         if($rows[$i].date -clt $rows[$i-1].date){$ascending=$false}else{$descending=$false}
     }
     $sourceOrder='mixed';if($ascending){$sourceOrder='ascending'}elseif($descending){$sourceOrder='descending'}
-    if(-not $ascending -and -not $AllowReordering){throw 'Dates are not increasing; explicit -AllowReordering is required'}
+    if(-not $ascending -and -not $AllowReordering){Stop-EquityValidation 'invalid_csv' 'Dates are not increasing; explicit -AllowReordering is required'}
     $sorted=@($rows | Sort-Object date)
     $selected=@($sorted | Where-Object {$_.date -cge $RequestedStart -and $_.date -cle $RequestedEnd})
-    if($selected.Count -lt 3){throw 'Requested interval contains fewer than three observations'}
+    if($selected.Count -lt 3){Stop-EquityValidation 'too_few_observations' 'Requested interval contains fewer than three observations'}
     $output=[IO.Path]::GetFullPath($OutputDirectory)
     $root=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path
     $localRoot=Join-Path $root 'data/local'

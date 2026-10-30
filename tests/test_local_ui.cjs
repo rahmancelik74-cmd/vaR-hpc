@@ -13,6 +13,7 @@ class Element {
   createTBody() { return this.createTHead(); }
   insertRow() { return this.createTHead(); }
   scrollIntoView() {}
+  setAttribute(name, value) { this[name] = value; }
 }
 async function controller() {
   const nodes = new Map(), downloads = [];
@@ -51,6 +52,8 @@ test('rejected replacement request immediately invalidates prior downloads',asyn
   assert.equal(ui.nodes.get('downloads').hidden,true);
   ui.nodes.get('json').onclick(); ui.nodes.get('csv').onclick();
   assert.deepEqual(ui.downloads,[]); assert.match(ui.nodes.get('notice').textContent,/Another operation/);
+  assert.equal(ui.nodes.get('notice').role,'alert');
+  assert.equal(ui.nodes.get('notice')['aria-atomic'],'true');
 });
 test('failed and cancelled operations cannot reuse an earlier successful export',async()=>{
   for (const state of ['failed','cancelled']) {

@@ -200,3 +200,40 @@ presentation. No private provider data or formal campaign is involved.
 The remaining manual action is to open the local URL and perform the listed UI
 flows, including a narrow viewport and parsing files saved by the download
 buttons. Browser-tool access must be restored before automated visual claims.
+
+
+## Public errors and private diagnostics
+
+Expected importer validation guards now attach explicit error codes. The optional
+`-ErrorReportFile` importer parameter writes a schema_version=1 sidecar containing
+only that code; existing invocations keep their success JSON and nonzero failure
+behavior. The browser adapter accepts only known codes and uses authored English
+messages. It never parses PowerShell stack text to infer a cause. Unknown child
+failures identify the operation and suggest retrying/reviewing private diagnostics
+without claiming an unknown cause. The public job keeps its compatible `error`
+string and adds `error_code`; exception traces, paths and commands are excluded.
+
+Each child stdout/stderr stream is stored verbatim as `.stdout.bin`/`.stderr.bin`
+under the private app session/job directory. Sibling `.process.json` records keep
+argv, operation, return code and encoding policy; Python exception chains are
+stored in private `*-exception.txt` files. None has an HTTP download route.
+Importer children invoked with the sidecar option explicitly select UTF-8 for
+redirected console output within that child only. Other stderr encodings are
+not guessed: original bytes are authoritative. No console/Git setting is changed
+globally, and diagnostic bytes are never normalized or substituted.
+
+Error notices use alert semantics; successful notices use status semantics.
+Status and notice containers allow wrapping within narrow widths. Controller
+regressions cover failed/cancelled/replaced-result invalidation. Focused real
+Windows HTTP/importer checks cover insufficient rows, nonnumeric price with
+sufficient rows, missing sessions, missing metadata, unexpected process failure,
+private exact-byte capture, UTF-8 non-ASCII output and valid-analysis recovery.
+The registered local-browser CTest includes these focused checks.
+
+For this error follow-up, the supplied private observation record and screenshot
+were read as third-party observations and were not copied into the repository.
+Direct browser inspection was attempted: no enabled browser appeared in the
+executor inventory, and creating an IAB tab returned Browser is not available.
+Desktop/narrow visual and assistive-technology presentation therefore still
+require manual inspection at the local URL. HTTP/controller tests are not
+browser verification. No previously completed research campaign was repeated.
