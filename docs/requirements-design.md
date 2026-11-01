@@ -70,7 +70,7 @@ final input file's SHA-256. Input data and calibration are shared by all engines
 | R07 | Analytical single-asset VaR | Known normal quantiles and edge cases | Initial implementation/tests available |
 | R08 | Analytical validation of the serial engine | 95%/99%, five seeds, approved thresholds | Demo available; acceptance campaign pending |
 | R09 | OpenMP and thread scaling | Common inputs, thread sweep, affinity record | Pending |
-| R10 | First-term GPU walking skeleton | CSV -> calibration -> cuRAND -> GPU quantile -> VaR, N=10000 | Pending |
+| R10 | GPU connectivity prototype | CSV -> calibration -> cuRAND -> GPU quantile -> VaR, N=10000 | Pending |
 | R11 | Full-scale CUDA and memory management | 100 thousand/1 million/10 million, memory and race checks | Pending |
 | R12 | Complete engine validation | Common inputs plus separate analytical/seed tests | Pending |
 | R13 | Fair benchmark and convergence | 3 warm-ups, 10 repetitions, mean/std, two CPU references | Pending |
@@ -135,7 +135,7 @@ losses on the host and compute one global quantile. Never average batch VaRs.
 Label the hybrid mode separately and include transfer/host quantile time in
 the total.
 
-## Open decisions from the first two weeks
+## Initial design decisions
 
 1. Target CPU/GPU, operating system and driver/Toolkit/compiler availability.
 2. T, trading-day scale, data source and price-adjustment policy.

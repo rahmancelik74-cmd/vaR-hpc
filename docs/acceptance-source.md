@@ -45,7 +45,7 @@ percentage of documented GPU peak, with profiler metric definitions, collected
 outside timed repetitions. The optional extension adds targeted
 profiling-driven optimization
 and before/after evidence. The latter remains optional; baseline reporting is
-not removed. Before term-two measurements, specify the profiled stages,
+not removed. Before profiling measurements, specify the profiled stages,
 aggregation and documented peak basis. These reporting details do not authorize
 an optimization campaign or impose a bandwidth/GFLOPS acceptance threshold.
 

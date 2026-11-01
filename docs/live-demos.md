@@ -1,9 +1,8 @@
 # Live demonstration runbook
 
-Two separate required roadmap demonstrations are prepared here. Preparation and
-local rehearsal do not establish academic week, presentation, submission or
-overall project completion. No presentation or submission is performed by the
-launcher. Use Windows PowerShell 5.1+, from the repository root.
+Two demonstration flows cover CPU validation and the complete CPU/GPU
+pipeline. Preparation and local rehearsal do not establish overall project
+completion. The launcher executes the documented software checks. Use Windows PowerShell 5.1+, from the repository root.
 
 ## Prerequisites and launch
 
@@ -29,7 +28,7 @@ retains partial logs. Ctrl+C interrupts a run; retain that directory, check that
 the child has ended, then relaunch to a new directory. Only a completed
 `status: rehearsed` summary establishes successful local rehearsal.
 
-## A. First-term: CPU validation and timing
+## A. CPU validation and timing
 
 Allow about 2-3 minutes for narration; actual execution is much shorter.
 
@@ -111,7 +110,7 @@ DLLs, and validate the build before the demonstration. Do not reuse an unrelated
 binary by renaming it or install dependencies from the launcher.
 
 Unavailable CUDA/device/runtime or allocation failure: preserve the error and
-failed final summary. The first-term command remains an explicit CPU recovery
+failed final summary. The CPU demonstration command remains an explicit CPU recovery
 flow; historical GPU evidence can be discussed separately. Neither establishes
 a successful live CUDA demonstration. Resolve the actual reported prerequisite
 and retry only when it changes. An interrupted/failed final flow is incomplete,

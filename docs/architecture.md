@@ -129,7 +129,7 @@ Sorting is serial, so only scenario generation is parallel. Details and the
 Windows correctness evidence procedure are in [openmp.md](openmp.md).
 The additive Result metadata records requested/actual threads and _OPENMP.
 
-The first-term CUDA skeleton now connects shared CSV/calibration, device cuRAND
+The initial CUDA skeleton now connects shared CSV/calibration, device cuRAND
 PHILOX normal-double generation for 10000 scenarios, GPU double losses, CUB
 DeviceRadixSort and a device nearest-rank gather through Engine::run. Only scalar
 quantiles and an error flag return to the host; there is no host sorting.

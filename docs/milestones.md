@@ -2,26 +2,22 @@
 
 The staged implementation separates the computational baseline, validation,
 performance analysis and optional extensions. Acceptance conditions are defined
-in [acceptance-source.md](acceptance-source.md). Week numbers identify development
-phases; the dated entries below retain their original checkpoint status.
+in [acceptance-source.md](acceptance-source.md). The entries below retain their
+original technical checkpoint status; they are not current completion claims.
 
-## First-term baseline
+## Foundation and CPU validation
 
-| Weeks | Required outcome | Current state | Completion evidence |
-| --- | --- | --- | --- |
-| 1-4 | Topic, proposal revision and roadmap | Revised scope identified on 2026-10-16 | Numerical and performance criteria recorded in acceptance-source.md |
-| 5-6 | Conventions, hardware/toolchain inventory, CMake/repository/CI, Requirements and Design v1.0 | In progress | One repository, actual CI result, complete inventory and uploaded document |
-| 7-9 | CSV/calibration, analytical reference, serial, five-seed validation | Synthetic serial acceptance archived; local historical integration/calendar verified separately | evidence/v022-validation-20261016; scoped data rights in data-rights-and-calendar.md; not historical full-scale acceptance |
-| 10-11 | OpenMP, common-input validation and thread scaling | Implementation, Windows correctness and CPU scaling baseline complete; limitations recorded | v0.3.0 correctness evidence plus evidence/v030-cpu-scaling-windows-20261016 |
-| 12-13 | GPU walking skeleton through all layers | Connectivity verified early on RTX 4060; capped at N=10000 | evidence/v030-cuda-skeleton-windows-20261016: CSV, device cuRAND/CUB quantile, transfer Events and initial VRAM estimate |
-| 14 | CPU demonstration and interim report | Offline synthetic demo ready; live demonstration and interim delivery not verified | synthetic-demo.md and local calendar/demo test logs; no live demo or submission claim |
+| Required outcome | Recorded state | Completion evidence |
+| --- | --- | --- |
+| CSV/calibration, analytical reference, serial, five-seed validation | Synthetic serial acceptance archived; local historical integration/calendar verified separately | evidence/v022-validation-20261016; scoped data rights in data-rights-and-calendar.md; not historical full-scale acceptance |
+| OpenMP, common-input validation and thread scaling | Implementation, Windows correctness and CPU scaling baseline complete; limitations recorded | v0.3.0 correctness evidence plus evidence/v030-cpu-scaling-windows-20261016 |
+| GPU walking skeleton through all layers | Connectivity verified early on RTX 4060; capped at N=10000 | evidence/v030-cuda-skeleton-windows-20261016: CSV, device cuRAND/CUB quantile, transfer Events and initial VRAM estimate |
 
-The 12-13 week skeleton includes host/device transfer timing and a VRAM capacity
-estimate. No accuracy/performance claim or optimization is required then.
-If only the skeleton is late, complete it early next term and shift the block.
-An unusable GPU environment requires an explicit feasibility review at week 13.
+The initial connectivity prototype includes host/device transfer timing and a
+VRAM capacity estimate. Its scope does not establish full-scale accuracy or
+performance acceptance.
 
-OpenMP correctness was verified early, in academic week 5, at source 05f982e.
+OpenMP correctness was verified at source 05f982e.
 Six Windows ON tests, five OFF tests, common-input agreement and 20 native
 five-seed statistical runs passed. Native thread invariance checks are not
 performance scaling measurements. A subsequent fresh CPU scaling campaign
@@ -37,18 +33,16 @@ H2D/D2H Event measurements and a qualified scratch-inclusive VRAM estimate are
 archived. This closes the requested connectivity task, not full-scale GPU
 acceptance, profiling or performance benchmarking. That historical version retained
 the N=10000 cap; the later full-device scale-up is described in cuda-skeleton.md.
-This early software result does not close the unfinished weeks 5-6 or 7-9 items.
 
-## Second-term baseline
+## GPU evaluation and reproducibility
 
-| Weeks | Required outcome | State |
-| --- | --- | --- |
-| 1-5 | Grow skeleton to full scale, memory/batching, GPU quantile and hybrid fallback | Implementation complete; full-device and explicit bounded-memory hybrid verified from clean source f039034; later acceptance remains separate |
-| 6-7 | Analytical and common-input GPU validation; separate memory/race checks | Both native modes pass five-seed analytical acceptance at 8df5f28; compatible large common-input evidence reused; representative sanitizer matrix passed with documented limits (project-state.md) |
-| 8-10 | Full benchmark campaign against serial and best OpenMP | Primary complete at 89536e3: 312 processes, 24 rows; 10x serial target not met. Separate 18-process stage diagnostics closed at 80148ce; cold-cache kernel-scope DRAM measured and independently audited; documented peak/percentage remains an evidence gap (requirements-audit.md) |
-| 11-12 | Error and convergence analysis | Complete for the fixed synthetic fixture: 80 native observations, 160 estimates, 32 groups; version-2 figures, reproduction, historical/current provenance correction and separate 10M acceptance verified in convergence.md. Five-seed and historical provenance limits remain |
-| 13 | Reproducibility package and requirements revision | Technical entry point and 18-item evidence audit verified in reproducibility.md / requirements-audit.md; local/archive/environment limitations explicit; academic baseline approval/submission unverified |
-| 14 | Final demonstration and technical report | Pending |
+| Required outcome | Recorded state |
+| --- | --- |
+| Grow skeleton to full scale, memory/batching, GPU quantile and hybrid fallback | Implementation complete; full-device and explicit bounded-memory hybrid verified from clean source f039034; later acceptance remains separate |
+| Analytical and common-input GPU validation; separate memory/race checks | Both native modes pass five-seed analytical acceptance at 8df5f28; compatible large common-input evidence reused; representative sanitizer matrix passed with documented limits (project-state.md) |
+| Full benchmark campaign against serial and best OpenMP | Primary complete at 89536e3: 312 processes, 24 rows; 10x serial target not met. Separate 18-process stage diagnostics closed at 80148ce; cold-cache kernel-scope DRAM measured and independently audited; documented peak/percentage remains an evidence gap (requirements-audit.md) |
+| Error and convergence analysis | Complete for the fixed synthetic fixture: 80 native observations, 160 estimates, 32 groups; version-2 figures, reproduction, historical/current provenance correction and separate 10M acceptance verified in convergence.md. Five-seed and historical provenance limits remain |
+| Reproducibility package and requirements revision | Technical entry point and 18-item evidence audit verified in reproducibility.md / requirements-audit.md; local/archive/environment limitations explicit; academic baseline approval/submission unverified |
 
 ## Extensions and scope control
 

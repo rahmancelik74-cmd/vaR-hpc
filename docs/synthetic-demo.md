@@ -1,6 +1,6 @@
 # Reproducible serial/OpenMP synthetic demo
 
-For the separate required first-term and final demonstration flows, including
+For the separate CPU and complete CPU/GPU demonstration flows, including
 focused common-input checks and live CUDA/hybrid, see [live-demos.md](live-demos.md).
 The small recorder-based example below remains available independently.
 

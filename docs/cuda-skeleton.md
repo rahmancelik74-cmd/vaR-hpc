@@ -1,6 +1,6 @@
 # CUDA full-device scale-up
 
-The first-term walking skeleton has been extended to support 1 through
+The initial connectivity prototype has been extended to support 1 through
 10000000 scenarios and 1 through 16 confidence levels, subject to device-memory
 preflight and checked allocations. Application version remains 0.3.0; source
 revision and CUDA milestone metadata identify this change. The Engine interface,
@@ -161,7 +161,7 @@ show any native rounding. The clean-source policy is unchanged. Manifest
 host_sorting_used=false describes full-device; hybrid_host_sorting_used and
 verification_modes explicitly identify the additional host-quantile checks.
 
-The first-term evidence under evidence/v030-cuda-skeleton-windows-20261016 is
+The initial connectivity evidence under evidence/v030-cuda-skeleton-windows-20261016 is
 unchanged and remains capped connectivity evidence, with its historical test
 counts and linear capacity estimate. Current scale-up verification is recorded
 separately in project-state.md. No formal five-seed GPU acceptance, sanitizer

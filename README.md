@@ -54,7 +54,7 @@ Current data rights and local session-date audit:
 [docs/data-rights-and-calendar.md](docs/data-rights-and-calendar.md).
 Small offline serial/OpenMP demonstration:
 [docs/synthetic-demo.md](docs/synthetic-demo.md).
-Required first-term and final live demo launchers, talking points and recovery:
+CPU and GPU demonstration launchers, technical explanations and recovery:
 [docs/live-demos.md](docs/live-demos.md).
 
 The contribution of this project is computational. GBM and VaR provide a
@@ -148,17 +148,15 @@ Calibration uses sample variance with denominator n-1 for n log returns.
 Annual price drift equals annual mean log return plus half the annual variance.
 See `docs/requirements-design.md` for details.
 
-## Initial implementation sequence
+## Computational workflow
 
-1. Complete `docs/environment.md` for the target computer.
-2. Resolve the open decisions in `docs/requirements-design.md`.
-3. Build and test locally; establish the Git repository.
-4. Run CSV/calibration tests locally and complete the data-source contract.
-5. Validate the serial engine against the analytical reference at both
-   confidence levels using five seeds.
-6. Add OpenMP and thread scaling.
-7. In first-term weeks 12-13, connect CSV -> calibration -> GPU/cuRAND -> GPU
-   quantile -> VaR for 10000 scenarios through the same interface.
+1. Validate input observations, provenance and model parameters.
+2. Calibrate annual GBM parameters from log returns outside engine timing.
+3. Evaluate the analytical reference and validate the serial implementation.
+4. Compare backends using common inputs and independent-seed analytical checks.
+5. Execute serial, OpenMP or CUDA through the shared Engine interface.
+6. Report engine wall time, separately scoped stage diagnostics, convergence
+   and reproducibility metadata.
 
 The single-asset implementation is the validation and performance baseline.
 Profiling-driven optimization and multi-asset valuation are separate extensions

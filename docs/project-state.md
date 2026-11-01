@@ -245,13 +245,13 @@ See [the delivery clarification](portfolio.md#published-implementation-and-hoste
 Starting main HEAD was 04a9b5281def039df3bc4b2f3fea43d2f4f70e19; its exact-SHA
 CI run 39508870179 was independently confirmed successful. Only AGENTS.md and
 output/ were untracked and were preserved. The [live demo runbook](live-demos.md)
-and scripts/run-live-demo.ps1 now provide separate first-term CPU validation/
+and scripts/run-live-demo.ps1 now provide separate CPU validation/
 timing and final synthetic calibration-to-serial/OpenMP/full-device/hybrid flows.
 Both use N=100000, seed 42, T=10/252, the existing public synthetic fixture and
 the focused common-input CPU test; no formal campaign was repeated.
 
 Both local rehearsals passed using build-convergence-b5f1a0f-5c4032 Release:
-first-term 0.653092 s and final 0.7234424 s, excluding narration. Final CUDA ran
+CPU flow 0.653092 s and final flow 0.7234424 s, excluding narration. Final CUDA ran
 on RTX 4060 Laptop; hybrid requested 65535, effective 65536, two batches, one
 global host quantile. Command argv/output/exit status/durations, individual JSON,
 hashes and summaries remain ignored under results/live-demo-first-term-20261021-
@@ -794,12 +794,10 @@ Evidence: evidence/v022-serial-benchmark-20261016.
 Power/thermal conditions still need explicit recording for final comparisons.
 OpenMP and CUDA comparisons remain pending.
 
-## Current continuation point: academic week 5
+## Initial integration checkpoint
 
-I identified the current academic week as week 5. The initial CUDA
-compatibility check and hosted CPU CI are complete. This does not close the
-whole weeks 5-6 foundation milestone: the Requirements and Design submission,
-remaining inventory decisions and data provenance still require follow-up.
+The initial CUDA compatibility check and hosted CPU CI were complete at this
+checkpoint. Remaining inventory decisions and data provenance required follow-up.
 Documentation translation was committed in 31fe206. The two translated CTest
 logs identify themselves as English transcriptions and retain the original
 revision and SHA-256; byte-original logs remain available in Git history.
@@ -809,8 +807,7 @@ The serial Release flags are `/O2 /Ob2 /DNDEBUG`, in addition to the common
 flags `/DWIN32 /D_WINDOWS /GR /EHsc`. See environment.md for the recorded
 CMake generator and remaining settings. OpenMP implementation and correctness
 verification and the CPU scaling baseline are complete as recorded below.
-This advances work from the weeks 10-11 block without closing unfinished
-earlier milestones. Later GPU work requires a separately authorized task.
+Numerical validation and performance measurement remain separate evidence.
 
 ## Windows OpenMP correctness milestone: 2026-10-16
 
@@ -850,8 +847,8 @@ not a formal performance benchmark or market validation.
 Hosted CI for the verified source passed both matrix jobs:
 https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341.
 The archive includes job metadata and contiguous CTest log excerpts.
-No CUDA Monte Carlo work or academic submission was prepared. The baseline remains
-the main roadmap; academic week 5 and earlier open milestone items are unchanged.
+No CUDA Monte Carlo implementation was included at this checkpoint; the
+remaining computational baseline and earlier evidence limitations were unchanged.
 
 ## Fresh CPU scaling baseline: 2026-10-16
 
@@ -904,7 +901,7 @@ effects without claiming to eliminate them. See cpu-benchmark.md.
 This completes the requested CPU scaling baseline. Full cross-engine benchmark
 work, real data provenance, earlier foundation decisions and the later GPU
 walking skeleton remain on the baseline. No CUDA engine or submission document was
-started. Academic week remains 5.
+started.
 
 Hosted source-commit CI passed Ubuntu ON/OFF tests and Windows instrumentation
 with all eight CTests plus the recorder smoke campaign:
@@ -953,10 +950,9 @@ cuRAND header 10.4.4.72/runtime 10404 and CUB 300403. DLL versions/hashes are
 recorded separately. The runtime API/header discrepancy is documented without
 substitution. See cuda-skeleton.md for the build, timing and library contract.
 
-The first-term connectivity task is complete; later full-scale GPU acceptance,
-memory/batching, profiling and CPU/GPU benchmarking remain pending. Academic
-week 5, the baseline, earlier foundation/data-provenance gaps and deferred academic
-submissions are unchanged. No requirement IDs or submission documents changed.
+The connectivity task was complete at this checkpoint; full-scale GPU
+acceptance, memory/batching, profiling and CPU/GPU benchmarking remained pending.
+Earlier foundation/data-provenance limitations and requirement IDs were unchanged.
 
 Hosted CPU regression at the verified source passed all three existing jobs:
 https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38934437451.
@@ -1177,13 +1173,11 @@ not be inferred from 69e558b. No benchmark, CUDA expansion or academic deliverab
 was started. The remaining evidence limitation is independent authentication,
 not a provider-response-pending status within the supplied scope.
 
-Next first-term technical step: review the remaining hardware/software inventory
-and timing/acceptance-contract decisions against the approved proposal. The
-Requirements and Design delivery remains outstanding and its authoring stays
-deferred until explicitly requested. Preserve the completed integration and
-calendar work; full-scale CUDA and GPU benchmarking remain later tasks.
+The next technical review was to cover the remaining hardware/software inventory and
+timing/acceptance conditions. Completed integration and calendar checks were
+preserved; full-scale CUDA and GPU benchmarking remained subsequent tasks.
 
-## First-term readiness audit: 2026-10-18
+## Foundation readiness audit: 2026-10-18
 
 Initial main HEAD and remote main both matched
 `8e3a7e1d18ed759b327aef4b3f42b839e57ac363`; tracked files were clean and
@@ -1238,7 +1232,7 @@ The proposal's baseline achieved DRAM GB/s and percentage of documented peak,
 with metric definitions and profiling outside timed samples, remain required.
 The baseline preserves those criteria; the optional extension adds targeted optimization and
 before/after evidence. Stage coverage, aggregation and peak-source selection
-remain explicit term-two reporting decisions, not a reason to delete the
+remain explicit profiling/reporting decisions, not a reason to delete the
 baseline requirement or start optimization now. No fixed bandwidth/GFLOPS target.
 
 Readiness evidence reviewed: serial validation at 33102c4
@@ -1267,13 +1261,10 @@ Documentation checks cover the focused diff, whitespace, ASCII and local links.
 Only these four technical documents and this state file are selected for the
 separate audit commit/push; its CI result is not inferred from 8e3a7e1.
 
-Next first-term step: confirm the existing Requirements and Design delivery
-status and its numbered mapping to this audited contract when that work is
-requested, then the live CPU demonstration/interim delivery. Offline demo
-readiness is not proof of a live demo or academic submission. Full-scale CUDA,
-batching/global hybrid fallback, GPU five-seed and memory/race checks, complete
-CPU/GPU comparisons, baseline bandwidth reporting, convergence and final
-reproducibility/reporting belong to term two. Extensions remain optional.
+Subsequent technical stages comprised full-scale CUDA, batching/global hybrid
+fallback, GPU five-seed and memory/race checks, complete CPU/GPU comparisons,
+baseline bandwidth reporting, convergence and reproducibility. Offline demo
+readiness does not establish a live demonstration. Extensions remain optional.
 
 ## First full-device CUDA scale-up: 2026-10-18
 
@@ -1413,7 +1404,7 @@ Exact-byte SHA-256 values:
 - CUDA CLI: 51493016071b6f6b64eedf46f56e157857c27c2b17f209a07aa060a0a0a9ef97
 - CUDA test executable: f69c60dc3977d7122c18c6b457a05c3eaa36d675039640488a882573f29b0ad0
 
-Previous working-tree and first-term evidence remains unchanged. This is
+Previous working-tree and initial connectivity evidence remains unchanged. This is
 implementation/scale verification with fresh-process native calls, not five-seed
 GPU acceptance, memory/race sanitizer evidence, profiling, formal benchmarking
 or speedup evidence. Batching/hybrid support remains unimplemented. No academic
