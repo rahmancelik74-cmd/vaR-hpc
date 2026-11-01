@@ -397,9 +397,11 @@ used the verified ffff pool and normal priority; actual teams matched requests.
 Windows scheduled threads within the pool; no per-core pinning is established.
 OMP_DYNAMIC and OMP_NESTED were FALSE, other listed binding controls unset.
 
-User declarations: adapter connected, unobstructed intakes (surface unknown),
-built-in cooling, no external pad reported, vendor performance/fan modes unknown,
-GPT/Codex open. Approximately 15 C ambient was an estimate without an instrument.
+Manually reported conditions: adapter connected, unobstructed intakes (surface unknown),
+built-in cooling, no external pad reported, vendor performance/fan modes unknown.
+Other interactive applications remained open during measurement. Approximately
+15 C ambient was an estimate without an instrument. The original application
+identities remain in the [archived session declarations](../evidence/v030-primary-benchmark-windows-20261019/session-report.md).
 Measured AC connection, saver and active power scheme remained stable. The
 two-minute pre-window had 25 points spanning 119.999651 s; the thirty-second
 post-window had 7 points spanning 30.0151721 s. Preflight produced a

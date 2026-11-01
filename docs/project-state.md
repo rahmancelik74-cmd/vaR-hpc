@@ -421,7 +421,8 @@ figure rendering, profiling campaign, optimization or overall completion is clai
 ## DRAM baseline collected and public relocation checked: 2026-10-20
 
 At inspection base 663fcc3086c1d752cb2f18218cf73ca188832847, counter access
-succeeded after the user's reported external change. Exactly two profiles of
+succeeded after a manually reported external configuration change. Exactly two
+profiles of
 the hash-verified primary-benchmark CUDA binary completed, N=10000000/seed42:
 full-device 14 kernels and hybrid 307 kernels, one collection pass per kernel,
 no additional replays or profiler warmups. Kernel-scope ratio-of-sums DRAM rates
@@ -1097,7 +1098,7 @@ claim of clean-commit testing or a new CUDA execution result.
 Only calendar/demo code, tests and related documentation are selected for Git
 recording. Local AGENTS.md, output/, provider data and derived local results
 remain excluded. Engines, acceptance criteria and the CUDA cap are unchanged.
-The user reports that the provider has not replied to the permission request;
+At this checkpoint, I had received no reply to the permission request;
 final research/sharing rights remain unresolved. Full-scale CUDA acceptance,
 GPU benchmarking and academic authoring remain pending.
 
@@ -1125,8 +1126,8 @@ in the preceding review. Hosted CPU success is not local RTX execution,
 full-scale CUDA acceptance or a performance benchmark. This follow-up changes
 only this state document; `git diff --check` is the relevant local check.
 
-The user reports no Kibot permission response; final research, academic sharing
-and publication rights remain open. Next data step is to review a provider
+At this checkpoint, I had received no Kibot permission response; final research,
+academic sharing and publication rights remained open. Next data step is to review a provider
 response when available, without treating evaluation access as research or
 redistribution permission. Completed historical integration was not repeated.
 No restricted data/results, local AGENTS.md or output/ are selected for commit.
@@ -1156,8 +1157,8 @@ documentation and outside reviews, provided they contain no raw data. Raw
 prices may not be resold or redistributed. Acquisition methods, guest API
 requests and scripts may be described without price data; attribution is optional.
 
-The reply was accessible through connected Gmail and consistent with the user's
-supplied scope. A raw RFC 2822 mailbox export, including sender/date headers and
+The mailbox copy was inspected and found consistent with the recorded
+permission scope. A raw RFC 2822 mailbox export, including sender/date headers and
 attachment bytes, was preserved outside the repository at
 `../private-evidence/kibot-permission-20261018/provider-reply.eml`, with
 `archive-metadata.json` recording provenance and its exact-byte hash. This is

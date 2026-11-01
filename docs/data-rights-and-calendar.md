@@ -5,13 +5,13 @@ already complete. No acquisition, calibration, model or engine setting changed.
 
 ## Current permission scope: privately archived correspondence, 2026-10-18
 
-I supplied the archived Kibot reply permitting the following project-specific uses.
-Its contents were also read through the connected Gmail mailbox and match the
-supplied scope. This is provider correspondence supplied by the user, not an
-independently authenticated email or a general change to the published license.
+The privately archived Kibot reply records permission for the project-specific
+uses below. The mailbox export preserves the original message and headers;
+sender identity and authority have not been independently authenticated. This
+correspondence does not constitute a general change to the published license.
 
 - Guest-downloaded data may be retained and used for final academic experiments
-  for the user's own internal use on the two computers normally used.
+  for my own internal use on the two computers normally used.
 - Raw prices may not be resold or redistributed. Raw and converted observations
   remain private in ignored data/local; no price dataset is included in Git.
 - Derived statistics, calibration parameters, VaR estimates and charts may be

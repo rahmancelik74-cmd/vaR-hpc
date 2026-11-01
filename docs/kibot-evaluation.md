@@ -7,8 +7,8 @@ numerical engine or requirement ID. One share, ten trading days and 252
 observations/year remain working settings.
 
 Permission update, 2026-10-18: privately archived provider correspondence now permits
-retention and final academic experiments for the user's internal use on their
-two normally used computers, and sharing derived statistics, calibration
+retention and final academic experiments for my internal use on the
+two computers I normally use, and sharing derived statistics, calibration
 parameters, VaR estimates and charts without raw data in academic/public
 deliverables and outside reviews. Raw prices may not be resold or redistributed.
 Acquisition methods, guest requests and scripts may be described without price
