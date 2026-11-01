@@ -1,5 +1,20 @@
 # Project state
 
+## Portable delivery closeout: 2026-11-01
+
+The runnable CPU preview is published at
+[portable-cpu-v1-preview](https://github.com/rahmancelik74-cmd/vaR-hpc/releases/tag/portable-cpu-v1-preview).
+Its ZIP remains the unchanged ab184ae913e52d9b41deadc9b0df316a4b189b55 artifact.
+Later direct Windows VM GUI checks covered startup, single/portfolio CPU runs,
+JSON/CSV contents, input rejection/recovery, stale-download invalidation and
+native Stop with endpoint shutdown. The user separately reported cancellation
+with no results/downloads and successful subsequent analysis, plus no Anaconda
+entry in Installed apps. Cancellation notice visibility remains a reported
+usability limit; the automatic guest inventory/clean-system harness was not run.
+See [the precise evidence boundaries](windows-portable.md#windows-vm-follow-up-2026-11-01).
+This is a documentation closeout of the local CPU preview, not full clean-machine
+certification, public hosting or overall academic/project completion.
+
 ## Local browser application: 2026-10-30
 
 The [portable CPU distribution](windows-portable.md) adds an app-local embedded

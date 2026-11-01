@@ -1,13 +1,17 @@
 # Windows portable CPU distribution
 
-Recipients download the successful `windows-portable` job's **mc-lab-portable-cpu-<SHA>**
-GitHub Actions artifact ZIP, extract its complete contents to a local folder, and
+Recipients download the runnable ZIP from the
+[Windows portable CPU preview release](https://github.com/rahmancelik74-cmd/vaR-hpc/releases/tag/portable-cpu-v1-preview),
+extract its complete contents to a local folder, and
 double-click **Start Monte Carlo Lab.exe**. The native stop window remains open;
 use **Stop application** or close that window to stop. **Open data / logs folder**
 locates the per-user files. Closing the browser tab alone does not stop it.
 There is no installer, background Windows service, startup registration or public
-hosting. No Release/tag is created. Actions downloads may require GitHub sign-in
-and expire after the configured 30-day retention period.
+hosting. The release asset is the sharing link; GitHub's generated source
+archives are not the runnable application. Actions artifacts remain an alternative
+that may require GitHub sign-in and expire after 30 days. The release ZIP is
+8,634,588 bytes, built from ab184ae913e52d9b41deadc9b0df316a4b189b55;
+SHA-256: 3e6836f8c50936b87480b9488559d5326bfc5872d49fc8d06a9248c4c40b3b77.
 
 ## Requirements and scope
 
@@ -122,11 +126,50 @@ and forced-launcher-exit cleanup with OS process inspection. Owned test requests
 are bounded and are not research campaigns. The Windows CI job repeats these
 checks and retained CPU regressions, then uploads only the portable resources.
 A hosted Windows Server runner is a different execution host, not a fresh
-consumer installation. No disposable clean Windows VM is available through the
-current executor. A default-browser dispatch check is distinct from seeing the
-page: current browser automation has no enabled surface and IAB is unavailable,
-so packaged UI rendering and clicking the native stop button remain unverified
-visually. Existing application browser observations do not substitute for this.
+consumer installation. At the original packaging checkpoint, no disposable
+consumer VM or browser surface was available to that executor; packaged rendering
+and native Stop clicking were then unverified visually. These historical limits
+are superseded only for the specific later VM observations below. Automated
+checks, direct GUI observations and user reports remain distinct evidence.
+
+## Windows VM follow-up (2026-11-01)
+
+The unchanged published CPU ZIP was exercised in a Windows 11 VM after the
+user completed Windows/browser setup. Direct GUI observations covered extracted
+package startup, synthetic single-asset and two-asset serial/OpenMP analyses,
+JSON/CSV contents, concise missing-file rejection, valid-analysis recovery and
+invalidation of prior results/download controls after a rejected replacement.
+The native Stop application button closed the launcher; reloading the actual
+former application endpoint returned connection refused. This is an endpoint
+observation, not a new complete OS process-tree inspection.
+
+The controlled example runs used 100000 scenarios, seed 42 and a 10-trading-day
+horizon; the comparison used four OpenMP threads. Initial values were 101 USD
+and 265 USD. Export inspection retained unrounded values, negative portfolio
+VaR and unavailable general-portfolio analytical references. These bounded GUI
+checks are not formal benchmarks or statistical acceptance campaigns.
+
+The user separately reported requesting cancellation during an approximately
+2.4-second run: no completed result or JSON/CSV buttons remained, and a new
+100000-scenario analysis subsequently produced a result table. These are
+user-reported observations, not executor-observed cancellation timing or OS
+cleanup. The user did not see a cancellation message. The controller contains
+a cancellation notice in the page-level notice area, which may be outside the
+current viewport; notice visibility in that reported interaction remains a
+usability limitation. Do not infer the exact terminal job state from the empty
+results panel alone.
+
+The user reported that Anaconda was absent from Windows Installed apps. A
+Start-menu shortcut alone does not establish an installed runtime. This is not
+a complete development-tool inventory: the prepared private guest inventory
+and automated clean-system harness were not run. Therefore the VM follow-up
+does not establish all clean-consumer acceptance checks. Full responsive,
+keyboard and assistive-technology coverage is also not claimed. Intermittent
+VM display/input stalls were observed without an established root cause.
+
+The archive remains a preview with its documented platform, path, calendar,
+model and security-policy limits. The original unsigned ZIP and checksum are
+unchanged; no private VM files, provider data or academic artifacts are included.
 
 ## Primary redistribution/implementation references
 

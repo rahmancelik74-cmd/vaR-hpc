@@ -294,3 +294,14 @@ tab and did not perform direct visual verification. The separate session later
 reproduced the corrected minimum-observation error at desktop and narrow widths;
 the current-status summary above records that observation and its limits.
 HTTP/controller tests remain distinct from browser verification.
+
+## Portable delivery follow-up (2026-11-01)
+
+The [portable preview guide](windows-portable.md#windows-vm-follow-up-2026-11-01)
+records later Windows VM GUI checks and separately attributed user cancellation/
+recovery observations. The runnable release asset is available from that guide.
+The reported cancellation interaction did not show a visible notice; the
+controller's page-level notice is not proof that it was in the user's viewport.
+The automated guest development-tool inventory and full clean-system acceptance
+remain unverified. This documentation follow-up does not rebuild the ZIP or
+change engine behavior, research evidence or academic-delivery status.
