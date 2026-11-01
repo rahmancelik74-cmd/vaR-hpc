@@ -1,4 +1,5 @@
 name: CPU build and tests
+run-name: CPU validation - ${{ github.ref_name }}
 on: [push, pull_request]
 jobs:
   cpu:
