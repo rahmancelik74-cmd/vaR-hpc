@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
         std::string cuda_mode = "full-device";
         std::size_t batch_size = 0;
         bool cuda_mode_seen = false, batch_seen = false;
-        bool diagnostics = false;
+        bool diagnostics = false, cpu_diagnostics = false;
         bool backend_seen = false, threads_seen = false;
         bool quantity_seen = false;
         double quantity = 1.0;
@@ -62,6 +62,9 @@ int main(int argc, char** argv) {
                 backend = argv[++i];
                 if (backend != "serial" && backend != "openmp" && backend != "cuda")
                     throw std::invalid_argument("Backend must be serial, openmp or cuda");
+            } else if (option == "--cpu-diagnostics") {
+                if (cpu_diagnostics) throw std::invalid_argument("Duplicate --cpu-diagnostics");
+                cpu_diagnostics = true;
             } else if (option == "--cuda-diagnostics") {
                 if (diagnostics) throw std::invalid_argument("Duplicate --cuda-diagnostics");
                 diagnostics = true;
@@ -95,6 +98,8 @@ int main(int argc, char** argv) {
                 positional.push_back(argv[i]);
             }
         }
+        if (cpu_diagnostics && (backend == "cuda" || !json_mode))
+            throw std::invalid_argument("--cpu-diagnostics requires a CPU backend and --json");
         if (threads_seen && backend != "openmp")
             throw std::invalid_argument("--threads requires the openmp backend");
         if ((cuda_mode_seen || batch_seen || diagnostics) && backend != "cuda")
@@ -115,11 +120,12 @@ int main(int argc, char** argv) {
         const bool portfolio_mode = argc > 1 && std::string(argv[1]) == "--portfolio";
         if (quantity_seen && !csv_mode)
             throw std::invalid_argument("--quantity requires --csv");
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --portfolio file [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --quantity positive_number (CSV only) --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output)";
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --portfolio file [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --quantity positive_number (CSV only) --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output) --cpu-diagnostics (CPU only; requires --json)";
         if ((!csv_mode && !portfolio_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)) ||
             (portfolio_mode && (argc < 3 || argc > 5)))
             throw std::invalid_argument(usage);
         mc::Request request;
+        request.cpu_diagnostics = cpu_diagnostics;
         const int first = (csv_mode || portfolio_mode) ? 3 : 1;
         if (argc > first) {
             const auto n = positive_integer(argv[first]);

@@ -40,6 +40,8 @@ Result OpenMPEngine::run(const Request& r, const std::vector<double>* common) co
         throw std::invalid_argument("Scenario count too large");
     const auto start = std::chrono::steady_clock::now();
     Result result;
+    using Clock = std::chrono::steady_clock;
+    Clock::time_point generated_begin{}, generated_end{}, sorted_end{}, quantile_end{};
     {
         result.backend = "openmp";
         result.random_source = common ? "common-host-inputs" :
@@ -49,6 +51,7 @@ Result OpenMPEngine::run(const Request& r, const std::vector<double>* common) co
         std::vector<double> losses(r.scenarios);
         std::exception_ptr failure;
         const int team_size = requested_threads_ ? requested_threads_ : omp_get_max_threads();
+        if (r.cpu_diagnostics) generated_begin = Clock::now();
         // Signed canonical loop and critical/single work with MSVC OpenMP 2.0.
 #pragma omp parallel num_threads(team_size)
         {
@@ -80,12 +83,23 @@ Result OpenMPEngine::run(const Request& r, const std::vector<double>* common) co
         }
         if (failure) std::rethrow_exception(failure);
         // Only generation is parallel. Quantiles currently use serial sorting.
+        if (r.cpu_diagnostics) generated_end = Clock::now();
         std::sort(losses.begin(), losses.end());
+        if (r.cpu_diagnostics) sorted_end = Clock::now();
         for (double c : r.confidence_levels)
             result.estimates.push_back({c, sorted_quantile(losses, c)});
+        if (r.cpu_diagnostics) quantile_end = Clock::now();
     }
-    result.end_to_end_ms = std::chrono::duration<double, std::milli>(
-        std::chrono::steady_clock::now() - start).count();
+    const auto end = Clock::now();
+    result.end_to_end_ms = std::chrono::duration<double, std::milli>(end - start).count();
+    if (r.cpu_diagnostics) {
+        const auto ms = [](Clock::duration value) {
+            return std::chrono::duration<double, std::milli>(value).count();
+        };
+        result.cpu_diagnostics = CpuDiagnostics{ms(generated_begin-start),
+            ms(generated_end-generated_begin), ms(sorted_end-generated_end),
+            ms(quantile_end-sorted_end), ms(end-quantile_end)};
+    }
     return result;
 }
 } // namespace mc

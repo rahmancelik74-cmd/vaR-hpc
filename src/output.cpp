@@ -108,6 +108,16 @@ void write_run_json(std::ostream& output, const Request& r,
         << ",\"openmp_version\":" << result.openmp_version;
     out << ",\"cuda\":";
     if (result.cuda) cuda_metadata(out, *result.cuda); else out << "null";
+    if (result.cpu_diagnostics) {
+        const auto& d = *result.cpu_diagnostics;
+        out << ",\"cpu_diagnostics\":{\"schema_version\":1,\"enabled\":true";
+        out << ",\"setup_ms\":"; number(out, d.setup_ms);
+        out << ",\"generation_ms\":"; number(out, d.generation_ms);
+        out << ",\"sorting_ms\":"; number(out, d.sorting_ms);
+        out << ",\"quantile_ms\":"; number(out, d.quantile_ms);
+        out << ",\"cleanup_ms\":"; number(out, d.cleanup_ms);
+        out << ",\"scope\":\"Contiguous steady-clock host intervals inside the unchanged primary boundary; setup includes result metadata, zero-initialized loss allocation and serial RNG setup; generation includes native RNG, loss calculation, OpenMP team/join and exception check; sorting is serial std::sort; quantile includes rank lookup and estimate append; cleanup includes buffer/RNG destruction. Diagnostic clock overhead is included; not primary campaign samples.\"}";
+    }
     // Strings avoid precision loss for uint64 seeds in JSON consumers.
     out << ",\"scenarios\":" << r.scenarios << ",\"seed\":\"" << r.seed << '"';
     out << ",\"input_mode\":\"" << (r.portfolio ? "portfolio" : (csv ? "csv_calibration" : "fixed_parameter_demo")) << '"';

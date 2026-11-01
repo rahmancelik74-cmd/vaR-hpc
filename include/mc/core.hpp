@@ -20,6 +20,7 @@ struct Request {
     std::vector<double> confidence_levels{0.95, 0.99};
     // Optional borrowed portfolio, immutable for the duration of Engine::run.
     const Portfolio* portfolio = nullptr;
+    bool cpu_diagnostics = false; // Opt-in host stage clocks; no numerical changes.
 };
 struct Estimate { double confidence; double var; };
 struct CudaDiagnostics {
@@ -44,6 +45,10 @@ struct CudaMetadata {
     std::size_t total_vram_bytes = 0, free_before_bytes = 0, free_with_pipeline_bytes = 0;
     std::size_t allocation_budget_limit_bytes = 0;
 };
+struct CpuDiagnostics {
+    double setup_ms = 0, generation_ms = 0, sorting_ms = 0;
+    double quantile_ms = 0, cleanup_ms = 0;
+};
 struct Result {
     std::string backend;
     std::string random_source;
@@ -53,6 +58,7 @@ struct Result {
     int threads_used = 1;
     int openmp_version = 0; // _OPENMP date value; zero for serial.
     std::optional<CudaMetadata> cuda;
+    std::optional<CpuDiagnostics> cpu_diagnostics;
 };
 // A backend owns RNG, buffers, simulation, quantile and synchronization.
 // No per-scenario CPU callback and no mandatory host loss vector.

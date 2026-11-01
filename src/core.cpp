@@ -70,12 +70,15 @@ Result SerialEngine::run(const Request& r, const std::vector<double>* common) co
     // destruction are included. CLI printing and input parsing are excluded.
     const auto start = std::chrono::steady_clock::now();
     Result result;
+    using Clock = std::chrono::steady_clock;
+    Clock::time_point generated_begin{}, generated_end{}, sorted_end{}, quantile_end{};
     {
         result.backend = "serial";
         result.random_source = common ? "common-host-inputs" : "mt19937_64/std::normal_distribution";
         std::vector<double> losses(r.scenarios);
         std::mt19937_64 rng(r.seed);
         std::normal_distribution<double> normal(0.0, 1.0);
+        if (r.cpu_diagnostics) generated_begin = Clock::now();
         for (std::size_t i = 0; i < r.scenarios; ++i) {
             if (r.portfolio) {
                 double epsilon[5];
@@ -84,12 +87,23 @@ Result SerialEngine::run(const Request& r, const std::vector<double>* common) co
                 losses[i] = portfolio_loss(portfolio, epsilon);
             } else losses[i] = scenario_loss(r.model, common ? (*common)[i] : normal(rng));
         }
+        if (r.cpu_diagnostics) generated_end = Clock::now();
         std::sort(losses.begin(), losses.end());
+        if (r.cpu_diagnostics) sorted_end = Clock::now();
         for (double c : r.confidence_levels)
             result.estimates.push_back({c, sorted_quantile(losses, c)});
+        if (r.cpu_diagnostics) quantile_end = Clock::now();
     }
-    result.end_to_end_ms = std::chrono::duration<double, std::milli>(
-        std::chrono::steady_clock::now() - start).count();
+    const auto end = Clock::now();
+    result.end_to_end_ms = std::chrono::duration<double, std::milli>(end - start).count();
+    if (r.cpu_diagnostics) {
+        const auto ms = [](Clock::duration value) {
+            return std::chrono::duration<double, std::milli>(value).count();
+        };
+        result.cpu_diagnostics = CpuDiagnostics{ms(generated_begin-start),
+            ms(generated_end-generated_begin), ms(sorted_end-generated_end),
+            ms(quantile_end-sorted_end), ms(end-quantile_end)};
+    }
     return result;
 }
 } // namespace mc

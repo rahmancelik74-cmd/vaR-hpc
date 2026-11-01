@@ -97,6 +97,9 @@ if(BUILD_TESTING)
       add_test(NAME portfolio_historical_calibration COMMAND "${Python3_EXECUTABLE}" -B -m unittest
         discover -s "${CMAKE_CURRENT_SOURCE_DIR}/tests" -p test_portfolio_calibration.py -v)
     endif()
+    add_test(NAME cpu_stage_diagnostics COMMAND "${Python3_EXECUTABLE}"
+      "${CMAKE_CURRENT_SOURCE_DIR}/tests/check_cpu_diagnostics.py" "$<TARGET_FILE:mc_var>"
+      "${CMAKE_CURRENT_SOURCE_DIR}" "${MC_ENABLE_OPENMP}")
     add_test(NAME portfolio_independent_moments COMMAND "${Python3_EXECUTABLE}"
       "${CMAKE_CURRENT_SOURCE_DIR}/tests/check_portfolio_moments.py" "$<TARGET_FILE:mc_portfolio_tests>")
   endif()
