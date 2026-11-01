@@ -93,3 +93,23 @@ and normal priority, and retains every slow sample. No settings are changed.
 Competing applications, per-core placement, temperature, cooling and thermal
 equilibrium are not controlled or inferred. Failures remain in the attempt
 directory and stop the campaign.
+
+## Measured results: 2 November 2026
+
+Source `08d7b89b4c03c567be6ca96ab473f1ca6c695e79`; MSVC 19.44.35227.0, C++17 Release /O2 /Ob2 /DNDEBUG, Windows x64 on Intel Core i7-12650H. The [full-precision aggregate](quantile-selection-summary.json) records the binary/input hashes, all means and sample SDs, scope, conditions and five-seed values. Raw process and machine records remain private under ignored `results/quantile-selection-20261102/`.
+
+| Scenarios | Sort + lookup (ms, mean +/- sample SD) | Selection (ms, mean +/- sample SD) | Stage speedup |
+| ---: | ---: | ---: | ---: |
+| 100000 | 6.08379 +/- 0.22010 | 0.97400 +/- 0.09047 | 6.24619x |
+| 1000000 | 73.60622 +/- 3.84345 | 8.57179 +/- 0.55653 | 8.58703x |
+| 10000000 | 839.31637 +/- 22.86605 | 76.27798 +/- 3.55137 | 11.00339x |
+
+All 78 timed processes completed: 18 warm-ups and 60 retained measurements, no failures or removed slow samples. Loss fingerprints and both quantiles match exactly for every size, method and repetition. The values also match the archived serial-native VaRs from the earlier CPU stage campaign at all three N values. Five independent seeds at 10M match the actual serial engine exactly and meet the unchanged analytical criterion at both confidence levels. Common-input serial and OpenMP 1/2/4/8/10 agree with selection, and borrowed normals are unchanged.
+
+At 10M the measured quantile stage is 11.00339x faster. This is not an end-to-end engine, application or GPU speedup. The next integration question is whether replacing the bottleneck yields a meaningful total-time improvement with matched fresh baselines; no production substitution or such total-time campaign has occurred.
+
+Local Release CTest: OpenMP/tools 25/25, serial 21/21. The latest validation-output change also passed the two focused OpenMP selection tests. Independent raw-record auditing passed:
+
+```powershell
+python -B scripts/verify_quantile_selection.py results/quantile-selection-20261102
+```

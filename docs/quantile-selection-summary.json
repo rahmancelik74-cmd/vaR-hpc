@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "measurement_date_local": "2026-11-02",
+  "timezone": "Europe/Istanbul",
+  "source_revision": "08d7b89b4c03c567be6ca96ab473f1ca6c695e79",
+  "scope": "quantile-stage-only",
+  "executable_sha256": "d81195e861be8873a34ba57be876cda22d0ce1bc21523a5dacab87bcdee463a0",
+  "input_sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+  "raw_integrity_manifest_sha256": "d8d9455164eb81a5e57a01b33bed1e0bdf2f6a76aec4ed4c6ca8ef065c3eff04",
+  "hardware": "Intel Core i7-12650H; Windows x64",
+  "compiler": "MSVC 19.44.35227.0; C++17 Release /O2 /Ob2 /DNDEBUG",
+  "warmups_per_configuration": 3,
+  "measurements_per_configuration": 10,
+  "timed_processes": 78,
+  "method_order": "Alternated sort/nth and scenario count order by repetition",
+  "scope_includes": "Full sort + rank lookup + result vector allocation OR rank planning + suffix nth_element + result vector allocation",
+  "scope_excludes": "CSV calibration, allocation of loss vector, RNG/loss generation, fingerprint, process startup, output, loss-buffer cleanup",
+  "conditions": "Interactive host; competing applications uncontrolled; temperature, cooling and thermal equilibrium unknown",
+  "process_policy": "Full inherited processor pool, normal priority; no per-core pinning; no power changes",
+  "summary": [
+    {
+      "scenarios": 100000,
+      "input_loss_fnv1a64": "7b442589bc04c376",
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "var": 6.127831960595655
+        },
+        {
+          "confidence": 0.99,
+          "var": 8.715280766653551
+        }
+      ],
+      "sort_mean_ms": 6.08379,
+      "sort_sample_sd_ms": 0.22010169593975323,
+      "nth_mean_ms": 0.974,
+      "nth_sample_sd_ms": 0.0904706950712034,
+      "stage_speedup_ratio_of_means": 6.246190965092402
+    },
+    {
+      "scenarios": 1000000,
+      "input_loss_fnv1a64": "674b511581059558",
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "var": 6.14036583545171
+        },
+        {
+          "confidence": 0.99,
+          "var": 8.714664324699214
+        }
+      ],
+      "sort_mean_ms": 73.60622000000001,
+      "sort_sample_sd_ms": 3.8434520001339094,
+      "nth_mean_ms": 8.57179,
+      "nth_sample_sd_ms": 0.5565262466606785,
+      "stage_speedup_ratio_of_means": 8.587030246891256
+    },
+    {
+      "scenarios": 10000000,
+      "input_loss_fnv1a64": "8d07567f1f7b4a45",
+      "estimates": [
+        {
+          "confidence": 0.95,
+          "var": 6.145819544400652
+        },
+        {
+          "confidence": 0.99,
+          "var": 8.718646637352794
+        }
+      ],
+      "sort_mean_ms": 839.31637,
+      "sort_sample_sd_ms": 22.86605372478067,
+      "nth_mean_ms": 76.27798,
+      "nth_sample_sd_ms": 3.5513658667554306,
+      "stage_speedup_ratio_of_means": 11.003390100262225
+    }
+  ],
+  "validation": {
+    "validation": "passed",
+    "native_seeds": [
+      42,
+      123,
+      456,
+      789,
+      2026
+    ],
+    "native_scenarios": 10000000,
+    "analytical_acceptance_checked": true,
+    "mean_var95": 6.143837099645686,
+    "mean_var99": 8.717583710577538,
+    "initial_value": 100.4,
+    "analytical_var95": 6.143576939418958,
+    "analytical_var99": 8.715446716200947,
+    "native_values": [
+      [
+        6.145819544400652,
+        8.718646637352794
+      ],
+      [
+        6.141989292249945,
+        8.719191556178048
+      ],
+      [
+        6.1425947733582245,
+        8.72143488684077
+      ],
+      [
+        6.144608627813424,
+        8.716786558225909
+      ],
+      [
+        6.144173260406186,
+        8.711858914290168
+      ]
+    ],
+    "common_input_scenarios": 10003,
+    "common_var95": 6.116332309112559,
+    "common_var99": 8.756725960055851,
+    "common_openmp_threads": [
+      1,
+      2,
+      4,
+      8,
+      10
+    ],
+    "exact_equality": true,
+    "common_inputs_unchanged": true
+  },
+  "raw_observations_public": false
+}
