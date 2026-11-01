@@ -1,5 +1,15 @@
 # Project state
 
+## CPU stage follow-up: 2026-11-01
+
+Opt-in host stage clocks preserve the numerical algorithm and default schema.
+A separate 234-process synthetic CPU diagnostic (54 warm-ups, 180 measurements)
+and independent local arithmetic/hash audit are complete; raw records remain private. Serial sorting dominates
+the measured pipeline; at 10M/OpenMP 10 it used 862.65182 of 929.58113 ms
+(92.800%), while generation used 47.99057 ms. No sorting optimization or new
+GPU benchmark occurred. See [stage definitions and evidence](cpu-stage-diagnostics.md).
+Historical tables remain unchanged; no academic artifact is stored here.
+
 ## MIT and signing preparation: 2026-11-01
 
 The owner approved the [MIT License](../LICENSE). New portable builds include

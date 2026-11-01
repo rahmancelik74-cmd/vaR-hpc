@@ -47,3 +47,49 @@ serial fraction inferred from speedup is not a measured sorting fraction.
 Hybrid GPU host sorting and full-device CUDA diagnostics have separate scopes.
 Do not combine these new CPU diagnostic samples with old GPU campaign times
 to claim a fresh speedup or retrospectively revise the October CPU table.
+
+## Recorded follow-up: 2026-11-01
+
+Source e06c53acdaaccfb6cc2b5a0d17b03f3192d755ce, Windows x64, Intel
+Core i7-12650H, MSVC 19.44 Release /O2, ten physical/16 logical processors.
+This separate diagnostic retained 234 processes across 18 configurations:
+54 excluded warm-ups and 180 measurements. Every configured run completed;
+no slow sample was removed. Full stage means/SDs and raw records are retained
+privately; this public page contains aggregate results only.
+
+The table covers N=10000000; each row has ten measured processes. Setup and
+cleanup are included in total time but omitted from this compact table.
+
+| Backend / workers | Generation mean ms | Sorting mean ms | Rank lookup mean ms | Total mean ms | Total sample SD ms | Sort share |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Serial | 231.37693 | 843.92291 | 0.00406 | 1094.29371 | 8.86439 | 77.120% |
+| OpenMP 1 | 228.31902 | 840.45743 | 0.00382 | 1088.11640 | 12.22755 | 77.240% |
+| OpenMP 2 | 117.50103 | 840.46045 | 0.00428 | 976.96958 | 14.47359 | 86.027% |
+| OpenMP 4 | 73.07110 | 848.80410 | 0.00406 | 942.74788 | 24.33601 | 90.035% |
+| OpenMP 8 | 53.68361 | 852.84625 | 0.00403 | 926.57915 | 18.78312 | 92.042% |
+| OpenMP 10 | 47.99057 | 862.65182 | 0.00654 | 929.58113 | 19.66414 | 92.800% |
+
+Generation scaled 4.75758x from one to ten OpenMP workers, while total time
+scaled 1.17054x. Serial sorting dominated: 92.800% of the ten-worker total.
+The nearest-rank lookup/appends after sorting took only 0.00654 ms. This is a
+measured stage attribution, unlike an Amdahl fraction inferred from speedup.
+The 4/8/10 total means are close relative to sample variability; eight workers
+had the lowest mean here, not a universally established optimum.
+
+Each suspended child had its full process affinity pool verified and normal
+priority. There was no per-worker physical-core pinning. AC, battery-saver and
+power-scheme observations stayed consistent. No system settings were changed.
+Other interactive applications were not controlled; browser/VM activity may
+have remained. Temperatures, cooling, actual turbo clocks and thermal equilibrium
+were not measured or established. Diagnostic clock overhead remains included.
+
+An independent local audit recomputed all stage sums, means/sample SDs, CSV
+values, phase/repetition coverage, native OpenMP thread invariance and exact-byte
+hashes. Local CPU/probe CTests passed 23/23. The source commit's
+[exact-SHA CI](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/41348052308)
+passed 4/4; hosted CI validates contracts/builds, not these laptop timings.
+
+These diagnostic samples do not replace historical primary timings. No sorting
+optimization or new GPU benchmark ran. Do not combine this CPU table with old
+GPU times to claim a new speedup. No raw local logs or academic documents are
+included in this aggregate update.
