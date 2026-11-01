@@ -2,8 +2,6 @@
 
 Abdurrahman Celik - application v0.3.0, 16 October 2026.
 
-I developed this project to evaluate the numerical correctness, reproducibility
-and performance of serial C++, OpenMP and CUDA Monte Carlo implementations.
 
 I developed this project to evaluate the numerical correctness, reproducibility
 and performance of serial C++, OpenMP and CUDA Monte Carlo implementations.
