@@ -44,7 +44,7 @@ separate steps; a workflow file alone is not evidence of successful CI.
 
 ## Evidence
 
-evidence/serial_validation.csv transcribes the student's pasted results.
+evidence/serial_validation.csv contains a transcription of terminal results.
 The same per-run time appears on both confidence-level rows; do not sum those
 times as if each row were a separate run. Results are validation data, not an
 official performance campaign. No C++ computation was changed in this update.

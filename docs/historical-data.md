@@ -22,7 +22,7 @@ explicit unadjusted format, restricted license and local-only workflow.
 Subsequent verified state: genuine local integration is complete. The current
 rights review and separate session-date audit are documented in
 [data-rights-and-calendar.md](data-rights-and-calendar.md). As of 2026-10-18,
-user-supplied provider correspondence permits final academic experiments for
+privately archived provider correspondence permits final academic experiments for
 internal use on the user's two normally used computers and sharing derived
 results without raw data. Raw-price resale/redistribution remains prohibited.
 The original mailbox export and sender/date metadata are archived outside the

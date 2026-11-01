@@ -17,8 +17,8 @@ unchanged; no combined 99% claim is made. Engines and their observations did
 not change. Historical calibration and portfolio hybrid are now separate extensions; those
 reference results do not establish their acceptance.
 
-This extension is separate from Plan A and all existing FR-1..FR-9/NFR-1..NFR-9
-criteria. No market data, advisor approval or academic delivery is implied.
+This extension is separate from the baseline and all existing FR-1..FR-9/NFR-1..NFR-9
+criteria. Neither market-data validation nor academic delivery is implied.
 
 The subsequent [portfolio campaign](portfolio-campaign.md) evaluates independent
 native-RNG VaR/convergence and formal portfolio timing under a separately frozen
@@ -206,9 +206,9 @@ The Windows/OpenMP/RTX results above remain separate local validation evidence.
 
 The unchanged [original evidence package](../evidence/portfolio-extension-20261025/README.md)
 and its [validation summary](../evidence/portfolio-extension-20261025/validation-summary.json)
-describe their preparation time, when the executor could not create
+describe their preparation time, when the preparation session could not create
 `.git/index.lock` and delivery was blocked. Their failure records, raw logs and
 hashes are preserved; those historical statements are superseded for current
 delivery status by the published commit and CI links above. Publication and
 CPU CI do not establish general portfolio VaR statistical acceptance, a formal
-performance result, wider sanitizer coverage, advisor approval or academic delivery.
+performance result, wider sanitizer coverage or academic delivery.

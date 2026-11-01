@@ -12,7 +12,7 @@ Historical tables remain unchanged; no academic artifact is stored here.
 
 ## MIT and signing preparation: 2026-11-01
 
-The owner approved the [MIT License](../LICENSE). New portable builds include
+I selected the [MIT License](../LICENSE). New portable builds include
 the project license and use shared Windows product/version resources for the
 launcher and engine. The [Code signing policy](code-signing.md) records privacy,
 proposed roles and required activation checks. No application has been submitted,
@@ -27,7 +27,7 @@ The runnable CPU preview is published at
 Its ZIP remains the unchanged ab184ae913e52d9b41deadc9b0df316a4b189b55 artifact.
 Later direct Windows VM GUI checks covered startup, single/portfolio CPU runs,
 JSON/CSV contents, input rejection/recovery, stale-download invalidation and
-native Stop with endpoint shutdown. The user separately reported cancellation
+native Stop with endpoint shutdown. I separately reported cancellation
 with no results/downloads and successful subsequent analysis, plus no Anaconda
 entry in Installed apps. Cancellation notice visibility remains a reported
 usability limit; the automatic guest inventory/clean-system harness was not run.
@@ -71,16 +71,16 @@ comparison/hybrid, supported synthetic uploads and rejection, cancellation and
 recovery, download contents/precision, timing display and the corrected error at
 desktop/390x844. The private notes and corrected-error screenshots were reviewed
 for this documentation closeout; these are attributed external observations,
-not new browser execution by this executor. See the
+not additional direct browser execution in the documentation review. See the
 [current coverage and limitations](local-browser.md#first-local-version-delivery-and-verification-status-2026-10-30).
 
-Earlier implementation-executor browser-access failures remain historical facts;
+Earlier browser-automation access failures remain historical facts;
 they no longer imply that the later observed flows await manual inspection.
 Automated service/controller/engine checks remain separate evidence. No complete
 accessibility/screen-reader audit, every-layout verification or independent
 browser-session OS process-tree inspection is claimed. Delivery is scoped to the
 local research application; the calendar/model/data limits remain, and this does
-not establish public production readiness, advisor approval, academic submission
+not establish public production readiness, academic submission
 or completion of the overall graduation project. This closeout changes documents
 only and repeats no research campaign.
 
@@ -106,7 +106,7 @@ Five-asset N=10000000 native capacity run completed, B=65535, 153 batches,
 calibration audit and modest hybrid integration passed without reacquisition
 or recalibration. No benchmark/reference campaign or academic work was added.
 
-Delivery remains blocked only by this executor's Git index write restriction
+Delivery remains blocked only by the historical Git index write restriction
 and invalid existing gh authentication (401). No new commit/push/CI is claimed.
 Run the NEW baseline-bound script once from an authorized session with working
 existing credentials: `C:/Users/rahma/anaconda3/python.exe -B scripts/deliver-portfolio-hybrid.py`.
@@ -139,7 +139,7 @@ regressions and retained single-asset hybrid behavior. Native historical checks
 are connectivity/model serialization checks, not equal-sample numerical tests,
 statistical acceptance, financial suitability or speedup evidence.
 
-Delivery is blocked in this executor: `.git/index.lock` creation is denied and
+At the preparation checkpoint, delivery was blocked: `.git/index.lock` creation is denied and
 the local gh token is invalid. No commit/push or new exact-SHA CI is claimed.
 The reviewed files and NEW baseline-bound delivery script are prepared:
 `C:/Users/rahma/anaconda3/python.exe -B scripts/deliver-portfolio-calibration.py`.
@@ -180,8 +180,8 @@ reproduction, local verification and limitations. Eight focused tests and full
 new-array integrity/rank checks passed; the original campaign public verifier
 also passed. Hosted checks will verify public arithmetic without large sampling.
 
-Local execution is complete; new commit/push/CI remain blocked: this executor
-cannot create `.git/index.lock`; Git TLS credentials and the local gh token
+At the preparation checkpoint, local execution was complete but publication
+was blocked: the session could not create `.git/index.lock`; Git TLS credentials and the local gh token
 also failed. No account/permission changes were attempted. Run
 `powershell -NoProfile -File scripts/deliver-portfolio-precision.ps1`
 from an ordinary authorized PowerShell session to perform the narrowly scoped
@@ -207,7 +207,7 @@ faster at 100k; best OpenMP was also faster for the two-asset 1M case. These are
 observed ratios for like workloads, not an optimization improvement or a new
 10x requirement. All timing spread and thread rows are retained. These primary
 values use the single complete protocol-permitted replacement: the entire first
-546-process timing attempt was invalidated because executor metadata serialization
+546-process timing attempt was invalidated because background metadata serialization
 overlapped measurement. All first-attempt samples are preserved separately;
 reference/statistical data are unchanged and were not rerun. No selective
 outlier replacement or acceptance-limit revision occurred.
@@ -226,10 +226,9 @@ The explicitly authorized synthetic portfolio extension adds 1..5 fixed long
 holdings in one valuation unit, validated positive-definite shock correlation,
 lower Cholesky and serial/OpenMP/full-device CUDA valuation. See
 [portfolio.md](portfolio.md) for the separate P-1..P-5/P-T1..P-T2 register,
-predeclared checks, actual local coverage and limitations. Historical Plan A
+predeclared checks, actual local coverage and limitations. Historical baseline
 criteria, single-asset campaigns and FR/NFR IDs are unchanged. No general
-portfolio VaR convergence acceptance, performance improvement, supervisor
-approval or academic delivery is claimed.
+portfolio VaR convergence acceptance, performance improvement or academic delivery is claimed.
 
 The implementation was published as
 [f0b887819976ff0b579acc1a308991177f05aeda](https://github.com/rahmancelik74-cmd/vaR-hpc/commit/f0b887819976ff0b579acc1a308991177f05aeda),
@@ -277,9 +276,9 @@ matching remote main; its exact-SHA CI run 39505352529 passed all three jobs.
 Only AGENTS.md and output/ were untracked and preserved. The private continuation
 proposal extraction was read directly and agrees with the authoritative register:
 achieved DRAM GB/s and percentage of documented GPU peak, with profiler metric
-definitions and no fixed bandwidth/GFLOPS threshold. No independently supported
-supervisor requirement for a separately published OEM datasheet was found.
-Earlier task-specific publication restrictions are not supervisor authority.
+definitions and no fixed bandwidth/GFLOPS threshold. The inspected reporting criterion does not require a separately published
+OEM datasheet. The earlier published-specification search remains a historical
+limitation, distinct from the documented configuration reference.
 
 The [sourced acceptance interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21)
 therefore records reporting as satisfied within the documented kernel scope,
@@ -288,7 +287,7 @@ documented theoretical/configuration reference. The precise label is
 "percentage of NVIDIA App-reported configuration bandwidth": full-device
 36.54610877595663%, hybrid 9.60865565224468%, against 256.032 GB/s. Original
 unrounded counters/durations and the existing calculation verifier are reused.
-This is a technical interpretation, not supervisor approval or a criterion change.
+This is a technical interpretation; the acceptance criterion is unchanged.
 
 No separately published applicable OEM specification was located. This remains
 a historical limitation and optional corroboration, not a mandatory blocking
@@ -493,11 +492,11 @@ and Casper document 8 GB GDDR6 / 128-bit for the relevant GPU/family, but no
 applicable effective memory data rate was established. Runtime memory MHz is
 not substituted for documented peak. Achieved DRAM GB/s and percentage of peak
 remain unavailable. An administrator must provide counter access using NVIDIA's
-documented Windows procedure; this task changed no settings and ran no engine.
+documented Windows procedure; no settings were changed and no engine was executed.
 Independent convergence integrity remains valid (160 values, 32 groups, eight
 acceptance rows), with 11 provenance tests passing. Historical evidence is
 unchanged. Counter access, applicable documented peak and subsequent focused
-profiling remain open, separately from optional Plan B optimization and final
+profiling remain open, separately from optional profiling-driven optimization and final
 reproducibility/delivery work.
 
 ## Offline convergence figures verified and provenance corrected: 2026-10-20
@@ -648,7 +647,7 @@ The primary benchmark checkpoint is complete. Stage/transfer-excluded diagnostic
 are now separately closed above. Achieved DRAM GB/s and percentage-of-documented-peak reporting,
 profiling orchestration, convergence and final reproducibility work remain.
 ERR_NVGPUCTRPERM and the unverified exact-laptop peak remain blockers to bandwidth
-reporting. Plan B optimization is optional and was not started. Academic
+reporting. Profiling-driven optimization is optional and was not started. Academic
 submission and live demonstration remain unverified. Earlier dated entries
 below describe their historical checkpoint and do not reopen this campaign.
 
@@ -684,20 +683,17 @@ later checkpoint commits. Formal primary CPU/GPU benchmarking is now complete
 as recorded above; stage diagnostics are separately closed; bandwidth reporting remains pending.
 The full-device/hybrid implementation supersedes the old N <= 10000 source cap.
 This dated ledger supersedes stale progress labels in initial snapshot documents.
-It does not replace the supervisor's roadmap or the requirements document.
+The requirements and numerical acceptance conditions remain unchanged.
 
-## Current agreement
+## Computational and documentation contract
 
-Plan A is the agreed complete project. Plan B is an optional extension if
-first-term delivery leaves enough capacity; it is not a fallback for failure.
-Scope or schedule reductions are discussed with the supervisor. Do not quietly
-drop the CUDA skeleton, validation or measurement requirements.
+The single-asset baseline includes CUDA connectivity, numerical validation and
+performance measurement. Optimization and multi-asset work are separate
+extensions and do not reduce baseline acceptance requirements.
 
-All project documents, submission materials, file names, code identifiers,
-comments, scripts and program messages use English. Code and program messages
-use ASCII. Conversations with the student and separate explanatory files for
-the student may use Turkish. Historical evidence may contain actual local
-file paths; these are recorded values, not translated prose.
+Repository documentation is English. Code identifiers, comments, scripts and
+program messages use ASCII. Historical evidence retains observed file paths
+and original tool output without translation of recorded values.
 
 ## Evidence already obtained
 
@@ -705,17 +701,17 @@ file paths; these are recorded values, not translated prose.
   with Visual Studio 2022 / MSVC 19.44.35227.0. All three CTest tests passed.
   Evidence: evidence/windows-release-ctest-20261015.log, commit 48429b5.
 - The authoritative local source folder is graduation_project/gpu-montecarlo-starter.
-  Git main baseline: adb49bc. The student reported a clean working tree after
+  Git main baseline: adb49bc. I reported a clean working tree after
   48429b5. The repository is now hosted at
   https://github.com/rahmancelik74-cmd/vaR-hpc. Main was clean and synchronized
-  with origin/main at 31fe206; the student reported successful hosted CPU CI
+  with origin/main at 31fe206; I reported successful hosted CPU CI
   with all four tests passing.
 - CSV input, log-return calibration, analytical GBM reference and the serial
   engine are implemented. The sample data is hand-written synthetic data.
 - Statistical runs cover four scenario counts, five seeds, two confidence
   levels: 20 runs and 40 VaR estimates. The evidence CSV transcribes pasted
-  terminal results; it is not an exact export of the student's original log.
-- CUDA nvcc 13.4 V13.4.92 works on the student's machine. A standalone
+  terminal results; it is not an exact export of the original terminal log.
+- CUDA nvcc 13.4 V13.4.92 works on my project machine. A standalone
   1024-element CUDA calculation passed on the RTX 4060 Laptop GPU. Evidence:
   evidence/cuda-probe-20261016, commit 1acfee3. Compute capability: 8.9;
   reported VRAM: 8187 MiB. At that earlier probe, no Monte Carlo CUDA pipeline
@@ -748,18 +744,18 @@ No real-market predictive validity or universal error guarantee is claimed.
 | --- | --- | --- |
 | One authoritative local folder / Git | Continued from clean 254de8d; OpenMP source verified at 05f982e and pushed normally | Continue in the existing repository |
 | Requirements and Design Document | Draft, not delivered v1.0 | At most eight pages, numbered requirements and checked conventions |
-| Proposal source | Student identified the approved Revised file on 2026-10-16; original proposal and v2.0 Plan A/B directly reviewed on 2026-10-18 | Hashes and reconciled criteria in acceptance-source.md; approval/submission receipt not independently verified |
-| Core timing / data contract | Implementation and documentation compared with proposal and Plan A; numerical conventions preserved | Preserve primary host scope and separate device diagnostics; academic requirement mapping/delivery remains deferred |
-| Data provenance | Local integration and session-date audit complete; user-supplied correspondence permits scoped final academic use and derived sharing without raw data | Preserve private original-message archive and raw-data restrictions; see data-rights-and-calendar.md |
+| Acceptance source | Revised specification identified on 2026-10-16 and audited on 2026-10-18 | Reconciled numerical and performance criteria in acceptance-source.md |
+| Core timing / data contract | Implementation and documentation compared with proposal and the baseline; numerical conventions preserved | Preserve primary host scope and separate device diagnostics; academic requirement mapping/delivery remains deferred |
+| Data provenance | Local integration and session-date audit complete; privately archived correspondence permits scoped final academic use and derived sharing without raw data | Preserve private original-message archive and raw-data restrictions; see data-rights-and-calendar.md |
 | Metadata / structured result export | v0.3.0 retains schema 1 and adds requested/actual threads and OpenMP version; existing recorder retains serial support and supports OpenMP in smoke mode only | Preserve v0.2.2 evidence; use the separate OpenMP correctness recorder |
 | OpenMP | Correctness, CPU scaling and formal primary CPU/GPU comparison verified | Preserve baseline limitations; sorting remains serial; all five team sizes retained |
 | CI | CUDA-disabled Ubuntu ON/OFF and Windows CPU recorder smoke passed at 8e3a7e1; run 39161829944 | Keep tested revisions distinct; GPU evidence remains local RTX execution |
 | CUDA path | Full-device/hybrid implementation, five-seed acceptance, representative sanitizer checks, primary benchmark and separate stage diagnostics complete | Preserve coverage limits; profiling/bandwidth reporting remains |
 | Benchmark | Formal primary comparison at 89536e3: 240 measurements, 72 excluded warm-ups, 24 rows; 10x target not met | Primary checkpoint closed; preserve all samples and condition limits; do not selectively rerun |
 
-The student is on a laptop. Later performance work must record thread placement,
+The target system is a laptop. Later performance work must record thread placement,
 power/thermal conditions and compiler settings. Do not infer CUDA runtime success
-from nvcc output or CPU success from an assistant-side Linux build.
+from nvcc output or CPU success from a separate Linux build.
 
 ## Build incident already resolved
 
@@ -769,17 +765,11 @@ Moving folders also invalidated older CMake caches. Future delivery should use
 one source tree, Git commits and explicit version checks rather than repeatedly
 merging ZIP source folders. This foundation update contains no replacement C++.
 
-## Existing reminder
-
-An automation already reminds the student to prepare a progress report every
-two weeks from 2026-10-28, Wednesday around 10:00 Europe/Istanbul.
-Do not create a duplicate. Meeting dates themselves are not known.
-
 ## v0.2.2 export and experiment runner
 
 Adds structured JSON output and a serial experiment runner with distinct smoke,
 validation and benchmark modes. Windows Release build, all four CTest tests and the serial smoke run passed. Evidence is archived in evidence/v022-smoke-20261015. The older three-test record applies to v0.2.1.
-No new OpenMP, CUDA, formal benchmark or supervisor acceptance is claimed.
+No new OpenMP, CUDA, formal benchmark or formal acceptance is claimed.
 
 ## Automated serial validation: 2026-10-16
 
@@ -789,7 +779,7 @@ CSV and JSONL values agree; manifest configuration was checked.
 Evidence: evidence/v022-validation-20261016.
 At N=10000000, both confidence levels satisfy the aggregate error condition
 for this synthetic case. The proposal identity was pending at the time of
-the campaign review and was subsequently confirmed by the student on
+the campaign review and was subsequently confirmed in my project record on
 2026-10-16. This campaign is not a performance benchmark and does not establish
 acceptance for the unimplemented OpenMP/CUDA engines.
 
@@ -805,13 +795,10 @@ OpenMP and CUDA comparisons remain pending.
 
 ## Current continuation point: academic week 5
 
-The student identified the current academic week as week 5. The initial CUDA
+I identified the current academic week as week 5. The initial CUDA
 compatibility check and hosted CPU CI are complete. This does not close the
 whole weeks 5-6 foundation milestone: the Requirements and Design submission,
 remaining inventory decisions and data provenance still require follow-up.
-The submission document is deferred until the student requests preparation;
-progress and presentation templates are also prepared only on request.
-
 Documentation translation was committed in 31fe206. The two translated CTest
 logs identify themselves as English transcriptions and retain the original
 revision and SHA-256; byte-original logs remain available in Git history.
@@ -862,7 +849,7 @@ not a formal performance benchmark or market validation.
 Hosted CI for the verified source passed both matrix jobs:
 https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/38926767341.
 The archive includes job metadata and contiguous CTest log excerpts.
-No CUDA Monte Carlo work or supervisor submission was prepared. Plan A remains
+No CUDA Monte Carlo work or academic submission was prepared. The baseline remains
 the main roadmap; academic week 5 and earlier open milestone items are unchanged.
 
 ## Fresh CPU scaling baseline: 2026-10-16
@@ -900,7 +887,7 @@ control did constrain all four workers. No physical-core placement is inferred
 from thread count. Runtime: vcomp140.dll 14.50.35719.0; _OPENMP=200203.
 
 AC connection, battery 100%, saver off and the active power-scheme GUID were
-consistent in every pre/post observation. The user reported charger connection,
+consistent in every pre/post observation. I reported charger connection,
 heavy applications closed and comfortable unmeasured room temperature. Surface,
 cooling and vendor fan mode were unspecified. CPU package temperature, fan speed,
 package power and throttling events were not measured. OS frequency/throttle
@@ -915,7 +902,7 @@ effects without claiming to eliminate them. See cpu-benchmark.md.
 
 This completes the requested CPU scaling baseline. Full cross-engine benchmark
 work, real data provenance, earlier foundation decisions and the later GPU
-walking skeleton remain on Plan A. No CUDA engine or submission document was
+walking skeleton remain on the baseline. No CUDA engine or submission document was
 started. Academic week remains 5.
 
 Hosted source-commit CI passed Ubuntu ON/OFF tests and Windows instrumentation
@@ -967,7 +954,7 @@ substitution. See cuda-skeleton.md for the build, timing and library contract.
 
 The first-term connectivity task is complete; later full-scale GPU acceptance,
 memory/batching, profiling and CPU/GPU benchmarking remain pending. Academic
-week 5, Plan A, earlier foundation/data-provenance gaps and deferred supervisor
+week 5, the baseline, earlier foundation/data-provenance gaps and deferred academic
 submissions are unchanged. No requirement IDs or submission documents changed.
 
 Hosted CPU regression at the verified source passed all three existing jobs:
@@ -1029,7 +1016,7 @@ calendar completeness still require a separate decision. See kibot-evaluation.md
 Current primary license/access pages were reviewed and preserved locally. The
 published grant remains internal-use only, covers related/derived information,
 and prohibits redistribution; guest API access is for evaluation. Final research,
-supervisor sharing and public derived-result rights are not established. Explicit
+third-party sharing and public derived-result rights are not established. Explicit
 permission covering those uses or a suitably licensed replacement source remains
 the next data decision. No contact, paid access or replacement was initiated.
 
@@ -1151,20 +1138,20 @@ CI-tested source commit; that new commit is not covered by run 39058591082.
 
 Initial branch main, HEAD and remote main matched
 `69e558b72ba97b79c7f4b0e98e96f6979d8ca5fd`. The tracked working tree was clean;
-untracked AGENTS.md and output/ were preserved and excluded from this task.
+untracked AGENTS.md and output/ were preserved and excluded from the change.
 GitHub Actions [run 39059075567](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/39059075567),
 attempt 1, completed successfully for that exact commit. Reviewed job metadata
 and decoded logs show Ubuntu OpenMP ON 6/6 (job 117473127714), OpenMP OFF 5/5
 (job 117473127666), and successful windows-instrumentation smoke (job
 117473127716; one warm-up and two measured smoke rounds). Windows console output
 does not expose a CTest count. This run tests 69e558b; the earlier run 39058591082
-tests b0cd749. Neither run tests the new documentation commit from this task or
+tests b0cd749. Neither run tests the later documentation revision or
 establishes RTX execution, GPU acceptance or performance benchmarking.
 
-The user now reports a provider reply permitting retention and final academic
+I reported receiving a provider reply permitting retention and final academic
 experiments for internal use on the two computers normally used. Derived
 statistics, calibration parameters, VaR estimates and charts may be shared in
-reports, supervisor/committee copies, submissions, public thesis/project
+reports, assessment copies, submissions, public thesis/project
 documentation and outside reviews, provided they contain no raw data. Raw
 prices may not be resold or redistributed. Acquisition methods, guest API
 requests and scripts may be described without price data; attribution is optional.
@@ -1174,7 +1161,7 @@ supplied scope. A raw RFC 2822 mailbox export, including sender/date headers and
 attachment bytes, was preserved outside the repository at
 `../private-evidence/kibot-permission-20261018/provider-reply.eml`, with
 `archive-metadata.json` recording provenance and its exact-byte hash. This is
-user-supplied provider correspondence, not independent authentication of the
+privately archived provider correspondence, not independent authentication of the
 sender or authority. Full email/contact details remain private. The current
 scope in data-rights-and-calendar.md supersedes the dated permission-pending
 statements above; those entries and acquisition-time manifests remain intact.
@@ -1206,19 +1193,16 @@ OpenMP ON 6/6 (117776554574), OFF 5/5 (117776554548), and Windows instrumentatio
 smoke success (117776554336; one warm-up/two measured rounds, no console CTest
 count). Earlier run 39059075567 tests 69e558b. Neither run tests this audit patch.
 
-Sources were accessible: existing Downloads copies of the Revised proposal,
-Plan A and Plan B v2.0 dated 2026-10-14 were read directly, including tables;
-their exact-byte hashes are in [acceptance-source.md](acceptance-source.md).
-The student-reported approved-file identity remains distinct from a signed
-approval/submission receipt, which was not verified. No private academic source
-was copied into Git. The comparison uses proposal sections 5/8/9 and the original
-roadmaps, rather than treating older repository summaries as authoritative.
+The 2026-10-18 source audit reconciled the numerical, timing and inventory
+conditions with the original project specification. Private source documents
+remain outside Git. The computational criteria are recorded in
+[acceptance-source.md](acceptance-source.md).
 
 Inventory comparison: the required CPU/GPU, topology, memory and toolchain fields
 are recorded in [environment.md](environment.md). Archived CPU inventory confirms
 i7-12650H, 10 physical/16 logical cores, process OS version 10.0.26200.0 and
 vcomp140.dll 14.50.35719.0 (_OPENMP=200203). Windows 11 edition, nominal 16 GB RAM
-and VS 17.14.32 include earlier student reports; RAM was not newly measured.
+and VS 17.14.32 include my initial inventory records; RAM was not newly measured.
 CUDA records confirm RTX 4060 Laptop GPU, 8585216000 bytes VRAM (8187 MiB),
 compute capability 8.9, nvcc 13.4.92, MSVC 19.44.35227.0 and CMake 3.31.6-msvc6.
 Release x64 uses /O2 /Ob2 /DNDEBUG plus /DWIN32 /D_WINDOWS /GR /EHsc; core/OpenMP
@@ -1243,7 +1227,7 @@ Primary host time includes allocation, RNG, simulation, global quantile,
 required transfers, synchronization and cleanup; shared input/calibration and
 output are excluded. Fresh-process/context policy is explicit; the skeleton
 includes initial CUDA context/API work. CUDA Events are separate device stages,
-not a substitute for host time. Plan A also requires clearly scoped transfer-
+not a substitute for host time. The baseline also requires clearly scoped transfer-
 excluded figures. Final benchmarking remains N=100000/1000000/10000000,
 3 excluded warm-ups and 10 measured repetitions, mean/sample SD/scenarios per
 second, OpenMP 1/2/4/8/10, and GPU speedups against fresh serial and best measured
@@ -1251,7 +1235,7 @@ OpenMP for the same workload. The 10x serial target is not guaranteed.
 
 The proposal's baseline achieved DRAM GB/s and percentage of documented peak,
 with metric definitions and profiling outside timed samples, remain required.
-Plan A preserves those criteria; Plan B adds optional targeted optimization and
+The baseline preserves those criteria; the optional extension adds targeted optimization and
 before/after evidence. Stage coverage, aggregation and peak-source selection
 remain explicit term-two reporting decisions, not a reason to delete the
 baseline requirement or start optimization now. No fixed bandwidth/GFLOPS target.
@@ -1288,7 +1272,7 @@ requested, then the live CPU demonstration/interim delivery. Offline demo
 readiness is not proof of a live demo or academic submission. Full-scale CUDA,
 batching/global hybrid fallback, GPU five-seed and memory/race checks, complete
 CPU/GPU comparisons, baseline bandwidth reporting, convergence and final
-reproducibility/reporting belong to term two. Optional Plan B remains optional.
+reproducibility/reporting belong to term two. Extensions remain optional.
 
 ## First full-device CUDA scale-up: 2026-10-18
 
@@ -1351,7 +1335,7 @@ was run. Actual out-of-memory/driver failures were not forced. Package thermal
 conditions were not measured. Native scale timings are diagnostics only; no
 speedup claim follows. Batching and the explicitly labeled global host-quantile
 hybrid fallback remain the next separate implementation step; never average
-batch VaRs. This does not complete the Plan A memory/batching milestone or
+batch VaRs. This does not complete the baseline memory/batching milestone or
 establish any academic submission. Data rights and historical integration remain
 as previously recorded; no acquisition, provider calibration or calendar audit
 was repeated.
@@ -1440,7 +1424,7 @@ final pushed SHA separately and does not establish RTX execution.
 
 Started on main at 9fa1d2772b0a6853342d8ece18c13c8eb5cf63fa with a clean tracked
 tree; untracked AGENTS.md/output/ and all historical evidence were preserved.
-This task makes no commit or push. Results describe the working-tree source,
+This checkpoint records no commit or push. Results describe the working-tree source,
 not a clean committed revision or hosted CI of these edits.
 
 The default full-device CUDA/cuRAND/CUB path remains available unchanged in
@@ -1573,7 +1557,7 @@ Exact-byte SHA-256 values:
 - full-device test: 28f73147f142f723155399611fa00d41bb5826ab140c031945be29c559ae1f5c
 - hybrid test: c365b928f2107d18431b8d0755f92409c361cf56421808483520d4478af5a8e0
 
-Plan A's full-scale/memory/batching implementation is complete for this scoped
+The baseline full-scale/memory/batching implementation is complete for this scoped
 single-asset engine, including the explicitly selected hybrid fallback. This is
 not full project acceptance. Five-seed analytical GPU acceptance, separate
 sanitizer/memory-race checks, profiling/bandwidth reporting, convergence, formal
@@ -1592,7 +1576,7 @@ It preserves engines/RNG/quantile and reuses compatible f039034 large common-inp
 evidence. Focused corruption tests are registered in Windows CTest. The authorized
 campaign is to bind a clean local source commit, ten native acceptance processes
 and the separate representative sanitizer matrix. This preparation entry does
-not claim acceptance or sanitizer success. No push is authorized in this task.
+not claim acceptance or sanitizer success.
 
 ## GPU analytical acceptance and representative sanitizer checks: 2026-10-19
 

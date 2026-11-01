@@ -45,7 +45,7 @@ VaR may be negative. General portfolio analytical VaR is unavailable. GBM does
 not establish predictive validity or investment suitability. Interactive timings
 are illustrative, not benchmark/statistical acceptance evidence. Engine wall time
 and total application elapsed time differ. Equal backend seeds need not mean
-equal samples. No academic submission or advisor approval is implied.
+equal samples. No academic submission is implied.
 
 Uploads and records are preserved between launches. To free space, stop the app
 and archive/remove only identified MCLabPortable session/data folders. Never

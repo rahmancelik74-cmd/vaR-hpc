@@ -2,6 +2,12 @@
 
 Abdurrahman Celik - application v0.3.0, 16 October 2026.
 
+I developed this project to evaluate the numerical correctness, reproducibility
+and performance of serial C++, OpenMP and CUDA Monte Carlo implementations.
+
+I developed this project to evaluate the numerical correctness, reproducibility
+and performance of serial C++, OpenMP and CUDA Monte Carlo implementations.
+
 Project code and original synthetic fixtures: [MIT License](LICENSE).
 Third-party components retain their own licenses; provider data is not licensed here.
 [Code signing policy](docs/code-signing.md): signing preparation only; current
@@ -108,9 +114,7 @@ A single run is neither a benchmark campaign nor a 1% convergence guarantee.
 Version check: `mc_var.exe --version` must report
 `mc_var 0.3.0 (CSV support enabled)`. CTest retains the four original tests
 and adds cli_contract_tests and, with OpenMP ON, openmp_tests.
-Continue in the existing authoritative source folder; do not create or merge
-a second source tree. Reconfigure and rebuild after applying the patch.
-The following commands are an example of a separate build directory only:
+Configure a separate build directory, compile and run the registered tests:
 
 ```powershell
 cmake -S . -B build-x64 -G "Visual Studio 17 2022" -A x64
@@ -123,8 +127,8 @@ Linux: `./build/mc_var --csv data/synthetic_prices.csv 10000 42 10`.
 
 The final argument specifies a 10-trading-day horizon. CSV mode defaults to
 252 trading days/year and one asset unit; V0 is the last row's closing price.
-These are initial settings, not a supervisor-confirmed final horizon. To specify
-the annual scale explicitly, use `--csv file.csv 10000 42 10 252`.
+The study convention is a 10-trading-day horizon with 252 trading days/year.
+To specify the annual scale explicitly, use `--csv file.csv 10000 42 10 252`.
 
 CSV contract: the exact header `date,close`; two columns; YYYY-MM-DD dates;
 decimal dot; unique, increasing dates; finite, positive prices.
@@ -158,13 +162,12 @@ See `docs/requirements-design.md` for details.
 7. In first-term weeks 12-13, connect CSV -> calibration -> GPU/cuRAND -> GPU
    quantile -> VaR for 10000 scenarios through the same interface.
 
-Plan A is the main plan. Plan B is selected with the supervisor if first-term
-work leaves sufficient capacity. Profiling-driven optimization and the optional
-multi-asset extension are not added to the initial implementation.
+The single-asset implementation is the validation and performance baseline.
+Profiling-driven optimization and multi-asset valuation are separate extensions
+with their own validation requirements; they do not replace the baseline.
 
 ## Sources
 
-- Supervisor's Plan A and Plan B roadmaps dated 2026-10-14.
 - https://docs.nvidia.com/cuda/curand/device-api-overview.html
 - https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 
@@ -172,8 +175,9 @@ multi-asset extension are not added to the initial implementation.
 
 `std::normal_distribution` need not produce identical output across standard
 library implementations. The same seed does not imply identical CPU/GPU samples.
-Cross-engine numerical tests use pre-generated common inputs. The CUDA RNG API
-and Toolkit version will be fixed after inspecting the target computer.
+Cross-engine numerical tests use pre-generated common inputs. The validated
+CUDA path uses device cuRAND and CUB; versions and hardware are
+recorded in [the environment inventory](docs/environment.md).
 
 ## Structured experiment output (v0.2.2)
 

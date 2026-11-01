@@ -4,10 +4,9 @@ Current technical evidence mapping: [FR/NFR audit](requirements-audit.md).
 The R01-R14/B01-B02 draft and its dated statuses below are preserved; the audit
 adds a clearly identified crosswalk without renumbering these older labels.
 
-Status: initial draft v0.1. This is a basis for the content of the at-most-eight-
-page v1.0 document to be submitted to the supervisor, not the final approved
-submission. The requirement IDs and snapshot statuses below are retained from
-the initial draft.
+Status: historical technical draft v0.1. The separate academic Requirements
+and Design document remains v1.0. The requirement IDs and snapshot statuses
+below describe the initial implementation; current evidence is linked above.
 
 ## Scope
 
@@ -16,13 +15,13 @@ performance analysis. Geometric Brownian Motion and Value at Risk provide a
 well-defined, independently verifiable computational workload for comparing
 sequential C++, OpenMP and CUDA implementations. No claim is made about
 predictive validity in real markets, the adequacy of stress testing or the
-superiority of the financial model. The same scope statement will appear at
-the beginning of the technical report.
+superiority of the financial model. This scope applies to the implementation
+and its performance evaluation.
 
 The baseline scope is one asset and a positive long position. GUI, live price
 APIs, machine learning and MPI are excluded. A multi-asset portfolio does not
-replace the core benchmark; it is an additional mode that may be agreed with
-the supervisor under Plan B only.
+replace the core benchmark; it is a separately scoped mode requiring additional
+validation.
 
 ## Model and numerical contract
 
@@ -48,8 +47,8 @@ the model, not validity in real markets.
 For equally spaced observations, r_i = log(P_i/P_(i-1)). If the observation
 interval is dt years, use the mean m and sample variance s^2 to calculate
 sigma = sqrt(s^2/dt) and mu = m/dt + sigma^2/2. This project's contract uses
-sample variance with denominator n-1; the final document will explain the
-estimator choice. Record the annual trading-day count and selected horizon
+sample variance with denominator n-1. Record the annual trading-day count and
+selected horizon
 explicitly; do not mix calendar days and trading days. Do not substitute the
 mean arithmetic daily return into this formula.
 
@@ -64,7 +63,7 @@ final input file's SHA-256. Input data and calibration are shared by all engines
 | --- | --- | --- | --- |
 | R01 | Computational scope and GBM limitations | Statement at the start of requirements and technical report | Draft available |
 | R02 | Units, loss sign, quantile and double precision | Documented contract and deterministic tests | Initial tests available |
-| R03 | Hardware/toolchain and build settings | Inventory of the student's target machine | Template available |
+| R03 | Hardware/toolchain and build settings | Inventory of the target machine | Template available |
 | R04 | CMake and basic CI | Local build/CTest and repository CI result | Definition available; CI pending |
 | R05 | Shared engine interface | Backends called with the same Request/Result | Serial interface available; GPU evidence pending |
 | R06 | CSV and log-return calibration | Calibration tests using known inputs | v0.2 implementation and controlled tests available; real-data selection pending |
@@ -76,8 +75,8 @@ final input file's SHA-256. Input data and calibration are shared by all engines
 | R12 | Complete engine validation | Common inputs plus separate analytical/seed tests | Pending |
 | R13 | Fair benchmark and convergence | 3 warm-ups, 10 repetitions, mean/std, two CPU references | Pending |
 | R14 | Reproducibility and reporting | Build/run scripts, inventory, checksum, report | Pending |
-| B01 | Plan B profiling-driven optimization | Nsight, bottleneck, before/after evidence, revalidation | Conditional |
-| B02 | Plan B additional multi-asset mode | Supervisor decision and separate validation strategy | Conditional |
+| B01 | Optional profiling-driven optimization | Nsight, bottleneck, before/after evidence, revalidation | Conditional |
+| B02 | Optional additional multi-asset mode | Explicit scope decision and separate validation strategy | Conditional |
 
 ## Engine interface and data ownership
 
@@ -108,8 +107,7 @@ against analytical VaR and study convergence using independent seeds. The same
 seed does not guarantee the same sequence across different RNGs. Numerical and
 statistical tests are not interchangeable.
 
-Candidate numerical conditions are recorded in `acceptance-source.md`; the
-identity of the supervisor-approved proposal still needs confirmation. For
+The numerical acceptance conditions are recorded in `acceptance-source.md`. For
 N=10000000 and five seeds, evaluate the absolute error of the mean of the five
 VaR estimates against the stated tolerance, separately at 95% and 99%. Record
 individual seed values and errors for diagnosis; do not require each seed to
@@ -145,7 +143,7 @@ the total.
 4. Repository location and actual CI execution.
 5. GPU quantile library and a small device smoke test.
 
-Source: supervisor's Plan A/Plan B v2.0, 2026-10-14. The approved proposal is
-also authoritative for numerical acceptance conditions. All progress reports
-will reference requirement IDs Rxx/Bxx and the corresponding test/measurement
-evidence.
+The numerical acceptance conditions are defined in `acceptance-source.md`.
+The Rxx/Bxx labels above are historical draft identifiers; the current FR/NFR
+crosswalk and corresponding test/measurement evidence are in
+`requirements-audit.md`.

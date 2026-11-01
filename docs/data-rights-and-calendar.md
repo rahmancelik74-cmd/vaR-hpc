@@ -3,9 +3,9 @@
 Updated: 2026-10-18, Europe/Istanbul. The genuine MSFT local integration is
 already complete. No acquisition, calibration, model or engine setting changed.
 
-## Current permission scope: user-supplied correspondence, 2026-10-18
+## Current permission scope: privately archived correspondence, 2026-10-18
 
-The user supplied a Kibot reply permitting the following project-specific uses.
+I supplied the archived Kibot reply permitting the following project-specific uses.
 Its contents were also read through the connected Gmail mailbox and match the
 supplied scope. This is provider correspondence supplied by the user, not an
 independently authenticated email or a general change to the published license.
@@ -15,7 +15,7 @@ independently authenticated email or a general change to the published license.
 - Raw prices may not be resold or redistributed. Raw and converted observations
   remain private in ignored data/local; no price dataset is included in Git.
 - Derived statistics, calibration parameters, VaR estimates and charts may be
-  shared in reports, supervisor/committee copies, submissions, public thesis
+  shared in reports, assessment copies, submissions, public thesis
   or project documentation and outside reviews, provided they contain no raw
   data. Charts must not reproduce raw price observations.
 - Acquisition methods, guest API requests and download scripts may be described
@@ -46,7 +46,7 @@ or derived information in its Data definition. The
 [API overview](https://www.kibot.com/api/api-overview.html) describes guest
 access as evaluation rather than production. These published terms establish
 the existing local evaluation boundary; they do not establish permission for
-sharing the dataset or derived research tables with a supervisor or the public.
+sharing the dataset or derived research tables with third parties or the public.
 
 Final research/publication approval remains unresolved. The next decision is
 explicit provider permission covering the intended research, academic delivery

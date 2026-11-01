@@ -6,7 +6,7 @@ The workflow evaluates CSV integration on genuine data without changing any
 numerical engine or requirement ID. One share, ten trading days and 252
 observations/year remain working settings.
 
-Permission update, 2026-10-18: user-supplied provider correspondence now permits
+Permission update, 2026-10-18: privately archived provider correspondence now permits
 retention and final academic experiments for the user's internal use on their
 two normally used computers, and sharing derived statistics, calibration
 parameters, VaR estimates and charts without raw data in academic/public
@@ -54,7 +54,7 @@ results stay in ignored data/local or results. No provider observations or
 derived numerical evidence are copied into the public repository.
 
 This resolves local pipeline evaluation access. It does not approve a final
-public study dataset, supervisor redistribution, published derived tables or
+public study dataset, third-party redistribution, published derived tables or
 full research use beyond guest evaluation. Those purposes need suitable rights
 or a different source. The API provides data without a completeness guarantee.
 The subsequent local session-date audit and refreshed rights decision are

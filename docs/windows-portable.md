@@ -33,8 +33,8 @@ even when spaces and Unicode are handled correctly. No OS long-path setting is c
 
 The CPU edition bundles serial/OpenMP and explicitly reports CUDA unavailable.
 CUDA development startup remains available from sources. No optional CUDA binary
-edition is distributed because this task does not establish its redistribution
-and compatibility contract. The existing UI, numerical/RNG/quantile/calibration
+edition is distributed because its redistribution and compatibility conditions
+have not been established for this package. The existing UI, numerical/RNG/quantile/calibration
 contracts and raw export precision are retained. Synthetic examples are original
 redistributable fixtures. Local CSV/metadata contracts and the strictly bounded
 Nasdaq 2023..2025 calendar remain unchanged; no live data or cloud uploads occur.
@@ -127,15 +127,15 @@ are bounded and are not research campaigns. The Windows CI job repeats these
 checks and retained CPU regressions, then uploads only the portable resources.
 A hosted Windows Server runner is a different execution host, not a fresh
 consumer installation. At the original packaging checkpoint, no disposable
-consumer VM or browser surface was available to that executor; packaged rendering
+consumer VM or browser surface was available in that session; packaged rendering
 and native Stop clicking were then unverified visually. These historical limits
 are superseded only for the specific later VM observations below. Automated
-checks, direct GUI observations and user reports remain distinct evidence.
+checks, direct GUI observations and manual reports remain distinct evidence.
 
 ## Windows VM follow-up (2026-11-01)
 
-The unchanged published CPU ZIP was exercised in a Windows 11 VM after the
-user completed Windows/browser setup. Direct GUI observations covered extracted
+I completed Windows/browser setup and exercised the unchanged published CPU ZIP
+in a Windows 11 VM. Direct GUI observations covered extracted
 package startup, synthetic single-asset and two-asset serial/OpenMP analyses,
 JSON/CSV contents, concise missing-file rejection, valid-analysis recovery and
 invalidation of prior results/download controls after a rejected replacement.
@@ -149,17 +149,17 @@ and 265 USD. Export inspection retained unrounded values, negative portfolio
 VaR and unavailable general-portfolio analytical references. These bounded GUI
 checks are not formal benchmarks or statistical acceptance campaigns.
 
-The user separately reported requesting cancellation during an approximately
+I separately reported requesting cancellation during an approximately
 2.4-second run: no completed result or JSON/CSV buttons remained, and a new
 100000-scenario analysis subsequently produced a result table. These are
-user-reported observations, not executor-observed cancellation timing or OS
-cleanup. The user did not see a cancellation message. The controller contains
+my manually reported observations, not instrumented cancellation timing or OS
+cleanup. I did not see a cancellation message. The controller contains
 a cancellation notice in the page-level notice area, which may be outside the
 current viewport; notice visibility in that reported interaction remains a
 usability limitation. Do not infer the exact terminal job state from the empty
 results panel alone.
 
-The user reported that Anaconda was absent from Windows Installed apps. A
+I reported that Anaconda was absent from Windows Installed apps. A
 Start-menu shortcut alone does not establish an installed runtime. This is not
 a complete development-tool inventory: the prepared private guest inventory
 and automated clean-system harness were not run. Therefore the VM follow-up

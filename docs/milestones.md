@@ -1,16 +1,15 @@
 # Milestone ledger
 
-Source: supervisor Plan A / Plan B v2.0, dated 2026-10-14; original Downloads
-copies directly reviewed on 2026-10-18. File hashes and source provenance are in
-[acceptance-source.md](acceptance-source.md).
-Week numbers follow the academic plan, not a guessed mapping from calendar dates.
-Implemented later-week code does not by itself close unfinished foundation work.
+The staged implementation separates the computational baseline, validation,
+performance analysis and optional extensions. Acceptance conditions are defined
+in [acceptance-source.md](acceptance-source.md). Week numbers identify development
+phases; the dated entries below retain their original checkpoint status.
 
-## First term shared by both plans
+## First-term baseline
 
 | Weeks | Required outcome | Current state | Completion evidence |
 | --- | --- | --- | --- |
-| 1-4 | Topic, proposal revision and roadmap | Roadmap records revised proposal approval; student identified the Revised file on 2026-10-16 | Source identity reconciled in acceptance-source.md; no submission receipt inferred |
+| 1-4 | Topic, proposal revision and roadmap | Revised scope identified on 2026-10-16 | Numerical and performance criteria recorded in acceptance-source.md |
 | 5-6 | Conventions, hardware/toolchain inventory, CMake/repository/CI, Requirements and Design v1.0 | In progress | One repository, actual CI result, complete inventory and uploaded document |
 | 7-9 | CSV/calibration, analytical reference, serial, five-seed validation | Synthetic serial acceptance archived; local historical integration/calendar verified separately | evidence/v022-validation-20261016; scoped data rights in data-rights-and-calendar.md; not historical full-scale acceptance |
 | 10-11 | OpenMP, common-input validation and thread scaling | Implementation, Windows correctness and CPU scaling baseline complete; limitations recorded | v0.3.0 correctness evidence plus evidence/v030-cpu-scaling-windows-20261016 |
@@ -20,7 +19,7 @@ Implemented later-week code does not by itself close unfinished foundation work.
 The 12-13 week skeleton includes host/device transfer timing and a VRAM capacity
 estimate. No accuracy/performance claim or optimization is required then.
 If only the skeleton is late, complete it early next term and shift the block.
-If the environment cannot work at all, decide with the supervisor at week 13.
+An unusable GPU environment requires an explicit feasibility review at week 13.
 
 OpenMP correctness was verified early, in academic week 5, at source 05f982e.
 Six Windows ON tests, five OFF tests, common-input agreement and 20 native
@@ -40,7 +39,7 @@ acceptance, profiling or performance benchmarking. That historical version retai
 the N=10000 cap; the later full-device scale-up is described in cuda-skeleton.md.
 This early software result does not close the unfinished weeks 5-6 or 7-9 items.
 
-## Second term Plan A
+## Second-term baseline
 
 | Weeks | Required outcome | State |
 | --- | --- | --- |
@@ -51,25 +50,19 @@ This early software result does not close the unfinished weeks 5-6 or 7-9 items.
 | 13 | Reproducibility package and requirements revision | Technical entry point and 18-item evidence audit verified in reproducibility.md / requirements-audit.md; local/archive/environment limitations explicit; academic baseline approval/submission unverified |
 | 14 | Final demonstration and technical report | Pending |
 
-## Plan B and scope control
+## Extensions and scope control
 
-Plan B adds profiling-driven optimization with before/after evidence. The
-multi-asset extension is optional, considered with the supervisor in second-term
-week 11, and needs an additional validation strategy. It never replaces the
-single-asset analytical benchmark. Returning to Plan A is allowed by agreement.
+Profiling-driven optimization requires before/after evidence and revalidation.
+Multi-asset valuation is a separate extension with an additional validation
+strategy. Neither extension replaces the single-asset analytical benchmark.
 
-Plan A expressly retains the proposal's success criteria. Baseline achieved
-DRAM GB/s and percentage-of-documented-peak reporting, with metric definitions
-and profiling outside timed samples, remain required in term two. Plan B adds
-targeted optimization and before/after evidence. Profile stage coverage and peak
-basis must be specified before that later reporting; no new profiling is started
-by this reconciliation. No bandwidth threshold or GFLOPS target is introduced.
+Baseline reporting includes achieved DRAM GB/s and percentage of documented
+GPU configuration bandwidth, with explicit metric definitions and profiling
+outside timed samples. The profiled stages, aggregation and denominator must
+be stated. No bandwidth-utilization threshold or GFLOPS target is imposed.
 
-## Reporting discipline
+## Technical reporting
 
-Before each meeting, report completed work, evidence, requirement IDs, blockers
-and the next two weeks. Upload at least 24 hours before the meeting and prepare
-approximately ten minutes of presentation, using the STIX templates.
-Write the conceptual material once in the requirements document and reuse it
-in the technical report. Keep results as work proceeds rather than writing
-the entire report in the final two weeks.
+Results are associated with requirement IDs, source revisions, input checksums,
+measurement scope and reproducible commands. Implementation, validation,
+performance evidence and outstanding limitations are reported separately.

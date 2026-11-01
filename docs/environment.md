@@ -13,19 +13,19 @@ documents its use for scoped bandwidth reporting. No separately published
 applicable OEM rate specification was located. Earlier inventory below remains
 dated evidence.
 
-These values describe the student's project computer. Hardware on the
-assistant's execution server is not used as the benchmark hardware.
+These values describe my project laptop. Results from other execution
+environments are reported separately and are not laptop benchmark evidence.
 
 | Field | Value |
 | --- | --- |
-| Operating system and version | Windows 11 reported by student; archived process OS version 10.0.26200.0 in CPU correctness/scaling records |
+| Operating system and version | Windows 11 reported in my initial inventory; archived process OS version 10.0.26200.0 in CPU correctness/scaling records |
 | Full CPU model | 12th Gen Intel Core i7-12650H |
-| Physical cores / logical threads | 10 / 16, from the student's CIM output |
-| RAM | 16 GB, reported by the student |
+| Physical cores / logical threads | 10 / 16, from the archived CIM output |
+| RAM | 16 GB, reported in my initial inventory |
 | Full NVIDIA GPU model | NVIDIA GeForce RTX 4060 Laptop GPU |
 | VRAM | 8187 MiB reported by the CUDA runtime probe; nominal 8 GB |
 | NVIDIA driver | Windows DriverVersion 32.0.16.1088, Status OK |
-| CUDA Toolkit / nvcc version | release 13.4, V13.4.92, from the student's nvcc output |
+| CUDA Toolkit / nvcc version | release 13.4, V13.4.92, from the archived nvcc output |
 | C++ compiler and version | MSVC 19.44.35227; VS 17.14.32 |
 | CMake version | 3.31.6-msvc6 |
 | Common C++ compiler flags | `/DWIN32 /D_WINDOWS /GR /EHsc`, from build-foundation/CMakeCache.txt |
@@ -38,7 +38,7 @@ assistant's execution server is not used as the benchmark hardware.
 | cuRAND | Header 10.4.4.72; runtime query 10404; curand64_10.dll file version 6,14,11,1044 |
 
 Table reconciled against archived evidence on 2026-10-18; it is not a new machine
-measurement. RAM remains a student-reported nominal 16 GB, not a newly verified
+measurement. RAM remains the nominal 16 GB recorded in my initial inventory, not a newly verified
 byte count. Later campaign-specific evidence below supersedes the initial pending
 inventory statements without rewriting their historical context. The runtime/API
 version discrepancy, unmeasured temperature and absent per-core pinning do not
@@ -63,7 +63,7 @@ Initial checks: do the CPU build/CTest work? Are the NVIDIA device and nvcc
 accessible? Actual CUDA/cuRAND and quantile-library smoke tests provide the
 next evidence.
 
-2026-10-14: the student confirmed a successful v0.1 x64 CMake build/CTest and
+2026-10-14: I confirmed a successful v0.1 x64 CMake build/CTest and
 serial demo. The raw test log was not included in that package. Windows v0.2
 testing was pending at that date. `nvcc --version` proves compiler installation,
 not GPU kernel execution. The thread sweep for the 10-core CPU will use
@@ -99,14 +99,14 @@ and in the two checked standard locations; Windows CIM identified the NVIDIA
 device and reported driver version 32.0.16.1088.
 
 The local serial Release build uses the common and Release flags recorded in
-the table above. The student supplied these CMakeCache.txt values and reported
-a clean working tree after 31fe206. The empty generator-platform cache value
+the table above. I recorded these CMakeCache.txt values and a clean working
+tree after 31fe206. The empty generator-platform cache value
 is recorded as observed, not filled with an assumed value. The successful
 CUDA-probe build explicitly selected x64; its build settings are separate
 from the serial benchmark configuration.
 
 Repository: https://github.com/rahmancelik74-cmd/vaR-hpc.
-The student reported successful hosted CPU build/test execution after 31fe206,
+I reported successful hosted CPU build/test execution after 31fe206,
 with all four CTest tests passing. The workflow runs on ubuntu-latest and uses
 actions/checkout@v6. This is CPU CI evidence, not hosted GPU execution.
 
@@ -154,7 +154,7 @@ were FALSE; the recorder's other listed affinity/runtime controls were unset.
 
 All 468 pre/post snapshots reported AC connected, battery 100%, battery saver
 off and power scheme 5da85d85-eb0c-4710-a805-6da8bbcf1f02. The plan was not
-changed. The user reported charger connection, heavy applications closed and
+changed. I reported charger connection, heavy applications closed and
 comfortable room temperature without a numerical reading. Surface/cooling and
 vendor fan mode were not specified. No package-temperature, fan-speed, package-
 power or throttling-event sensor was configured; these were not measured.

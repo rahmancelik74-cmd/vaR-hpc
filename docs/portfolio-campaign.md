@@ -50,7 +50,7 @@ consistency means that the reference empirical CDF at a native quantile is
 inside its calibrated probability-scale acceptance band. A nonrejection is
 not equivalence. Separately, the practical target is .0005*V0 (5 capital basis
 points), justified as a numerical loss resolution for these examples. It is
-not the old single-asset 1%-of-VaR criterion or a supervisor-approved extension
+not the single-asset 1%-of-VaR criterion or a general extension
 requirement. The maximum distance from the realized five-seed mean to either
 reference CI endpoint must be within that target to demonstrate it; an interval
 overlap alone is insufficient. This targets the observed mean, not an expected
@@ -127,12 +127,12 @@ python -B scripts/portfolio_campaign.py run
 Reference and run actions refuse existing attempt data. A fresh execution must
 not overwrite the published package or ignored original arrays. Protocol
 revisions require a preserved new version and fresh confirmatory evaluation.
-No general portfolio VaR correctness, market prediction, advisor approval or
+No general portfolio VaR correctness, market prediction or
 academic submission follows from the finite synthetic study.
 
 ## Measurement-condition correction
 
-The first complete timing attempt overlapped an executor metadata serialization
+The first complete timing attempt overlapped background metadata serialization
 that unexpectedly consumed CPU time. The entire first benchmark was invalidated
 for primary performance interpretation, rather than removing selected slow rows.
 Its 546 raw samples, summaries, figures and tooling snapshots remain retained.

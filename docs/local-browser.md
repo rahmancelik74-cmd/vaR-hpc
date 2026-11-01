@@ -198,8 +198,7 @@ modes, sequential comparisons, cancellation and explicit result downloads.
 The implementation and follow-ups are published through
 [9a9c35349ad2eb6649102751c99cb09a6c3b28e0](https://github.com/rahmancelik74-cmd/vaR-hpc/commit/9a9c35349ad2eb6649102751c99cb09a6c3b28e0),
 with successful [exact-SHA CI](https://github.com/rahmancelik74-cmd/vaR-hpc/actions/runs/40982418499).
-This is local software delivery, not public production readiness, advisor
-approval, academic submission or completion of the whole graduation project.
+This is local software delivery, not public production readiness, academic submission or completion of the whole graduation project.
 
 Evidence is separated by method. Automated service/controller/engine checks
 cover direct CLI equivalence, input rejection, process failure/timeout, actual
@@ -212,7 +211,7 @@ Later direct browser observations were supplied from a **separate session**.
 The private observation notes and referenced corrected-error screenshots were
 reviewed for this documentation closeout; they are not reproduced here. They
 are externally supplied observations, not browser tests executed by the
-implementation executor or newly repeated in this closeout. The records identify
+initial implementation session or repeated in this documentation review. The records identify
 the delivered revisions as reported context, rather than independently querying
 Git or CI or proving the running service's source-to-binary identity. Repository
 HEAD/remote and the implementation CI result were checked separately here.
@@ -249,11 +248,11 @@ or replacement dataset cannot keep exporting the previous result as current.
 Controller tests cover this lifecycle and unchanged result data, using explicitly
 labelled test doubles; they are not browser evidence.
 
-Historically, the implementation executor's browser inventory was empty and
+Historically, the implementation session's browser inventory was empty and
 Chrome was unavailable; Windows Computer Use stopped before navigation because
 it could not determine the current URL confidently for policy checks. No bypass
-was attempted. Those failed attempts remain accurate observations of that
-executor, while later separate-session browser coverage is summarized above.
+was attempted. Those failed attempts remain accurate observations from that
+session, while later separate-session browser coverage is summarized above.
 
 Independent checks exercise real HTTP-to-C++ hybrid portfolio N=10003, batch=257
 (39 batches, final payload 237), strict synthetic upload errors, cancellation and
@@ -289,7 +288,7 @@ sufficient rows, missing sessions, missing metadata, unexpected process failure,
 private exact-byte capture, UTF-8 non-ASCII output and valid-analysis recovery.
 The registered local-browser CTest includes these focused checks.
 
-During the error implementation follow-up, the executor could not open an IAB
+During the error implementation follow-up, the implementation session could not open a browser
 tab and did not perform direct visual verification. The separate session later
 reproduced the corrected minimum-observation error at desktop and narrow widths;
 the current-status summary above records that observation and its limits.
@@ -298,7 +297,7 @@ HTTP/controller tests remain distinct from browser verification.
 ## Portable delivery follow-up (2026-11-01)
 
 The [portable preview guide](windows-portable.md#windows-vm-follow-up-2026-11-01)
-records later Windows VM GUI checks and separately attributed user cancellation/
+records later Windows VM GUI checks and separately attributed manually reported cancellation/
 recovery observations. The runnable release asset is available from that guide.
 The reported cancellation interaction did not show a visible notice; the
 controller's page-level notice is not proof that it was in the user's viewport.

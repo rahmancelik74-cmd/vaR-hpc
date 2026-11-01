@@ -18,7 +18,7 @@ Working dataset: Kibot MSFT and AAPL, Nasdaq US common equities, USD, inclusive
 2023-01-01..2025-12-31, daily regular-session last-trade Close, explicitly
 `unadjusted=1`: no split or dividend back-adjustment. Dividends are not
 reinvested or included as cash flows. These are reproducible working choices,
-not supervisor-approved final research decisions. The existing
+not final historical-study selections. The existing
 [rights record](data-rights-and-calendar.md) and its correspondence authentication
 limitations remain applicable. Newly obtained data must pass validation; MSFT
 availability alone does not establish AAPL availability. No provider bytes or

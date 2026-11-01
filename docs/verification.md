@@ -17,7 +17,7 @@
   with g++. Local CMake/CTest and subsequent CI required separate verification.
 - nvcc and nvidia-smi were unavailable there; CUDA compatibility and execution
   were not verified.
-- The student's target hardware was not measured; no performance claim is made.
+- The target hardware was not measured; no performance claim is made.
 - The five-seed / 10-million-scenario acceptance campaign had not yet been run.
 
 These checks establish the mathematical/programming foundation. They do not

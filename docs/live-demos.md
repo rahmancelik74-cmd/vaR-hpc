@@ -94,7 +94,7 @@ Open these existing records for the historical discussion, without rerunning the
 | [Formal benchmark](../evidence/v030-primary-benchmark-windows-20261019/README.md), [interpretation](cpu-gpu-benchmark.md) | Full-device 9.739930524x serial, 8.307208722x best OpenMP; 10x serial target unmet; hybrid did not beat best OpenMP at 10M |
 | [GPU checks and sanitizer scope](gpu-acceptance.md) | Representative recorded cases; no sanitizer-at-10M or general global-memory race-freedom claim |
 | [Reproducibility](reproducibility.md), [FR/NFR mapping](requirements-audit.md) | Hosted CPU reproduction does not reproduce CUDA/historical performance; historical serial source-to-binary=false, missing independent historical OpenMP cache and mixed-revision convergence remain |
-| [Bandwidth interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21), [environment](environment.md) | Reporting closed in recorded cold-cache kernel scope using NVIDIA App configuration reference; no new administrator/OEM research action or supervisor approval inferred |
+| [Bandwidth interpretation](acceptance-source.md#documented-peak-interpretation-audit-2026-10-21), [environment](environment.md) | Reporting closed in recorded cold-cache kernel scope using NVIDIA App configuration reference; no new administrator/OEM research action or acceptance-scope expansion inferred |
 
 The exact 10M criterion is separately per engine and confidence:
 `abs(mean(VaR)-analytical_VaR) <= .01*max(abs(analytical_VaR),.01*V0)`.

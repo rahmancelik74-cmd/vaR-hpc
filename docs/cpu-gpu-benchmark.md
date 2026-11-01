@@ -1,6 +1,6 @@
 # Unified CPU/GPU benchmark
 
-This infrastructure implements Plan A recording, auditing and opt-in timing.
+This infrastructure implements the baseline recording, auditing and opt-in timing.
 The formal primary benchmark is complete; see the dated result below.
 Measured DRAM bandwidth, documented-peak utilization, convergence and
 profiling-driven optimization are not established by that primary campaign.
@@ -217,7 +217,7 @@ configuration bandwidth or effective-data-rate/bus-width source is established.
 Profiler pct_of_peak_sustained_elapsed has its own denominator and must be labeled
 separately. If counters remain blocked, 16*N logical loss-kernel bytes divided by
 its Event interval is only effective/application bandwidth, not measured DRAM
-traffic or completion of the original Plan A bandwidth reporting requirement.
+traffic or completion of the original baseline bandwidth reporting requirement.
 
 Official references:
 - https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html
@@ -306,7 +306,7 @@ and competing-application conditions without changing machine-wide settings.
 Prepare and execute the bounded two-minute pre-observation / thirty-second
 post-observation procedure described above; it is still separate operational work
 and cannot establish thermal equilibrium. Resolve counter access and the exact
-peak specification separately before claiming the Plan A bandwidth measurements.
+peak specification separately before claiming the baseline bandwidth measurements.
 
 ## Formal primary result: 2026-10-19
 
@@ -421,7 +421,7 @@ successful access and measured kernel-scope GB/s outside timed samples.
 Applicable documented peak and its percentage remain an evidence gap.
 [Convergence/figures](convergence.md) and [technical reproducibility](reproducibility.md)
 are separately evidenced, with mixed revisions and same-machine trial limits.
-Plan B optimization is optional.
+Profiling-driven optimization is optional.
 Academic delivery and live demonstration are not established. Hosted CPU CI for
 the closure commit is distinct from this local RTX-tested source and cannot
 serve as benchmark evidence.

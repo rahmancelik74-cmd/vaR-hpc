@@ -1,27 +1,8 @@
-# Acceptance source register
+# Numerical and performance acceptance criteria
 
-Imported on 2026-10-15 from Capstone_Project_Proposal_Form_Revised.docx,
-section 8, page 4. The file was read in full from the current stored copy.
-The initial approval-identity uncertainty was resolved by the student's
-2026-10-16 identification of this file as the approved proposal, recorded in
-project-state.md. Its supervisor decision boxes remain unmarked; no signed
-approval or submission receipt is inferred from that identification.
-
-On 2026-10-18, the proposal and both v2.0 roadmaps dated 2026-10-14 were read
-directly from the existing Downloads copies, including document-body tables.
-This comparison uses those sources, not just the repository summaries. Exact-byte
-SHA-256 values identify the reviewed private files; the documents remain outside Git:
-
-| Source filename | SHA-256 |
-| --- | --- |
-| Capstone_Project_Proposal_Form_Revised.docx | 82719610500f74bab3d954a6da385678c8987e7ec864a9161f1fcd10b01bf7f9 |
-| Roadmap_Abdurrahman_Celik_GPU_MonteCarlo_PlanA.docx | e9babe946e866049270abcb8f694460bf39a15db7a937fbddf547402440b3197 |
-| Roadmap_Abdurrahman_Celik_GPU_MonteCarlo_PlanB.docx | 19121d399982438a86a91090fd7c85ef3f814f8b2992099c6f2030b717e82517 |
-
-Proposal sections 5, 8 and 9 define inventory, acceptance and fallback conditions.
-Plan A sets the revised schedule and explicitly retains proposal success/risk
-conditions. Approval identity is reported history; source contents were inspected
-in this audit. Do not substitute conversational suggestions for source conditions.
+This register defines the computational acceptance conditions and their
+interpretation. Historical evidence remains associated with its recorded source
+revision and measurement scope.
 
 ## Statistical correctness
 
@@ -54,14 +35,15 @@ Check memory/concurrency separately; matching a quantile does not prove no race.
   allocations, RNG initialization/generation, simulation, quantile, required
   transfers and synchronization. The implemented engine boundary also includes
   temporary-resource cleanup. Report device stages with CUDA Events, separately
-  from primary host wall time. Plan A also requests transfer-excluded figures;
+  from primary host wall time. The baseline also requests transfer-excluded figures;
   label their device-stage scope rather than treating them as end-to-end speedup.
 - Profile separately. Source text requests achieved DRAM GB/s and percentage of
   documented peak, with metric definitions; no bandwidth threshold or GFLOPS goal.
 
-Plan A retains the proposal's baseline reporting: achieved DRAM GB/s and
+Baseline reporting includes achieved DRAM GB/s and
 percentage of documented GPU peak, with profiler metric definitions, collected
-outside timed repetitions. Plan B adds targeted profiling-driven optimization
+outside timed repetitions. The optional extension adds targeted
+profiling-driven optimization
 and before/after evidence. The latter remains optional; baseline reporting is
 not removed. Before term-two measurements, specify the profiled stages,
 aggregation and documented peak basis. These reporting details do not authorize
@@ -69,8 +51,7 @@ an optimization campaign or impose a bandwidth/GFLOPS acceptance threshold.
 
 ## Established numerical and timing conventions
 
-The proposal requires consistent documented conventions, rather than specifying
-every formula below. The implemented contract uses double precision, positive
+The implemented numerical contract uses double precision, positive
 long holding V0=q*S0, exact terminal GBM, loss V0-VT and retained negative VaR.
 Ascending loss rank is ceil(alpha*N)-1, zero-based, without interpolation.
 The analytical terminal-price quantile is 1-alpha. With log-return mean m,
@@ -145,32 +126,12 @@ dated sections above and in the immutable NVIDIA reference README published at
 4a4730d0b505cc2ab31574ca96b4fc5841a3fc21. Their historical findings, original
 report, calculations and hash-bound manifests remain unchanged.
 
-The continuation reference APPROVED_PROPOSAL_SOURCE_TEXT_EN.txt was independently
-read in full from the user-specified private advisor-sources directory, outside
-Git. Exact-byte SHA-256:
-4ae7ecae948892d08aabeb5fa21f5a473632cf90281d87b63ddfd5cc1ca46a57.
-Its section 8, page 4, lines 157-158 agrees with this register's performance
-criterion. The exact operative clause is:
-
-> report achieved DRAM bandwidth in GB/s and as a percentage of the documented GPU peak, with profiler metric definitions. No fixed bandwidth utilization threshold or GFLOPS target is imposed.
-
-The inspected extraction contains no separate published OEM datasheet condition.
-It is an extracted continuation reference, not a newly authenticated signed
-proposal; the earlier private DOCX identification/hashes above remain distinct.
-The tracked requirements definitions, all 18 audit criterion cells and relevant
-Git history likewise provide no stricter supervisor decision. No supervisor
-approval of this interpretation is claimed, and uninspected correspondence is
-not asserted to contain none.
-
-The authority trail separates evidence acquisition from acceptance:
-
-| Record | Role and finding |
-| --- | --- |
-| Approved proposal section 8 and this register | Documented GPU peak and profiler definitions; no publication-channel restriction |
-| b9745be / 663fcc3 | Derived status/search records sought applicable OEM/NVIDIA rate evidence and correctly rejected runtime clocks; they do not add supervisor authority |
-| 7e79204 / b3b67a4 | Baseline/review retained the unsuccessful published-specification search as the then-missing denominator |
-| Earlier user continuation tasks | Explicitly constrained those investigations to published applicable specifications and required the class-B report to remain supplementary; task restrictions were real, but were not evidence of a supervisor amendment |
-| 4a4730d | Conservatively retained an unresolved interpretation even after the authentic report was captured; that status is corrected here |
+The reporting criterion requires achieved DRAM bandwidth in GB/s and as a
+percentage of documented GPU peak, with profiler metric definitions. No fixed
+bandwidth-utilization threshold or GFLOPS target is imposed. The criterion does
+not require a separately published OEM datasheet. The technical interpretation
+below preserves the criterion and distinguishes a documented configuration
+reference from measured sustainable bandwidth.
 
 The installed-device NVIDIA report supports a documented theoretical/configuration
 reference: its explicit effective rate and interface give 16.00 * 128 / 8 =

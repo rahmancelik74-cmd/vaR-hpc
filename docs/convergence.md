@@ -6,7 +6,7 @@ complete. See the completed checkpoint at the end of this document and
 The preparation sections below retain their original scope and missing matrix.
 
 At preparation time, this was not a completed convergence campaign. No new simulation
-was run in this task. The bound reuse plan imports 55 native observations (110
+was run during this preparation. The bound reuse plan imports 55 native observations (110
 VaR values) and explicitly retains 25 missing processes (50 values). The full
 contract is 80 engine/mode-N-seed observations and 160 values. Each observation
 contains alpha .95 and .99. Benchmark repeats, warm-ups, common inputs,

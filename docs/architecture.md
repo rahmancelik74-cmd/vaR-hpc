@@ -32,7 +32,7 @@ No claim is made about predictive validity in real markets.
 The product is a C++ CLI application with replaceable compute backends,
 validation evidence and reproducible performance experiments. It is not a
 web service. GUI, live APIs, database infrastructure, MPI and machine-learning
-prediction are outside Plan A. Multi-asset work is a conditional extension.
+prediction are outside the baseline scope. Multi-asset work is a conditional extension.
 
 ## Implemented components
 
@@ -114,7 +114,7 @@ The v0.2.2 candidate adds final-argument --json output and a PowerShell runner
 for separate smoke, statistical-validation and benchmark campaigns. It keeps
 the existing Engine interface. File hashes and run metadata are recorded in
 the manifest. Windows smoke verification passed on 2026-10-15; see experiments.md.
-The runner records results without deciding supervisor acceptance.
+The runner records execution results; acceptance is evaluated separately.
 Do not label exploratory one-run times as official benchmark measurements.
 
 ## OpenMP implementation and planned CUDA additions

@@ -20,7 +20,7 @@
 - Monte Carlo output may differ between Windows/Linux because of the standard
   library RNG implementation. The analytical reference does not depend on it.
 - v0.2 was checked directly with g++ in this environment. CMake/CTest and MSVC
-  verification were to be performed on the student's computer. For the earlier
-  v0.1, the student had reported successful tests and demo execution.
+  verification were to be performed on my project computer. For the earlier
+  v0.1, I had reported successful tests and demo execution.
 - Real-market data, the performance campaign, GPU kernel execution and the
   five-seed acceptance campaign were not yet complete at this date.

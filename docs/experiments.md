@@ -41,7 +41,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-experiment
 
 Validation defaults: N=10000,100000,1000000,10000000 and seeds
 42,123,456,789,2026, one run per pair. It records observations; it does not
-approve proposal identity or decide supervisor acceptance. Benchmark defaults:
+establish acceptance beyond its recorded execution scope. Benchmark defaults:
 N=100000,1000000,10000000, seed 42, three warm-ups and ten measured runs per
 configuration, native backend RNG. Each repetition uses the same seed to keep
 that workload fixed; these timing repeats are not independent statistical seeds.
