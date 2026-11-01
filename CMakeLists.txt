@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 project(gpu_montecarlo VERSION 0.3.0 LANGUAGES CXX)
+option(MC_BUILD_QUANTILE_EXPERIMENT "Build isolated CPU quantile selection research tools" OFF)
 option(MC_ENABLE_OPENMP "Build the OpenMP backend" ON)
 option(MC_BUILD_CPU_TOOLS "Build Windows CPU benchmark instrumentation" OFF)
 option(MC_ENABLE_CUDA "Build full-device and explicit hybrid CUDA modes (at most 10000000 scenarios)" OFF)
@@ -183,5 +184,22 @@ if(BUILD_TESTING)
     add_test(NAME equity_import_tests COMMAND powershell.exe -NoProfile -ExecutionPolicy Bypass
       -File "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_equity_import.ps1"
       -Executable "$<TARGET_FILE:mc_var>" -OpenMPEnabled "${MC_ENABLE_OPENMP}" -CudaEnabled "${MC_ENABLE_CUDA}")
+  endif()
+endif()
+
+# Isolated research tools; production engines and their timing/schema stay unchanged.
+if(MC_BUILD_QUANTILE_EXPERIMENT)
+  add_executable(mc_quantile_experiment tools/quantile_selection_experiment.cpp)
+  target_link_libraries(mc_quantile_experiment PRIVATE mc_core)
+  if(MC_ENABLE_OPENMP)
+    target_link_libraries(mc_quantile_experiment PRIVATE mc_openmp)
+    target_compile_definitions(mc_quantile_experiment PRIVATE MC_SELECTION_HAS_OPENMP=1)
+  endif()
+  if(BUILD_TESTING)
+    add_executable(mc_quantile_selection_tests tests/test_quantile_selection.cpp)
+    target_link_libraries(mc_quantile_selection_tests PRIVATE mc_core)
+    add_test(NAME quantile_selection_oracle COMMAND mc_quantile_selection_tests)
+    add_test(NAME quantile_selection_engine_equality COMMAND mc_quantile_experiment
+      --validate "${CMAKE_CURRENT_SOURCE_DIR}/data/synthetic_prices.csv" 10003)
   endif()
 endif()
