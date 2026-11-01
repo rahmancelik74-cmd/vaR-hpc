@@ -56,3 +56,7 @@ terminates owned descendants if the launcher exits unexpectedly.
 See package-manifest.json and integrity.sha256 for contents/source revision/hashes,
 and dependency-audit.json for native imports. These do not certify arbitrary
 machines or eliminate antivirus/enterprise policy compatibility limitations.
+
+Project code and original synthetic fixtures: MIT License, included at
+licenses/Monte-Carlo-Lab-LICENSE.txt. Third-party licenses remain separate;
+this license grants no rights to uploaded provider data.

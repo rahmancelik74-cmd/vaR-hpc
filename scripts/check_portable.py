@@ -63,6 +63,21 @@ def wait_for(predicate,timeout=30):
     raise RuntimeError('Timed out waiting for portable operation')
 
 
+def file_version(path, field):
+    version=ctypes.WinDLL('version',use_last_error=True)
+    version.GetFileVersionInfoSizeW.argtypes=[ctypes.c_wchar_p,ctypes.POINTER(ctypes.c_ulong)]
+    version.GetFileVersionInfoSizeW.restype=ctypes.c_ulong
+    version.GetFileVersionInfoW.argtypes=[ctypes.c_wchar_p,ctypes.c_ulong,ctypes.c_ulong,ctypes.c_void_p]
+    version.VerQueryValueW.argtypes=[ctypes.c_void_p,ctypes.c_wchar_p,ctypes.POINTER(ctypes.c_void_p),ctypes.POINTER(ctypes.c_uint)]
+    size=version.GetFileVersionInfoSizeW(str(path),None)
+    assert size,('Missing version resource',path)
+    buffer=ctypes.create_string_buffer(size)
+    assert version.GetFileVersionInfoW(str(path),0,size,buffer)
+    value=ctypes.c_void_p();length=ctypes.c_uint()
+    assert version.VerQueryValueW(buffer,'\\StringFileInfo\\040904b0\\'+field,ctypes.byref(value),ctypes.byref(length)),field
+    return ctypes.wstring_at(value.value,length.value-1)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('zip',type=Path);p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     work=args.output.resolve()
@@ -79,6 +94,12 @@ def main():
     for name in manifest['files']:
         assert name.split('/')[0] in ('runtime','resources','licenses','Start Monte Carlo Lab.exe','START_HERE.txt','THIRD_PARTY_NOTICES.txt','dependency-audit.json'),name
         assert not any(x in Path(name).parts for x in ('AGENTS.md','.git','data/local','results','evidence','__pycache__'))
+    assert (app/'licenses/Monte-Carlo-Lab-LICENSE.txt').read_bytes()==(ROOT/'LICENSE').read_bytes()
+    for executable in (app/'Start Monte Carlo Lab.exe',app/'resources/bin/mc_var.exe'):
+        assert file_version(executable,'ProductName')=='Monte Carlo Lab'
+        assert file_version(executable,'ProductVersion')==manifest['application_version']
+        assert file_version(executable,'FileVersion')==manifest['application_version']+'.0'
+        assert file_version(executable,'OriginalFilename')==executable.name
     env={k:v for k,v in os.environ.items() if not k.startswith(('PYTHON','CONDA','VIRTUAL_ENV'))}
     env['PATH']=str(Path(os.environ['SystemRoot'])/'System32')
     env['LOCALAPPDATA']=str(work/('User data '+chr(0xFC)+chr(0x131)+' with spaces'))
@@ -86,7 +107,7 @@ def main():
     command=[str(app/'Start Monte Carlo Lab.exe'),'--no-browser','--state-dir',str(state)]
     launcher=subprocess.Popen(command,env=env,cwd=work)
     url=None
-    checks=[]
+    checks=['Project MIT license included verbatim; both owned EXEs have consistent product/version resources']
     def api(path,payload=None):
         request=urllib.request.Request(url+path,data=None if payload is None else json.dumps(payload).encode('ascii'),headers={'Origin':url,'Content-Type':'application/json'})
         with urllib.request.urlopen(request,timeout=30) as response:return json.load(response)

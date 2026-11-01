@@ -25,3 +25,7 @@ third-party Python packages, private provider data or historical research eviden
 are distributed. Application sources and original artificial fixtures are from
 the source revision recorded in package-manifest.json. This notice does not
 change the project's licensing or confer rights to uploaded provider data.
+
+Project code and original synthetic fixtures are licensed under MIT; see
+licenses/Monte-Carlo-Lab-LICENSE.txt. This does not relicense upstream runtimes
+or provider datasets.

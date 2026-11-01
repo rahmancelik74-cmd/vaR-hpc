@@ -177,3 +177,23 @@ unchanged; no private VM files, provider data or academic artifacts are included
 - [Visual Studio 2022 Distributable Code list](https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution) and [application-local DLL guidance](https://learn.microsoft.com/en-us/cpp/windows/determining-which-dlls-to-redistribute?view=msvc-170). Redistribution is conditional on the builder's valid Visual Studio license; debug/nonredist folders are excluded.
 - [Windows Job Objects and inherited child membership](https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects).
 - [PowerShell execution policy behavior](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1).
+
+## License and signing preparation: 2026-11-01
+
+The repository now uses the [MIT License](../LICENSE) for project code and
+original synthetic fixtures. New builds include that license and consistent
+Windows product/version resources in the two project-owned EXEs. Upstream
+component licenses and uploaded provider-data rights remain separate.
+See the [Code signing policy](code-signing.md) for privacy, proposed roles and
+activation requirements. SignPath acceptance and signing are still pending.
+The previously published ab184ae preview ZIP is unchanged; it has not acquired
+a signature or these newly added packaged files retroactively.
+
+Local verification of the changed build passed on the developer Windows host:
+verbatim project-license inclusion, both owned EXEs' product/version/original-name
+resources, extracted-package startup and real serial/OpenMP CLI equality,
+precise exports, rejection/recovery, cancellation, owned-process shutdown and
+missing/modified-asset rejection. Retained CPU/OpenMP CTests passed 19/19.
+The host PowerShell module path was sanitized for these test processes only;
+the unrelated already-running preview was stopped through its normal stop request.
+This is not a new clean-VM, browser-visual or signed-package validation.

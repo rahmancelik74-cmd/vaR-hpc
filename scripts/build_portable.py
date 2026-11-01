@@ -110,12 +110,27 @@ catch { Write-EquityJson $request.ErrorReportFile @{schema_version=1;code=$_.Exc
     subprocess.run([build_tool('mt.exe',env),'-nologo','-manifest',str(ROOT/'packaging/windows-utf8.manifest'),
                     '-outputresource:'+str(stage/'resources/bin/mc_var.exe')+';#1'],env=env,check=True)
     launcher=stage/'Start Monte Carlo Lab.exe'
+    version_match=re.search(r'project\(gpu_montecarlo VERSION (\d+)\.(\d+)\.(\d+) LANGUAGES CXX\)',
+                            (ROOT/'CMakeLists.txt').read_text(encoding='ascii'))
+    if not version_match:raise ValueError('Expected numeric CMake project version')
+    version='.'.join(version_match.groups())
+    substitutions=dict(PROJECT_VERSION=version,PROJECT_VERSION_MAJOR=version_match[1],
+                       PROJECT_VERSION_MINOR=version_match[2],PROJECT_VERSION_PATCH=version_match[3],
+                       MC_WINDOWS_FILENAME=launcher.name,MC_WINDOWS_DESCRIPTION='Monte Carlo Lab portable launcher')
+    resource=(ROOT/'packaging/windows-version.rc.in').read_text(encoding='ascii')
+    for key,value in substitutions.items():resource=resource.replace('@'+key+'@',value)
+    if '@' in resource:raise ValueError('Unresolved Windows resource variable')
+    resource_path=out/'launcher-version.rc'
+    resource_path.write_text(resource,encoding='ascii')
+    subprocess.run([build_tool('rc.exe',env),'/nologo','/fo'+str(out/'launcher-version.res'),str(resource_path)],
+                   cwd=out,env=env,check=True)
     compiler=install/'VC/Tools/MSVC'/env['VCTOOLSVERSION'].strip('/\\')/'bin/Hostx64/x64/cl.exe'
     env['PATH']=str(compiler.parent)+';'+env['PATH']
-    subprocess.run([str(compiler),'/nologo','/std:c++17','/EHsc','/O2','/MT',str(ROOT/'packaging/launcher.cpp'),
+    subprocess.run([str(compiler),'/nologo','/std:c++17','/EHsc','/O2','/MT',str(ROOT/'packaging/launcher.cpp'),str(out/'launcher-version.res'),
                     '/Fo'+str(out/'launcher.obj'),'/Fe'+str(launcher),'/link','/SUBSYSTEM:WINDOWS'],cwd=out,env=env,check=True)
     copy(ROOT/'packaging/START_HERE.txt',stage/'START_HERE.txt')
     copy(ROOT/'packaging/THIRD_PARTY_NOTICES.txt',stage/'THIRD_PARTY_NOTICES.txt')
+    copy(ROOT/'LICENSE',stage/'licenses/Monte-Carlo-Lab-LICENSE.txt')
     # Include upstream license text unmodified, in addition to its runtime copy.
     copy(stage/'runtime/LICENSE.txt',stage/'licenses/Python-LICENSE.txt')
     license_edition=install.name
@@ -127,7 +142,7 @@ catch { Write-EquityJson $request.ErrorReportFile @{schema_version=1;code=$_.Exc
     audit=dependencies(stage,env)
     save(stage/'dependency-audit.json',audit)
     files={p.relative_to(stage).as_posix():digest(p) for p in sorted(stage.rglob('*')) if p.is_file()}
-    manifest=dict(schema_version=1,package_version='1',edition='cpu',configuration='Release',source_revision=revision,
+    manifest=dict(schema_version=1,package_version='1',application_version=version,edition='cpu',configuration='Release',source_revision=revision,
                   source_tracked_worktree_dirty_at_build=dirty,source_sha256=source_hash(),runtime='CPython 3.14.9 embedded x64 (trimmed optional extensions)',
                   runtime_upstream_url=PYTHON_URL,runtime_upstream_sha256=PYTHON_SHA,
                   compiler_toolset=env['VCTOOLSVERSION'].strip('/\\'),vs_builder_edition=license_edition,

@@ -2,6 +2,11 @@
 
 Abdurrahman Celik - application v0.3.0, 16 October 2026.
 
+Project code and original synthetic fixtures: [MIT License](LICENSE).
+Third-party components retain their own licenses; provider data is not licensed here.
+[Code signing policy](docs/code-signing.md): signing preparation only; current
+portable downloads are unsigned and no SignPath approval is claimed.
+
 Local browser application: run `python -B scripts/start_local.py`, then open
 `http://127.0.0.1:8765`. See [prerequisites, supported data and limits](docs/local-browser.md)
 for synthetic examples, strict local uploads, engine comparisons and downloads.

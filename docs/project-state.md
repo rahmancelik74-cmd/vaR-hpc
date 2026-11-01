@@ -1,5 +1,15 @@
 # Project state
 
+## MIT and signing preparation: 2026-11-01
+
+The owner approved the [MIT License](../LICENSE). New portable builds include
+the project license and use shared Windows product/version resources for the
+launcher and engine. The [Code signing policy](code-signing.md) records privacy,
+proposed roles and required activation checks. No application has been submitted,
+no certificate obtained, and no signing workflow enabled. Existing release bytes
+and numerical behavior remain unchanged. Provider acceptance, confirmed roles,
+MFA and human signing approval remain prerequisites for a signed release.
+
 ## Portable delivery closeout: 2026-11-01
 
 The runnable CPU preview is published at

@@ -43,7 +43,7 @@ def build(cuda=False, openmp=True):
 
 def source_hash():
     h = hashlib.sha256()
-    paths = [ROOT/'CMakeLists.txt'] + sorted((ROOT/'src').glob('*')) + sorted((ROOT/'include').rglob('*'))
+    paths = [ROOT/'CMakeLists.txt', ROOT/'packaging/windows-version.rc.in'] + sorted((ROOT/'src').glob('*')) + sorted((ROOT/'include').rglob('*'))
     for path in paths:
         if path.is_file():
             h.update(path.relative_to(ROOT).as_posix().encode('ascii'))
