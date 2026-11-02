@@ -204,11 +204,9 @@ provenance/integrity checks. The Windows job ran CPU recorder smoke,
 instrumentation and retained engine tests. Hosted CI did not execute CUDA.
 The Windows/OpenMP/RTX results above remain separate local validation evidence.
 
-The unchanged [original evidence package](../evidence/portfolio-extension-20261025/README.md)
-and its [validation summary](../evidence/portfolio-extension-20261025/validation-summary.json)
-describe their preparation time, when the preparation session could not create
-`.git/index.lock` and delivery was blocked. Their failure records, raw logs and
-hashes are preserved; those historical statements are superseded for current
-delivery status by the published commit and CI links above. Publication and
-CPU CI do not establish general portfolio VaR statistical acceptance, a formal
-performance result, wider sanitizer coverage or academic delivery.
+The [original evidence package](../evidence/portfolio-extension-20261025/README.md)
+and [validation summary](../evidence/portfolio-extension-20261025/validation-summary.json)
+retain their preparation-time state. The published commit and CI above establish
+the later delivery status. CPU CI does not establish general portfolio VaR
+statistical acceptance, a formal performance result or wider sanitizer coverage.
+See the [evidence guide](evidence-guide.md) for record interpretation.

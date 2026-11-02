@@ -3,7 +3,8 @@
 The staged implementation separates the computational baseline, validation,
 performance analysis and optional extensions. Acceptance conditions are defined
 in [acceptance-source.md](acceptance-source.md). The entries below retain their
-original technical checkpoint status; they are not current completion claims.
+original technical checkpoint status. The
+[current technical summary](project-state.md) identifies subsequent results.
 
 ## Foundation and CPU validation
 
@@ -40,9 +41,9 @@ the N=10000 cap; the later full-device scale-up is described in cuda-skeleton.md
 | --- | --- |
 | Grow skeleton to full scale, memory/batching, GPU quantile and hybrid fallback | Implementation complete; full-device and explicit bounded-memory hybrid verified from clean source f039034; later acceptance remains separate |
 | Analytical and common-input GPU validation; separate memory/race checks | Both native modes pass five-seed analytical acceptance at 8df5f28; compatible large common-input evidence reused; representative sanitizer matrix passed with documented limits (project-state.md) |
-| Full benchmark campaign against serial and best OpenMP | Primary complete at 89536e3: 312 processes, 24 rows; 10x serial target not met. Separate 18-process stage diagnostics closed at 80148ce; cold-cache kernel-scope DRAM measured and independently audited; documented peak/percentage remains an evidence gap (requirements-audit.md) |
+| Full benchmark campaign against serial and best OpenMP | Primary complete at 89536e3: 312 processes, 24 rows; 10x serial target not met. Separate 18-process stage diagnostics closed at 80148ce; cold-cache kernel-scope DRAM measured and independently audited; the later documented configuration-reference interpretation satisfies reporting within kernel scope (requirements-audit.md) |
 | Error and convergence analysis | Complete for the fixed synthetic fixture: 80 native observations, 160 estimates, 32 groups; version-2 figures, reproduction, historical/current provenance correction and separate 10M acceptance verified in convergence.md. Five-seed and historical provenance limits remain |
-| Reproducibility package and requirements revision | Technical entry point and 18-item evidence audit verified in reproducibility.md / requirements-audit.md; local/archive/environment limitations explicit; academic baseline approval/submission unverified |
+| Reproducibility package and requirements revision | Technical entry point and 18-item evidence audit verified in reproducibility.md / requirements-audit.md; local/archive/environment limitations explicit |
 
 ## Extensions and scope control
 

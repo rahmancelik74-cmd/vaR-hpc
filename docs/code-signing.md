@@ -1,7 +1,8 @@
 # Code signing policy
 
-Status: preparation for an application, 2026-11-01. No SignPath acceptance,
-certificate access or signed project release has been obtained. The existing
+Status: the SignPath application has been submitted. Provider acceptance and
+certificate access have not been confirmed, and no signed project release has
+been published. The existing
 portable CPU preview is unsigned. A checksum does not authenticate its publisher.
 
 ## Scope and roles

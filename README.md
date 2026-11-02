@@ -8,8 +8,9 @@ and performance of serial C++, OpenMP and CUDA Monte Carlo implementations.
 
 Project code and original synthetic fixtures: [MIT License](LICENSE).
 Third-party components retain their own licenses; provider data is not licensed here.
-[Code signing policy](docs/code-signing.md): signing preparation only; current
-portable downloads are unsigned and no SignPath approval is claimed.
+[Code signing policy](docs/code-signing.md): the application has been submitted;
+provider acceptance and certificate access are unconfirmed. Portable downloads
+remain unsigned.
 
 Local browser application: run `python -B scripts/start_local.py`, then open
 `http://127.0.0.1:8765`. See [prerequisites, supported data and limits](docs/local-browser.md)
@@ -31,8 +32,12 @@ samples and uncertainty-limited outcomes; historical single-asset ratios are unc
 Technical [reproducibility entry point](docs/reproducibility.md) and
 [FR/NFR evidence audit](docs/requirements-audit.md): distinguish clean software
 builds, selected public integrity checks, local raw archives and offline figures.
-Kernel-scope [DRAM baseline](evidence/v030-dram-baseline-20261020/README.md) is
-measured; applicable documented peak/percentage and academic delivery remain open.
+Kernel-scope [DRAM baseline](evidence/v030-dram-baseline-20261020/README.md)
+reporting is complete within its recorded scope, using the documented NVIDIA
+App configuration-bandwidth reference. See the
+[reference interpretation and limits](docs/acceptance-source.md#documented-peak-interpretation-audit-2026-10-21).
+The [evidence guide](docs/evidence-guide.md) distinguishes current summaries,
+original experiment records and historical document snapshots.
 
 Current OpenMP implementation and verification procedure:
 [docs/openmp.md](docs/openmp.md). Serial remains the default backend.
@@ -62,23 +67,14 @@ well-defined, independently verifiable workload for comparing the correctness
 and performance of CPU and GPU implementations. No claim is made about
 predictive validity in real markets.
 
-## Starter package contents
+## Implementation
 
-The status statements in this section describe the original starter snapshot;
-later validation, benchmark, CUDA-probe and CI evidence is recorded separately.
-
-- C++17, CMake and CTest project; GitHub Actions CPU build/test workflow.
-- Shared `Engine` interface in which the backend owns RNG, memory, simulation
-  and quantile computation.
-- Unoptimized serial example using fixed synthetic parameters.
-- Single-asset analytical GBM VaR reference and deterministic unit tests.
-- CSV reader, log-return calibration and corresponding tests.
-- Numbered requirements/design draft and hardware inventory template.
-
-At this snapshot, no OpenMP engine, CUDA engine or GPU quantile code was present.
-The serial example had not yet completed the five-seed analytical acceptance
-campaign. The CI definition was prepared, but no remote repository or successful
-CI execution had yet been established.
+- C++17, CMake and CTest with serial, OpenMP and optional CUDA backends.
+- Shared Engine interface with backend-owned RNG, storage, valuation and quantiles.
+- CSV validation, log-return calibration and an analytical single-asset GBM reference.
+- Single-asset validation and separately scoped 1..5-asset portfolio extensions.
+- Reproducible experiment recorders, stage diagnostics and convergence figures.
+- A local browser application and a Windows portable CPU preview.
 
 ## Build
 
@@ -110,8 +106,8 @@ A single run is neither a benchmark campaign nor a 1% convergence guarantee.
 ## CSV mode
 
 Version check: `mc_var.exe --version` must report
-`mc_var 0.3.0 (CSV support enabled)`. CTest retains the four original tests
-and adds cli_contract_tests and, with OpenMP ON, openmp_tests.
+`mc_var 0.3.0 (CSV support enabled)`. Registered tests depend on the platform
+and selected CMake options; inspect them with `ctest --show-only=json-v1`.
 Configure a separate build directory, compile and run the registered tests:
 
 ```powershell
@@ -134,10 +130,12 @@ UTF-8 BOM and CRLF are supported. Quoted fields, extra columns, semicolons,
 decimal commas and blank records are unsupported. Invalid rows are not skipped;
 an error identifies the line number. At least three prices are required.
 
-Each record represents the next trading observation. Weekend/holiday gaps are
-normal; a market calendar for detecting missing trading sessions is not yet
-implemented. Convert the provider's CSV to this contract and document the
-price-adjustment policy. Do not silently choose close versus adjusted close.
+Each record represents the next trading observation. The C++ CSV reader checks
+dates and ordering but does not infer exchange sessions. The separate importer
+and browser workflow validate completeness against the supplied Nasdaq
+2023-2025 calendar; see [calendar scope](docs/data-rights-and-calendar.md).
+Provider conversion must document the price-adjustment policy; Close and
+adjusted Close are not interchangeable.
 
 `data/synthetic_prices.csv` is hand-written software test data, not evidence of
 a real stock, price provider or market performance. It contains only 12 prices;

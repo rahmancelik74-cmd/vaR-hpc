@@ -1,22 +1,12 @@
 # FR/NFR evidence consistency audit, 2026-10-20
 
-This is a technical mapping, not an academic submission or a new acceptance
-contract. IDs are preserved. The populated local source is `Requirements and
-Design v1.0 - GPU Monte Carlo - Review Draft.docx`, SHA-256
-0cbdc1d1b90f394b22411d26675ed52730170229ac4d7b70fcdb35ba7d23ae70,
-sections 3, 4 and 9 (read directly from its Word XML). It defines FR-1..FR-9
-and NFR-1..NFR-9. Its title/status does not prove approval or submission.
-The local `Capstone_Requirements_Design_Document_EN.docx`, SHA-256
-db6ab00856387a219cd651af80241f9d9784dc3fe20f34976130cd8b71957a99,
-is an incomplete template, not an alternate populated contract. Both private
-documents remain outside Git. No signed/approved FR/NFR baseline was available
-in the repository; administrative acceptance remains unverified.
-
-[acceptance-source.md](acceptance-source.md) records the identified approved
-proposal and roadmap sources and the unchanged numerical/performance criteria.
-That numerical contract takes precedence over an obsolete status in a draft.
-The matrix below transcribes the operative criteria without relaxing thresholds.
-Evidence is scope-specific, not a claim all requirements are globally complete.
+This matrix preserves FR-1..FR-9 and NFR-1..NFR-9 and their numerical
+acceptance conditions. Evidence is associated with its source revision,
+measurement boundary and coverage limitations. The
+[acceptance register](acceptance-source.md) defines the statistical, numerical
+and performance criteria; the [current technical state](project-state.md)
+identifies later software and experiment extensions. The dated observations
+below retain their original verification scope.
 
 Evidence keys (all relative to evidence/): C = v030-convergence-windows-20261020;
 F = v030-convergence-figures-20261020-v2; P = v030-primary-benchmark-windows-20261019;
@@ -100,14 +90,14 @@ full-session archive/layout dependencies and the untested independent Windows/
 CUDA laptop path remain explicit. No FR/NFR ID or
 numerical/performance acceptance criterion changed.
 RNG's largest covered device-stage mean does not establish the dominant
-end-to-end cost. Optimization is optional
-and was not started. Academic requirements/report submission, final report and
+end-to-end cost. The separate CPU selection experiment does not establish
+a production-engine or GPU optimization result. Academic requirements/report submission, final report and
 live demonstration remain unverified/outside this technical package.
 
 ## Preserved older-label crosswalk
 
 The repository's requirements-design.md retains the original R01-R14/B01-B02
-definitions and initial statuses. No historical explicit FR crosswalk was found
+definitions; its evidence links now point to the implemented components. No historical explicit FR crosswalk was found
 in tracked files. The following is a newly documented many-to-many technical
 correspondence, not a renumbering or assertion it appeared in the old draft.
 
@@ -127,5 +117,5 @@ correspondence, not a renumbering or assertion it appeared in the old draft.
 | R12 | FR-5/8, NFR-5/6 complete scoped engine validation |
 | R13 | FR-8, NFR-1/5/7 benchmark/convergence |
 | R14 | FR-7/8, NFR-8/9 technical reproducibility; academic reporting separate |
-| B01 | Optional optimization, not started; baseline bandwidth reporting satisfied within B/N scope |
-| B02 | Optional multi-asset work, outside scope |
+| B01 | Optional profiling-driven optimization remains separate; isolated CPU selection does not complete it; baseline bandwidth reporting satisfied within B/N scope |
+| B02 | Implemented portfolio extension with a separate validation register; original single-asset criteria unchanged |

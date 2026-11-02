@@ -1,12 +1,10 @@
 # Requirements and Design Document
 
-Current technical evidence mapping: [FR/NFR audit](requirements-audit.md).
-The R01-R14/B01-B02 draft and its dated statuses below are preserved; the audit
-adds a clearly identified crosswalk without renumbering these older labels.
-
-Status: historical technical draft v0.1. The separate academic Requirements
-and Design document remains v1.0. The requirement IDs and snapshot statuses
-below describe the initial implementation; current evidence is linked above.
+This technical design summary accompanies the
+[FR/NFR evidence audit](requirements-audit.md) and
+[numerical acceptance register](acceptance-source.md). The R01-R14/B01-B02
+identifiers below retain the original design mapping. The separate academic
+Requirements and Design document remains v1.0.
 
 ## Scope
 
@@ -18,10 +16,10 @@ predictive validity in real markets, the adequacy of stress testing or the
 superiority of the financial model. This scope applies to the implementation
 and its performance evaluation.
 
-The baseline scope is one asset and a positive long position. GUI, live price
-APIs, machine learning and MPI are excluded. A multi-asset portfolio does not
-replace the core benchmark; it is a separately scoped mode requiring additional
-validation.
+The baseline is one asset and a positive long position. The implemented
+portfolio mode and local browser adapter are separate extensions; neither
+replaces the single-asset analytical benchmark. Public hosting, live price APIs,
+machine learning and MPI are outside the implemented scope.
 
 ## Model and numerical contract
 
@@ -48,35 +46,36 @@ For equally spaced observations, r_i = log(P_i/P_(i-1)). If the observation
 interval is dt years, use the mean m and sample variance s^2 to calculate
 sigma = sqrt(s^2/dt) and mu = m/dt + sigma^2/2. This project's contract uses
 sample variance with denominator n-1. Record the annual trading-day count and
-selected horizon
-explicitly; do not mix calendar days and trading days. Do not substitute the
+selected horizon explicitly; do not mix calendar days and trading days. Do not substitute the
 mean arithmetic daily return into this formula.
 
-The CSV source, ticker, date range and price-adjustment policy have not yet
-been selected. Define explicit error handling for missing, duplicate,
-out-of-order, zero or negative prices; do not clean data silently. Record the
-final input file's SHA-256. Input data and calibration are shared by all engines.
+Public examples are synthetic. Private MSFT/AAPL integration uses the documented
+2023-2025 Nasdaq window and unadjusted Close policy; it does not select a final
+redistributable historical-study dataset. See
+[data rights and calendar scope](data-rights-and-calendar.md). Missing, duplicate,
+out-of-order, zero and negative observations are rejected. Original input bytes
+and hashes are retained; loading/calibration are shared and outside engine timing.
 
 ## Numbered requirements
 
-| ID | Requirement | Acceptance evidence | Status in the initial package |
+| ID | Requirement | Acceptance evidence | Technical evidence entry point |
 | --- | --- | --- | --- |
-| R01 | Computational scope and GBM limitations | Statement at the start of requirements and technical report | Draft available |
-| R02 | Units, loss sign, quantile and double precision | Documented contract and deterministic tests | Initial tests available |
-| R03 | Hardware/toolchain and build settings | Inventory of the target machine | Template available |
-| R04 | CMake and basic CI | Local build/CTest and repository CI result | Definition available; CI pending |
-| R05 | Shared engine interface | Backends called with the same Request/Result | Serial interface available; GPU evidence pending |
-| R06 | CSV and log-return calibration | Calibration tests using known inputs | v0.2 implementation and controlled tests available; real-data selection pending |
-| R07 | Analytical single-asset VaR | Known normal quantiles and edge cases | Initial implementation/tests available |
-| R08 | Analytical validation of the serial engine | 95%/99%, five seeds, approved thresholds | Demo available; acceptance campaign pending |
-| R09 | OpenMP and thread scaling | Common inputs, thread sweep, affinity record | Pending |
-| R10 | GPU connectivity prototype | CSV -> calibration -> cuRAND -> GPU quantile -> VaR, N=10000 | Pending |
-| R11 | Full-scale CUDA and memory management | 100 thousand/1 million/10 million, memory and race checks | Pending |
-| R12 | Complete engine validation | Common inputs plus separate analytical/seed tests | Pending |
-| R13 | Fair benchmark and convergence | 3 warm-ups, 10 repetitions, mean/std, two CPU references | Pending |
-| R14 | Reproducibility and reporting | Build/run scripts, inventory, checksum, report | Pending |
-| B01 | Optional profiling-driven optimization | Nsight, bottleneck, before/after evidence, revalidation | Conditional |
-| B02 | Optional additional multi-asset mode | Explicit scope decision and separate validation strategy | Conditional |
+| R01 | Computational scope and GBM limitations | Statement at the start of requirements and technical report | Scope and model limitations above |
+| R02 | Units, loss sign, quantile and double precision | Documented contract and deterministic tests | core_tests; acceptance-source.md |
+| R03 | Hardware/toolchain and build settings | Inventory of the target machine | environment.md |
+| R04 | CMake and basic CI | Local build/CTest and repository CI result | reproducibility.md; current CPU CI |
+| R05 | Shared engine interface | Backends called with the same Request/Result | architecture.md; gpu-acceptance.md |
+| R06 | CSV and log-return calibration | Calibration tests using known inputs | historical-data.md; data-rights-and-calendar.md |
+| R07 | Analytical single-asset VaR | Known normal quantiles and edge cases | core_tests; analytical reference |
+| R08 | Analytical validation of the serial engine | 95%/99%, five seeds, approved thresholds | evidence/v022-validation-20261016 |
+| R09 | OpenMP and thread scaling | Common inputs, thread sweep, affinity record | openmp.md; cpu-benchmark.md |
+| R10 | GPU connectivity prototype | CSV -> calibration -> cuRAND -> GPU quantile -> VaR, N=10000 | evidence/v030-cuda-skeleton-windows-20261016 |
+| R11 | Full-scale CUDA and memory management | 100 thousand/1 million/10 million, memory and race checks | cuda-skeleton.md; cuda-hybrid.md; gpu-acceptance.md |
+| R12 | Complete engine validation | Common inputs plus separate analytical/seed tests | gpu-acceptance.md; requirements-audit.md |
+| R13 | Fair benchmark and convergence | 3 warm-ups, 10 repetitions, mean/std, two CPU references | cpu-gpu-benchmark.md; convergence.md |
+| R14 | Reproducibility and reporting | Build/run scripts, inventory, checksum, report | reproducibility.md; evidence-guide.md |
+| B01 | Optional profiling-driven optimization | Nsight, bottleneck, before/after evidence, revalidation | quantile-selection-experiment.md; isolated experiment only |
+| B02 | Optional additional multi-asset mode | Explicit scope decision and separate validation strategy | portfolio.md; portfolio-campaign.md; separate scope |
 
 ## Engine interface and data ownership
 
@@ -89,15 +88,14 @@ host RNG callback.
 
 `common_normals` is for validation only. Either it contains exactly N inputs
 or the engine uses its own RNG. The caller owns common inputs; the engine only
-reads them during the call. CUDA will copy them to the device in this mode,
-without requiring generation on the CPU and transfer to the GPU in normal
-performance mode. Since the CUDA engine has not yet been implemented, no claim
-is made that the interface has been validated with a GPU backend.
+reads them during the call. CUDA copies them to the device in this mode.
+Normal performance mode uses backend-native RNG rather than host-generated
+samples. Portfolio common inputs contain N times the asset count values.
 
-Thrust `sort` is the provisional GPU quantile-library candidate; the choice
-will be fixed after a compatibility check on the actual device. The skeleton
-and full engine will use the same library. If CUB is selected, the skeleton
-will use CUB from the outset.
+CUDA full-device execution uses CUB DeviceRadixSort::SortKeys<double> and a
+device nearest-rank gather. The validated library reference is CUB 3.4.3. Hybrid
+execution transfers scalar batch losses and sorts the complete host sample once.
+The isolated CPU selection experiment does not replace production std::sort.
 
 ## Validation and measurement
 
@@ -115,7 +113,7 @@ pass that aggregate condition. Common-input cross-engine validation is a
 separate numerical check. The GPU skeleton only proves end-to-end connectivity;
 it is not an accuracy or speed acceptance test.
 
-The benchmark harness will be developed alongside the serial engine. The
+The benchmark harness records separate validation and timing campaigns. The
 primary measurement is host wall-clock time starting after shared CSV loading/
 calibration and ending when the engine completes. It includes allocation,
 RNG initialization/generation, simulation, quantile, required transfers and
@@ -127,23 +125,20 @@ N = 100000, 1000000, 10000000; 3 warm-ups + 10 timed repetitions; mean and
 sample standard deviation; scenarios/s; speedup relative to serial and the
 best OpenMP configuration. The thread sweep includes 1,2,4,... and the physical
 core count explicitly. Common-input test mode is not labeled as a benchmark.
-The initial serial demo is unoptimized; the final CPU reference will be
-measured using reasonable compiler optimizations.
+Benchmark records identify Release compiler settings and the tested CPU binary.
 
-If GPU memory is insufficient, generate batches on the GPU, accumulate scalar
-losses on the host and compute one global quantile. Never average batch VaRs.
+Hybrid mode must be selected explicitly with a batch size. It generates batches
+on the GPU, accumulates scalar losses on the host and computes one global quantile.
+Full-device allocation failure does not silently select hybrid mode. Never
+average batch VaRs.
 Label the hybrid mode separately and include transfer/host quantile time in
 the total.
 
-## Initial design decisions
+## Reproducibility and interpretation
 
-1. Target CPU/GPU, operating system and driver/Toolkit/compiler availability.
-2. T, trading-day scale, data source and price-adjustment policy.
-3. Error thresholds and success targets from the approved proposal.
-4. Repository location and actual CI execution.
-5. GPU quantile library and a small device smoke test.
-
-The numerical acceptance conditions are defined in `acceptance-source.md`.
-The Rxx/Bxx labels above are historical draft identifiers; the current FR/NFR
-crosswalk and corresponding test/measurement evidence are in
-`requirements-audit.md`.
+Hardware, software, compiler options and measured power/placement conditions
+are recorded with each experiment. Native equal seeds do not imply equal
+samples across different backends. Fixed synthetic validation does not establish
+market predictive validity. The original design identifiers retain the
+[FR/NFR crosswalk](requirements-audit.md#preserved-older-label-crosswalk);
+no acceptance threshold is changed by this summary.

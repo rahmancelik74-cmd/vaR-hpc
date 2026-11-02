@@ -16,8 +16,8 @@ backend retains native RNG, scalar loss storage and its own quantile pipeline.
 Portfolio CUDA supports full-device and explicit hybrid batches with one global
 host scalar-loss quantile; see [the PH contract](portfolio-hybrid.md).
 
-Updated: 2026-10-18. Application version: 0.3.0; original baseline: 0.2.1.
-This records the implemented design and planned extensions separately.
+Application version: 0.3.0. This document describes the current software
+architecture; dated experiment results are recorded in the evidence packages.
 OpenMP is implemented and Windows-verified. CUDA now supports the full-device
 path up to 10000000 scenarios with a checked 80%-free explicit-memory preflight.
 GPU statistical acceptance, memory/race checking and benchmarking remain separate.
@@ -29,10 +29,12 @@ Single-asset GBM and VaR provide a well-defined, independently verifiable
 workload for comparing sequential C++, OpenMP and CUDA implementations.
 No claim is made about predictive validity in real markets.
 
-The product is a C++ CLI application with replaceable compute backends,
-validation evidence and reproducible performance experiments. It is not a
-web service. GUI, live APIs, database infrastructure, MPI and machine-learning
-prediction are outside the baseline scope. Multi-asset work is a conditional extension.
+The computational core is a C++ CLI application with replaceable compute
+backends, validation evidence and reproducible performance experiments. A
+separate loopback-only browser adapter provides local interaction and a
+portable CPU distribution. Portfolio valuation is a separately validated
+extension. Public hosting, live market APIs, database infrastructure, MPI and
+machine-learning prediction are outside the implemented research scope.
 
 ## Implemented components
 
@@ -50,6 +52,8 @@ prediction are outside the baseline scope. Multi-asset work is a conditional ext
 | CPU scaling recorder | scripts/run-cpu-benchmark.ps1, tools/cpu_probe.cpp | Fresh native serial/OpenMP pipeline timings, separate Windows topology/affinity/power instrumentation |
 | Analytical reference | src/core.cpp | Compute GBM VaR independently of Monte Carlo samples |
 | Verification | tests/test_core.cpp, tests/test_data.cpp, tests/test_output.cpp | Model, quantile, data, calibration and JSON checks |
+| Local browser adapter | local_app/server.py, local_app/static/ | Validate local requests, invoke existing tools, present results and downloads |
+| Portable CPU distribution | packaging/portable_entry.py, scripts/build_portable.py | Package app-local runtime, launcher, engine and integrity metadata |
 | Build and smoke test | CMakeLists.txt | Core/data/JSON/CLI tests plus platform/option-dependent recorder and backend regressions; query current CTest registration |
 
 Current data flow: CLI parses options; data loading produces observations;
@@ -67,7 +71,7 @@ end-to-end engine time. The optional host input vector is validation-only.
 The caller owns the request and common inputs throughout the call.
 The engine owns its temporary storage and RNG. No per-scenario CPU callback
 is required. No complete host loss vector is required in Result. These choices
-allow device-resident loss generation and quantile computation later.
+support device-resident loss generation and quantile computation.
 
 Normal mode: each backend generates its own samples. Validation mode: each
 backend consumes the same normal value for the same scenario index. A CUDA
@@ -88,8 +92,8 @@ interface changes based on evidence are allowed and must be recorded.
   converted to zero-based indexing by subtracting one.
 - Annual price drift is annual mean log return plus half the annual variance.
 - Calibration uses sample log-return variance with denominator n-1.
-- Demo CSV mode uses 252 trading observations/year, 10 trading-day horizon
-  and one unit. These are documented defaults, not confirmed final choices.
+- CSV defaults and the study convention use 252 trading observations/year and
+  a 10-trading-day horizon. Quantity defaults to one positive unit.
 - Dates must be valid, unique and increasing; prices finite and positive.
 - The CSV contract is deliberately narrow: date,close; ISO dates; decimal dot.
 - Each row is the next trading observation. The CLI does not infer exchange
@@ -110,14 +114,14 @@ this model rather than market forecasting quality.
 | Statistical validation | Analytical reference, multiple seeds and scenario counts | Per-seed values and convergence summary |
 | Performance benchmark | Native backend RNG, shared model and precision | Warm-ups, repetitions, timing statistics, throughput and speedup |
 
-The v0.2.2 candidate adds final-argument --json output and a PowerShell runner
+The CLI supports final-argument --json output and a PowerShell runner
 for separate smoke, statistical-validation and benchmark campaigns. It keeps
 the existing Engine interface. File hashes and run metadata are recorded in
 the manifest. Windows smoke verification passed on 2026-10-15; see experiments.md.
 The runner records execution results; acceptance is evaluated separately.
 Do not label exploratory one-run times as official benchmark measurements.
 
-## OpenMP implementation and planned CUDA additions
+## OpenMP and CUDA execution
 
 OpenMP implements Engine independently of serial RNG state in mc_openmp.
 Blocks of 4096 own private mt19937_64 and normal_distribution state; seeds
@@ -140,8 +144,8 @@ The first scale-up retains that path up to 10 million scenarios with checked
 sizes, device launch limits and an actual-request CUB workspace budget.
 Explicit hybrid batching is now implemented separately from the default path;
 see [cuda-hybrid.md](cuda-hybrid.md). CUB 3.4.3 is
-validated locally for the skeleton and selected as the intended later quantile
-library. Changes to that decision must be explicit. Details, limits, transfer
+validated locally and used by the full-device quantile path. Runtime metadata
+records the built library version. Details, limits, transfer
 events and the initial VRAM estimate are in [cuda-skeleton.md](cuda-skeleton.md).
 
 The explicitly selected hybrid mode generates batches on GPU and computes one global host
@@ -158,20 +162,18 @@ temporary buffer destruction. Printing and result-file output are excluded.
 The skeleton's H2D/D2H transfers use CUDA Events. Distinguish simulation kernel,
 complete device pipeline including quantile, and host wall-clock end-to-end
 times. Event transfer totals do not represent the full pipeline. Pageable
-staging is included in host wall time. Profiling and separate memory/race
-checking remain later work; no benchmark claim is made for the skeleton.
+staging is included in host wall time. Separate
+[GPU acceptance checks](gpu-acceptance.md),
+[primary benchmarks](cpu-gpu-benchmark.md) and
+[DRAM profiles](../evidence/v030-dram-baseline-20261020/README.md) define their own
+source revisions and coverage; connectivity evidence alone establishes none of
+those broader results.
 
-## Next architecture work
+## Design constraints
 
-1. Preserve the established Git baseline adb49bc and Windows test evidence
-   commit 48429b5; continue in the same authoritative source folder.
-2. Preserve the reconciled acceptance-source register; numbered requirements
-   authoring/delivery remains deferred until explicitly requested.
-3. Maintain the implemented result export and experiment metadata without
-   replacing Engine with a CPU-specific loop or requiring all losses on the host.
-4. Preserve the completed CPU scaling baseline and its placement/thermal limits;
-   preserve the completed GPU walking skeleton separately from later full-scale
-   GPU validation and cross-engine benchmark milestones.
-
-Use small, reviewable changes. The current source layout is adequate; no
-framework, database or large directory refactor is required for these steps.
+The Engine boundary remains independent of the browser adapter and experiment
+recorders. Native RNG streams, double precision, nearest-rank quantiles and
+host timing scope are preserved across extensions. Validation-only common
+inputs remain caller-owned. Hybrid execution computes one global quantile
+over all scalar losses, and never averages batch VaRs. Current implementation
+and evidence boundaries are summarized in [project-state.md](project-state.md).
