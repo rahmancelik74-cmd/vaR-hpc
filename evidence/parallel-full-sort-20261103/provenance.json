@@ -1,0 +1,105 @@
+{
+  "source_sha": "1c5487e0864337e9cb2f8eef3273d5e767efc10c",
+  "exe_sha256": "dad4d6b8609815e0196f95f365b5d3112c59082f83af21fc62f1b82948f43a30",
+  "probe_sha256": "1dfdf369f4465a7e9d968d9057635019f6adb27862866fabe1edad05fc3994c1",
+  "fixture_sha256": "8dbb7c73e6ad48cb8c8c175aff6684d2a0433e5f08424ec7ea1e69037bb36210",
+  "configs": [
+    [
+      "serial",
+      0,
+      0,
+      ""
+    ],
+    [
+      "openmp",
+      1,
+      0,
+      ""
+    ],
+    [
+      "openmp",
+      2,
+      0,
+      ""
+    ],
+    [
+      "openmp",
+      4,
+      0,
+      ""
+    ],
+    [
+      "openmp",
+      8,
+      0,
+      ""
+    ],
+    [
+      "openmp",
+      10,
+      0,
+      ""
+    ],
+    [
+      "openmp",
+      1,
+      1,
+      ""
+    ],
+    [
+      "openmp",
+      2,
+      2,
+      ""
+    ],
+    [
+      "openmp",
+      4,
+      4,
+      ""
+    ],
+    [
+      "openmp",
+      8,
+      8,
+      ""
+    ],
+    [
+      "openmp",
+      10,
+      10,
+      ""
+    ],
+    [
+      "cuda",
+      0,
+      0,
+      "full-device"
+    ],
+    [
+      "cuda",
+      0,
+      0,
+      "hybrid"
+    ]
+  ],
+  "counts": [
+    100000,
+    1000000,
+    10000000
+  ],
+  "warmups": 3,
+  "measurements": 10,
+  "seed": 42,
+  "horizon": "10/252",
+  "order": "GPU diagnostic 3+10, validation, then N ascending / configurations listed / warmups then measured ascending; sequential fresh processes and CUDA contexts",
+  "timing": "Engine host wall allocation RNG loss full sort rank transfers synchronization cleanup; excludes CSV/calibration process startup output. Diagnostic Event overhead separate.",
+  "conditions": "Observed power only; no setting changes; other apps uncontrolled; CPU temperatures, clocks, ambient and thermal equilibrium unknown",
+  "status": "completed",
+  "aggregate_sha256": {
+    "aggregate.csv": "1ccc2a533d5985e01bf7b206069daeb93df5cbf39060f408d0fbb9b7080eaa4e",
+    "aggregate.json": "59e1d38cef50e0caf64556384ca3aec1d78e4a83eaf256e43e09f79fa021aae5",
+    "gpu-stages.csv": "b4291afa744c55857f26a38141dae3f1146b9015131afdd40d1973022fd7785d",
+    "gpu-stages.json": "17bb54e7fdd74c3167bb5a5b7deac9b626eb6934d0e98945f6fd5f87d09a5835"
+  }
+}

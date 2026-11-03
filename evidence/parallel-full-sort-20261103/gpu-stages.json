@@ -1,0 +1,79 @@
+[
+  {
+    "stage": "initialization_ms",
+    "mean_ms": 0.0030720001086592674,
+    "sample_sd_ms": 0.0,
+    "percent_host": 0.002926105930040417,
+    "percent_covered": 0.013881914208884988
+  },
+  {
+    "stage": "rng_ms",
+    "mean_ms": 10.231596851348877,
+    "sample_sd_ms": 0.47933856842308703,
+    "percent_host": 9.745682018735723,
+    "percent_covered": 46.23507314012165
+  },
+  {
+    "stage": "loss_ms",
+    "mean_ms": 4.608614444732666,
+    "sample_sd_ms": 0.18157149350507815,
+    "percent_host": 4.389744003585876,
+    "percent_covered": 20.825647161688618
+  },
+  {
+    "stage": "cub_ms",
+    "mean_ms": 7.145020818710327,
+    "sample_sd_ms": 0.2981482742373302,
+    "percent_host": 6.805692398564119,
+    "percent_covered": 32.28729248623711
+  },
+  {
+    "stage": "gather_ms",
+    "mean_ms": 0.1412095993757248,
+    "sample_sd_ms": 0.07132225040576433,
+    "percent_host": 0.1345033305653993,
+    "percent_covered": 0.6381052977437425
+  },
+  {
+    "stage": "pipeline_span_ms",
+    "mean_ms": 22.819948768615724,
+    "sample_sd_ms": 0.7153755559600584,
+    "percent_host": 21.736193051180393,
+    "percent_covered": 103.11997391019963
+  },
+  {
+    "stage": "covered_device_stage_sum_ms",
+    "mean_ms": 22.129513714276253,
+    "sample_sd_ms": 0.6527101752502585,
+    "percent_host": 21.078547857381157,
+    "percent_covered": 100.0
+  },
+  {
+    "stage": "host_quantile_ms",
+    "mean_ms": 0,
+    "sample_sd_ms": 0.0,
+    "percent_host": 0.0,
+    "percent_covered": 0.0
+  },
+  {
+    "stage": "host_to_device_ms",
+    "mean_ms": 0.0032768000848591326,
+    "sample_sd_ms": 0.00043175625969323327,
+    "percent_host": 0.0031211796291400256,
+    "percent_covered": 0.014807375015860354
+  },
+  {
+    "stage": "device_to_host_ms",
+    "mean_ms": 0.17570559941232206,
+    "sample_sd_ms": 0.031498649197671494,
+    "percent_host": 0.16736106061079795,
+    "percent_covered": 0.7939876206993666
+  },
+  {
+    "stage": "end_to_end_ms",
+    "mean_ms": 104.98595,
+    "sample_sd_ms": 4.182930787604415,
+    "percent_host": 100.00000000000001,
+    "percent_covered": 474.415982906444
+  }
+]
