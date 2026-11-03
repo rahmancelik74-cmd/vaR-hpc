@@ -20,6 +20,7 @@ struct Request {
     std::vector<double> confidence_levels{0.95, 0.99};
     // Optional borrowed portfolio, immutable for the duration of Engine::run.
     const Portfolio* portfolio = nullptr;
+    int parallel_sort_threads = 0; // OpenMP only; zero preserves serial full sort.
     bool cpu_diagnostics = false; // Opt-in host stage clocks; no numerical changes.
 };
 struct Estimate { double confidence; double var; };

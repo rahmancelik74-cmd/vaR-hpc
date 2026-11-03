@@ -34,6 +34,8 @@ Result OpenMPEngine::run(const Request& r, const std::vector<double>* common) co
         if (common && common->size() != r.scenarios)
             throw std::invalid_argument("Common input count must equal scenario count");
     }
+    if (r.parallel_sort_threads < 0 || r.parallel_sort_threads > 10)
+        throw std::invalid_argument("Sort threads must be zero through 10");
     constexpr std::size_t block_size = 4096;
     const auto blocks = 1 + (r.scenarios - 1) / block_size;
     if (blocks > static_cast<std::size_t>((std::numeric_limits<long long>::max)()))
@@ -82,9 +84,32 @@ Result OpenMPEngine::run(const Request& r, const std::vector<double>* common) co
             }
         }
         if (failure) std::rethrow_exception(failure);
-        // Only generation is parallel. Quantiles currently use serial sorting.
+        // Sorting policy is explicit; the default remains the original serial sort.
         if (r.cpu_diagnostics) generated_end = Clock::now();
-        std::sort(losses.begin(), losses.end());
+        if (r.parallel_sort_threads) {
+            // Separate bounded team after generation joins. Allocate before workers.
+            std::vector<double> scratch(losses.size());
+            const int workers = r.parallel_sort_threads;
+            if (workers < 1 || workers > 10) throw std::invalid_argument("Sort threads must be 1 through 10");
+#pragma omp parallel for num_threads(workers) schedule(static)
+            for (int part = 0; part < workers; ++part) {
+                const auto first = losses.size() * part / workers;
+                const auto last = losses.size() * (part + 1) / workers;
+                std::sort(losses.begin() + first, losses.begin() + last);
+            }
+            // Merge disjoint sorted runs; each level completes before the next.
+            for (int width = 1; width < workers; width *= 2) {
+#pragma omp parallel for num_threads(workers) schedule(static)
+                for (int part = 0; part < workers; part += 2 * width) {
+                    const auto first = losses.size() * part / workers;
+                    const auto middle = losses.size() * (std::min)(part + width, workers) / workers;
+                    const auto last = losses.size() * (std::min)(part + 2 * width, workers) / workers;
+                    std::merge(losses.begin()+first, losses.begin()+middle,
+                               losses.begin()+middle, losses.begin()+last, scratch.begin()+first);
+                }
+                losses.swap(scratch);
+            }
+        } else std::sort(losses.begin(), losses.end());
         if (r.cpu_diagnostics) sorted_end = Clock::now();
         for (double c : r.confidence_levels)
             result.estimates.push_back({c, sorted_quantile(losses, c)});

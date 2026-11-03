@@ -41,6 +41,10 @@ int main() {
                 check(shared.random_source == "common-host-inputs", "common RNG label");
                 const auto a = engine.run(r);
                 equal(native, a);
+                r.parallel_sort_threads = threads;
+                equal(serial, engine.run(r, &common));
+                equal(native, engine.run(r));
+                r.parallel_sort_threads = 0;
                 equal(a, engine.run(r));
                 check(a.requested_threads == threads && a.threads_used >= 1 &&
                       a.threads_used <= threads && a.openmp_version > 0 &&

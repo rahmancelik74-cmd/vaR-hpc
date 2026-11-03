@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
         const bool json_mode = argc > 1 && std::string(argv[argc - 1]) == "--json";
         if (json_mode) --argc;
         std::string backend = "serial";
-        int threads = 0;
+        int threads = 0, sort_threads = 0;
         std::string cuda_mode = "full-device";
         std::size_t batch_size = 0;
         bool cuda_mode_seen = false, batch_seen = false;
@@ -68,6 +68,11 @@ int main(int argc, char** argv) {
             } else if (option == "--cuda-diagnostics") {
                 if (diagnostics) throw std::invalid_argument("Duplicate --cuda-diagnostics");
                 diagnostics = true;
+            } else if (option == "--sort-threads") {
+                if (sort_threads || i + 1 >= argc) throw std::invalid_argument("Missing or duplicate --sort-threads");
+                const auto value = positive_integer(argv[++i]);
+                if (!value || value > 10) throw std::invalid_argument("Sort threads must be 1 through 10");
+                sort_threads = static_cast<int>(value);
             } else if (option == "--threads") {
                 if (threads_seen || i + 1 >= argc)
                     throw std::invalid_argument("Missing or duplicate --threads");
@@ -100,7 +105,7 @@ int main(int argc, char** argv) {
         }
         if (cpu_diagnostics && (backend == "cuda" || !json_mode))
             throw std::invalid_argument("--cpu-diagnostics requires a CPU backend and --json");
-        if (threads_seen && backend != "openmp")
+        if ((threads_seen || sort_threads) && backend != "openmp")
             throw std::invalid_argument("--threads requires the openmp backend");
         if ((cuda_mode_seen || batch_seen || diagnostics) && backend != "cuda")
             throw std::invalid_argument("--cuda-mode and --batch-size require the cuda backend");
@@ -120,12 +125,13 @@ int main(int argc, char** argv) {
         const bool portfolio_mode = argc > 1 && std::string(argv[1]) == "--portfolio";
         if (quantity_seen && !csv_mode)
             throw std::invalid_argument("--quantity requires --csv");
-        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --portfolio file [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --quantity positive_number (CSV only) --backend serial|openmp|cuda --threads positive_integer --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output) --cpu-diagnostics (CPU only; requires --json)";
+        const std::string usage = "Usage: mc_var [scenarios] [seed] OR mc_var --portfolio file [scenarios] [seed] OR mc_var --csv file [scenarios] [seed] [horizon_trading_days] [trading_days_per_year]; options: --quantity positive_number (CSV only) --backend serial|openmp|cuda --threads positive_integer --sort-threads 1..10 (OpenMP only) --cuda-mode full-device|hybrid --batch-size positive_integer --cuda-diagnostics (CUDA only; append --json for structured output) --cpu-diagnostics (CPU only; requires --json)";
         if ((!csv_mode && !portfolio_mode && argc > 3) || (csv_mode && (argc < 3 || argc > 7)) ||
             (portfolio_mode && (argc < 3 || argc > 5)))
             throw std::invalid_argument(usage);
         mc::Request request;
         request.cpu_diagnostics = cpu_diagnostics;
+        request.parallel_sort_threads = sort_threads;
         const int first = (csv_mode || portfolio_mode) ? 3 : 1;
         if (argc > first) {
             const auto n = positive_integer(argv[first]);
